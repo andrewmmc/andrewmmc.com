@@ -1,19 +1,24 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
+  'extends': 'airbnb',
+  'rules': {
+    'react/jsx-filename-extension': ['warn', { 'extensions': ['.js'] }],
+    'no-use-before-define': 0,
   },
-  "plugins": [
-    "react",
+  'env': {
+    'browser': true,
+    'es6': true,
+  },
+  'plugins': [
+    'react',
   ],
-  "globals": {
-    "graphql": false,
+  'globals': {
+    'graphql': false,
   },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2018,
-    "ecmaFeatures": {
-      "jsx": true,
+  'parserOptions': {
+    'sourceType': 'module',
+    'ecmaVersion': 2018,
+    'ecmaFeatures': {
+      'jsx': true,
     },
-  }
-}
+  },
+};
