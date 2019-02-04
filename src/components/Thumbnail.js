@@ -3,17 +3,18 @@ import { shape } from 'prop-types';
 import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
+import { lightGray, gray } from '../utils/color';
 import { rhythm } from '../utils/typography';
 
 const PlaceHolder = styled.div`
   width: 100%;
   height: 240px;
-  background-color: #eeeeee;
+  background-color: ${lightGray};
   margin-bottom: ${rhythm(0.75)};
 `;
 
 const StyledBackgroundImage = styled(BackgroundImage).attrs({
-  backgroundColor: '#eeeeee',
+  backgroundColor: gray,
 })`
   width: 100%;
   height: 240px;
@@ -21,6 +22,7 @@ const StyledBackgroundImage = styled(BackgroundImage).attrs({
   margin-bottom: ${rhythm(0.75)};
   
   &::before, &::after {
+    background-size: cover;
     background-position: center;
   }
 `;

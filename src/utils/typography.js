@@ -1,7 +1,8 @@
 import Typography from 'typography';
 import { createGlobalStyle } from 'styled-components';
-import { darken } from 'polished';
-import { primary } from './color';
+import { darken, rgba } from 'polished';
+
+import { primary, black, lightGray } from './color';
 
 // https://github.com/KyleAMathews/typography.js/blob/master/packages/typography-theme-github/src/index.js
 const typography = new Typography({
@@ -11,8 +12,8 @@ const typography = new Typography({
   bodyFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
   overrideStyles: ({ rhythm }) => ({
     blockquote: {
-      borderLeft: '4px solid rgba(0, 0, 0, 0.1)',
-      color: 'rgba(0, 0, 0, 0.4)',
+      borderLeft: `4px solid ${rgba(black, 0.1)}`,
+      color: rgba(black, 0.4),
       marginTop: 0,
       marginRight: 0,
       marginLeft: 0,
@@ -49,12 +50,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   .gatsby-highlight {
-    background-color: #F6F2F0;
+    background-color: ${lightGray};
     padding: 1em;
     overflow: auto;
   }
   
   .gatsby-highlight pre[class*="language-"] {
+    background-color: ${lightGray};
     padding: 0;
   }
 

@@ -2,10 +2,13 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import { rgba } from 'polished';
 
 import FeaturedImage from '../components/FeaturedImage';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
+
+import { black } from '../utils/color';
 import { rhythm } from '../utils/typography';
 
 import GitHubLogo from '../../content/assets/logo/github.svg';
@@ -16,15 +19,15 @@ import VscoLogo from '../../content/assets/logo/vsco.svg';
 const SocialMediaContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: ${rhythm(1)};
+  margin-bottom: ${rhythm(1)};
   
   a {
-    color: rgba(0, 0, 0, 0.8);
+    color: ${rgba(black, 0.8)};
 
     &:hover,
     &:focus, 
     &:active {
-      color: rgba(0, 0, 0, 0.9);
+      color: ${rgba(black, 0.9)};
     }
   }
 `;
@@ -63,21 +66,21 @@ const Contact = ({ data }) => {
         </ul>
         <p>
           I am also active on the following:
-          <SocialMediaContainer>
-            <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">
-              <Icon as={GitHubLogo} />
-            </a>
-            <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank" rel="noopener noreferrer">
-              <Icon as={LinkedinLogo} />
-            </a>
-            <a href={`https://medium.com/@${social.medium}`} target="_blank" rel="noopener noreferrer">
-              <Icon as={MediumLogo} />
-            </a>
-            <a href={`https://vsco.co/${social.vsco}`} target="_blank" rel="noopener noreferrer">
-              <Icon as={VscoLogo} />
-            </a>
-          </SocialMediaContainer>
         </p>
+        <SocialMediaContainer>
+          <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">
+            <Icon as={GitHubLogo} />
+          </a>
+          <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank" rel="noopener noreferrer">
+            <Icon as={LinkedinLogo} />
+          </a>
+          <a href={`https://medium.com/@${social.medium}`} target="_blank" rel="noopener noreferrer">
+            <Icon as={MediumLogo} />
+          </a>
+          <a href={`https://vsco.co/${social.vsco}`} target="_blank" rel="noopener noreferrer">
+            <Icon as={VscoLogo} />
+          </a>
+        </SocialMediaContainer>
         <p>
           I promise to keep your personal details private and only send you emails that related
           to your requests.

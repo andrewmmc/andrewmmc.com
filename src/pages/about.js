@@ -20,7 +20,7 @@ const Container = styled.div`
 `;
 
 const StyledImage = styled(Image)`
-  margin-right: ${rhythm(1 / 2)};
+  margin-right: ${rhythm(0.5)};
   min-width: 50px;
   border-radius: 100%;
 `;

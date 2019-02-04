@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import { rgba } from 'polished';
 
+import { black } from '../utils/color';
 import { rhythm } from '../utils/typography';
 
 // 1 rhythm ~= 26px
@@ -20,13 +22,13 @@ const Container = styled.header`
   }
   
   a {
-    color: rgba(0, 0, 0, 0.8);
+    color: ${rgba(black, 0.8)};
     vertical-align: -webkit-baseline-middle; // TODO: Chrome only, need fix
     
     &:hover,
     &:focus, 
     &:active {
-      color: rgba(0, 0, 0, 0.9);
+      color: ${rgba(black, 0.9)};
     }
   }
   
@@ -51,7 +53,8 @@ const Header = props => (
         <Container {...props}>
           <h1><Link to="/">{title}</Link></h1>
           <nav>
-            {menu.map(item => <Link to={item.path}>{item.label.toLowerCase()}</Link>)}
+            {menu
+              .map(item => <Link key={item.path} to={item.path}>{item.label.toLowerCase()}</Link>)}
           </nav>
         </Container>
       );

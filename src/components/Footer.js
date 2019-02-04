@@ -3,12 +3,13 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { darken } from 'polished';
 
+import { lightGray, gray } from '../utils/color';
 import { rhythm, scale } from '../utils/typography';
 
 const Container = styled.footer`
   ${scale(-1 / 8)};
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: ${lightGray};
   width: 100%;
   
   ul {
@@ -23,12 +24,12 @@ const Container = styled.footer`
   }
 
   a {
-    color: #5b5b5b;
+    color: ${gray};
 
     &:hover,
     &:focus, 
     &:active {
-      color: ${darken(0.1, '#5b5b5b')};
+      color: ${darken(0.1, gray)};
     }
   }
 `;

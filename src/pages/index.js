@@ -3,10 +3,13 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
+import { rgba } from 'polished';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Thumbnail from '../components/Thumbnail';
+
+import { black } from '../utils/color';
 import { rhythm, scale } from '../utils/typography';
 
 const Container = styled.div`
@@ -20,7 +23,7 @@ const Card = styled.div`
   padding: ${rhythm(0.75)};
   
   small {
-    color: rgba(0, 0, 0, 0.7);
+    color: ${rgba(black, 0.7)};
   }
 
   h3 {
