@@ -5,16 +5,10 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
 import Bio from '../components/Bio';
+import FeaturedImage from '../components/FeaturedImage';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import { rhythm, scale } from '../utils/typography';
-
-const CoverImage = styled.div`
-  width: 100%;
-  height: 350px;
-  background-color: #eeeeee;
-  margin-bottom: ${rhythm(1)};
-`;
 
 const Title = styled.h1`
   p {
@@ -42,9 +36,13 @@ const PostNav = styled.ul`
 const BlogTemplate = ({ data, pageContext }) => {
   const { previous, next } = pageContext;
   const post = data.markdownRemark;
+  const { featuredImage } = post.frontmatter;
 
   return (
-    <Layout cover={<CoverImage />}>
+    <Layout cover={
+      <FeaturedImage fluid={featuredImage ? featuredImage.childImageSharp.fluid : null} />
+      }
+    >
       <Seo title={post.frontmatter.title} description={post.excerpt} />
       <Title>
         {post.frontmatter.title}
@@ -94,6 +92,13 @@ export const pageQuery = graphql`
         title
         subtitle
         date(formatString: "MMMM DD, YYYY")
+        featuredImage {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1440) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     }
   }

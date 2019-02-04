@@ -2,13 +2,10 @@
 title: Apply SSL Certificates to your website and force using HTTPS connections
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 5)
 date: '2018-05-23T00:00:05.000Z'
+featuredImage: "./cover.png"
 ---
 
-In the [previous article](https://medium.com/andrewmmc-io/get-free-ssl-certificates-from-lets-encrypt-for-your-domains-64ae9fa5b8d9), we talked about how to get free SSL certificates for our domains. In this article, we will continue to apply certificates to our websites and force our users to use HTTPS connections.
-
-![](./image1.png)
-
-## 5. Apply SSL Certificates to your website and force using HTTPS connections
+We will continue to apply certificates to our websites and force our users to use HTTPS connections.
 
 ![](./image2.png)
 

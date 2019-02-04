@@ -1,9 +1,9 @@
 import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
+import FeaturedImage from '../components/FeaturedImage';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import { rhythm } from '../utils/typography';
@@ -35,23 +35,10 @@ const Icon = styled.svg`
   fill: currentColor;
 `;
 
-const CoverImage = styled(BackgroundImage).attrs({
-  backgroundColor: '#eeeeee',
-})`
-  width: 100%;
-  height: 350px;
-  background-position: center;
-  margin-bottom: ${rhythm(1)};
-  
-  &:before, &:after {
-    background-position: center;
-  }
-`;
-
 const Contact = ({ data }) => {
   const { email, social } = data.site.siteMetadata;
   return (
-    <Layout cover={<CoverImage fluid={data.cover.childImageSharp.fluid} />}>
+    <Layout cover={<FeaturedImage fluid={data.cover.childImageSharp.fluid} />}>
       <Seo title="Contact" />
       <h1>Contact</h1>
       <div>
@@ -109,7 +96,7 @@ export const pageQuery = graphql`
   query {
       cover: file(relativePath: { eq: "assets/contact.jpg" }) {
           childImageSharp {
-              fluid(quality: 100, maxWidth: 1440) {
+              fluid(quality: 90, maxWidth: 1440) {
                   ...GatsbyImageSharpFluid_withWebp
               }
           }

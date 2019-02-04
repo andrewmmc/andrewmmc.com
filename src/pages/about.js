@@ -3,25 +3,12 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
-import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
+import FeaturedImage from '../components/FeaturedImage';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import { rhythm } from '../utils/typography';
-
-const CoverImage = styled(BackgroundImage).attrs({
-  backgroundColor: '#eeeeee',
-})`
-  width: 100%;
-  height: 350px;
-  background-position: center;
-  margin-bottom: ${rhythm(1)};
-  
-  &:before, &:after {
-    background-position: center;
-  }
-`;
 
 const Container = styled.div`
   display: flex;
@@ -42,7 +29,7 @@ const About = ({ data }) => {
   const post = data.markdownRemark;
   const { author } = data.site.siteMetadata;
   return (
-    <Layout cover={<CoverImage fluid={data.cover.childImageSharp.fluid} />}>
+    <Layout cover={<FeaturedImage fluid={data.cover.childImageSharp.fluid} />}>
       <Seo title={post.frontmatter.title} description={post.excerpt} />
       <Container>
         <StyledImage fixed={data.avatar.childImageSharp.fixed} alt={author} />
@@ -70,7 +57,7 @@ export const pageQuery = graphql`
       }
       cover: file(relativePath: { eq: "assets/about.jpg" }) {
           childImageSharp {
-              fluid(quality: 100, maxWidth: 1440) {
+              fluid(quality: 90, maxWidth: 1440) {
                   ...GatsbyImageSharpFluid_withWebp
               }
           }

@@ -5,7 +5,8 @@ import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
+import Thumbnail from '../components/Thumbnail';
 import { rhythm, scale } from '../utils/typography';
 
 const Container = styled.div`
@@ -29,26 +30,14 @@ const Card = styled.div`
   }
 `;
 
-const PlaceHolder = styled.div`
-  width: 100%;
-  height: 240px;
-  margin-bottom: ${rhythm(0.75)};
-  background-color: #f5f5f5;
-  background-image: url('');
-  background-size: cover;
-  background-position: center center;
-  
-  &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0);
+const LinkWithThumbnail = styled(Link)`
+  &>div {
+    opacity: 1;
     transition: 0.5s;
-  }
-  
-  &:hover::after, &:focus::after {
-    background-color: rgba(255, 255, 255, 0.2);
+
+    &:hover, &:focus {
+      opacity: 0.8;
+    }
   }
 `;
 
@@ -56,19 +45,20 @@ const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <SEO
+      <Seo
         title="All posts"
         keywords={['blog', 'andrew']}
       />
       <Container>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
+          const { featuredImage, date } = node.frontmatter;
           return (
             <Card key={node.fields.slug}>
-              <Link to={node.fields.slug}>
-                <PlaceHolder />
-              </Link>
-              <small>{node.frontmatter.date}</small>
+              <LinkWithThumbnail to={node.fields.slug}>
+                <Thumbnail fluid={featuredImage ? featuredImage.childImageSharp.fluid : null} />
+              </LinkWithThumbnail>
+              <small>{date}</small>
               <h3>
                 <Link to={node.fields.slug}>
                   {title}
@@ -110,6 +100,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            featuredImage {
+                childImageSharp {
+                    fluid(quality: 100, maxWidth: 400) {
+                        ...GatsbyImageSharpFluid_withWebp
+                    }
+                }
+            }
           }
         }
       }
