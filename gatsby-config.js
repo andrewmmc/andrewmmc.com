@@ -1,21 +1,25 @@
 module.exports = {
   siteMetadata: {
-    title: 'Andrew\'s Tech Blog',
+    title: 'Andrew Mok',
     author: 'Andrew Mok',
     description: 'I write and I code.',
     siteUrl: 'https://andrewmmc.com',
     location: 'Hong Kong',
+    email: 'hello@andrewmmc.com',
     social: {
       twitter: 'andrewmmc',
       github: 'andrewmmc',
+      linkedin: 'andrewmmc',
+      medium: 'andrewmmc',
+      vsco: 'andrewmmc',
     },
   },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
-        name: 'blog',
+        path: `${__dirname}/content`,
+        name: 'content',
       },
     },
     {
@@ -33,6 +37,10 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 590,
+              linkImagesToOriginal: false,
+              showCaptions: true,
+              quality: 80,
+              withWebp: { quality: 80 },
             },
           },
           {
@@ -49,6 +57,14 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: `${__dirname}/content/assets`,
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

@@ -1,41 +1,47 @@
-/* global __PATH_PREFIX__ */
-import React, { Fragment } from 'react';
-import { Link } from 'gatsby';
+import React from 'react';
+import { node } from 'prop-types';
+import styled from 'styled-components';
 
 import Header from './Header';
-import { GlobalStyle, rhythm, scale } from '../utils/typography';
+import Footer from './Footer';
+import { GlobalStyle, rhythm } from '../utils/typography';
 
-class Layout extends React.Component {
-  render() {
-    const { location, title, children } = this.props;
-    const rootPath = `${__PATH_PREFIX__}/`;
-    // location.pathname === rootPath
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
 
-    return (
-      <Fragment>
-        <GlobalStyle />
-        <Header />
-        <div
-          style={{
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          }}
-        >
-          {children}
-          <footer>
-            ©
-            {' '}
-            {new Date().getFullYear()}
-, Built with
-            {' '}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </Fragment>
-    );
-  }
-}
+const Main = styled.main`
+  margin: ${rhythm(1)} auto;
+  padding: 0 ${rhythm(1.5)};
+  flex: 1;
+  width: 100%;
+  max-width: ${rhythm(34)};
+`;
+
+// const rootPath = `${__PATH_PREFIX__}/`;
+// location.pathname === rootPath
+
+const Layout = ({ cover, children, ...props }) => (
+  <Container>
+    <GlobalStyle />
+    <Header />
+    {cover}
+    <Main {...props}>
+      {children}
+    </Main>
+    <Footer />
+  </Container>
+);
+
+Layout.defaultProps = {
+  cover: null,
+};
+
+Layout.propTypes = {
+  cover: node,
+  children: node.isRequired,
+};
 
 export default Layout;

@@ -1,46 +1,91 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
+import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import Bio from '../components/Bio';
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
-import { rhythm } from '../utils/typography';
+import SEO from '../components/Seo';
+import { rhythm, scale } from '../utils/typography';
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
-    const posts = data.allMarkdownRemark.edges;
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -${rhythm(0.75)};
+`;
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={['blog', 'gatsby', 'javascript', 'react']}
-        />
-        <Bio />
+const Card = styled.div`
+  flex: 0 50%;
+  padding: ${rhythm(0.75)};
+  
+  small {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  h3 {
+    ${scale(0.5)};
+    margin: 0 0 ${rhythm(0.5)} 0;
+    font-weight: 600;
+  }
+`;
+
+const PlaceHolder = styled.div`
+  width: 100%;
+  height: 240px;
+  margin-bottom: ${rhythm(0.75)};
+  background-color: #f5f5f5;
+  background-image: url('');
+  background-size: cover;
+  background-position: center center;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.5s;
+  }
+  
+  &:hover::after, &:focus::after {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+`;
+
+const BlogIndex = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges;
+  return (
+    <Layout>
+      <SEO
+        title="All posts"
+        keywords={['blog', 'andrew']}
+      />
+      <Container>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+            <Card key={node.fields.slug}>
+              <Link to={node.fields.slug}>
+                <PlaceHolder />
+              </Link>
+              <small>{node.frontmatter.date}</small>
+              <h3>
+                <Link to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+            </Card>
           );
         })}
-      </Layout>
-    );
-  }
-}
+      </Container>
+    </Layout>
+  );
+};
+
+BlogIndex.propTypes = {
+  data: shape({}).isRequired,
+};
 
 export default BlogIndex;
 
@@ -51,12 +96,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fields: { type: { eq: "blog" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
-          excerpt
+          excerpt (truncate: true)
           fields {
             slug
+            type
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
@@ -67,3 +116,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+/* eslint-enable react/no-danger */

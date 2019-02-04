@@ -5,7 +5,7 @@ import { primary } from './color';
 
 // https://github.com/KyleAMathews/typography.js/blob/master/packages/typography-theme-github/src/index.js
 const typography = new Typography({
-  baseFontSize: '18px',
+  baseFontSize: '16px',
   baseLineHeight: 1.666,
   headerFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
   bodyFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
@@ -41,5 +41,29 @@ export const GlobalStyle = createGlobalStyle`
       color: ${darken(0.1, primary)};
       text-decoration: none;
     }
+  }
+  
+  // PrismJS tweaks and line numbers
+  p+div.gatsby-highlight, ol+div.gatsby-highlight, ul+div.gatsby-highlight {
+    margin-bottom: ${rhythm(1)};
+  }
+  
+  .gatsby-highlight {
+    background-color: #F6F2F0;
+    padding: 1em;
+    overflow: auto;
+  }
+  
+  .gatsby-highlight pre[class*="language-"] {
+    padding: 0;
+  }
+
+  .gatsby-highlight pre[class*="language-"].line-numbers {
+    padding-left: 2.5em;
+    overflow: scroll;
+  }
+  
+  code[class*="language-"] {
+    text-shadow: none !important;
   }
 `;
