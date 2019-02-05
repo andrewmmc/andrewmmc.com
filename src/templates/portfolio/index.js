@@ -3,13 +3,12 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
-// import { rgba } from 'polished';
-//
-// import Bio from '../../components/Bio';
-// import FeaturedImage from '../../components/FeaturedImage';
+
+import Icon from '../../components/Icon';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 
+import { gray } from '../../utils/color';
 import { rhythm, scale } from '../../utils/typography';
 
 const Title = styled.h1`
@@ -23,7 +22,7 @@ const Title = styled.h1`
 const Info = styled.div`
   ${scale(0.2)};
   display: flex;
-  margin: ${rhythm(-0.5)} 0 ${rhythm(1)} 0;
+  margin: ${rhythm(-0.5)} 0 ${rhythm(0.5)} 0;
   
   span:first-child {
     display: inline-block;
@@ -32,26 +31,30 @@ const Info = styled.div`
 `;
 
 const Tags = styled.div`
-  span {
-    display: inline-block;
+  color: ${gray};
+  
+  svg:not(:last-child) {
+    margin-right: ${rhythm(0.5)};
   }
 `;
 
-const PostNav = styled.ul`
+const Article = styled.article`
+  margin: ${rhythm(1)} 0;
+`;
+
+const Nav = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: ${rhythm(2)} 0;
 `;
 
 const PortfolioTemplate = ({ data, pageContext }) => {
   const { previous, next } = pageContext;
   const post = data.markdownRemark;
-  const {
-    featuredImage, tags, title, date,
-  } = post.frontmatter;
+  const { tags, title, date } = post.frontmatter;
 
   return (
     <Layout>
@@ -62,13 +65,13 @@ const PortfolioTemplate = ({ data, pageContext }) => {
       <Info>
         <span>{date}</span>
       </Info>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
       {tags && (
         <Tags>
-          {tags.map(tag => (<span>{ tag }</span>))}
+          {tags.map(tag => <Icon key={tag} size={36} type={tag} />)}
         </Tags>
       )}
-      <PostNav>
+      <Article dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Nav>
         <li>
           {previous && (
             <Link to={previous.fields.slug} rel="prev">
@@ -87,7 +90,7 @@ const PortfolioTemplate = ({ data, pageContext }) => {
             </Link>
           )}
         </li>
-      </PostNav>
+      </Nav>
     </Layout>
   );
 };
@@ -107,15 +110,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MM YYYY")
+        date(formatString: "MMMM YYYY")
         tags
-        featuredImage {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1440) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
     }
   }

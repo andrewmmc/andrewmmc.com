@@ -5,16 +5,12 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 import FeaturedImage from '../components/FeaturedImage';
+import Icon from '../components/Icon';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 
 import { black } from '../utils/color';
 import { rhythm } from '../utils/typography';
-
-import GitHubLogo from '../../content/assets/logo/github.svg';
-import LinkedinLogo from '../../content/assets/logo/linkedin.svg';
-import MediumLogo from '../../content/assets/logo/medium.svg';
-import VscoLogo from '../../content/assets/logo/vsco.svg';
 
 const SocialMediaContainer = styled.div`
   display: flex;
@@ -30,12 +26,6 @@ const SocialMediaContainer = styled.div`
       color: ${rgba(black, 0.9)};
     }
   }
-`;
-
-const Icon = styled.svg`
-  width: 40px;
-  height: 40px;
-  fill: currentColor;
 `;
 
 const Contact = ({ data }) => {
@@ -69,16 +59,16 @@ const Contact = ({ data }) => {
         </p>
         <SocialMediaContainer>
           <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">
-            <Icon as={GitHubLogo} />
+            <Icon type="github" />
           </a>
           <a href={`https://linkedin.com/in/${social.linkedin}`} target="_blank" rel="noopener noreferrer">
-            <Icon as={LinkedinLogo} />
+            <Icon type="linkedin" />
           </a>
           <a href={`https://medium.com/@${social.medium}`} target="_blank" rel="noopener noreferrer">
-            <Icon as={MediumLogo} />
+            <Icon type="medium" />
           </a>
           <a href={`https://vsco.co/${social.vsco}`} target="_blank" rel="noopener noreferrer">
-            <Icon as={VscoLogo} />
+            <Icon type="vsco" />
           </a>
         </SocialMediaContainer>
         <p>

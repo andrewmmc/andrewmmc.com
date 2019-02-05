@@ -10,7 +10,7 @@ import FeaturedImage from '../../components/FeaturedImage';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 
-import { gray } from '../../utils/color';
+import { lightGray, gray } from '../../utils/color';
 import { BLOG_TAGS_PATH, toKebabCase } from '../../utils/helper';
 import { rhythm, scale } from '../../utils/typography';
 
@@ -25,7 +25,7 @@ const Title = styled.h1`
 const Info = styled.div`
   ${scale(0.2)};
   display: flex;
-  margin: ${rhythm(-0.5)} 0 ${rhythm(1)} 0;
+  margin: ${rhythm(-0.5)} 0 ${rhythm(0.5)} 0;
   
   span:first-child {
     display: inline-block;
@@ -37,16 +37,13 @@ const Tags = styled.div`
   a {
     ${scale(-0.4)};
     margin: 0 0.5em;
-    
-    border: 1px solid ${rgba(gray, 0.5)};
-    border-radius: 3em;
     padding: 0.2em 0.8em;
+    background-color: ${lightGray};
     color: ${rgba(gray, 0.5)};
     
     &:hover,
     &:focus, 
     &:active {
-      border-color: ${rgba(gray, 0.7)};
       color: ${rgba(gray, 0.7)};
     }
     
@@ -60,13 +57,17 @@ const Tags = styled.div`
   }
 `;
 
-const PostNav = styled.ul`
+const Article = styled.article`
+  margin: ${rhythm(1)} 0;
+`;
+
+const Nav = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: ${rhythm(2)} 0;
 `;
 
 const BlogTemplate = ({ data, pageContext }) => {
@@ -90,7 +91,6 @@ const BlogTemplate = ({ data, pageContext }) => {
         <span>{date}</span>
         <span>{readingTime.text}</span>
       </Info>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
       {tags && (
         <Tags>
           {tags.map(tag => (
@@ -98,8 +98,9 @@ const BlogTemplate = ({ data, pageContext }) => {
           ))}
         </Tags>
       )}
+      <Article dangerouslySetInnerHTML={{ __html: post.html }} />
       <Bio />
-      <PostNav>
+      <Nav>
         <li>
           {previous && (
             <Link to={previous.fields.slug} rel="prev">
@@ -118,7 +119,7 @@ const BlogTemplate = ({ data, pageContext }) => {
             </Link>
           )}
         </li>
-      </PostNav>
+      </Nav>
     </Layout>
   );
 };

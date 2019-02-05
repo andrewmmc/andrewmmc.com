@@ -8,7 +8,6 @@ import { rhythm } from '../utils/typography';
 const Container = styled.div`
   display: flex;
   align-items: center;
-  margin: ${rhythm(2.5)} 0;
   
   p {
     margin: 0;
