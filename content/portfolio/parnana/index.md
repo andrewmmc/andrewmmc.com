@@ -1,7 +1,7 @@
 ---
 title: Parnana.com
 date: '2015-05-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["php", "mysql", "jquery"]
 link: https://parnana.com
 ---

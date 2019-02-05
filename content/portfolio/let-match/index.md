@@ -1,7 +1,7 @@
 ---
 title: "Let's Match"
 date: '2015-08-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["ios", "unity"]
 link: https://itunes.apple.com/us/app/lets-match!-for-iphone/id1032753937
 ---

@@ -1,7 +1,7 @@
 ---
 title: Jurassic Hunt
 date: '2015-05-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["nodejs", "angular", "illustrator"]
 link: https://github.com/andrewmmc/jurassic-hunt
 ---

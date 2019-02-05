@@ -1,7 +1,7 @@
 ---
 title: LazySend
 date: '2017-11-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["vue"]
 link: https://github.com/andrewmmc/lazysend.com
 ---

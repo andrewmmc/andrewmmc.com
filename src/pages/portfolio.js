@@ -29,8 +29,8 @@ const StyledThumbnail = styled(Thumbnail)`
   padding: 61.523% 0 0 0;
   transition: 0.5s;
     &:hover, &:focus {
-      transform: translateY(-1px);
-      box-shadow: 0 0.8em 2em ${rgba(black, 0.08)};
+      transform: translateY(-2px);
+      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
     }
 `;
 
@@ -79,7 +79,7 @@ export const pageQuery = graphql`
             featuredImage {
                 childImageSharp {
                     fluid(quality: 100, maxWidth: 400) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }

@@ -1,7 +1,7 @@
 ---
 title: Waterman Adventure
 date: '2015-06-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.jpg"
 tags: ["android", "unity"]
 link: https://andrewmmc.com
 ---

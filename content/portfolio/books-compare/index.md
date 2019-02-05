@@ -1,7 +1,7 @@
 ---
 title: BooksCompare
 date: '2018-10-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["ios", "android", "reactjs"]
 link: https://github.com/andrewmmc/bookscompare-app
 ---

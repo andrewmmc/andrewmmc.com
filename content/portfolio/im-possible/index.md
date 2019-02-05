@@ -1,7 +1,7 @@
 ---
 title: "I'm possible"
 date: '2013-12-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["html5", "css3", "jquery"]
 link: https://github.com/andrewmmc
 ---

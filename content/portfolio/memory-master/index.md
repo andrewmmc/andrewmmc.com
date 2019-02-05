@@ -1,7 +1,7 @@
 ---
 title: Memory Master
 date: '2013-12-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["code", "illustrator"]
 link: https://github.com/andrewmmc
 ---

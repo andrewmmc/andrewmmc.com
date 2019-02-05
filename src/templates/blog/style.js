@@ -34,8 +34,8 @@ export const ThumbnailLink = styled(Link)`
   &>div {
     transition: 0.5s;
     &:hover, &:focus {
-      transform: translateY(-1px);
-      box-shadow: 0 0.8em 2em ${rgba(black, 0.18)};
+      transform: translateY(-2px);
+      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
     }
   }
 `;

@@ -1,7 +1,7 @@
 ---
 title: Education Catalog Platform
 date: '2016-06-01T00:00:00.000Z'
-// featuredImage: "./cover.png"
+featuredImage: "./featured.png"
 tags: ["php", "mysql", "codeigniter", "angular"]
 link: https://github.com/andrewmmc/edu-platform
 ---
