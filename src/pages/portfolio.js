@@ -1,37 +1,54 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { shape } from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import styled from 'styled-components';
+import { graphql, Link } from 'gatsby';
+import rgba from 'polished/lib/color/rgba';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Thumbnail from '../components/Thumbnail';
 
-import { Container, Card, ThumbnailLink } from '../templates/blog/style';
+import { black } from '../utils/color';
+import { rhythm } from '../utils/typography';
 
-const BlogIndex = ({ data }) => {
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -${rhythm(0.75)};
+`;
+
+const Card = styled.div`
+  flex: 0 50%;
+  padding: ${rhythm(0.75)};
+`;
+
+const StyledThumbnail = styled(Thumbnail)`
+  width: 100%;
+  height: auto;
+  padding: 61.523% 0 0 0;
+  transition: 0.5s;
+    &:hover, &:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 0.8em 2em ${rgba(black, 0.08)};
+    }
+`;
+
+const Portfolio = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <Seo keywords={['blog', 'andrew']} />
+      <Seo title="Portfolio" keywords={['blog', 'andrew']} />
       <Container>
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const { featuredImage, date } = node.frontmatter;
+          const { featuredImage } = node.frontmatter;
           return (
             <Card key={node.fields.slug}>
-              <ThumbnailLink to={node.fields.slug}>
-                <Thumbnail fluid={featuredImage ? featuredImage.childImageSharp.fluid : null} />
-              </ThumbnailLink>
-              <div>
-                <small>{date}</small>
-                <h3>
-                  <Link to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              </div>
+              <Link to={node.fields.slug}>
+                <StyledThumbnail
+                  fluid={featuredImage ? featuredImage.childImageSharp.fluid : null}
+                />
+              </Link>
             </Card>
           );
         })}
@@ -40,28 +57,25 @@ const BlogIndex = ({ data }) => {
   );
 };
 
-BlogIndex.propTypes = {
+Portfolio.propTypes = {
   data: shape({}).isRequired,
 };
 
-export default BlogIndex;
+export default Portfolio;
 
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { type: { eq: "blog" } } }
+      filter: { fields: { type: { eq: "portfolio" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
-          excerpt (truncate: true)
           fields {
             slug
             type
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
             featuredImage {
                 childImageSharp {
                     fluid(quality: 100, maxWidth: 400) {

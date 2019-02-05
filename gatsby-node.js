@@ -15,6 +15,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const blogTemplate = path.resolve('./src/templates/blog/index.js');
   const tagTemplate = path.resolve('./src/templates/blog/tag.js');
+  const portfolioTemplate = path.resolve('./src/templates/portfolio/index.js');
 
   // redirect /blog to home page
   createRedirect({
@@ -74,7 +75,30 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  return blogPosts;
+  // Create portfolio pages
+  const portfolioResults = await graphql(portfolioQuery);
+
+  if (portfolioResults.errors) {
+    throw portfolioResults.errors;
+  }
+
+  const portfolioPosts = portfolioResults.data.allMarkdownRemark.edges;
+  portfolioPosts.forEach((post, index) => {
+    const { slug } = post.node.fields;
+    const previous = index === portfolioPosts.length - 1 ? null : portfolioPosts[index + 1].node;
+    const next = index === 0 ? null : portfolioPosts[index - 1].node;
+    createPage({
+      path: slug,
+      component: portfolioTemplate,
+      context: {
+        slug,
+        previous,
+        next,
+      },
+    });
+  });
+
+  return true;
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -121,6 +145,28 @@ const blogQuery = `
             title
             subtitle
             tags
+          }
+        }
+      }
+    }
+  }
+`;
+
+const portfolioQuery = `
+  {
+    allMarkdownRemark(
+      filter: { fields: { type: { eq: "portfolio" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 1000
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            type
+          }
+          frontmatter {
+            title
           }
         }
       }

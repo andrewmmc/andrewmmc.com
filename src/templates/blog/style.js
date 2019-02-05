@@ -15,6 +15,10 @@ export const Card = styled.div`
   flex: 0 50%;
   padding: ${rhythm(0.75)};
   
+  div {
+    padding-top: ${rhythm(0.75)};
+  }
+  
   small {
     color: ${rgba(black, 0.7)};
   }
@@ -26,13 +30,12 @@ export const Card = styled.div`
   }
 `;
 
-export const LinkWithThumbnail = styled(Link)`
+export const ThumbnailLink = styled(Link)`
   &>div {
-    opacity: 1;
     transition: 0.5s;
-
     &:hover, &:focus {
-      opacity: 0.8;
+      transform: translateY(-1px);
+      box-shadow: 0 0.8em 2em ${rgba(black, 0.18)};
     }
   }
 `;

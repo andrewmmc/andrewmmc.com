@@ -4,13 +4,11 @@ import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
 import { lightGray, gray } from '../utils/color';
-import { rhythm } from '../utils/typography';
 
 const PlaceHolder = styled.div`
   width: 100%;
   height: 240px;
   background-color: ${lightGray};
-  margin-bottom: ${rhythm(0.75)};
 `;
 
 const StyledBackgroundImage = styled(BackgroundImage).attrs({
@@ -19,7 +17,6 @@ const StyledBackgroundImage = styled(BackgroundImage).attrs({
   width: 100%;
   height: 240px;
   background-position: center;
-  margin-bottom: ${rhythm(0.75)};
   
   &::before, &::after {
     background-size: cover;

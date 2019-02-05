@@ -17,6 +17,7 @@ const Seo = ({
           }}
           title={title}
           titleTemplate={`%s - ${data.site.siteMetadata.title}`}
+          defaultTitle={data.site.siteMetadata.title}
           meta={[
             {
               name: 'description',

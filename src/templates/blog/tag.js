@@ -7,10 +7,10 @@ import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import Thumbnail from '../../components/Thumbnail';
 
-import { Container, Card, LinkWithThumbnail } from './style';
+import { Container, Card, ThumbnailLink } from './style';
 
-const BlogTag = ({ data, pathContext }) => {
-  const { tag } = pathContext;
+const BlogTag = ({ data, pageContext }) => {
+  const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
@@ -22,9 +22,9 @@ const BlogTag = ({ data, pathContext }) => {
           const { featuredImage, date } = node.frontmatter;
           return (
             <Card key={node.fields.slug}>
-              <LinkWithThumbnail to={node.fields.slug}>
+              <ThumbnailLink to={node.fields.slug}>
                 <Thumbnail fluid={featuredImage ? featuredImage.childImageSharp.fluid : null} />
-              </LinkWithThumbnail>
+              </ThumbnailLink>
               <small>{date}</small>
               <h3>
                 <Link to={node.fields.slug}>
@@ -42,7 +42,7 @@ const BlogTag = ({ data, pathContext }) => {
 
 BlogTag.propTypes = {
   data: shape({}).isRequired,
-  pathContext: shape({}).isRequired,
+  pageContext: shape({}).isRequired,
 };
 
 export default BlogTag;
