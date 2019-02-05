@@ -1,6 +1,7 @@
 ---
 title: Google Web Designer Banner Taparea is not clickable in Firefox
 date: '2017-10-25T00:00:00.000Z'
+tags: ["frontend", "css"]
 ---
 
 Firefox have some problems in rendering the preserve-3d transform-style elements. So when we create an banner tap area in Google Web Designer, it become non-clickable in Firefox.

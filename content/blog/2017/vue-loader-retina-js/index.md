@@ -2,6 +2,7 @@
 title: Using Retina.js with Vue-loader
 subtitle: Serve your retina images in Vue as well
 date: '2017-05-09T00:00:00.000Z'
+tags: ["frontend", "javascript"]
 ---
 ![](./image1.png)
 

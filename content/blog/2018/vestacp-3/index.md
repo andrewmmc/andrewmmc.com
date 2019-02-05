@@ -2,6 +2,7 @@
 title: Upgrade PHP version to 7.2 from 7.0
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 3)
 date: '2018-05-23T00:00:03.000Z'
+tags: ["devops", "vestacp"]
 ---
 
 In the [previous article](https://medium.com/andrewmmc-io/install-vestacp-with-lemp-on-your-vm-instance-29dda138bb7d), we talked about how to install VestaCP with LEMP on our server. In this article, we will continue to upgrade PHP version installed from 7.0 to 7.2.

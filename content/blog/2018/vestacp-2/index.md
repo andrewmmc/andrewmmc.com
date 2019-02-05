@@ -2,6 +2,7 @@
 title: Install VestaCP with LEMP on your VM instance
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 2)
 date: '2018-05-23T00:00:02.000Z'
+tags: ["devops", "vestacp"]
 ---
 
 In the [previous article](https://medium.com/andrewmmc-io/setup-vm-instance-on-google-cloud-compute-engine-1e7063cfcde6), we talked about how to setup a VM instance on Google Cloud for our web server. In this article, we will continue to install VestaCP with LEMP on the VM instance created.

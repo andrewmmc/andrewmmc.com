@@ -1,13 +1,27 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+// const helper = require('./src/utils/helper');
+
+// const { BLOG_TAGS_PATH, toKebabCase } = helper;
+
+const BLOG_TAGS_PATH = '/blog/tags/';
+
+const toKebabCase = str => str && str
+  .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+  .map(x => x.toLowerCase())
+  .join('-');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
-  const blog = path.resolve('./src/templates/blog.js');
+  const blogTemplate = path.resolve('./src/templates/blog/index.js');
+  const tagTemplate = path.resolve('./src/templates/blog/tag.js');
 
   // redirect /blog to home page
   createRedirect({
     fromPath: '/blog', toPath: '/', isPermanent: true, redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: '/blog/', toPath: '/', isPermanent: true, redirectInBrowser: true,
   });
 
   // Create blog pages
@@ -18,17 +32,44 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const blogPosts = blogResults.data.allMarkdownRemark.edges;
+  let blogTags = [];
   blogPosts.forEach((post, index) => {
     const { slug } = post.node.fields;
     const previous = index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
     const next = index === 0 ? null : blogPosts[index - 1].node;
     createPage({
       path: slug,
-      component: blog,
+      component: blogTemplate,
       context: {
         slug,
         previous,
         next,
+      },
+    });
+
+    if (post.node.frontmatter.tags) {
+      post.node.frontmatter.tags.forEach((tag) => {
+        blogTags.push(tag);
+      });
+    }
+  });
+
+  // redirect /tags to homepage
+  createRedirect({
+    fromPath: '/tags', toPath: '/', isPermanent: true, redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: '/tags/', toPath: '/', isPermanent: true, redirectInBrowser: true,
+  });
+
+  // create blog tag pages
+  blogTags = [...new Set(blogTags)];
+  blogTags.forEach((tag) => {
+    createPage({
+      path: `${BLOG_TAGS_PATH}${toKebabCase(tag)}/`,
+      component: tagTemplate,
+      context: {
+        tag,
       },
     });
   });
@@ -79,6 +120,7 @@ const blogQuery = `
           frontmatter {
             title
             subtitle
+            tags
           }
         }
       }

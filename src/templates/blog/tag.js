@@ -3,17 +3,19 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
-import Thumbnail from '../components/Thumbnail';
+import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
+import Thumbnail from '../../components/Thumbnail';
 
-import { Container, Card, LinkWithThumbnail } from '../templates/blog/style';
+import { Container, Card, LinkWithThumbnail } from './style';
 
-const BlogIndex = ({ data }) => {
+const BlogTag = ({ data, pathContext }) => {
+  const { tag } = pathContext;
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
       <Seo title="All posts" keywords={['blog', 'andrew']} />
+      <h1>{`Tag: ${tag}`}</h1>
       <Container>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
@@ -38,16 +40,17 @@ const BlogIndex = ({ data }) => {
   );
 };
 
-BlogIndex.propTypes = {
+BlogTag.propTypes = {
   data: shape({}).isRequired,
+  pathContext: shape({}).isRequired,
 };
 
-export default BlogIndex;
+export default BlogTag;
 
 export const pageQuery = graphql`
-  query {
+  query query($tag: String) {
     allMarkdownRemark(
-      filter: { fields: { type: { eq: "blog" } } }
+      filter: { fields: { type: { eq: "blog" } }, frontmatter: { tags: { in: [$tag] } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

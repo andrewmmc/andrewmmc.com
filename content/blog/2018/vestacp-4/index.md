@@ -2,6 +2,7 @@
 title: Get free SSL Certificates from Let’s Encrypt for your domains
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 4)
 date: '2018-05-23T00:00:04.000Z'
+tags: ["devops", "vestacp"]
 ---
 
 In the [previous article](https://medium.com/andrewmmc-io/upgrade-php-version-to-7-2-from-7-0-c005a0926642), we talked about how to upgrade PHP version to 7.2. In this article, we will continue to get free SSL certificates for our domains.
