@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 import Bio from 'components/Bio';
-import FeaturedImage from 'components/FeaturedImage';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
+import Thumbnail from 'components/Thumbnail';
 
 import { lightGray, gray } from 'utils/color';
 import { BLOG_TAGS_PATH, toKebabCase } from 'utils/helper';
@@ -80,7 +80,9 @@ const BlogTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout
-      cover={<FeaturedImage fluid={featuredImage ? featuredImage.childImageSharp.fluid : null} />}
+      cover={featuredImage
+        && <Thumbnail fluid={featuredImage.childImageSharp.fluid} height={400} />
+      }
     >
       <Seo title={title} description={post.excerpt} />
       <Title>

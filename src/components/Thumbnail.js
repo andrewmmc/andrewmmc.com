@@ -1,46 +1,56 @@
 import React from 'react';
-import { shape } from 'prop-types';
+import { number, shape } from 'prop-types';
 import BackgroundImage from 'gatsby-background-image';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { lightGray, gray } from 'utils/color';
+import { lightGray } from 'utils/color';
 
 const PlaceHolder = styled.div`
   width: 100%;
-  height: auto;
-  padding: 62% 0 0 0;
   background-color: ${lightGray};
+
+  ${({ height }) => css`
+    height: ${height ? `${height}px` : 'auto'};
+    padding: ${height ? '0' : '62% 0 0 0'};
+  `}
 `;
 
 const StyledBackgroundImage = styled(BackgroundImage).attrs({
-  backgroundColor: gray,
+  backgroundColor: lightGray,
 })`
   width: 100%;
-  height: auto;
-  padding: 62% 0 0 0;
   background-position: center;
-  
+
+  ${({ height }) => css`
+    height: ${height ? `${height}px` : 'auto'};
+    padding: ${height ? '0' : '62% 0 0 0'};
+  `}
+
   &::before, &::after {
     background-size: cover;
     background-position: center;
   }
 `;
 
-const Thumbnail = ({ fluid, fixed, ...props }) => {
+const Thumbnail = ({
+  fluid, fixed, height, ...props
+}) => {
   if (fluid || fixed) {
-    return <StyledBackgroundImage fluid={fluid} fixed={fixed} {...props} />;
+    return <StyledBackgroundImage fluid={fluid} fixed={fixed} height={height} {...props} />;
   }
-  return <PlaceHolder {...props} />;
+  return <PlaceHolder height={height} {...props} />;
 };
 
 Thumbnail.defaultProps = {
   fluid: null,
   fixed: null,
+  height: null,
 };
 
 Thumbnail.propTypes = {
   fluid: shape({}),
   fixed: shape({}),
+  height: number,
 };
 
 export default Thumbnail;

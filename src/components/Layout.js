@@ -2,9 +2,10 @@ import React from 'react';
 import { node } from 'prop-types';
 import styled from 'styled-components';
 
+import { GlobalStyle, rhythm } from 'utils/typography';
+
 import Header from './Header';
 import Footer from './Footer';
-import { GlobalStyle, rhythm } from 'utils/typography';
 
 const Container = styled.div`
   display: flex;
@@ -13,15 +14,12 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
-  margin: ${rhythm(1)} auto;
+  margin: ${rhythm(1.5)} auto;
   padding: 0 ${rhythm(1.5)};
   flex: 1;
   width: 100%;
   max-width: ${rhythm(34)};
 `;
-
-// const rootPath = `${__PATH_PREFIX__}/`;
-// location.pathname === rootPath
 
 const Layout = ({ cover, children, ...props }) => (
   <Container>

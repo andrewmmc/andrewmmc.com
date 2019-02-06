@@ -5,9 +5,10 @@ import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 
-import FeaturedImage from 'components/FeaturedImage';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
+import Thumbnail from 'components/Thumbnail';
+
 import { rhythm } from 'utils/typography';
 
 const Container = styled.div`
@@ -29,7 +30,7 @@ const About = ({ data }) => {
   const post = data.markdownRemark;
   const { author } = data.site.siteMetadata;
   return (
-    <Layout cover={<FeaturedImage fluid={data.cover.childImageSharp.fluid} />}>
+    <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} height={400} />}>
       <Seo title={post.frontmatter.title} description={post.excerpt} />
       <Container>
         <StyledImage fixed={data.avatar.childImageSharp.fixed} alt={author} />
@@ -55,7 +56,7 @@ export const pageQuery = graphql`
               }
           }
       }
-      cover: file(relativePath: { eq: "assets/about.jpg" }) {
+      featuredImage: file(relativePath: { eq: "assets/about.jpg" }) {
           childImageSharp {
               fluid(quality: 90, maxWidth: 1440) {
                   ...GatsbyImageSharpFluid_withWebp

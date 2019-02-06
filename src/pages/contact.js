@@ -4,10 +4,10 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import FeaturedImage from 'components/FeaturedImage';
 import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
+import Thumbnail from 'components/Thumbnail';
 
 import { black } from 'utils/color';
 import { rhythm } from 'utils/typography';
@@ -31,7 +31,7 @@ const SocialMediaContainer = styled.div`
 const Contact = ({ data }) => {
   const { email, social } = data.site.siteMetadata;
   return (
-    <Layout cover={<FeaturedImage fluid={data.cover.childImageSharp.fluid} />}>
+    <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} height={400} />}>
       <Seo title="Contact" />
       <h1>Contact</h1>
       <div>
@@ -86,7 +86,7 @@ export default Contact;
 
 export const pageQuery = graphql`
   query {
-      cover: file(relativePath: { eq: "assets/contact.jpg" }) {
+      featuredImage: file(relativePath: { eq: "assets/contact.jpg" }) {
           childImageSharp {
               fluid(quality: 90, maxWidth: 1440) {
                   ...GatsbyImageSharpFluid_withWebp
