@@ -2,7 +2,7 @@
 title: Upgrade PHP version to 7.2 from 7.0
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 3)
 date: '2018-05-23T00:00:03.000Z'
-featuredImage: "./image1.png"
+featuredImage: "./cover.png"
 tags: ["devops", "vestacp"]
 ---
 

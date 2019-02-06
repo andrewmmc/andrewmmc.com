@@ -14,6 +14,8 @@ const Container = styled.header`
   max-width: ${rhythm(34)};
   padding: ${rhythm(0.75)} ${rhythm(1.5)};
   margin: 0 auto;
+  line-height: 1.2em;
+  vertical-align: bottom;
      
   h1 {
     margin-bottom: 0;
@@ -23,7 +25,6 @@ const Container = styled.header`
   
   a {
     color: ${rgba(black, 0.8)};
-    vertical-align: -webkit-baseline-middle; // TODO: Chrome only, need fix
     
     &:hover,
     &:focus, 

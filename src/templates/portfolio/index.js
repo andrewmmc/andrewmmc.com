@@ -15,8 +15,8 @@ import { rhythm, scale } from 'utils/typography';
 const Title = styled.h1`
   p {
     ${scale(0.5)};
-    font-weight: 500;
     margin-top: ${rhythm(0.5)};
+    font-weight: 500;
   }
 `;
 
@@ -44,8 +44,8 @@ const Article = styled.article`
   
   p {
     span.gatsby-resp-image-wrapper {
-      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
       margin: ${rhythm(2)};
+      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
     }
   }
 `;
@@ -54,9 +54,9 @@ const Nav = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  list-style: none;
   padding: 0;
   margin: ${rhythm(2)} 0;
+  list-style: none;
 `;
 
 const PortfolioTemplate = ({ data, pageContext }) => {

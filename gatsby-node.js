@@ -2,19 +2,14 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 // const helper = require('./src/utils/helper');
 
-// const { BLOG_TAGS_PATH, toKebabCase } = helper;
+// const { BLOG_TAGS_PATH } = helper;
 
 const BLOG_TAGS_PATH = '/blog/tags/';
-
-const toKebabCase = str => str && str
-  .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-  .map(x => x.toLowerCase())
-  .join('-');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const blogTemplate = path.resolve('./src/templates/blog/index.js');
-  const tagTemplate = path.resolve('./src/templates/blog/tag.js');
+  const tagTemplate = path.resolve('./src/templates/blog/tagIndex.js');
   const portfolioTemplate = path.resolve('./src/templates/portfolio/index.js');
 
   // redirect /blog to home page
@@ -67,7 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
   blogTags = [...new Set(blogTags)];
   blogTags.forEach((tag) => {
     createPage({
-      path: `${BLOG_TAGS_PATH}${toKebabCase(tag)}/`,
+      path: `${BLOG_TAGS_PATH}${tag}/`,
       component: tagTemplate,
       context: {
         tag,

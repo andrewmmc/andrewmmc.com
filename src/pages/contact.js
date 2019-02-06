@@ -32,7 +32,7 @@ const Contact = ({ data }) => {
   const { email, social } = data.site.siteMetadata;
   return (
     <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} height={400} />}>
-      <Seo title="Contact" />
+      <Seo title="Contact" keywords={['contact', 'andrew', 'andrewmok']} />
       <h1>Contact</h1>
       <div>
         <p>

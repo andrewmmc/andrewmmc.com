@@ -2,6 +2,7 @@
 title: Import dynamic feed to advertiser profile in DoubleClick Studio
 subtitle: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager (Part 1)
 date: '2018-08-19T00:00:01.000Z'
+featuredImage: "./cover.jpg"
 tags: ["doubleclick", "marketing"]
 ---
 

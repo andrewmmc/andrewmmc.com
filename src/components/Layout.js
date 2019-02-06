@@ -14,11 +14,11 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
-  margin: ${rhythm(1.5)} auto;
-  padding: 0 ${rhythm(1.5)};
   flex: 1;
   width: 100%;
   max-width: ${rhythm(34)};
+  padding: 0 ${rhythm(1.5)};
+  margin: ${rhythm(1.5)} auto;
 `;
 
 const Layout = ({ cover, children, ...props }) => (

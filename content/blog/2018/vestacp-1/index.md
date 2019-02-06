@@ -2,7 +2,7 @@
 title: Setup VM instance on Google Cloud Compute Engine
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 1)
 date: '2018-05-23T00:00:01.000Z'
-featuredImage: "./image1.jpg"
+featuredImage: "./cover.jpg"
 tags: ["devops", "vestacp"]
 ---
 

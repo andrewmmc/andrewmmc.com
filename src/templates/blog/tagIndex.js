@@ -2,32 +2,20 @@
 import React from 'react';
 import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
-import rgba from 'polished/lib/color/rgba';
 
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
-import Thumbnail from 'components/Thumbnail';
 
-import { black } from 'utils/color';
+import { Container, Card, StyledThumbnail } from 'pages/index';
 
-import { Container, Card } from './style';
-
-const StyledThumbnail = styled(Thumbnail)`
-  transition: 0.5s;
-    &:hover, &:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
-    }
-`;
-
-const BlogTag = ({ data, pageContext }) => {
+const BlogTagIndex = ({ data, pageContext }) => {
   const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
+  const pageTitle = `Tag: ${tag} (${data.allMarkdownRemark.totalCount})`;
   return (
     <Layout>
-      <Seo title="All posts" keywords={['blog', 'andrew']} />
-      <h1>{`Tag: ${tag}`}</h1>
+      <Seo title={pageTitle} keywords={['blog', 'andrew']} />
+      <h1>{pageTitle}</h1>
       <Container>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
@@ -35,15 +23,19 @@ const BlogTag = ({ data, pageContext }) => {
           return (
             <Card key={node.fields.slug}>
               <Link to={node.fields.slug}>
-                <StyledThumbnail fluid={featuredImage ? featuredImage.childImageSharp.fluid : null} />
+                <StyledThumbnail
+                  fluid={featuredImage ? featuredImage.childImageSharp.fluid : null}
+                />
               </Link>
-              <small>{date}</small>
-              <h3>
-                <Link to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              <div>
+                <small>{date}</small>
+                <h3>
+                  <Link to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              </div>
             </Card>
           );
         })}
@@ -52,12 +44,12 @@ const BlogTag = ({ data, pageContext }) => {
   );
 };
 
-BlogTag.propTypes = {
+BlogTagIndex.propTypes = {
   data: shape({}).isRequired,
   pageContext: shape({}).isRequired,
 };
 
-export default BlogTag;
+export default BlogTagIndex;
 
 export const pageQuery = graphql`
   query query($tag: String) {
@@ -65,6 +57,7 @@ export const pageQuery = graphql`
       filter: { fields: { type: { eq: "blog" } }, frontmatter: { tags: { in: [$tag] } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
+      totalCount
       edges {
         node {
           excerpt (truncate: true)

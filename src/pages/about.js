@@ -21,8 +21,8 @@ const Container = styled.div`
 `;
 
 const StyledImage = styled(Image)`
-  margin-right: ${rhythm(0.5)};
   min-width: 50px;
+  margin-right: ${rhythm(0.5)};
   border-radius: 100%;
 `;
 

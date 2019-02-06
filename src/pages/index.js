@@ -10,10 +10,34 @@ import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
 import { black } from 'utils/color';
+import { rhythm, scale } from 'utils/typography';
 
-import { Container, Card } from '../templates/blog/style';
+export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: -${rhythm(0.75)};
+`;
 
-const StyledThumbnail = styled(Thumbnail)`
+export const Card = styled.div`
+  flex: 0 50%;
+  padding: ${rhythm(0.75)};
+  
+  & >div {
+    padding-top: ${rhythm(0.75)};
+  }
+  
+  small {
+    color: ${rgba(black, 0.7)};
+  }
+
+  h3 {
+    ${scale(0.5)};
+    margin: 0 0 ${rhythm(0.5)} 0;
+    font-weight: 600;
+  }
+`;
+
+export const StyledThumbnail = styled(Thumbnail)`
   transition: 0.5s;
     &:hover, &:focus {
       transform: translateY(-2px);
@@ -25,7 +49,7 @@ const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <Seo keywords={['blog', 'andrew']} />
+      <Seo keywords={['blog', 'andrew', 'andrewmok']} />
       <Container>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;

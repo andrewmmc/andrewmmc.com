@@ -2,6 +2,7 @@
 title: Manage ads with dynamic targeting key in DoubleClick Campaign Manager
 subtitle: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager (Part 3)
 date: '2018-08-19T00:00:03.000Z'
+featuredImage: "./cover.jpg"
 tags: ["doubleclick", "marketing"]
 ---
 

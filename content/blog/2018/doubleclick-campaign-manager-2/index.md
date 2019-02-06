@@ -2,6 +2,7 @@
 title: Create dynamic creatives in Google Web Designer with DoubleClick Studio
 subtitle: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager (Part 2)
 date: '2018-08-19T00:00:02.000Z'
+featuredImage: "./cover.jpg"
 tags: ["doubleclick", "marketing"]
 ---
 

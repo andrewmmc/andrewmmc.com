@@ -2,7 +2,7 @@
 title: Get free SSL Certificates from Let’s Encrypt for your domains
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 4)
 date: '2018-05-23T00:00:04.000Z'
-featuredImage: "./image1.png"
+featuredImage: "./cover.jpg"
 tags: ["devops", "vestacp"]
 ---
 

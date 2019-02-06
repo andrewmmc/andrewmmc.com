@@ -15,7 +15,7 @@ import { rhythm } from 'utils/typography';
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -${rhythm(0.75)};
+  margin: -${rhythm(0.75)};
 `;
 
 const Card = styled.div`
@@ -35,7 +35,7 @@ const Portfolio = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <Seo title="Portfolio" keywords={['blog', 'andrew']} />
+      <Seo title="Portfolio" keywords={['portfolio', 'andrew', 'andrewmok', 'frontend', 'javascript']} />
       <Container>
         {posts.map(({ node }) => {
           const { featuredImage } = node.frontmatter;

@@ -11,7 +11,7 @@ import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
 import { lightGray, gray } from 'utils/color';
-import { BLOG_TAGS_PATH, toKebabCase } from 'utils/helper';
+import { BLOG_TAGS_PATH } from 'utils/helper';
 import { rhythm, scale } from 'utils/typography';
 
 const Title = styled.h1`
@@ -96,7 +96,7 @@ const BlogTemplate = ({ data, pageContext }) => {
       {tags && (
         <Tags>
           {tags.map(tag => (
-            <Link key={tag} to={`${BLOG_TAGS_PATH}${toKebabCase(tag)}/`}>{tag}</Link>
+            <Link key={tag} to={`${BLOG_TAGS_PATH}${tag}/`}>{tag}</Link>
           ))}
         </Tags>
       )}

@@ -2,7 +2,7 @@
 title: Apply SSL Certificates to your website and force using HTTPS connections
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 5)
 date: '2018-05-23T00:00:05.000Z'
-featuredImage: "./cover.png"
+featuredImage: "./cover.jpg"
 tags: ["devops", "vestacp"]
 ---
 

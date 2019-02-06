@@ -1,7 +1,7 @@
 {
   "name": "andrewmmc.com",
   "private": true,
-  "description": "",
+  "description": "Personal blog by Andrew Mok, a web developer from Hong Kong. I write and I code.",
   "version": "0.1.0",
   "author": "Andrew Mok <hello@andrewmmc.com>",
   "dependencies": {
@@ -47,7 +47,6 @@
     "prettier": "^1.14.2"
   },
   "homepage": "https://andrewmmc.com",
-  "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
@@ -55,9 +54,8 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "lint": "eslint --fix --ext .js,.jsx --ignore-pattern public .",
+    "lint": "eslint --fix --ext .js --ignore-pattern public .",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build"

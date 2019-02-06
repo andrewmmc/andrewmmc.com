@@ -8,9 +8,9 @@ import { rhythm, scale } from 'utils/typography';
 
 const Container = styled.footer`
   ${scale(-1 / 8)};
+  width: 100%;
   text-align: center;
   background-color: ${lightGray};
-  width: 100%;
   
   ul {
     max-width: ${rhythm(34)};

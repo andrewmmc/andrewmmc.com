@@ -1,6 +1,7 @@
 ---
 title: Google Web Designer Banner Taparea is not clickable in Firefox
 date: '2017-10-25T00:00:00.000Z'
+featuredImage: "./cover.jpg"
 tags: ["frontend", "css"]
 ---
 

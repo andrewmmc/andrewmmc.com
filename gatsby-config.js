@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Andrew Mok',
     author: 'Andrew Mok',
-    description: 'I write and I code.',
+    description: 'Personal blog by Andrew Mok, a web developer from Hong Kong. I write and I code.',
     siteUrl: 'https://andrewmmc.com',
     location: 'Hong Kong',
     email: 'hello@andrewmmc.com',
@@ -84,7 +84,7 @@ module.exports = {
         short_name: 'GatsbyJS',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#663399',
+        theme_color: '#b09a6b',
         display: 'minimal-ui',
         icon: 'content/assets/gatsby-icon.png',
       },
