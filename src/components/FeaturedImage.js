@@ -3,8 +3,8 @@ import { shape } from 'prop-types';
 import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
-import { lightGray } from '../utils/color';
-import { rhythm } from '../utils/typography';
+import { lightGray } from 'utils/color';
+import { rhythm } from 'utils/typography';
 
 const StyledBackgroundImage = styled(BackgroundImage).attrs({
   backgroundColor: lightGray,

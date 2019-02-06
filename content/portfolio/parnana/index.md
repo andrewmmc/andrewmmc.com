@@ -2,7 +2,7 @@
 title: Parnana
 date: '2015-05'
 featuredImage: "./featured.png"
-tags: ["php", "mysql", "jquery"]
+tags: ["php", "mysql", "codeigniter", "jquery", "illustrator"]
 link: https://parnana.com
 ---
 

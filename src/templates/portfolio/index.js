@@ -5,7 +5,7 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
-import Icon from 'components/Icon/index';
+import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
@@ -75,7 +75,7 @@ const PortfolioTemplate = ({ data, pageContext }) => {
       </Info>
       {tags && (
         <Tags>
-          {tags.map(tag => <Icon key={tag} size={36} type={tag} />)}
+          {tags.map(tag => <Icon key={tag} size={36} type={tag} title={`${tag.charAt(0).toUpperCase()}${tag.substr(1)}`} />)}
         </Tags>
       )}
       <Article dangerouslySetInnerHTML={{ __html: post.html }} />

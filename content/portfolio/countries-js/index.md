@@ -2,9 +2,12 @@
 title: countries.js
 date: '2018-11'
 featuredImage: "./featured.png"
-// tags: ["javascript"]
+tags: ["javascript", "npm"]
 link: https://github.com/andrewmmc/countries-js
+linkLabel: GitHub
 ---
+
+Built with [Rollup](https://github.com/rollup/rollup), available on [npm](https://www.npmjs.com/package/countries-js).
 
 A simple JS library for returning data about countries. It supports npm with webpack or old-school way.
 

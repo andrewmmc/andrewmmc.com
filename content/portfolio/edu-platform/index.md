@@ -4,6 +4,7 @@ date: '2016-06'
 featuredImage: "./featured.png"
 tags: ["php", "mysql", "codeigniter", "angular"]
 link: https://github.com/andrewmmc/edu-platform
+linkLabel: GitHub
 ---
 
 The project proposed a new system called Education Catalog Platform. It is designed for students and education providers in the education market. 

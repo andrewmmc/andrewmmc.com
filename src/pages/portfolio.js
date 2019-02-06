@@ -9,8 +9,8 @@ import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
-import { black } from '../utils/color';
-import { rhythm } from '../utils/typography';
+import { black } from 'utils/color';
+import { rhythm } from 'utils/typography';
 
 const Container = styled.div`
   display: flex;
@@ -24,9 +24,6 @@ const Card = styled.div`
 `;
 
 const StyledThumbnail = styled(Thumbnail)`
-  width: 100%;
-  height: auto;
-  padding: 61.523% 0 0 0;
   transition: 0.5s;
     &:hover, &:focus {
       transform: translateY(-2px);

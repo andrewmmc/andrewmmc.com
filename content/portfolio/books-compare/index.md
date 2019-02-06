@@ -4,9 +4,10 @@ date: '2018-10'
 featuredImage: "./featured.png"
 tags: ["ios", "android", "reactjs"]
 link: https://github.com/andrewmmc/bookscompare-app
+linkLabel: GitHub
 ---
 
-Built with [React Native](https://facebook.github.io/react-native/).
+Built with [React Native](https://facebook.github.io/react-native/), available on [App Store](http://bit.ly/bookscompare) and [Google Play](http://bit.ly/bookscompare-android).
 
 BooksCompare allows you to compare pricing on online bookstore by scanning books barcode, so you can always buy your favourite books at the lowest price!
 

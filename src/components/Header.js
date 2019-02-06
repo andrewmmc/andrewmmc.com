@@ -3,8 +3,8 @@ import { Link, StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import { black } from '../utils/color';
-import { rhythm } from '../utils/typography';
+import { black } from 'utils/color';
+import { rhythm } from 'utils/typography';
 
 // 1 rhythm ~= 26px
 const Container = styled.header`

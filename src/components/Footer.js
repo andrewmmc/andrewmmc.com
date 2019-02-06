@@ -3,8 +3,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-import { lightGray, gray } from '../utils/color';
-import { rhythm, scale } from '../utils/typography';
+import { lightGray, gray } from 'utils/color';
+import { rhythm, scale } from 'utils/typography';
 
 const Container = styled.footer`
   ${scale(-1 / 8)};

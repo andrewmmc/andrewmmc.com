@@ -3,11 +3,12 @@ import { shape } from 'prop-types';
 import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 
-import { lightGray, gray } from '../utils/color';
+import { lightGray, gray } from 'utils/color';
 
 const PlaceHolder = styled.div`
   width: 100%;
-  height: 240px;
+  height: auto;
+  padding: 62% 0 0 0;
   background-color: ${lightGray};
 `;
 
@@ -15,7 +16,8 @@ const StyledBackgroundImage = styled(BackgroundImage).attrs({
   backgroundColor: gray,
 })`
   width: 100%;
-  height: 240px;
+  height: auto;
+  padding: 62% 0 0 0;
   background-position: center;
   
   &::before, &::after {

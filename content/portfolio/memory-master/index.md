@@ -3,7 +3,6 @@ title: Memory Master
 date: '2013-12'
 featuredImage: "./featured.png"
 tags: ["code", "illustrator"]
-link: https://github.com/andrewmmc
 ---
 
 Bulit with C++.

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Header from './Header';
 import Footer from './Footer';
-import { GlobalStyle, rhythm } from '../utils/typography';
+import { GlobalStyle, rhythm } from 'utils/typography';
 
 const Container = styled.div`
   display: flex;

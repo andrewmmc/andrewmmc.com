@@ -5,12 +5,12 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 import FeaturedImage from 'components/FeaturedImage';
-import Icon from 'components/Icon/index';
+import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
-import { black } from '../utils/color';
-import { rhythm } from '../utils/typography';
+import { black } from 'utils/color';
+import { rhythm } from 'utils/typography';
 
 const SocialMediaContainer = styled.div`
   display: flex;
@@ -45,7 +45,6 @@ const Contact = ({ data }) => {
           <Link to="/portfolio">Portfolio</Link>
           {' '}
           for my previous works.
-          Some works are not listed on this website. Please contact me if you are interested.
         </p>
         <ul>
           <li>

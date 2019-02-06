@@ -2,8 +2,9 @@
 title: LazySend.com
 date: '2017-11'
 featuredImage: "./featured.png"
-tags: ["vue"]
+tags: ["mobile", "vue"]
 link: https://github.com/andrewmmc/lazysend.com
+linkLabel: GitHub
 ---
 
 Built with [Vue](https://vuejs.org/), PWA.

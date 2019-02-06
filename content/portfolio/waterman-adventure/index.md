@@ -3,12 +3,15 @@ title: Waterman Adventure
 date: '2015-06'
 featuredImage: "./featured.jpg"
 tags: ["android", "unity"]
-link: https://andrewmmc.com
+link: https://download.andrewmmc.com/files/waterman.apk
+linkLabel: Download
 ---
+
+Bulit with [Unity](https://unity3d.com).
 
 It is a course project that developing a bomb man based game. The game environment is maze-base design. The game goal is to complete game levels by placing bombs in order to kill enemies and destroy particular obstacles with a high score. The bombs in the game can set off injure enemies or player themselves and destroy obstacles. Player can also get bonus items by destroying barriers.
 
 ![](./capture1.png)
 ![](./capture2.png)
-![](./capture5.png)
-![](./capture6.png)
+![](./capture3.png)
+![](./capture4.png)
