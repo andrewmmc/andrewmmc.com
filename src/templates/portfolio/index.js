@@ -5,7 +5,7 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
-import Icon from '../../components/Icon';
+import Icon from '../../components/Icon/index';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 

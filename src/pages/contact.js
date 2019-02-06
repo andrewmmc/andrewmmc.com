@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 import FeaturedImage from '../components/FeaturedImage';
-import Icon from '../components/Icon';
+import Icon from '../components/Icon/index';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 
