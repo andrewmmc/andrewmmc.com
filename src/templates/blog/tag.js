@@ -3,9 +3,9 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../../components/Layout';
-import Seo from '../../components/Seo';
-import Thumbnail from '../../components/Thumbnail';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
+import Thumbnail from 'components/Thumbnail';
 
 import { Container, Card, ThumbnailLink } from './style';
 

@@ -4,10 +4,10 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import FeaturedImage from '../components/FeaturedImage';
-import Icon from '../components/Icon/index';
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
+import FeaturedImage from 'components/FeaturedImage';
+import Icon from 'components/Icon/index';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
 
 import { black } from '../utils/color';
 import { rhythm } from '../utils/typography';

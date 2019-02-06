@@ -5,9 +5,9 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
-import Thumbnail from '../components/Thumbnail';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
+import Thumbnail from 'components/Thumbnail';
 
 import { black } from '../utils/color';
 import { rhythm } from '../utils/typography';

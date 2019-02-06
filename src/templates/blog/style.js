@@ -2,8 +2,8 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
-import { black } from '../../utils/color';
-import { rhythm, scale } from '../../utils/typography';
+import { black } from 'utils/color';
+import { rhythm, scale } from 'utils/typography';
 
 export const Container = styled.div`
   display: flex;

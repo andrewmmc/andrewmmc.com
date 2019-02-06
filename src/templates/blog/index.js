@@ -5,14 +5,14 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import Bio from '../../components/Bio';
-import FeaturedImage from '../../components/FeaturedImage';
-import Layout from '../../components/Layout';
-import Seo from '../../components/Seo';
+import Bio from 'components/Bio';
+import FeaturedImage from 'components/FeaturedImage';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
 
-import { lightGray, gray } from '../../utils/color';
-import { BLOG_TAGS_PATH, toKebabCase } from '../../utils/helper';
-import { rhythm, scale } from '../../utils/typography';
+import { lightGray, gray } from 'utils/color';
+import { BLOG_TAGS_PATH, toKebabCase } from 'utils/helper';
+import { rhythm, scale } from 'utils/typography';
 
 const Title = styled.h1`
   p {

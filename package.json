@@ -43,6 +43,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
+    "gatsby-plugin-root-import": "^2.0.5",
     "prettier": "^1.14.2"
   },
   "homepage": "https://andrewmmc.com",

@@ -5,12 +5,12 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
-import Icon from '../../components/Icon/index';
-import Layout from '../../components/Layout';
-import Seo from '../../components/Seo';
+import Icon from 'components/Icon/index';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
 
-import { gray, black } from '../../utils/color';
-import { rhythm, scale } from '../../utils/typography';
+import { gray, black } from 'utils/color';
+import { rhythm, scale } from 'utils/typography';
 
 const Title = styled.h1`
   p {

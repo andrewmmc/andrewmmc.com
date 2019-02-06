@@ -3,6 +3,7 @@ module.exports = {
   'rules': {
     'react/jsx-filename-extension': ['warn', { 'extensions': ['.js'] }],
     'no-use-before-define': 0,
+    'import/no-unresolved': 0,
   },
   'env': {
     'browser': true,

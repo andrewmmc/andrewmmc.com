@@ -5,9 +5,9 @@ import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 
-import FeaturedImage from '../components/FeaturedImage';
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
+import FeaturedImage from 'components/FeaturedImage';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
 import { rhythm } from '../utils/typography';
 
 const Container = styled.div`
