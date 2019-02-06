@@ -1,8 +1,8 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { shape } from 'prop-types';
-import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
+import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
 import Layout from '../components/Layout';

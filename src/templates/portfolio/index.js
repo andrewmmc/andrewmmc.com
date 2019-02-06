@@ -3,12 +3,13 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import rgba from 'polished/lib/color/rgba';
 
 import Icon from '../../components/Icon';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 
-import { gray } from '../../utils/color';
+import { gray, black } from '../../utils/color';
 import { rhythm, scale } from '../../utils/typography';
 
 const Title = styled.h1`
@@ -40,6 +41,13 @@ const Tags = styled.div`
 
 const Article = styled.article`
   margin: ${rhythm(1)} 0;
+  
+  p {
+    span.gatsby-resp-image-wrapper {
+      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
+      margin: ${rhythm(2)};
+    }
+  }
 `;
 
 const Nav = styled.ul`

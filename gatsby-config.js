@@ -39,8 +39,9 @@ module.exports = {
               maxWidth: 590,
               linkImagesToOriginal: false,
               showCaptions: true,
-              quality: 80,
-              withWebp: { quality: 80 },
+              sizeByPixelDensity: true,
+              quality: 95,
+              withWebp: { quality: 95 },
             },
           },
           {
