@@ -2,11 +2,10 @@
 title: Create dynamic creatives in Google Web Designer with DoubleClick Studio
 subtitle: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager (Part 2)
 date: '2018-08-19T00:00:02.000Z'
+tags: ["doubleclick", "marketing"]
 ---
 
 We will create a creative with associate advertiser profile created in the previous tutorial.
-
-![](./image1.png)
 
 ## 3. Upload creatives with associate advertiser profile
 
@@ -32,10 +31,10 @@ You should be able to see your creatives uploaded in Creatives section. You can 
 
 ![](./image6.png)
 
-[In the next tutorial, we will talk about how to manage dynamic ads in DoubleClick Campaign Manager.](https://medium.com/andrewmmc-io/manage-ads-with-dynamic-targeting-key-in-doubleclick-campaign-manager-9a5d820d10d3)
+[In the next tutorial, we will talk about how to manage dynamic ads in DoubleClick Campaign Manager.](../doubleclick-campaign-manager-3)
 
 ### Series: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager
 
-* [Part 1: Import dynamic feed to advertiser profile in DoubleClick Studio](https://medium.com/andrewmmc-io/import-dynamic-feed-to-advertiser-profile-in-doubleclick-studio-dbef1fa51384)
+* [Part 1: Import dynamic feed to advertiser profile in DoubleClick Studio](../doubleclick-campaign-manager-1)
 * **Part 2: Create dynamic creatives in Google Web Designer with DoubleClick Studio**
-* [Part 3: Manage ads with dynamic targeting key in DoubleClick Campaign Manager](https://medium.com/andrewmmc-io/manage-ads-with-dynamic-targeting-key-in-doubleclick-campaign-manager-9a5d820d10d3)
+* [Part 3: Manage ads with dynamic targeting key in DoubleClick Campaign Manager](../doubleclick-campaign-manager-3)

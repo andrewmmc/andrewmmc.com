@@ -2,9 +2,8 @@
 title: Import dynamic feed to advertiser profile in DoubleClick Studio
 subtitle: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager (Part 1)
 date: '2018-08-19T00:00:01.000Z'
+tags: ["doubleclick", "marketing"]
 ---
-
-> **Update:** DoubleClick is now rebranded as Google Marketing Platform. DoubleClick Campaign Manager and DoubleClick Studio are under one product called Display & Video 360 now. See [this post](https://support.google.com/displayvideo/answer/9015629) and [this post](https://www.blog.google/technology/ads/new-advertising-brands/) for more details.
 
 DoubleClick Campaign Manager is an ad management system for advertisers. It provides different tools for advertisers to manage their creatives and run ad campaigns.
 
@@ -12,7 +11,7 @@ In this tutorial series, we will create an ad with dynamic targeting key filteri
 
 Dynamic targeting keys are unique labels that can be assigned to ads, creatives and placements. By using these keys, it saves time to manage ads with dynamic feeds, and avoid human errors occurs. It is very useful when you need to manage different sets of dynamic ads in one campaign.
 
-![](./image1.png)
+> **Update:** DoubleClick is now rebranded as Google Marketing Platform. DoubleClick Campaign Manager and DoubleClick Studio are under one product called Display & Video 360 now. See [this post](https://support.google.com/displayvideo/answer/9015629) and [this post](https://www.blog.google/technology/ads/new-advertising-brands/) for more details.
 
 ## 1. Create a dynamic feed
 
@@ -68,10 +67,10 @@ Great! Then publish the advertiser profile to active, so that you can start usin
 
 ![](./image12.png)
 
-**Congratulations! **It is able to be served with dynamic creatives by your advertiser profile just set. [Check out our next post for creating ads in Google Web Designer.](https://medium.com/andrewmmc-io/create-dynamic-creatives-in-google-web-designer-with-doubleclick-studio-da47141026e)
+**Congratulations! **It is able to be served with dynamic creatives by your advertiser profile just set. [Check out our next post for creating ads in Google Web Designer.](../doubleclick-campaign-manager-2)
 
 ### Series: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager
 
 * **Part 1: Import dynamic feed to advertiser profile in DoubleClick Studio**
-* [Part 2: Create dynamic creatives in Google Web Designer with DoubleClick Studio](https://medium.com/andrewmmc-io/create-dynamic-creatives-in-google-web-designer-with-doubleclick-studio-da47141026e)
-* [Part 3: Manage ads with dynamic targeting key in DoubleClick Campaign Manager](https://medium.com/andrewmmc-io/manage-ads-with-dynamic-targeting-key-in-doubleclick-campaign-manager-9a5d820d10d3)
+* [Part 2: Create dynamic creatives in Google Web Designer with DoubleClick Studio](../doubleclick-campaign-manager-2)
+* [Part 3: Manage ads with dynamic targeting key in DoubleClick Campaign Manager](../doubleclick-campaign-manager-3)

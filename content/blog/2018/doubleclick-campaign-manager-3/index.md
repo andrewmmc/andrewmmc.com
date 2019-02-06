@@ -2,11 +2,10 @@
 title: Manage ads with dynamic targeting key in DoubleClick Campaign Manager
 subtitle: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager (Part 3)
 date: '2018-08-19T00:00:03.000Z'
+tags: ["doubleclick", "marketing"]
 ---
 
 We will manage our ads with dynamic targeting key in DoubleClick Campaign Manager.
-
-![](./image1.png)
 
 ## 4. Create a new campaign
 
@@ -42,6 +41,6 @@ You may repeat those steps for different ads and ad placements. If it is good to
 
 ### Series: Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager
 
-* [Part 1: Import dynamic feed to advertiser profile in DoubleClick Studio](https://medium.com/andrewmmc-io/import-dynamic-feed-to-advertiser-profile-in-doubleclick-studio-dbef1fa51384)
-* [Part 2: Create dynamic creatives in Google Web Designer with DoubleClick Studio](https://medium.com/andrewmmc-io/create-dynamic-creatives-in-google-web-designer-with-doubleclick-studio-da47141026e)
+* [Part 1: Import dynamic feed to advertiser profile in DoubleClick Studio](../doubleclick-campaign-manager-1)
+* [Part 2: Create dynamic creatives in Google Web Designer with DoubleClick Studio](../doubleclick-campaign-manager-2)
 * **Part 3: Manage ads with dynamic targeting key in DoubleClick Campaign Manager**

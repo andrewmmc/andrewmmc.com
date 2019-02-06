@@ -2,9 +2,9 @@
 title: Using Retina.js with Vue-loader
 subtitle: Serve your retina images in Vue as well
 date: '2017-05-09T00:00:00.000Z'
+featuredImage: "./image1.png"
 tags: ["frontend", "javascript"]
 ---
-![](./image1.png)
 
 Vue-loader is a loader for webpack to handle Vue's component. By default, it will handle the file paths stated in src only.
 

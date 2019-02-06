@@ -70,13 +70,13 @@ It is almost done. Login to VestaCP using your domain name with port 8083, and n
 
 For Web Template apache2, change it to default-https. For Proxy Support nginx, change it to force-https. Make sure that you checked both SSL support and Let’s Encrypt support. Then click on Save.
 
-**Congratulations!** From now on, your website will have SSL enabled with forced HTTPS connection. [Check out the next post for applying SSL certificate to VestaCP](https://medium.com/andrewmmc-io/apply-ssl-certificate-by-lets-encrypt-to-vestacp-b2e255e93496).
+**Congratulations!** From now on, your website will have SSL enabled with forced HTTPS connection. [Check out the next post for applying SSL certificate to VestaCP](../vestacp-6).
 
 ### Series: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE
 
-* Part 1: [Setup VM instance on Google Cloud Compute Engine](https://medium.com/andrewmmc-io/setup-vm-instance-on-google-cloud-compute-engine-1e7063cfcde6)
-* Part 2: [Install VestaCP with LEMP on your VM instance](https://medium.com/andrewmmc-io/install-vestacp-with-lemp-on-your-vm-instance-29dda138bb7d)
-* Part 3: [Upgrade PHP version to 7.2 from 7.0](https://medium.com/andrewmmc-io/upgrade-php-version-to-7-2-from-7-0-c005a0926642)
-* Part 4: [Get free SSL Certificates from Let’s Encrypt for your domains](https://medium.com/andrewmmc-io/get-free-ssl-certificates-from-lets-encrypt-for-your-domains-64ae9fa5b8d9)
+* Part 1: [Setup VM instance on Google Cloud Compute Engine](../vestacp-1)
+* Part 2: [Install VestaCP with LEMP on your VM instance](../vestacp-2)
+* Part 3: [Upgrade PHP version to 7.2 from 7.0](../vestacp-3)
+* Part 4: [Get free SSL Certificates from Let’s Encrypt for your domains](../vestacp-4)
 * **Part 5: Apply SSL Certificates to your website and force using HTTPS connections**
-* Part 6: [Apply SSL certificate by Let’s Encrypt to VestaCP](https://medium.com/andrewmmc-io/apply-ssl-certificate-by-lets-encrypt-to-vestacp-b2e255e93496)
+* Part 6: [Apply SSL certificate by Let’s Encrypt to VestaCP](../vestacp-6)

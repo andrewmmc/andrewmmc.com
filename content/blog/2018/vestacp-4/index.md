@@ -2,12 +2,11 @@
 title: Get free SSL Certificates from Let’s Encrypt for your domains
 subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 4)
 date: '2018-05-23T00:00:04.000Z'
+featuredImage: "./image1.png"
 tags: ["devops", "vestacp"]
 ---
 
-In the [previous article](https://medium.com/andrewmmc-io/upgrade-php-version-to-7-2-from-7-0-c005a0926642), we talked about how to upgrade PHP version to 7.2. In this article, we will continue to get free SSL certificates for our domains.
-
-![](./image1.png)
+We will continue to get free SSL certificates for our domains.
 
 ## 4. Get free SSL Certificates from Let’s Encrypt for your domains
 
@@ -43,13 +42,13 @@ After installed certbot, run the following command. It will get certificates for
 $ certbot --apache
 ```
 
-**Congratulations!** Your encrypt SSL certificates are ready. However, you still need to apply those certificates to your websites and Vesta control panel. [Check out our next post to apply certificates to your websites and force your websites in HTTPS connection.](https://medium.com/andrewmmc-io/apply-ssl-certificates-to-your-website-and-force-using-https-connections-37e481f7a29d)
+**Congratulations!** Your encrypt SSL certificates are ready. However, you still need to apply those certificates to your websites and Vesta control panel. [Check out our next post to apply certificates to your websites and force your websites in HTTPS connection.](../vestacp-5)
 
 ### Series: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE
 
-* Part 1: [Setup VM instance on Google Cloud Compute Engine](https://medium.com/andrewmmc-io/setup-vm-instance-on-google-cloud-compute-engine-1e7063cfcde6)
-* Part 2: [Install VestaCP with LEMP on your VM instance](https://medium.com/andrewmmc-io/install-vestacp-with-lemp-on-your-vm-instance-29dda138bb7d)
-* Part 3: [Upgrade PHP version to 7.2 from 7.0](https://medium.com/andrewmmc-io/upgrade-php-version-to-7-2-from-7-0-c005a0926642)
+* Part 1: [Setup VM instance on Google Cloud Compute Engine](../vestacp-1)
+* Part 2: [Install VestaCP with LEMP on your VM instance](../vestacp-2)
+* Part 3: [Upgrade PHP version to 7.2 from 7.0](../vestacp-3)
 * **Part 4: Get free SSL Certificates from Let’s Encrypt for your domains**
-* Part 5: [Apply SSL Certificates to your website and force using HTTPS connections](https://medium.com/andrewmmc-io/apply-ssl-certificates-to-your-website-and-force-using-https-connections-37e481f7a29d)
-* Part 6: [Apply SSL certificate by Let’s Encrypt to VestaCP](https://medium.com/andrewmmc-io/apply-ssl-certificate-by-lets-encrypt-to-vestacp-b2e255e93496)
+* Part 5: [Apply SSL Certificates to your website and force using HTTPS connections](../vestacp-5)
+* Part 6: [Apply SSL certificate by Let’s Encrypt to VestaCP](../vestacp-6)
