@@ -77,19 +77,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-feed',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Gatsby Starter Blog',
-        short_name: 'GatsbyJS',
-        start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#b09a6b',
-        display: 'minimal-ui',
-        icon: 'content/assets/gatsby-icon.png',
-      },
-    },
-    // 'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-typography',
@@ -97,6 +84,20 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-netlify-cache',
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     name: 'Andrew Mok',
+    //     short_name: 'Andrew Mok',
+    //     start_url: '/',
+    //     background_color: '#ffffff',
+    //     theme_color: '#b09a6b',
+    //     display: 'minimal-ui',
+    //     icon: 'content/assets/gatsby-icon.png',
+    //   },
+    // },
+    // 'gatsby-plugin-offline',
   ],
 };
