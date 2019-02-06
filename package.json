@@ -2,7 +2,7 @@
   "name": "andrewmmc.com",
   "private": true,
   "description": "Personal blog by Andrew Mok, a web developer from Hong Kong. I write and I code.",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "author": "Andrew Mok <hello@andrewmmc.com>",
   "dependencies": {
     "gatsby": "^2.0.105",
@@ -55,7 +55,6 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --fix --ext .js --ignore-pattern public .",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build"
