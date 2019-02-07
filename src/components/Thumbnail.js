@@ -13,7 +13,7 @@ const PlaceHolder = styled.div`
   background-color: ${lightGray};
   
   ${media.greaterThan('small')`
-    height: 400px;
+    height: 450px;
   `};
 
   ${({ auto }) => auto && css`
@@ -42,11 +42,6 @@ const StyledBackgroundImage = styled(Image).attrs({
   & > img {
     object-fit: ${props => props.fit || 'cover'} !important;
     object-position: ${props => props.position || '50% 50%'} !important;
-  }
-
-  &::before, &::after {
-    background-size: cover;
-    background-position: center;
   }
 `;
 

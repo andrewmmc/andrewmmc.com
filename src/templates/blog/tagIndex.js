@@ -5,9 +5,8 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
-import Thumbnail from 'components/Thumbnail';
 
-import { Container, Card } from 'pages/index';
+import { Title, Info } from 'pages/index';
 
 const BlogTagIndex = ({ data, pageContext }) => {
   const { tag } = pageContext;
@@ -17,31 +16,24 @@ const BlogTagIndex = ({ data, pageContext }) => {
     <Layout>
       <Seo title={pageTitle} keywords={['blog', 'andrew']} />
       <h1>{pageTitle}</h1>
-      <Container>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const { featuredImage, date } = node.frontmatter;
-          return (
-            <Card key={node.fields.slug}>
+      {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug;
+        const { date } = node.frontmatter;
+        return (
+          <div key={node.fields.slug}>
+            <Info>
+              <span>{date}</span>
+              <span>{node.fields.readingTime.text}</span>
+            </Info>
+            <Title>
               <Link to={node.fields.slug}>
-                {featuredImage
-                  ? <Thumbnail fluid={featuredImage.childImageSharp.fluid} auto />
-                  : <Thumbnail auto />
-                }
+                {title}
               </Link>
-              <div>
-                <small>{date}</small>
-                <h3>
-                  <Link to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              </div>
-            </Card>
-          );
-        })}
-      </Container>
+            </Title>
+            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          </div>
+        );
+      })}
     </Layout>
   );
 };
@@ -66,17 +58,13 @@ export const pageQuery = graphql`
           fields {
             slug
             type
+            readingTime {
+                text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            featuredImage {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 1280) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
           }
         }
       }

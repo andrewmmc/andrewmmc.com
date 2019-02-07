@@ -3,6 +3,8 @@ import { string, arrayOf } from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
+import Favicon from '../../static/favicon.png';
+
 const Seo = ({
   description, lang, meta, keywords, title,
 }) => (
@@ -61,6 +63,7 @@ const Seo = ({
                 : [],
             )
             .concat(meta)}
+          link={[{ rel: 'shortcut icon', type: 'image/png', href: Favicon }]}
         />
       );
     }}

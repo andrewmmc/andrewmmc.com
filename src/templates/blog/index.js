@@ -28,7 +28,6 @@ const Info = styled.div`
   margin: ${rhythm(-0.7)} 0 ${rhythm(0.3)} 0;
   
   span:first-child {
-    display: inline-block;
     margin-right: ${rhythm(1)};
   }
   
@@ -157,7 +156,7 @@ export const pageQuery = graphql`
         featuredImage {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1440) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
+                ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

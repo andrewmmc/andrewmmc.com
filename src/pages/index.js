@@ -3,7 +3,6 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-import media from 'styled-media-query';
 import rgba from 'polished/lib/color/rgba';
 
 import Layout from 'components/Layout';
@@ -13,74 +12,43 @@ import Thumbnail from 'components/Thumbnail';
 import { black } from 'utils/color';
 import { rhythm, scale } from 'utils/typography';
 
-export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: -${rhythm(0.75)};
+export const Title = styled.h3`
+  ${scale(0.5)};
+  margin: ${rhythm(0.1)} 0 ${rhythm(0.2)} 0;
+  font-weight: 600;
 `;
 
-export const Card = styled.div`
-  flex: 0 100%;
-  padding: ${rhythm(0.5)} ${rhythm(0.75)};
+export const Info = styled.small`
+  color: ${rgba(black, 0.7)};
   
-  // & a > div {
-  //   transition: 0.3s;
-  //   &:hover, &:focus {
-  //     transform: translateY(-2px);
-  //     box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
-  //   }
-  // }
-  
-  & >div {
-    padding-top: ${rhythm(0.75)};
+  span:first-child {
+    margin-right: ${rhythm(0.5)};
   }
-  
-  small {
-    color: ${rgba(black, 0.7)};
-  }
-  
-  h3 {
-    ${scale(0.5)};
-    margin: 0 0 ${rhythm(0.7)} 0;
-    font-weight: 600;
-  }
-
-  ${media.greaterThan('small')`
-    flex: 0 50%;
-    padding: ${rhythm(0.75)};
-  `}
 `;
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
-    <Layout>
+    <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
       <Seo keywords={['blog', 'andrew', 'andrewmok']} />
-      <Container>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const { featuredImage, date } = node.frontmatter;
-          return (
-            <Card key={node.fields.slug}>
+      {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug;
+        const { date } = node.frontmatter;
+        return (
+          <div key={node.fields.slug}>
+            <Info>
+              <span>{date}</span>
+              <span>{node.fields.readingTime.text}</span>
+            </Info>
+            <Title>
               <Link to={node.fields.slug}>
-                {featuredImage
-                  ? <Thumbnail fluid={featuredImage.childImageSharp.fluid} auto />
-                  : <Thumbnail auto />
-                }
+                {title}
               </Link>
-              <div>
-                <small>{date}</small>
-                <h3>
-                  <Link to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              </div>
-            </Card>
-          );
-        })}
-      </Container>
+            </Title>
+            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          </div>
+        );
+      })}
     </Layout>
   );
 };
@@ -93,6 +61,13 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query {
+    featuredImage: file(relativePath: { eq: "assets/home.jpg" }) {
+        childImageSharp {
+            fluid(quality: 90, maxWidth: 1440) {
+                ...GatsbyImageSharpFluid_withWebp
+            }
+        }
+    }
     allMarkdownRemark(
       filter: { fields: { type: { eq: "blog" } } }
       sort: { fields: [frontmatter___date], order: DESC }
@@ -103,17 +78,13 @@ export const pageQuery = graphql`
           fields {
             slug
             type
+            readingTime {
+                text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            featuredImage {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 1280) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                }
-            }
           }
         }
       }
