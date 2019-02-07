@@ -10,6 +10,7 @@
     "gatsby-image": "^2.0.22",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-tagmanager": "^2.0.9",
+    "gatsby-plugin-netlify": "^2.0.9",
     "gatsby-plugin-netlify-cache": "^1.0.0",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.19",

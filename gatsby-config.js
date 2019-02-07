@@ -86,5 +86,6 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-netlify-cache',
+    'gatsby-plugin-netlify', // need to be the last
   ],
 };
