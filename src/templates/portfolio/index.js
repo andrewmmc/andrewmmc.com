@@ -10,7 +10,7 @@ import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
-import { lightGray, gray, black } from 'utils/color';
+import { gray, black } from 'utils/color';
 import { rhythm, scale } from 'utils/typography';
 
 const Info = styled.div`
@@ -78,7 +78,9 @@ const Nav = styled.ul`
 const PortfolioTemplate = ({ data, pageContext }) => {
   const { previous, next } = pageContext;
   const post = data.markdownRemark;
-  const { tags, title, date, link, linkLabel } = post.frontmatter;
+  const {
+    tags, title, date, link, linkLabel,
+  } = post.frontmatter;
 
   return (
     <Layout>

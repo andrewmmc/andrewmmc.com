@@ -41,7 +41,10 @@
     "typography-theme-wordpress-2016": "^0.15.10"
   },
   "devDependencies": {
-    "eslint": "5.3.0",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-gatsby": "^0.1.7",
+    "eslint": "^5.13.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",

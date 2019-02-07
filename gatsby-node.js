@@ -1,8 +1,5 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-// const helper = require('./src/utils/helper');
-
-// const { BLOG_TAGS_PATH } = helper;
 
 const BLOG_TAGS_PATH = '/blog/tags/';
 

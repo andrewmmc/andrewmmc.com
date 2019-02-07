@@ -12,8 +12,9 @@ import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
 import { lightGray, gray } from 'utils/color';
-import { BLOG_TAGS_PATH } from 'utils/helper';
 import { rhythm, scale } from 'utils/typography';
+
+const BLOG_TAGS_PATH = '/blog/tags/';
 
 const Title = styled.h1`
   ${scale(0.6)};

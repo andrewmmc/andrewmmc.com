@@ -48,6 +48,7 @@ import Line from './icons/Line';
 import Linkedin from './icons/Linkedin';
 import Medium from './icons/Medium';
 import Meetup from './icons/Meetup';
+import Menu from './icons/Menu';
 import Mobile from './icons/Mobile';
 import Mysql from './icons/Mysql';
 import Nodejs from './icons/Nodejs';
@@ -133,6 +134,7 @@ const icons = {
   linkedin: Linkedin,
   medium: Medium,
   meetup: Meetup,
+  menu: Menu,
   mobile: Mobile,
   mysql: Mysql,
   nodejs: Nodejs,
