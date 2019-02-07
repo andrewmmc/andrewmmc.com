@@ -2,7 +2,7 @@ import React from 'react';
 import { bool, shape } from 'prop-types';
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
-import BackgroundImage from 'gatsby-background-image';
+import Image from 'gatsby-image';
 
 import { lightGray } from 'utils/color';
 
@@ -22,22 +22,27 @@ const PlaceHolder = styled.div`
   `}
 `;
 
-const StyledBackgroundImage = styled(BackgroundImage).attrs({
+const StyledBackgroundImage = styled(Image).attrs({
   backgroundColor: lightGray,
 })`
-  padding: 0;
+  position: absolute;
+  padding: ${({ auto }) => (auto ? '62% 0 0 0' : '0')};
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 250px;
+  height: ${({ auto }) => (auto ? '0' : '250px')};
   background-position: center;
+  z-index: -1;
   
   ${media.greaterThan('small')`
-    height: 400px;
+    height: ${({ auto }) => (auto ? '0' : '400px')};
   `};
 
-  ${({ auto }) => auto && css`
-     height: auto !important;
-     padding: 62% 0 0 0 !important;
-  `}
+  // Adjust image positioning (if image covers area with defined height)
+  & > img {
+    object-fit: ${props => props.fit || 'cover'} !important;
+    object-position: ${props => props.position || '50% 50%'} !important;
+  }
 
   &::before, &::after {
     background-size: cover;

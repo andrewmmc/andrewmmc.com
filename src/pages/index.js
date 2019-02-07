@@ -23,6 +23,14 @@ export const Card = styled.div`
   flex: 0 100%;
   padding: ${rhythm(0.5)} ${rhythm(0.75)};
   
+  // & a > div {
+  //   transition: 0.3s;
+  //   &:hover, &:focus {
+  //     transform: translateY(-2px);
+  //     box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
+  //   }
+  // }
+  
   & >div {
     padding-top: ${rhythm(0.75)};
   }
@@ -43,14 +51,6 @@ export const Card = styled.div`
   `}
 `;
 
-export const StyledThumbnail = styled(Thumbnail)`
-  transition: 0.3s;
-    &:hover, &:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
-    }
-`;
-
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
@@ -64,8 +64,8 @@ const BlogIndex = ({ data }) => {
             <Card key={node.fields.slug}>
               <Link to={node.fields.slug}>
                 {featuredImage
-                  ? <StyledThumbnail fluid={featuredImage.childImageSharp.fluid} auto />
-                  : <StyledThumbnail auto />
+                  ? <Thumbnail fluid={featuredImage.childImageSharp.fluid} auto />
+                  : <Thumbnail auto />
                 }
               </Link>
               <div>

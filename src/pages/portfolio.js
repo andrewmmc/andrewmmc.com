@@ -23,17 +23,17 @@ const Card = styled.div`
   flex: 0 100%;
   padding: ${rhythm(0.75)};
   
+  // & a > div {
+  //   transition: 0.3s;
+  //   &:hover, &:focus {
+  //     transform: translateY(-2px);
+  //     box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
+  //   }
+  // }
+  
   ${media.greaterThan('small')`
     flex: 0 50%;
   `};
-`;
-
-const StyledThumbnail = styled(Thumbnail)`
-  transition: 0.3s;
-    &:hover, &:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
-    }
 `;
 
 const Portfolio = ({ data }) => {
@@ -48,8 +48,8 @@ const Portfolio = ({ data }) => {
             <Card key={node.fields.slug}>
               <Link to={node.fields.slug}>
                 {featuredImage
-                  ? <StyledThumbnail fluid={featuredImage.childImageSharp.fluid} auto />
-                  : <StyledThumbnail auto />
+                  ? <Thumbnail fluid={featuredImage.childImageSharp.fluid} auto />
+                  : <Thumbnail auto />
                 }
               </Link>
             </Card>

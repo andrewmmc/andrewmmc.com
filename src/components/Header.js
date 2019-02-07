@@ -74,6 +74,7 @@ const Nav = styled.nav`
   overflow: hidden;
   transition: 0.3s;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
   
   a {
     display: block;
@@ -93,6 +94,7 @@ const Nav = styled.nav`
     height: auto;
     box-shadow: none;
     opacity: 1;
+    visibility: visible;
     
     a {
       display: inline-block;

@@ -5,8 +5,9 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
+import Thumbnail from 'components/Thumbnail';
 
-import { Container, Card, StyledThumbnail } from 'pages/index';
+import { Container, Card } from 'pages/index';
 
 const BlogTagIndex = ({ data, pageContext }) => {
   const { tag } = pageContext;
@@ -24,8 +25,8 @@ const BlogTagIndex = ({ data, pageContext }) => {
             <Card key={node.fields.slug}>
               <Link to={node.fields.slug}>
                 {featuredImage
-                  ? <StyledThumbnail fluid={featuredImage.childImageSharp.fluid} auto />
-                  : <StyledThumbnail auto />
+                  ? <Thumbnail fluid={featuredImage.childImageSharp.fluid} auto />
+                  : <Thumbnail auto />
                 }
               </Link>
               <div>
