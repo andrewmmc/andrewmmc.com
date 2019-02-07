@@ -1,19 +1,18 @@
 import Typography from 'typography';
+import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import { createGlobalStyle } from 'styled-components';
-import media from 'styled-media-query';
 import { darken, rgba } from 'polished';
 
 import { primary, black, lightGray } from './color'; // px
 
 const BASE_FONT_SIZE = 16;
 
-// https://github.com/KyleAMathews/typography.js/blob/master/packages/typography-theme-github/src/index.js
 const typography = new Typography({
   baseFontSize: `${BASE_FONT_SIZE}px`,
   baseLineHeight: 1.666,
   headerFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
   bodyFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-  overrideStyles: ({ rhythm }) => ({
+  overrideStyles: ({ rhythm, scale }) => ({
     blockquote: {
       borderLeft: `4px solid ${rgba(black, 0.1)}`,
       color: rgba(black, 0.4),
@@ -21,6 +20,11 @@ const typography = new Typography({
       marginRight: 0,
       marginLeft: 0,
       paddingLeft: rhythm(1),
+    },
+    [MOBILE_MEDIA_QUERY]: {
+      'h1,h2,h3,h4,h5,h6': {
+        ...scale(0.8),
+      },
     },
   }),
 });
@@ -71,11 +75,4 @@ export const GlobalStyle = createGlobalStyle`
   code[class*="language-"] {
     text-shadow: none !important;
   }
-  
-  ${media.lessThan('small')`
-    p {
-      ${scale(-0.1)};
-      margin-bottom: ${rhythm(0.5)};
-    }  
-  `}
 `;

@@ -51,8 +51,7 @@ module.exports = {
               linkImagesToOriginal: false,
               showCaptions: true,
               sizeByPixelDensity: true,
-              quality: 95,
-              withWebp: { quality: 95 },
+              quality: 90,
             },
           },
           {
@@ -71,9 +70,10 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        id: 'GTM-N97P56B',
+        includeInDevelopment: false,
       },
     },
     'gatsby-plugin-feed',
@@ -86,18 +86,5 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-netlify-cache',
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     name: 'Andrew Mok',
-    //     short_name: 'Andrew Mok',
-    //     start_url: '/',
-    //     background_color: '#ffffff',
-    //     theme_color: '#b09a6b',
-    //     display: 'minimal-ui',
-    //     icon: 'content/assets/gatsby-icon.png',
-    //   },
-    // },
-    // 'gatsby-plugin-offline',
   ],
 };

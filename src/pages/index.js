@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   flex: 0 100%;
-  padding: ${rhythm(0.75)};
+  padding: ${rhythm(0.5)} ${rhythm(0.75)};
   
   & >div {
     padding-top: ${rhythm(0.75)};
@@ -30,25 +30,21 @@ export const Card = styled.div`
   small {
     color: ${rgba(black, 0.7)};
   }
-
+  
   h3 {
-    ${scale(0.3)};
-    margin: 0 0 ${rhythm(0.5)} 0;
+    ${scale(0.5)};
+    margin: 0 0 ${rhythm(0.7)} 0;
     font-weight: 600;
   }
 
   ${media.greaterThan('small')`
     flex: 0 50%;
-    
-    h3 {
-      ${scale(0.5)};
-      margin: 0 0 ${rhythm(0.7)} 0;
-    }
+    padding: ${rhythm(0.75)};
   `}
 `;
 
 export const StyledThumbnail = styled(Thumbnail)`
-  transition: 0.5s;
+  transition: 0.3s;
     &:hover, &:focus {
       transform: translateY(-2px);
       box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
@@ -113,8 +109,8 @@ export const pageQuery = graphql`
             title
             featuredImage {
                 childImageSharp {
-                    fluid(quality: 100, maxWidth: 400) {
-                        ...GatsbyImageSharpFluid_withWebp
+                    fluid(quality: 90, maxWidth: 1280) {
+                        ...GatsbyImageSharpFluid_noBase64
                     }
                 }
             }

@@ -29,7 +29,7 @@ const Card = styled.div`
 `;
 
 const StyledThumbnail = styled(Thumbnail)`
-  transition: 0.5s;
+  transition: 0.3s;
     &:hover, &:focus {
       transform: translateY(-2px);
       box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
@@ -81,7 +81,7 @@ export const pageQuery = graphql`
           frontmatter {
             featuredImage {
                 childImageSharp {
-                    fluid(quality: 100, maxWidth: 400) {
+                    fluid(quality: 90, maxWidth: 1280) {
                         ...GatsbyImageSharpFluid_noBase64
                     }
                 }

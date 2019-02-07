@@ -17,26 +17,13 @@ import { rhythm, scale } from 'utils/typography';
 const BLOG_TAGS_PATH = '/blog/tags/';
 
 const Title = styled.h1`
-  ${scale(0.6)};
-  line-height: 1.45;
   p {
-    ${scale(0.2)};
-    font-weight: 500;
-    margin-top: ${rhythm(0.2)};
+    ${scale(0.5)};
+    margin-top: ${rhythm(0.5)};
   }
-  
-  ${media.greaterThan('small')`
-     ${scale(1)};
-     line-height: 1.1;
-     p {
-      ${scale(0.5)};
-      margin-top: ${rhythm(0.5)};
-     }
-  `}
 `;
 
 const Info = styled.div`
-  ${scale()};
   display: flex;
   margin: ${rhythm(-0.7)} 0 ${rhythm(0.3)} 0;
   
@@ -170,7 +157,7 @@ export const pageQuery = graphql`
         featuredImage {
           childImageSharp {
             fluid(quality: 90, maxWidth: 1440) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }

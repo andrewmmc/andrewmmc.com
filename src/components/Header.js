@@ -5,7 +5,7 @@ import media from 'styled-media-query';
 import { rgba } from 'polished';
 
 import Icon from 'components/Icon';
-import { lightGray, black } from 'utils/color';
+import { lightGray, black, white } from 'utils/color';
 import { rhythm } from 'utils/typography';
 
 // 1 rhythm ~= 26px
@@ -15,7 +15,7 @@ const Container = styled.header`
   justify-content: space-between;
   width: 100%;
   max-width: ${rhythm(34)};
-  padding: ${rhythm(0.75)} ${rhythm(0.6)};
+  padding: ${rhythm(0.5)} ${rhythm(0.6)};
   margin: 0 auto;
   line-height: 1.2em;
   vertical-align: bottom;
@@ -32,27 +32,50 @@ const Container = styled.header`
     &:hover,
     &:focus, 
     &:active {
+      outline: 0;
       color: ${rgba(black, 0.9)};
     }
   }
-  
-  & nav {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    z-index: 10;
-    margin-right: ${rhythm(0.6)};
-    display: block;
-    min-width: 12em;
-    height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
-    background-color: #fff;
-    box-shadow: 0 0 2em ${rgba(black, 0.15)};
-    overflow: hidden;
-    transition: 0.5s;
-    opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+
+  ${media.greaterThan('small')`
+    padding: ${rhythm(0.75)} ${rhythm(1.5)};
+  `}
+`;
+
+const ToggleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${rgba(black, 0.8)};
+  cursor: pointer;
+
+  &:hover,
+  &:focus, 
+  &:active {
+    outline: 0;
+    color: ${rgba(black, 0.9)};
   }
+
+  ${media.greaterThan('small')`
+    display: none;
+  `};
+`;
+
+const Nav = styled.nav`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
+  margin-right: ${rhythm(0.6)};
+  display: block;
+  min-width: 12em;
+  background-color: ${white};
+  box-shadow: 0 0 2em ${rgba(black, 0.15)};
+  overflow: hidden;
+  transition: 0.3s;
+  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   
-  & nav a {
+  a {
     display: block;
     padding: ${rhythm(0.6)} ${rhythm(0.5)};
     font-size: 0.9em;
@@ -64,18 +87,14 @@ const Container = styled.header`
   }
   
   ${media.greaterThan('small')`
-    padding: ${rhythm(0.75)} ${rhythm(1.5)};
+    position: initial;
+    margin: 0;
+    min-width: auto;
+    height: auto;
+    box-shadow: none;
+    opacity: 1;
     
-    & nav {
-      position: initial;
-      margin: 0;
-      min-width: auto;
-      height: auto;
-      box-shadow: none;
-      opacity: 1;
-    }
-    
-    & nav a {
+    a {
       display: inline-block;
       padding: 0;
       margin-left: 2em;
@@ -86,12 +105,6 @@ const Container = styled.header`
         background: none;
       }
     }
-  `}
-`;
-
-const ToggleContainer = styled.div`
-  ${media.greaterThan('small')`
-    display: none;
   `};
 `;
 
@@ -116,16 +129,16 @@ class Header extends Component {
         render={(data) => {
           const { title } = data.site.siteMetadata;
           return (
-            <Container isOpen={isOpen} {...this.props}>
+            <Container {...this.props}>
               <h1><Link to="/">{title}</Link></h1>
               <ToggleContainer onClick={this.toggleMenu}>
                 <Icon type="menu" size={20} />
               </ToggleContainer>
-              <nav>
+              <Nav isOpen={isOpen}>
                 {menu.map(
                   item => <Link key={item.path} to={item.path}>{item.label.toLowerCase()}</Link>,
                 )}
-              </nav>
+              </Nav>
             </Container>
           );
         }}
