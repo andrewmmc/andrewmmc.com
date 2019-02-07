@@ -45,24 +45,21 @@ const StyledBackgroundImage = styled(BackgroundImage).attrs({
   }
 `;
 
-const Thumbnail = ({
-  fluid, fixed, auto, ...props
-}) => {
-  if (fluid || fixed) {
-    return <StyledBackgroundImage fluid={fluid} fixed={fixed} auto={auto} {...props} />;
+const Thumbnail = ({ fluid, auto, ...props }) => {
+  if (fluid) {
+    return <StyledBackgroundImage fluid={fluid} auto={auto} {...props} />;
   }
+
   return <PlaceHolder auto={auto} {...props} />;
 };
 
 Thumbnail.defaultProps = {
-  fluid: null,
-  fixed: null,
+  fluid: undefined,
   auto: false,
 };
 
 Thumbnail.propTypes = {
   fluid: shape({}),
-  fixed: shape({}),
   auto: bool,
 };
 

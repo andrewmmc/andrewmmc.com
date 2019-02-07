@@ -26,7 +26,7 @@ export const pageQuery = graphql`
         featuredImage: file(relativePath: { eq: "assets/404.jpg" }) {
             childImageSharp {
                 fluid(quality: 90, maxWidth: 1440) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
             }
         }

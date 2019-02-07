@@ -23,10 +23,10 @@ const BlogTagIndex = ({ data, pageContext }) => {
           return (
             <Card key={node.fields.slug}>
               <Link to={node.fields.slug}>
-                <StyledThumbnail
-                  fluid={featuredImage ? featuredImage.childImageSharp.fluid : null}
-                  auto
-                />
+                {featuredImage
+                  ? <StyledThumbnail fluid={featuredImage.childImageSharp.fluid} auto />
+                  : <StyledThumbnail auto />
+                }
               </Link>
               <div>
                 <small>{date}</small>
@@ -72,7 +72,7 @@ export const pageQuery = graphql`
             featuredImage {
                 childImageSharp {
                     fluid(quality: 90, maxWidth: 1280) {
-                        ...GatsbyImageSharpFluid_noBase64
+                        ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                 }
             }

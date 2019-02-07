@@ -6,8 +6,8 @@
   "author": "Andrew Mok <hello@andrewmmc.com>",
   "dependencies": {
     "gatsby": "^2.0.105",
-    "gatsby-background-image": "^0.2.2",
-    "gatsby-image": "^2.0.22",
+    "gatsby-background-image": "^0.2.3",
+    "gatsby-image": "^2.0.24",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-tagmanager": "^2.0.9",
     "gatsby-plugin-netlify": "^2.0.9",
@@ -62,7 +62,8 @@
     "dev": "gatsby develop",
     "lint": "eslint --fix --ext .js --ignore-pattern public .",
     "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "gatsby build"
+    "start": "yarn develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
   }
 }
