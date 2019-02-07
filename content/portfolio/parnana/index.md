@@ -4,6 +4,7 @@ date: '2015-05'
 featuredImage: "./featured.png"
 tags: ["php", "mysql", "codeigniter", "jquery", "illustrator"]
 link: https://parnana.com
+linkLabel: parnana.com
 ---
 
 Established in 2015, Parnana is the one-stop website for ultimate party experience in Hong Kong. 

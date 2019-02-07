@@ -7,7 +7,7 @@ link: https://github.com/andrewmmc/lazysend.com
 linkLabel: GitHub
 ---
 
-Built with [Vue](https://vuejs.org/), PWA.
+Built with [Vue](https://vuejs.org/) and PWA, available on [LazySend.com](https://lazysend.com).
 
 It is so stupid that I have to add a new person every time to phone book because I want to send a WhatsApp message to him/her.
 

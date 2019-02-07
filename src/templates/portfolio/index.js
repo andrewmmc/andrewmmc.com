@@ -4,21 +4,14 @@ import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
+import darken from 'polished/lib/color/darken';
 
 import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
-import { gray, black } from 'utils/color';
+import { lightGray, gray, black } from 'utils/color';
 import { rhythm, scale } from 'utils/typography';
-
-const Title = styled.h1`
-  p {
-    ${scale(0.5)};
-    margin-top: ${rhythm(0.5)};
-    font-weight: 500;
-  }
-`;
 
 const Info = styled.div`
   ${scale(0.2)};
@@ -31,11 +24,34 @@ const Info = styled.div`
   }
 `;
 
+const Tech = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Tags = styled.div`
+  display: inline-block;
   color: ${gray};
   
-  svg:not(:last-child) {
+  svg {
     margin-right: ${rhythm(0.5)};
+  }
+`;
+
+const Landing = styled.a`
+  ${scale(-0.2)};
+  font-weight: normal;
+  padding: 0.1em 0.8em;
+  margin: 0 0 6px 2px; // visual adjustment
+  border: 1px solid ${gray};
+  border-radius: 3px;
+  color: ${gray};
+  
+  &:hover,
+  &:focus, 
+  &:active {
+    border-color: ${darken(0.1, gray)};
+    color: ${darken(0.1, gray)};
   }
 `;
 
@@ -62,22 +78,25 @@ const Nav = styled.ul`
 const PortfolioTemplate = ({ data, pageContext }) => {
   const { previous, next } = pageContext;
   const post = data.markdownRemark;
-  const { tags, title, date } = post.frontmatter;
+  const { tags, title, date, link, linkLabel } = post.frontmatter;
 
   return (
     <Layout>
       <Seo title={title} description={post.excerpt} />
-      <Title>
+      <h1>
         {title}
-      </Title>
+      </h1>
       <Info>
         <span>{date}</span>
       </Info>
-      {tags && (
-        <Tags>
-          {tags.map(tag => <Icon key={tag} size={36} type={tag} title={`${tag.charAt(0).toUpperCase()}${tag.substr(1)}`} />)}
-        </Tags>
-      )}
+      <Tech>
+        {tags && (
+          <Tags>
+            {tags.map(tag => <Icon key={tag} size={36} type={tag} title={`${tag.charAt(0).toUpperCase()}${tag.substr(1)}`} />)}
+          </Tags>
+        )}
+        {link && <Landing href={link} target="_blank" rel="noopener noreferrer">{linkLabel || 'Visit'}</Landing>}
+      </Tech>
       <Article dangerouslySetInnerHTML={{ __html: post.html }} />
       <Nav>
         <li>
@@ -120,6 +139,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM YYYY")
         tags
+        link
+        linkLabel
       }
     }
   }
