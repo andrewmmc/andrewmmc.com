@@ -25,6 +25,7 @@ const BlogTagIndex = ({ data, pageContext }) => {
               <Link to={node.fields.slug}>
                 <StyledThumbnail
                   fluid={featuredImage ? featuredImage.childImageSharp.fluid : null}
+                  auto
                 />
               </Link>
               <div>

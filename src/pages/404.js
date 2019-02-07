@@ -7,7 +7,7 @@ import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
 const NotFound = ({ data }) => (
-  <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} height={400} />}>
+  <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
     <Seo title="404 Not Found" />
     <h1>404 Not Found</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>

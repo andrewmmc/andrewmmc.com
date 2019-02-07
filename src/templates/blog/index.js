@@ -3,6 +3,7 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import { rgba } from 'polished';
 
 import Bio from 'components/Bio';
@@ -15,22 +16,38 @@ import { BLOG_TAGS_PATH } from 'utils/helper';
 import { rhythm, scale } from 'utils/typography';
 
 const Title = styled.h1`
+  ${scale(0.6)};
+  line-height: 1.45;
   p {
-    ${scale(0.5)};
+    ${scale(0.2)};
     font-weight: 500;
-    margin-top: ${rhythm(0.5)};
+    margin-top: ${rhythm(0.2)};
   }
+  
+  ${media.greaterThan('small')`
+     ${scale(1)};
+     line-height: 1.1;
+     p {
+      ${scale(0.5)};
+      margin-top: ${rhythm(0.5)};
+     }
+  `}
 `;
 
 const Info = styled.div`
-  ${scale(0.2)};
+  ${scale()};
   display: flex;
-  margin: ${rhythm(-0.5)} 0 ${rhythm(0.5)} 0;
+  margin: ${rhythm(-0.7)} 0 ${rhythm(0.3)} 0;
   
   span:first-child {
     display: inline-block;
     margin-right: ${rhythm(1)};
   }
+  
+  ${media.greaterThan('small')`
+    ${scale(0.2)};
+    margin: ${rhythm(-0.5)} 0 ${rhythm(0.5)} 0;
+  `}
 `;
 
 const Tags = styled.div`
@@ -81,7 +98,7 @@ const BlogTemplate = ({ data, pageContext }) => {
   return (
     <Layout
       cover={featuredImage
-        && <Thumbnail fluid={featuredImage.childImageSharp.fluid} height={400} />
+        && <Thumbnail fluid={featuredImage.childImageSharp.fluid} />
       }
     >
       <Seo title={title} description={post.excerpt} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import { darken } from 'polished';
 
 import { lightGray, gray } from 'utils/color';
@@ -9,16 +10,17 @@ import { rhythm, scale } from 'utils/typography';
 const Container = styled.footer`
   ${scale(-1 / 8)};
   width: 100%;
-  text-align: center;
+  text-align: left;
   background-color: ${lightGray};
   
   ul {
     max-width: ${rhythm(34)};
-    padding: ${rhythm(1)};
+    padding: ${rhythm(1)} ${rhythm(0.6)};
     margin: 0 auto;
     & li {
       display: inline-block;
-      margin: 0 ${rhythm(1.5)};
+      width: 50%;
+      margin: 0;
       list-style: none;
     }
   }
@@ -32,6 +34,16 @@ const Container = styled.footer`
       color: ${darken(0.1, gray)};
     }
   }
+  
+  ${media.greaterThan('small')`
+    ul {
+    padding: ${rhythm(1)} ${rhythm(1.5)};
+     & li {
+      width: auto;
+      margin: 0 ${rhythm(1.5)} 0 0;
+     }
+    }
+  `};
 `;
 
 // © {new Date().getFullYear()} Andrew Mok. All Rights Reserved.

@@ -1,12 +1,15 @@
 import Typography from 'typography';
 import { createGlobalStyle } from 'styled-components';
+import media from 'styled-media-query';
 import { darken, rgba } from 'polished';
 
-import { primary, black, lightGray } from './color';
+import { primary, black, lightGray } from './color'; // px
+
+const BASE_FONT_SIZE = 16;
 
 // https://github.com/KyleAMathews/typography.js/blob/master/packages/typography-theme-github/src/index.js
 const typography = new Typography({
-  baseFontSize: '16px',
+  baseFontSize: `${BASE_FONT_SIZE}px`,
   baseLineHeight: 1.666,
   headerFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
   bodyFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
@@ -68,4 +71,11 @@ export const GlobalStyle = createGlobalStyle`
   code[class*="language-"] {
     text-shadow: none !important;
   }
+  
+  ${media.lessThan('small')`
+    p {
+      ${scale(-0.1)};
+      margin-bottom: ${rhythm(0.5)};
+    }  
+  `}
 `;

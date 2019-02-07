@@ -30,7 +30,7 @@ const About = ({ data }) => {
   const post = data.markdownRemark;
   const { author } = data.site.siteMetadata;
   return (
-    <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} height={400} />}>
+    <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
       <Seo title={post.frontmatter.title} description={post.excerpt} />
       <Container>
         <StyledImage fixed={data.avatar.childImageSharp.fixed} alt={author} />

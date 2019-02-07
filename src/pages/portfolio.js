@@ -3,6 +3,7 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import rgba from 'polished/lib/color/rgba';
 
 import Layout from 'components/Layout';
@@ -19,8 +20,12 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
-  flex: 0 50%;
+  flex: 0 100%;
   padding: ${rhythm(0.75)};
+  
+  ${media.greaterThan('small')`
+    flex: 0 50%;
+  `};
 `;
 
 const StyledThumbnail = styled(Thumbnail)`
@@ -44,6 +49,7 @@ const Portfolio = ({ data }) => {
               <Link to={node.fields.slug}>
                 <StyledThumbnail
                   fluid={featuredImage ? featuredImage.childImageSharp.fluid : null}
+                  auto
                 />
               </Link>
             </Card>

@@ -3,6 +3,7 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import rgba from 'polished/lib/color/rgba';
 
 import Layout from 'components/Layout';
@@ -19,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const Card = styled.div`
-  flex: 0 50%;
+  flex: 0 100%;
   padding: ${rhythm(0.75)};
   
   & >div {
@@ -31,10 +32,19 @@ export const Card = styled.div`
   }
 
   h3 {
-    ${scale(0.5)};
+    ${scale(0.3)};
     margin: 0 0 ${rhythm(0.5)} 0;
     font-weight: 600;
   }
+
+  ${media.greaterThan('small')`
+    flex: 0 50%;
+    
+    h3 {
+      ${scale(0.5)};
+      margin: 0 0 ${rhythm(0.7)} 0;
+    }
+  `}
 `;
 
 export const StyledThumbnail = styled(Thumbnail)`
@@ -59,6 +69,7 @@ const BlogIndex = ({ data }) => {
               <Link to={node.fields.slug}>
                 <StyledThumbnail
                   fluid={featuredImage ? featuredImage.childImageSharp.fluid : null}
+                  auto
                 />
               </Link>
               <div>

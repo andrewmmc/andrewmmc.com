@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 import { rgba } from 'polished';
 
 import { black } from 'utils/color';
@@ -12,7 +13,7 @@ const Container = styled.header`
   justify-content: space-between;
   width: 100%;
   max-width: ${rhythm(34)};
-  padding: ${rhythm(0.75)} ${rhythm(1.5)};
+  padding: ${rhythm(0.75)} ${rhythm(0.6)};
   margin: 0 auto;
   line-height: 1.2em;
   vertical-align: bottom;
@@ -37,6 +38,10 @@ const Container = styled.header`
     margin-left: 2em;
     font-size: 0.9em;
   }
+  
+  ${media.greaterThan('small')`
+    padding: ${rhythm(0.75)} ${rhythm(1.5)};
+  `}
 `;
 
 const menu = [
