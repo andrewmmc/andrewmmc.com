@@ -3,7 +3,7 @@ title: Waterman Adventure
 date: '2015-06'
 featuredImage: "./featured.jpg"
 tags: ["android", "unity"]
-link: https://download.andrewmmc.com/files/waterman.apk
+link: http://bit.ly/andrewmmc-waterman
 linkLabel: Download
 ---
 
