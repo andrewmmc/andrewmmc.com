@@ -7,7 +7,7 @@ tags: ["gatsby"]
 
 Recently, I revamped [my personal website](https://andrewmmc.com) by using [GatsbyJS](https://www.gatsbyjs.org) during the Lunar New Year. 
 
-Originally I was using [Wordpress](https://wordpress.org), a powerful but old-school blogging tools for my portfolio and blog. It is easy to set up on a PHP-MySQL environment, but it is not so developers friendly with their WYSIWYG editor provided. 
+Originally I was using [Wordpress](https://wordpress.org), a powerful but old-school blogging tool for my portfolio and blog. It is easy to set up on a PHP-MySQL environment, but it is not so developers friendly with their WYSIWYG editor provided. 
 
 Though I decided to spend some time to take a look to see if there are any better blogging tools for me:
 * Markdown friendly - so I don't need to focus on styling
