@@ -17,13 +17,13 @@ const Container = styled.div`
 const Main = styled.main`
   flex: 1;
   width: 100%;
-  max-width: ${rhythm(34)};
+  max-width: ${rhythm(30)};
   padding: 0 ${rhythm(0.6)};
   margin: ${rhythm(0.8)} auto;
 
   ${media.greaterThan('small')`
     padding: 0 ${rhythm(1.5)};
-    margin: ${rhythm(1.5)} auto;
+    margin: ${rhythm(1)} auto;
   `}
 `;
 

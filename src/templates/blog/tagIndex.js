@@ -6,7 +6,7 @@ import { Link, graphql } from 'gatsby';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
-import { Title, Info } from 'pages/index';
+import { Article, Title, Info } from 'pages/index';
 
 const BlogTagIndex = ({ data, pageContext }) => {
   const { tag } = pageContext;
@@ -20,7 +20,7 @@ const BlogTagIndex = ({ data, pageContext }) => {
         const title = node.frontmatter.title || node.fields.slug;
         const { date } = node.frontmatter;
         return (
-          <div key={node.fields.slug}>
+          <Article key={node.fields.slug}>
             <Info>
               <span>{date}</span>
               <span>{node.fields.readingTime.text}</span>
@@ -30,8 +30,7 @@ const BlogTagIndex = ({ data, pageContext }) => {
                 {title}
               </Link>
             </Title>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
+          </Article>
         );
       })}
     </Layout>

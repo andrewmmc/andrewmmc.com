@@ -14,7 +14,7 @@ const Container = styled.footer`
   background-color: ${lightGray};
   
   ul {
-    max-width: ${rhythm(34)};
+    max-width: ${rhythm(30)};
     padding: ${rhythm(1)} ${rhythm(0.6)};
     margin: 0 auto;
     & li {

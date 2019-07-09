@@ -12,8 +12,17 @@ import Thumbnail from 'components/Thumbnail';
 import { black } from 'utils/color';
 import { rhythm, scale } from 'utils/typography';
 
+export const Article = styled.article`
+  margin: 1.5rem 0;
+  
+  &:first-child,
+  &:last-child {
+    margin: 0; // TODO: Fix margin hack
+  }
+`;
+
 export const Title = styled.h3`
-  ${scale(0.5)};
+  ${scale(0.2)};
   margin: ${rhythm(0.1)} 0 ${rhythm(0.2)} 0;
   font-weight: 600;
 `;
@@ -35,7 +44,7 @@ const BlogIndex = ({ data }) => {
         const title = node.frontmatter.title || node.fields.slug;
         const { date } = node.frontmatter;
         return (
-          <div key={node.fields.slug}>
+          <Article key={node.fields.slug}>
             <Info>
               <span>{date}</span>
               <span>{node.fields.readingTime.text}</span>
@@ -45,8 +54,7 @@ const BlogIndex = ({ data }) => {
                 {title}
               </Link>
             </Title>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
+          </Article>
         );
       })}
     </Layout>

@@ -23,12 +23,6 @@ In this mobile age, mobile-friendly is the most important factor that you should
 
 Andrew is experienced in developing websites using above languages or frameworks listed. He is experienced in developing responsive websites with high cross browsers and devices compatibility.  He is also strong at creating HTML5 animated website or banners that always driving users attention on your products or services.
 
-## Backend Development and Database
-* PHP, MySQL
-* Node.js, Mongo
-
-Andrew is experienced in developing website or application using above languages listed.
-
 ## Application Development
 * React Native
 * Unity
@@ -59,5 +53,9 @@ Andrew has experience in using Adobe products for graphic design and Sketch for 
 * Second Runner-up Award in Hong Kong & Macau Youth Networking Skills Competition, 2011
 
 # Talks
-* Arming Your Idea: Digital Media Design & Marketing, 2016
-* Fall in Love to Tech: Build Your Own App as an Entrepreneur, 2016
+## 2019
+* [Why we build our UI library?](https://github.com/andrewmmc/share/blob/master/20190301-ui-library/README.md) • Show Me The Code Meetup #9
+
+## 2016
+* Arming Your Idea: Digital Media Design & Marketing • Lingnan University
+* Fall in Love to Tech: Build Your Own App as an Entrepreneur • Lingnan University

@@ -14,7 +14,7 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: ${rhythm(34)};
+  max-width: ${rhythm(30)};
   padding: ${rhythm(0.5)} ${rhythm(0.6)};
   margin: 0 auto;
   line-height: 1.2em;
@@ -140,6 +140,7 @@ class Header extends Component {
                 {menu.map(
                   item => <Link key={item.path} to={item.path}>{item.label.toLowerCase()}</Link>,
                 )}
+                <a href="https://github.com/andrewmmc" target="_blank" rel="noopener noreferrer">github</a>
               </Nav>
             </Container>
           );
