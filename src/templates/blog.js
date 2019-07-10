@@ -2,37 +2,14 @@
 import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
-import styled from 'styled-components';
 
 import Bio from 'components/Bio';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
-import { primary } from 'utils/color';
-import { rhythm } from 'utils/typography';
-
-const Info = styled.p`
-  color: ${primary};
-  display: flex;
-  margin: 1rem 0;
-  
-  time {
-    margin-right: 1rem;
-  }
-`;
-
-const Content = styled.div`
-  margin: ${rhythm(1)} 0;
-`;
-
-const Nav = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-  margin: ${rhythm(2)} 0;
-`;
+import {
+  Info, Nav, Article, Content,
+} from './styles';
 
 const BlogTemplate = ({ data, pageContext }) => {
   const { previous, next } = pageContext;
@@ -43,7 +20,7 @@ const BlogTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <Seo title={title} description={post.excerpt} />
-      <article>
+      <Article>
         <header>
           <h1>{title}</h1>
           <Info>
@@ -52,7 +29,7 @@ const BlogTemplate = ({ data, pageContext }) => {
           </Info>
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-      </article>
+      </Article>
       <Bio />
       <Nav>
         <li>

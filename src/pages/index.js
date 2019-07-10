@@ -13,7 +13,7 @@ import { black } from 'utils/color';
 
 const List = styled.ul`
   list-style: none;
-  margin: 0;
+  margin: 2rem 0;
 `;
 
 const Item = styled.li`

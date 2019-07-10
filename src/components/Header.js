@@ -113,7 +113,6 @@ const Nav = styled.nav`
 const menu = [
   { path: '/portfolio', label: 'Portfolio' },
   { path: '/about', label: 'About' },
-  { path: '/contact', label: 'Contact' },
 ];
 
 class Header extends Component {

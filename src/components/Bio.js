@@ -3,8 +3,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 
-import { rhythm } from 'utils/typography';
-
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -17,7 +15,7 @@ const Container = styled.div`
 const StyledImage = styled(Image)`
   min-width: 50px;
   border-radius: 100%;
-  margin-right: ${rhythm(0.5)};
+  margin-right: 1rem;
   margin-bottom: 0;
 `;
 

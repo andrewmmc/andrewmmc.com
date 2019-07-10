@@ -4,39 +4,79 @@ import { shape } from 'prop-types';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
+import rgba from 'polished/lib/color/rgba';
 
+import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
+import { black } from 'utils/color';
 
-import { rhythm } from 'utils/typography';
-
-const Container = styled.div`
+const Author = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: ${rhythm(1)};
+  margin-bottom: 1rem;
+
   h1 {
     margin-bottom: 0;
   }
 `;
 
+const Main = styled.div`
+  margin: 2rem 0;
+`;
+
+const SocialMedia = styled.div`
+  display: flex;
+  justify-content: space-around;
+  
+  a {
+    color: ${rgba(black, 0.8)};
+
+    &:hover,
+    &:focus, 
+    &:active {
+      color: ${rgba(black, 0.9)};
+    }
+  }
+`;
+
 const StyledImage = styled(Image)`
   min-width: 50px;
-  margin-right: ${rhythm(0.5)};
+  margin-right: 1rem;
   border-radius: 100%;
 `;
 
 const About = ({ data }) => {
   const post = data.markdownRemark;
-  const { author } = data.site.siteMetadata;
+  const { author, social } = data.site.siteMetadata;
+  const {
+    github, linkedin, medium, vsco,
+  } = social;
   return (
     <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
       <Seo title={post.frontmatter.title} description={post.excerpt} />
-      <Container>
-        <StyledImage fixed={data.avatar.childImageSharp.fixed} alt={author} />
-        <h1>{author}</h1>
-      </Container>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Main>
+        <Author>
+          <StyledImage fixed={data.avatar.childImageSharp.fixed} alt={author} />
+          <h1>{author}</h1>
+        </Author>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <SocialMedia>
+          <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">
+            <Icon type="github" />
+          </a>
+          <a href={`https://linkedin.com/in/${linkedin}`} target="_blank" rel="noopener noreferrer">
+            <Icon type="linkedin" />
+          </a>
+          <a href={`https://medium.com/@${medium}`} target="_blank" rel="noopener noreferrer">
+            <Icon type="medium" />
+          </a>
+          <a href={`https://vsco.co/${vsco}`} target="_blank" rel="noopener noreferrer">
+            <Icon type="vsco" />
+          </a>
+        </SocialMedia>
+      </Main>
     </Layout>
   );
 };
@@ -66,6 +106,12 @@ export const pageQuery = graphql`
       site {
           siteMetadata {
               author
+              social {
+                  github
+                  linkedin
+                  medium
+                  vsco
+              }
           }
       }
       markdownRemark(fields: { slug: { eq: "/about/" } }) {

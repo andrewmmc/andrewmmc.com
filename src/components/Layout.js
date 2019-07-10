@@ -6,12 +6,12 @@ import { MAX_WIDTH } from 'utils/helpers';
 import { GlobalStyle } from 'utils/typography';
 
 import Header from './Header';
-import Footer from './Footer';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: 0 0 2rem 0;
 `;
 
 const Main = styled.main`
@@ -29,7 +29,6 @@ const Layout = ({ cover, children, ...props }) => (
     <Main {...props}>
       {children}
     </Main>
-    <Footer />
   </Container>
 );
 

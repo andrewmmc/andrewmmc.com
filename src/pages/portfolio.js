@@ -4,32 +4,20 @@ import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import rgba from 'polished/lib/color/rgba';
 
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
-import { black } from 'utils/color';
-import { rhythm } from 'utils/typography';
-
-const Container = styled.div`
+const Main = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: -${rhythm(0.75)};
+  margin: 2rem -1rem;
 `;
 
 const Card = styled.div`
   flex: 0 100%;
-  padding: ${rhythm(0.75)};
-  
-  // & a > div {
-  //   transition: 0.3s;
-  //   &:hover, &:focus {
-  //     transform: translateY(-2px);
-  //     box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
-  //   }
-  // }
+  padding: 1rem;
   
   ${media.greaterThan('small')`
     flex: 0 50%;
@@ -41,7 +29,7 @@ const Portfolio = ({ data }) => {
   return (
     <Layout>
       <Seo title="Portfolio" keywords={['portfolio', 'andrew', 'andrewmok', 'frontend', 'javascript']} />
-      <Container>
+      <Main>
         {posts.map(({ node }) => {
           const { featuredImage } = node.frontmatter;
           return (
@@ -55,7 +43,7 @@ const Portfolio = ({ data }) => {
             </Card>
           );
         })}
-      </Container>
+      </Main>
     </Layout>
   );
 };
