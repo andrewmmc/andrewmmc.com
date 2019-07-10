@@ -10,7 +10,7 @@ In my free time, I [do mobile apps](https://itunes.apple.com/us/developer/man-ch
 
 I enjoy my work and hope to contribute my knowledge and skills on any opportunities. If you're interested in the professional work that I've done, check out my [portfolio](https://andrewmmc.com) and [resume](https://www.linkedin.com/in/andrewmmc).
 
-Feel free to [email me](https://andrewmmc.com/contact) for reaching out ☕!
+Feel free to [email me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 ## Skills
 * **Frontend:** JavaScript, React, Vue.js, jQuery
