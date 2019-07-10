@@ -6,26 +6,24 @@ import { rgba } from 'polished';
 
 import Icon from 'components/Icon';
 import { lightGray, black, white } from 'utils/color';
-import { rhythm } from 'utils/typography';
+import { MAX_WIDTH } from 'utils/helpers';
 
-// 1 rhythm ~= 26px
 const Container = styled.header`
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  max-width: ${rhythm(30)};
-  padding: ${rhythm(0.5)} ${rhythm(0.6)};
+  max-width: ${MAX_WIDTH}rem;
+  padding: 1rem 1rem;
   margin: 0 auto;
-  line-height: 1.2em;
-  vertical-align: bottom;
-     
+
   h1 {
-    margin-bottom: 0;
-    font-size: 1.2em;
+    margin: 0;
+    font-size: 1.2rem;
     font-weight: 500;
   }
-  
+
   a {
     color: ${rgba(black, 0.8)};
     
@@ -38,14 +36,17 @@ const Container = styled.header`
   }
 
   ${media.greaterThan('small')`
-    padding: ${rhythm(0.75)} ${rhythm(1.5)};
+    padding: 1.25rem 1rem;
   `}
 `;
 
-const ToggleContainer = styled.div`
+const ToggleContainer = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
   color: ${rgba(black, 0.8)};
   cursor: pointer;
 
@@ -64,13 +65,13 @@ const ToggleContainer = styled.div`
 const Nav = styled.nav`
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
   z-index: 10;
-  margin-right: ${rhythm(0.6)};
-  display: block;
-  min-width: 12em;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
   background-color: ${white};
-  box-shadow: 0 0 2em ${rgba(black, 0.15)};
   overflow: hidden;
   transition: 0.3s;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
@@ -78,8 +79,8 @@ const Nav = styled.nav`
   
   a {
     display: block;
-    padding: ${rhythm(0.6)} ${rhythm(0.5)};
-    font-size: 0.9em;
+    width: 50%;
+    padding: 1rem 1rem;
     &:hover,
     &:focus, 
     &:active {
@@ -89,15 +90,14 @@ const Nav = styled.nav`
   
   ${media.greaterThan('small')`
     position: initial;
-    margin: 0;
-    min-width: auto;
-    height: auto;
-    box-shadow: none;
+    width: auto;
+    justify-content: flex-end;
     opacity: 1;
     visibility: visible;
-    
+
     a {
       display: inline-block;
+      width: auto;
       padding: 0;
       margin-left: 2em;
       

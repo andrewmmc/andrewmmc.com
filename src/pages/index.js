@@ -10,28 +10,27 @@ import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
 import { black } from 'utils/color';
-import { rhythm, scale } from 'utils/typography';
 
-export const Article = styled.article`
-  margin: 1.5rem 0;
-  
-  &:first-child,
-  &:last-child {
-    margin: 0; // TODO: Fix margin hack
-  }
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
 `;
 
-export const Title = styled.h3`
-  ${scale(0.2)};
-  margin: ${rhythm(0.1)} 0 ${rhythm(0.2)} 0;
+const Item = styled.li`
+  margin: 1.5rem 0;
+`;
+
+const Title = styled.h3`
   font-weight: 600;
 `;
 
-export const Info = styled.small`
+const Info = styled.small`
+  display: block;
+  margin: 0 0 0.5rem 0;
   color: ${rgba(black, 0.7)};
   
-  span:first-child {
-    margin-right: ${rhythm(0.5)};
+  time {
+    margin-right: 1rem;
   }
 `;
 
@@ -40,23 +39,25 @@ const BlogIndex = ({ data }) => {
   return (
     <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
       <Seo keywords={['blog', 'andrew', 'andrewmok']} />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        const { date } = node.frontmatter;
-        return (
-          <Article key={node.fields.slug}>
-            <Info>
-              <span>{date}</span>
-              <span>{node.fields.readingTime.text}</span>
-            </Info>
-            <Title>
-              <Link to={node.fields.slug}>
-                {title}
-              </Link>
-            </Title>
-          </Article>
-        );
-      })}
+      <List>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          const { date } = node.frontmatter;
+          return (
+            <Item key={node.fields.slug}>
+              <Info>
+                <time>{date}</time>
+                <span>{node.fields.readingTime.text}</span>
+              </Info>
+              <Title>
+                <Link to={node.fields.slug}>
+                  {title}
+                </Link>
+              </Title>
+            </Item>
+          );
+        })}
+      </List>
     </Layout>
   );
 };

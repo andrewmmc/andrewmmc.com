@@ -1,13 +1,10 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const BLOG_TAGS_PATH = '/blog/tags/';
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
-  const blogTemplate = path.resolve('./src/templates/blog/index.js');
-  const tagTemplate = path.resolve('./src/templates/blog/tagIndex.js');
-  const portfolioTemplate = path.resolve('./src/templates/portfolio/index.js');
+  const blogTemplate = path.resolve('./src/templates/blog.js');
+  const portfolioTemplate = path.resolve('./src/templates/portfolio.js');
 
   // redirect /blog to home page
   createRedirect({
@@ -25,7 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const blogPosts = blogResults.data.allMarkdownRemark.edges;
-  let blogTags = [];
+  // let blogTags = [];
   blogPosts.forEach((post, index) => {
     const { slug } = post.node.fields;
     const previous = index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
@@ -37,32 +34,6 @@ exports.createPages = async ({ graphql, actions }) => {
         slug,
         previous,
         next,
-      },
-    });
-
-    if (post.node.frontmatter.tags) {
-      post.node.frontmatter.tags.forEach((tag) => {
-        blogTags.push(tag);
-      });
-    }
-  });
-
-  // redirect /tags to homepage
-  createRedirect({
-    fromPath: '/tags', toPath: '/', isPermanent: true, redirectInBrowser: true,
-  });
-  createRedirect({
-    fromPath: '/tags/', toPath: '/', isPermanent: true, redirectInBrowser: true,
-  });
-
-  // create blog tag pages
-  blogTags = [...new Set(blogTags)];
-  blogTags.forEach((tag) => {
-    createPage({
-      path: `${BLOG_TAGS_PATH}${tag}/`,
-      component: tagTemplate,
-      context: {
-        tag,
       },
     });
   });

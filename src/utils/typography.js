@@ -1,5 +1,4 @@
 import Typography from 'typography';
-import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants'
 import { createGlobalStyle } from 'styled-components';
 import { darken, rgba } from 'polished';
 
@@ -12,7 +11,14 @@ const typography = new Typography({
   baseLineHeight: 1.666,
   headerFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
   bodyFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-  overrideStyles: ({ rhythm, scale }) => ({
+  overrideStyles: ({ rhythm }) => ({
+    body: {
+      fontKerning: 'inherit',
+    },
+    'h1,h2,h3,h4,h5,h6': {
+      lineHeight: 1.25,
+      marginBottom: '1rem',
+    },
     blockquote: {
       borderLeft: `4px solid ${rgba(black, 0.1)}`,
       color: rgba(black, 0.4),
@@ -20,11 +26,6 @@ const typography = new Typography({
       marginRight: 0,
       marginLeft: 0,
       paddingLeft: rhythm(1),
-    },
-    [MOBILE_MEDIA_QUERY]: {
-      'h1,h2,h3,h4,h5,h6': {
-        ...scale(0.8),
-      },
     },
   }),
 });
@@ -39,6 +40,11 @@ export const { rhythm, scale } = typography;
 export const GlobalStyle = createGlobalStyle`
   @import url('https://rsms.me/inter/inter-ui.css');
   
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   a {
     color: ${primary};
     text-decoration: none;
@@ -50,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
       text-decoration: none;
     }
   }
-  
+
   // PrismJS tweaks and line numbers
   p+div.gatsby-highlight, ol+div.gatsby-highlight, ul+div.gatsby-highlight {
     margin-bottom: ${rhythm(1)};
