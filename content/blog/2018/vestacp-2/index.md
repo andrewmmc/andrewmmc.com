@@ -1,9 +1,6 @@
 ---
 title: Install VestaCP with LEMP on your VM instance
-subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 2)
 date: '2018-05-23T00:00:02.000Z'
-featuredImage: "./cover.png"
-tags: ["devops", "vestacp"]
 ---
 
 We will continue to install VestaCP with LEMP on the VM instance created.

@@ -1,9 +1,6 @@
 ---
 title: Apply SSL certificate by Let’s Encrypt to VestaCP
-subtitle: Setup Ubuntu 16.04 LEMP server with VestaCP on GCE (Part 6)
 date: '2018-05-23T00:00:06.000Z'
-featuredImage: "./cover.jpg"
-tags: ["devops", "vestacp"]
 ---
 
 We will continue to apply the certificate to VestaCP as well.

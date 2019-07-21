@@ -11,7 +11,9 @@ import Seo from 'components/Seo';
 
 import { gray } from 'utils/color';
 import { scale } from 'utils/typography';
-import { Info, Nav, Article, Content } from './styles';
+import {
+  Info, Nav, Article, Content,
+} from './styles';
 
 const Stack = styled.div`
   display: flex;

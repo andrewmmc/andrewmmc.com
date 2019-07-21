@@ -106,8 +106,6 @@ const blogQuery = `
           }
           frontmatter {
             title
-            subtitle
-            tags
           }
         }
       }

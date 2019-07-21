@@ -1,8 +1,6 @@
 ---
 title: "Node.js error: getaddrinfo ENOTFOUND localhost"
 date: '2017-05-16T00:00:00.000Z'
-featuredImage: "./cover.jpg"
-tags: ["backend", "nodejs"]
 ---
 
 The error getaddrinfo ENOTFOUND localhost is caused by Webpack cannot found localhost address.
