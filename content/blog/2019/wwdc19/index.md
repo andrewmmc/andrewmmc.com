@@ -90,8 +90,6 @@ Apple 發出的參會證明信件會以快遞的方式寄到你所填的郵寄�
 
 ![WWDC19 Sessions](./image_15.jpeg)
 
-![WWDC19 Sessions](./image_20.jpeg)
-
 Sessions 是 Apple 就這一年所發佈的新技術進行更深入的技術演講。一共四天的 Sessions 都是圍繞著 iOS、macOS、watchOS、Swift、AR、Web 等主題進行演講，內容都是由淺至深，以確保開發者有時間能了解當中的內容。
 
 由於同一時間內會場內不同的 Hall 有多個 Sessions 同時進行，所以你需要根據感興趣的內容進行選擇出席感興趣的 Sessions。在現場觀看，還是在電腦前觀看直播的分別不大，有些開發者更喜歡在會場的休息區內以電腦觀看直播，動手做做 Demo。Apple 會在當天晚上或隔天在開發者網站上更新當天的影片，因此也不用怕錯過了內容。 
