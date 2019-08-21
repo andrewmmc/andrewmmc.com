@@ -23,7 +23,10 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
-const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+let isDarkMode = false;
+if (typeof window !== 'undefined' && window.matchMedia) {
+  isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
 
 const Layout = ({ cover, children, ...props }) => (
   <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
