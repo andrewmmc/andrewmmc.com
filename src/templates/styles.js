@@ -4,8 +4,6 @@ import darken from 'polished/lib/color/darken';
 import { rhythm } from 'themes/typography';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://rsms.me/inter/inter-ui.css');
-
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

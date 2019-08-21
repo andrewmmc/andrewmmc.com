@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { node } from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -39,14 +39,16 @@ class Layout extends Component {
     const { isDarkMode } = this.state;
     return (
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        <Container>
+        <Fragment>
           <GlobalStyle />
-          <Header />
-          {cover}
-          <Main {...props}>
-            {children}
-          </Main>
-        </Container>
+          <Container>
+            <Header />
+            {cover}
+            <Main {...props}>
+              {children}
+            </Main>
+          </Container>
+        </Fragment>
       </ThemeProvider>
     );
   }

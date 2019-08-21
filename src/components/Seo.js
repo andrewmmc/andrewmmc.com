@@ -64,7 +64,9 @@ const Seo = ({
             )
             .concat(meta)}
           link={[{ rel: 'shortcut icon', type: 'image/png', href: Favicon }]}
-        />
+        >
+          <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet" />
+        </Helmet>
       );
     }}
   />

@@ -91,6 +91,7 @@ const Nav = styled.nav`
     position: initial;
     width: auto;
     justify-content: flex-end;
+    background-color: transparent;
     opacity: 1;
     visibility: visible;
 
@@ -103,7 +104,7 @@ const Nav = styled.nav`
       &:hover, 
       &:focus, 
       &:active {
-        background: none;
+        background-color: transparent;
       }
     }
   `};
