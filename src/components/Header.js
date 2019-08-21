@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { rgba } from 'polished';
+import rgba from 'polished/lib/color/rgba';
 
 import Icon from 'components/Icon';
 import { MAX_WIDTH } from 'utils/helpers';
