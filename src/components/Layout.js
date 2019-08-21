@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { node } from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -23,23 +23,34 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
-let isDarkMode = false;
-if (typeof window !== 'undefined' && window.matchMedia) {
-  isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-}
+class Layout extends Component {
+  state = {
+    isDarkMode: false,
+  };
 
-const Layout = ({ cover, children, ...props }) => (
-  <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-    <Container>
-      <GlobalStyle />
-      <Header />
-      {cover}
-      <Main {...props}>
-        {children}
-      </Main>
-    </Container>
-  </ThemeProvider>
-);
+  componentDidMount() {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      this.setState({ isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches });
+    }
+  }
+
+  render() {
+    const { cover, children, ...props } = this.props;
+    const { isDarkMode } = this.state;
+    return (
+      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <Container>
+          <GlobalStyle />
+          <Header />
+          {cover}
+          <Main {...props}>
+            {children}
+          </Main>
+        </Container>
+      </ThemeProvider>
+    );
+  }
+}
 
 Layout.defaultProps = {
   cover: null,
