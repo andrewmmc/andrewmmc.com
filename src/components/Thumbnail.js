@@ -4,13 +4,11 @@ import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import Image from 'gatsby-image';
 
-import { lightGray } from 'utils/color';
-
 const PlaceHolder = styled.div`
   padding: 0;
   width: 100%;
   height: 250px;
-  background-color: ${lightGray};
+  background-color: ${({ theme }) => theme.colors.lightGray};
   
   ${media.greaterThan('small')`
     height: 450px;
@@ -22,9 +20,9 @@ const PlaceHolder = styled.div`
   `}
 `;
 
-const StyledBackgroundImage = styled(Image).attrs({
-  backgroundColor: lightGray,
-})`
+const StyledBackgroundImage = styled(Image).attrs(({ theme }) => ({
+  backgroundColor: theme.colors.lightGray,
+}))`
   position: absolute;
   padding: ${({ auto }) => (auto ? '62% 0 0 0' : '0')};
   top: 0;
@@ -40,8 +38,8 @@ const StyledBackgroundImage = styled(Image).attrs({
 
   // Adjust image positioning (if image covers area with defined height)
   & > img {
-    object-fit: ${props => props.fit || 'cover'} !important;
-    object-position: ${props => props.position || '50% 50%'} !important;
+    object-fit: ${({ fit }) => fit || 'cover'} !important;
+    object-position: ${({ position }) => position || '50% 50%'} !important;
   }
 `;
 

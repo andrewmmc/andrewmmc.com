@@ -23,6 +23,7 @@ module.exports = {
         components: path.join(__dirname, 'src/components'),
         pages: path.join(__dirname, 'src/pages'),
         templates: path.join(__dirname, 'src/templates'),
+        themes: path.join(__dirname, 'src/themes'),
         utils: path.join(__dirname, 'src/utils'),
       },
     },
@@ -81,7 +82,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography',
+        pathToConfigModule: 'src/themes/typography',
       },
     },
     'gatsby-plugin-styled-components',

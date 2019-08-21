@@ -9,8 +9,7 @@ import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
-import { gray } from 'utils/color';
-import { scale } from 'utils/typography';
+import { scale } from 'themes/typography';
 import {
   Info, Nav, Article, Content,
 } from './styles';
@@ -22,7 +21,7 @@ const Stack = styled.div`
 
 const List = styled.div`
   display: inline-block;
-  color: ${gray};
+  color: ${({ theme }) => theme.colors.secordaryText};
   
   svg {
     margin-right: 1rem;
@@ -34,15 +33,15 @@ const Landing = styled.a`
   font-weight: normal;
   padding: 0.1em 0.8em;
   margin: 0 0 6px 2px; // visual adjustment
-  border: 1px solid ${gray};
+  border: 1px solid ${({ theme }) => theme.colors.secordaryText};
   border-radius: 3px;
-  color: ${gray};
+  color: ${({ theme }) => theme.colors.secordaryText};
   
   &:hover,
   &:focus, 
   &:active {
-    border-color: ${darken(0.1, gray)};
-    color: ${darken(0.1, gray)};
+    border-color: ${({ theme }) => darken(0.1, theme.colors.secordaryText)};
+    color: ${({ theme }) => darken(0.1, theme.colors.secordaryText)};
   }
 `;
 

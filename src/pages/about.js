@@ -10,7 +10,6 @@ import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
-import { black } from 'utils/color';
 
 const Author = styled.div`
   display: flex;
@@ -31,12 +30,12 @@ const SocialMedia = styled.div`
   justify-content: space-around;
   
   a {
-    color: ${rgba(black, 0.8)};
+    color: ${({ theme }) => rgba(theme.colors.primaryText, 0.8)};
 
     &:hover,
     &:focus, 
     &:active {
-      color: ${rgba(black, 0.9)};
+      color: ${({ theme }) => rgba(theme.colors.primaryText, 0.9)};
     }
   }
 `;

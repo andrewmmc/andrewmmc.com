@@ -1,9 +1,11 @@
 import React from 'react';
 import { node } from 'prop-types';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { MAX_WIDTH } from 'utils/helpers';
-import { GlobalStyle } from 'utils/typography';
+import { GlobalStyle } from 'templates/styles';
+import lightTheme from 'themes/light';
+import darkTheme from 'themes/dark';
 
 import Header from './Header';
 
@@ -21,15 +23,19 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
+const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 const Layout = ({ cover, children, ...props }) => (
-  <Container>
-    <GlobalStyle />
-    <Header />
-    {cover}
-    <Main {...props}>
-      {children}
-    </Main>
-  </Container>
+  <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <Container>
+      <GlobalStyle />
+      <Header />
+      {cover}
+      <Main {...props}>
+        {children}
+      </Main>
+    </Container>
+  </ThemeProvider>
 );
 
 Layout.defaultProps = {

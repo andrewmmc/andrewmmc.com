@@ -9,8 +9,6 @@ import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
-import { black } from 'utils/color';
-
 const List = styled.ul`
   list-style: none;
   margin: 2rem 0;
@@ -27,7 +25,7 @@ const Title = styled.h3`
 const Info = styled.small`
   display: block;
   margin: 0 0 0.5rem 0;
-  color: ${rgba(black, 0.7)};
+  color: ${({ theme }) => rgba(theme.colors.primaryText, 0.7)};
   
   time {
     margin-right: 1rem;

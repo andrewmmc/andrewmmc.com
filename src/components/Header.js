@@ -5,7 +5,6 @@ import media from 'styled-media-query';
 import { rgba } from 'polished';
 
 import Icon from 'components/Icon';
-import { lightGray, black, white } from 'utils/color';
 import { MAX_WIDTH } from 'utils/helpers';
 
 const Container = styled.header`
@@ -25,13 +24,13 @@ const Container = styled.header`
   }
 
   a {
-    color: ${rgba(black, 0.8)};
+    color: ${({ theme }) => rgba(theme.colors.primaryText, 0.8)};
     
     &:hover,
     &:focus, 
     &:active {
       outline: 0;
-      color: ${rgba(black, 0.9)};
+      color: ${({ theme }) => rgba(theme.colors.primaryText, 0.9)};
     }
   }
 
@@ -47,14 +46,14 @@ const ToggleContainer = styled.button`
   background: none;
   border: none;
   padding: 0;
-  color: ${rgba(black, 0.8)};
+  color: ${({ theme }) => rgba(theme.colors.primaryText, 0.8)};
   cursor: pointer;
 
   &:hover,
   &:focus, 
   &:active {
     outline: 0;
-    color: ${rgba(black, 0.9)};
+    color: ${({ theme }) => rgba(theme.colors.primaryText, 0.9)};
   }
 
   ${media.greaterThan('small')`
@@ -71,7 +70,7 @@ const Nav = styled.nav`
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  background-color: ${white};
+  background-color: ${({ theme }) => theme.colors.background};
   overflow: hidden;
   transition: 0.3s;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
@@ -84,7 +83,7 @@ const Nav = styled.nav`
     &:hover,
     &:focus, 
     &:active {
-      background-color: ${lightGray};
+      background-color: ${({ theme }) => theme.colors.lightGray};
     }
   }
   

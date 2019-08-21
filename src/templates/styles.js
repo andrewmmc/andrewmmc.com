@@ -1,9 +1,72 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
-import { primary, black } from 'utils/color';
+import darken from 'polished/lib/color/darken';
+import { rhythm } from 'themes/typography';
+
+export const GlobalStyle = createGlobalStyle`
+  @import url('https://rsms.me/inter/inter-ui.css');
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => rgba(theme.colors.primaryText, 0.8)};
+  }
+  
+  ::selection {
+    background-color: ${({ theme }) => rgba(theme.colors.gold, 0.3)};
+  }
+
+  a {
+    color: ${({ theme }) => theme.colors.gold};
+    text-decoration: none;
+
+    &:hover,
+    &:focus, 
+    &:active {
+      color: ${({ theme }) => darken(0.1, theme.colors.gold)};
+      text-decoration: none;
+    }
+  }
+  
+  blockquote {
+    border-left: 4px solid ${({ theme }) => rgba(theme.colors.primaryText, 0.5)};
+    color: ${({ theme }) => rgba(theme.colors.primaryText, 0.5)};
+  }
+  
+  code {
+    background-color: ${({ theme }) => theme.colors.lightGray} !important;
+    color: ${({ theme }) => theme.colors.primaryText} !important;
+  }
+
+  // PrismJS tweaks and line numbers
+  p+div.gatsby-highlight, ol+div.gatsby-highlight, ul+div.gatsby-highlight {
+    margin-bottom: ${rhythm(1)};
+  }
+  
+  .gatsby-highlight {
+    background-color: ${({ theme }) => theme.colors.lightGray};
+    padding: 1em;
+    overflow: auto;
+  }
+  
+  .gatsby-highlight pre[class*="language-"] {
+    background-color: ${({ theme }) => theme.colors.lightGray};
+    padding: 0;
+  }
+
+  .gatsby-highlight pre[class*="language-"].line-numbers {
+    padding-left: 2.5em;
+    overflow: scroll;
+  }
+  
+  code[class*="language-"] {
+    text-shadow: none !important;
+  }
+`;
 
 export const Info = styled.p`
-  color: ${primary};
+  color: ${({ theme }) => theme.colors.gold};
   display: flex;
   margin: 1rem 0;
   
@@ -31,7 +94,7 @@ export const Content = styled.div`
   p {
     span.gatsby-resp-image-wrapper {
       margin: 2rem;
-      box-shadow: 0 0.8em 2em ${rgba(black, 0.05)};
+      box-shadow: 0 0.8em 2em ${({ theme }) => rgba(theme.colors.primaryText, 0.05)};
     }
   }
 `;
