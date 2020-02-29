@@ -98,7 +98,7 @@ Sessions 是 Apple 就這一年所發佈的新技術進行更深入的技術演�
 
 相對於 Sessions，Labs 對參會開發者更重要和更有價值。Labs 是 Apple 安排了不同的工程師給予參會開發者面對面直接交流的機會，讓你可以直接向他們的工程師和設計師提問，因此事前準備好問題是十分重要的。Labs 按不同的主題，設有不同的時段，部份 Labs 需要提早預約，而有部份 Labs 也十分火熱需要耐心等候，建議在該時段提早進內等候。
 
-![WWDC19 LAbs](./image_18.jpeg)
+![WWDC19 Labs](./image_18.jpeg)
 
 由於 Sessions 和 Labs 是同時進行，因此時間上分配便十分重要。我個人經驗是你沒有辦法參與所有你感興趣的 Sessions，而 Labs 也比 Sessions 更重要和更可貴，一些錯過了的 Sessions 也只能記下來在晚上重溫。
 
