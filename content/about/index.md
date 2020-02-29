@@ -2,7 +2,7 @@
 title: About
 ---
 
-👋! I'm Andrew, a frontend developer born and raised in Hong Kong.
+👋! I'm Andrew, a developer born and raised in Hong Kong.
 
 I enjoy creating beautiful, simple and elegant things. I used to develop modern web applications under Agile and Waterfall methodologies with Git workflow. I’ve mostly worked with JavaScript, React and PHP but also a little bit with Node.js and Golang. 
 
