@@ -20,17 +20,26 @@ const Container = styled.header`
   h1 {
     margin: 0;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 600;
+    
+    & a:hover, 
+    & a:focus, 
+    & a:active {
+      background: none;
+    }
   }
 
   a {
     color: ${({ theme }) => rgba(theme.colors.primaryText, 0.8)};
+    border-bottom: 0;
     
     &:hover,
     &:focus, 
     &:active {
       outline: 0;
       color: ${({ theme }) => rgba(theme.colors.primaryText, 0.9)};
+      background: none;
+      border-bottom: 0;
     }
   }
 

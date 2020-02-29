@@ -31,11 +31,14 @@ const SocialMedia = styled.div`
   
   a {
     color: ${({ theme }) => rgba(theme.colors.primaryText, 0.8)};
+    border-bottom: none;
 
     &:hover,
     &:focus, 
     &:active {
       color: ${({ theme }) => rgba(theme.colors.primaryText, 0.9)};
+      background: none;
+      border-bottom: none;
     }
   }
 `;

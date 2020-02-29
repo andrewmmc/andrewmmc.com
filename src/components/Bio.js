@@ -1,12 +1,13 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
   align-items: center;
-  
+  margin: 1.5rem 0;
+
   p {
     margin: 0;
   }
@@ -34,11 +35,8 @@ const Bio = props => (
             }}
           />
           <p>
-            <strong>{author}</strong>
-              , a web developer from
-            {' '}
-            {location}
-.  I write and I code.
+            I'm <strong>{author}</strong>, a developer raised in {location}. <br />
+            I enjoy working on <a href="https://github.com/andrewmmc" target="_blank" rel="noopener noreferrer">modern web develpoment</a>, and <Link to="/about">everything related</Link> :)
           </p>
         </Container>
       );

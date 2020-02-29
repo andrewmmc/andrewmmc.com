@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
+import lighten from 'polished/lib/color/lighten';
 import darken from 'polished/lib/color/darken';
 import { rhythm } from 'themes/typography';
 
@@ -18,12 +19,15 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: ${({ theme }) => theme.colors.gold};
     text-decoration: none;
+    border-bottom: 2px solid ${({ theme }) => lighten(0.4, theme.colors.gold)};
 
     &:hover,
     &:focus, 
     &:active {
       color: ${({ theme }) => darken(0.1, theme.colors.gold)};
+      background-color: ${({ theme }) => lighten(0.4, theme.colors.gold)};
       text-decoration: none;
+      border-bottom: 2px solid ${({ theme }) => darken(0.1, theme.colors.gold)};
     }
   }
   
@@ -37,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primaryText} !important;
   }
 
-  // PrismJS tweaks and line numbers
+  /* PrismJS tweaks and line numbers */
   p+div.gatsby-highlight, ol+div.gatsby-highlight, ul+div.gatsby-highlight {
     margin-bottom: ${rhythm(1)};
   }

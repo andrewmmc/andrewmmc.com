@@ -5,13 +5,14 @@ import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
+import Bio from 'components/Bio';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
 const List = styled.ul`
   list-style: none;
-  margin: 2rem 0;
+  margin: 3rem 0;
 `;
 
 const Item = styled.li`
@@ -36,7 +37,8 @@ const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
-      <Seo keywords={['blog', 'andrew', 'andrewmok']} />
+      <Seo keywords={['blog', 'andrew', 'andrewmok', 'Andrew Mok', 'andrewmmc']} />
+      <Bio />
       <List>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;

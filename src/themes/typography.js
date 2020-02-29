@@ -12,7 +12,7 @@ const typography = new Typography({
       fontKerning: 'inherit',
     },
     'h1,h2,h3,h4,h5,h6': {
-      lineHeight: 1.25,
+      lineHeight: 1.35,
       marginBottom: '1rem',
     },
     blockquote: {
