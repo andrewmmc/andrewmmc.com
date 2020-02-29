@@ -39,5 +39,5 @@ Feel free to [email me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 ## Contributed Open Source Projects
 * [pick](https://github.com/andrewmmc/pick) • Slack bot for randomly picking choice in Golang
-* [bookscompare](https://github.com/andrewmmc/bookscompare-react-native) • Mobile app for compare pricing on online bookstore
+* [bookscompare](https://github.com/andrewmmc/bookscompare-react-native) • Mobile app for comparing pricing on online bookstore
 * [@lalamove/karang](https://github.com/lalamove/karang) • React UI components library
