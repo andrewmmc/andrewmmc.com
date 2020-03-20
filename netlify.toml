@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "https://andrewmmc.netlify.com/*"
-  to = "https://andrewmmc.com/:splat"
-  status = 301
-  force = true

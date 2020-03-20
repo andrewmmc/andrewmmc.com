@@ -6,12 +6,28 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogTemplate = path.resolve('./src/templates/blog.js');
   const portfolioTemplate = path.resolve('./src/templates/portfolio.js');
 
+  // redirect andrewmmc.netlify.com
+  createRedirect({
+    fromPath: 'https://andrewmmc.netlify.com/*',
+    toPath: 'https://andrewmmc.com/:splat',
+    isPermanent: true,
+    force: true,
+  });
+
   // redirect /blog to home page
   createRedirect({
-    fromPath: '/blog', toPath: '/', isPermanent: true, redirectInBrowser: true,
+    fromPath: '/blog',
+    toPath: '/',
+    isPermanent: true,
+    redirectInBrowser: true,
+    force: true,
   });
   createRedirect({
-    fromPath: '/blog/', toPath: '/', isPermanent: true, redirectInBrowser: true,
+    fromPath: '/blog/',
+    toPath: '/',
+    isPermanent: true,
+    redirectInBrowser: true,
+    force: true,
   });
 
   // Create blog pages
@@ -48,7 +64,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const portfolioPosts = portfolioResults.data.allMarkdownRemark.edges;
   portfolioPosts.forEach((post, index) => {
     const { slug } = post.node.fields;
-    const previous = index === portfolioPosts.length - 1 ? null : portfolioPosts[index + 1].node;
+    const previous = index === portfolioPosts.length - 1
+      ? null
+      : portfolioPosts[index + 1].node;
     const next = index === 0 ? null : portfolioPosts[index - 1].node;
     createPage({
       path: slug,

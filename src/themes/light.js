@@ -4,6 +4,6 @@ export default {
     primaryText: '#000000',
     secordaryText: '#5b5b5b',
     gold: '#b09a6b',
-    lightGray: '#e5e5ea',
+    lightGray: '#f4f4f4',
   },
 };

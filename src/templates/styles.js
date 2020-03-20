@@ -65,6 +65,10 @@ export const GlobalStyle = createGlobalStyle`
   code[class*="language-"] {
     text-shadow: none !important;
   }
+
+  .gatsby-highlight .token {
+    background: none;
+  }
 `;
 
 export const Info = styled.p`
