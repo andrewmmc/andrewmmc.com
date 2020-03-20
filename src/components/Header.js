@@ -141,7 +141,7 @@ class Header extends Component {
           return (
             <Container {...this.props}>
               <h1><Link to="/">{title}</Link></h1>
-              <ToggleContainer onClick={this.toggleMenu}>
+              <ToggleContainer onClick={this.toggleMenu} aria-label="Menu">
                 <Icon type="menu" size={20} />
               </ToggleContainer>
               <Nav isOpen={isOpen}>

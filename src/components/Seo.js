@@ -64,9 +64,7 @@ const Seo = ({
             )
             .concat(meta)}
           link={[{ rel: 'shortcut icon', type: 'image/png', href: Favicon }]}
-        >
-          <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet" />
-        </Helmet>
+        />
       );
     }}
   />
