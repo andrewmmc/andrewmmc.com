@@ -50,7 +50,7 @@ module.exports = {
             options: {
               maxWidth: 590,
               linkImagesToOriginal: false,
-              showCaptions: false,
+              showCaptions: true,
               quality: 90,
             },
           },

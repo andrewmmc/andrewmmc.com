@@ -41,6 +41,12 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primaryText} !important;
   }
 
+  figcaption.gatsby-resp-image-figcaption {
+    text-align: center;
+    font-size: 85%;
+    margin: 4px 0;
+  }
+
   /* PrismJS tweaks and line numbers */
   p+div.gatsby-highlight, ol+div.gatsby-highlight, ul+div.gatsby-highlight {
     margin-bottom: ${rhythm(1)};
