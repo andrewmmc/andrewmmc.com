@@ -13,20 +13,20 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   ::selection {
-    background-color: ${({ theme }) => rgba(theme.colors.gold, 0.3)};
+    background-color: ${({ theme }) => rgba(theme.colors.gold, 0.4)};
   }
 
   a {
     color: ${({ theme }) => theme.colors.gold};
     text-decoration: none;
-    border-bottom: 2px solid ${({ theme }) => lighten(0.4, theme.colors.gold)};
+    border-bottom: 2px solid ${({ theme }) => rgba(theme.colors.gold, 0.4)};
     transition: all 250ms;
 
     &:hover,
     &:focus, 
     &:active {
       color: ${({ theme }) => darken(0.1, theme.colors.gold)};
-      background-color: ${({ theme }) => lighten(0.4, theme.colors.gold)};
+      background-color: ${({ theme }) => rgba(theme.colors.gold, 0.15)};
       text-decoration: none;
       border-bottom: 2px solid ${({ theme }) => darken(0.1, theme.colors.gold)};
     }
