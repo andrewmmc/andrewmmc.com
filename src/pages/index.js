@@ -29,7 +29,7 @@ const BlogIndex = ({ data }) => {
     <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
       <Seo keywords={['blog', 'andrew', 'andrewmok', 'Andrew Mok', 'andrewmmc']} />
       <Introduction>
-        <h1 ref={typedRef} />
+        <Heading ref={typedRef} />
         <p>
           Software developer based in {location}. Currently at <a href="https://pwchk.com/en/services/new-ventures.html">PwC</a>.<br />
           I enjoy working on <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">modern web develpoment</a>, and <Link to="/about">everything related</Link>.
@@ -64,6 +64,10 @@ BlogIndex.propTypes = {
 
 const Introduction = styled.div`
   margin: 2rem 0;
+`;
+
+const Heading = styled.h1`
+  min-height: 2.7rem; /* 2rem * 1.35 */
 `;
 
 const List = styled.ul`

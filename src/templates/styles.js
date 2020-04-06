@@ -57,6 +57,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.lightGray};
     padding: 1em;
     overflow: auto;
+    border-radius: 0.25rem;
   }
   
   .gatsby-highlight pre[class*="language-"] {
@@ -104,10 +105,7 @@ export const Article = styled.article`
 export const Content = styled.div`
   margin: 1rem 0;
   
-  p {
-    span.gatsby-resp-image-wrapper {
-      margin: 2rem;
-      box-shadow: 0 0.8em 2em ${({ theme }) => rgba(theme.colors.primaryText, 0.05)};
-    }
+  span.gatsby-resp-image-wrapper {
+    box-shadow: 0 0.8em 2em ${({ theme }) => rgba(theme.colors.primaryText, 0.15)};
   }
 `;
