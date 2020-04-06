@@ -10,24 +10,23 @@ import darkTheme from 'themes/dark';
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout = ({ cover, children, ...props }) => {
-  const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-    <>
-      <GlobalStyle />
-      <Container>
-        <Header />
-        {cover}
-        <Main {...props}>
-          {children}
-        </Main>
-        <Footer />
-      </Container>
-    </>
-  </ThemeProvider>
-  );
-}
+const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const Layout = ({ cover, children, ...props }) => (
+  <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+  <>
+    <GlobalStyle />
+    <Container>
+      <Header />
+      {cover}
+      <Main {...props}>
+        {children}
+      </Main>
+      <Footer />
+    </Container>
+  </>
+</ThemeProvider>
+);
 
 Layout.defaultProps = {
   cover: null,
