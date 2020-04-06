@@ -8,7 +8,9 @@ import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
 const NotFound = ({ data }) => (
-  <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
+  <Layout
+    cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}
+  >
     <Seo title="404 Not Found" />
     <Main>
       <h1>404 Not Found</h1>
@@ -29,13 +31,13 @@ const Main = styled.div`
 export default NotFound;
 
 export const pageQuery = graphql`
-    query {
-        featuredImage: file(relativePath: { eq: "assets/404.jpg" }) {
-            childImageSharp {
-                fluid(quality: 90, maxWidth: 1440) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
+  query {
+    featuredImage: file(relativePath: { eq: "assets/404.jpg" }) {
+      childImageSharp {
+        fluid(quality: 90, maxWidth: 1440) {
+          ...GatsbyImageSharpFluid_withWebp
         }
+      }
     }
+  }
 `;

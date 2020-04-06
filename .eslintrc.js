@@ -1,6 +1,6 @@
 module.exports = {
   'parser': 'babel-eslint',
-  'extends': 'airbnb',
+  'extends': ['airbnb', 'prettier', 'prettier/react'],
   'rules': {
     'react/jsx-filename-extension': ['warn', { 'extensions': ['.js'] }],
     'no-use-before-define': 0,
@@ -23,4 +23,20 @@ module.exports = {
       'jsx': true,
     },
   },
+  'rules': {
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-filename-extension': 'off',
+    'no-use-before-define': 'off',
+  },
+  'settings': {
+    'import/resolver': {
+      alias: [
+        ['components', './src/components'],
+        ['pages', './src/pages'],
+        ['templates', './src/templates'],
+        ['themes', './src/themes'],
+        ['utils', './src/utils'],
+      ]
+    }
+  }
 };

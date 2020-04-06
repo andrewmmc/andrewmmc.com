@@ -22,17 +22,32 @@ const BlogIndex = ({ data }) => {
       showCursor: false,
     };
     const typed = new Typed(typedRef.current, options);
-    return () => { if (typed) typed.destroy(); }
+    return () => {
+      if (typed) typed.destroy();
+    };
   }, []);
 
   return (
-    <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
-      <Seo keywords={['blog', 'andrew', 'andrewmok', 'Andrew Mok', 'andrewmmc']} />
+    <Layout
+      cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}
+    >
+      <Seo
+        keywords={['blog', 'andrew', 'andrewmok', 'Andrew Mok', 'andrewmmc']}
+      />
       <Introduction>
         <Heading ref={typedRef} />
         <p>
-          Software developer based in {location}. Currently at <a href="https://pwchk.com/en/services/new-ventures.html">PwC</a>.<br />
-          I enjoy working on <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">modern web develpoment</a>, and <Link to="/about">everything related</Link>.
+          Software developer based in {location}. Currently at{' '}
+          <a href="https://pwchk.com/en/services/new-ventures.html">PwC</a>.
+          <br />I enjoy working on{' '}
+          <a
+            href={`https://github.com/${social.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            modern web develpoment
+          </a>
+          , and <Link to="/about">everything related</Link>.
         </p>
       </Introduction>
       <List>
@@ -46,9 +61,7 @@ const BlogIndex = ({ data }) => {
                 <span>{node.fields.readingTime.text}</span>
               </Info>
               <Title>
-                <Link to={node.fields.slug}>
-                  {title}
-                </Link>
+                <Link to={node.fields.slug}>{title}</Link>
               </Title>
             </Item>
           );
@@ -87,7 +100,7 @@ const Info = styled.small`
   display: block;
   margin: 0 0 0.5rem 0;
   color: ${({ theme }) => rgba(theme.colors.primaryText, 0.7)};
-  
+
   time {
     margin-right: 1rem;
   }
@@ -98,11 +111,11 @@ export default BlogIndex;
 export const pageQuery = graphql`
   query {
     featuredImage: file(relativePath: { eq: "assets/home.jpg" }) {
-        childImageSharp {
-            fluid(quality: 90, maxWidth: 1440) {
-                ...GatsbyImageSharpFluid_withWebp
-            }
+      childImageSharp {
+        fluid(quality: 90, maxWidth: 1440) {
+          ...GatsbyImageSharpFluid_withWebp
         }
+      }
     }
     site {
       siteMetadata {
@@ -119,12 +132,12 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt (truncate: true)
+          excerpt(truncate: true)
           fields {
             slug
             type
             readingTime {
-                text
+              text
             }
           }
           frontmatter {

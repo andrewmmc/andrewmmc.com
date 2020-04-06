@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
-import lighten from 'polished/lib/color/lighten';
 import darken from 'polished/lib/color/darken';
 import { rhythm } from 'themes/typography';
 
@@ -33,7 +32,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   blockquote {
-    border-left: 4px solid ${({ theme }) => rgba(theme.colors.primaryText, 0.5)};
+    border-left: 4px solid ${({ theme }) =>
+      rgba(theme.colors.primaryText, 0.5)};
     color: ${({ theme }) => rgba(theme.colors.primaryText, 0.5)};
   }
   
@@ -83,7 +83,7 @@ export const Info = styled.p`
   color: ${({ theme }) => theme.colors.gold};
   display: flex;
   margin: 1rem 0;
-  
+
   time {
     margin-right: 1rem;
   }
@@ -104,8 +104,9 @@ export const Article = styled.article`
 
 export const Content = styled.div`
   margin: 1rem 0;
-  
+
   span.gatsby-resp-image-wrapper {
-    box-shadow: 0 0.8em 2em ${({ theme }) => rgba(theme.colors.primaryText, 0.15)};
+    box-shadow: 0 0.8em 2em
+      ${({ theme }) => rgba(theme.colors.primaryText, 0.15)};
   }
 `;

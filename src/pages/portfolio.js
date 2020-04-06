@@ -13,17 +13,27 @@ const Portfolio = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <Seo title="Portfolio" keywords={['portfolio', 'andrew', 'andrewmok', 'frontend', 'javascript']} />
+      <Seo
+        title="Portfolio"
+        keywords={[
+          'portfolio',
+          'andrew',
+          'andrewmok',
+          'frontend',
+          'javascript',
+        ]}
+      />
       <Main>
         {posts.map(({ node }) => {
           const { featuredImage } = node.frontmatter;
           return (
             <Card key={node.fields.slug}>
               <Link to={node.fields.slug}>
-                {featuredImage
-                  ? <Thumbnail fluid={featuredImage.childImageSharp.fluid} auto />
-                  : <Thumbnail auto />
-                }
+                {featuredImage ? (
+                  <Thumbnail fluid={featuredImage.childImageSharp.fluid} auto />
+                ) : (
+                  <Thumbnail auto />
+                )}
               </Link>
             </Card>
           );
@@ -46,7 +56,7 @@ const Main = styled.div`
 const Card = styled.div`
   flex: 0 100%;
   padding: 1rem;
-  
+
   ${media.greaterThan('small')`
     flex: 0 50%;
   `};
@@ -68,11 +78,11 @@ export const pageQuery = graphql`
           }
           frontmatter {
             featuredImage {
-                childImageSharp {
-                    fluid(quality: 90, maxWidth: 1280) {
-                        ...GatsbyImageSharpFluid_withWebp
-                    }
+              childImageSharp {
+                fluid(quality: 90, maxWidth: 1280) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
+              }
             }
           }
         }

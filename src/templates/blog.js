@@ -7,9 +7,7 @@ import Bio from 'components/Bio';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
-import {
-  Info, Nav, Article, Content,
-} from './styles';
+import { Info, Nav, Article, Content } from './styles';
 
 const BlogTemplate = ({ data, pageContext }) => {
   const { previous, next } = pageContext;
@@ -35,18 +33,14 @@ const BlogTemplate = ({ data, pageContext }) => {
         <li>
           {previous && (
             <Link to={previous.fields.slug} rel="prev">
-              ←
-              {' '}
-              {previous.frontmatter.title}
+              ← {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
             <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title}
-              {' '}
-              →
+              {next.frontmatter.title} →
             </Link>
           )}
         </li>
@@ -69,9 +63,9 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       fields {
-          readingTime {
-              text
-          }
+        readingTime {
+          text
+        }
       }
       frontmatter {
         title

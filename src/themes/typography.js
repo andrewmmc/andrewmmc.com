@@ -5,8 +5,20 @@ const BASE_FONT_SIZE = 16;
 const typography = new Typography({
   baseFontSize: `${BASE_FONT_SIZE}px`,
   baseLineHeight: 1.666,
-  headerFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-  bodyFontFamily: ['Inter UI', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+  headerFontFamily: [
+    'Inter UI',
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
+  ],
+  bodyFontFamily: [
+    'Inter UI',
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
+  ],
   overrideStyles: ({ rhythm }) => ({
     body: {
       fontKerning: 'inherit',

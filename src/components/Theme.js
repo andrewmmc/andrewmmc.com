@@ -17,7 +17,7 @@ const Theme = ({ children, ...props }) => {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme} {...props}>
       {children}
     </ThemeProvider>
-  );  
+  );
 };
 
 Theme.propTypes = {

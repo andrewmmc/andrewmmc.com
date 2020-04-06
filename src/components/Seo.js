@@ -5,9 +5,7 @@ import Helmet from 'react-helmet';
 
 import Favicon from '../../static/favicon.png';
 
-const Seo = ({
-  description, lang, meta, keywords, title,
-}) => {
+const Seo = ({ description, lang, meta, keywords, title }) => {
   const data = useStaticQuery(pageQuery);
   const metaDescription = description || data.site.siteMetadata.description;
   return (
@@ -55,10 +53,10 @@ const Seo = ({
         .concat(
           keywords.length > 0
             ? {
-              name: 'keywords',
-              content: keywords.join(', '),
-            }
-            : [],
+                name: 'keywords',
+                content: keywords.join(', '),
+              }
+            : []
         )
         .concat(meta)}
       link={[{ rel: 'shortcut icon', type: 'image/png', href: Favicon }]}

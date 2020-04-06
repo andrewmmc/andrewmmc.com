@@ -16,11 +16,15 @@ const Header = props => {
 
   return (
     <Container {...props}>
-      <h1><Link to="/">{title}</Link></h1>
+      <h1>
+        <Link to="/">{title}</Link>
+      </h1>
       <Nav>
-        {headerItems.map(
-          item => <Link key={item.path} to={item.path}>{item.label}</Link>,
-        )}
+        {headerItems.map(item => (
+          <Link key={item.path} to={item.path}>
+            {item.label}
+          </Link>
+        ))}
       </Nav>
     </Container>
   );
@@ -46,7 +50,7 @@ const Container = styled.header`
     border-bottom: 0;
 
     &:hover,
-    &:focus, 
+    &:focus,
     &:active {
       color: ${({ theme }) => rgba(theme.colors.primaryText, 0.9)};
       background: none;
@@ -65,9 +69,9 @@ const Nav = styled.nav`
     display: inline-block;
     height: 100%;
     padding: 0 1rem;
-    
-    &:hover, 
-    &:focus, 
+
+    &:hover,
+    &:focus,
     &:active {
       background-color: transparent;
     }

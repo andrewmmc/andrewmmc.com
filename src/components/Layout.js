@@ -14,13 +14,11 @@ const Layout = ({ cover, children, ...props }) => (
     <Container>
       <Header />
       {cover}
-      <Main {...props}>
-        {children}
-      </Main>
+      <Main {...props}>{children}</Main>
       <Footer />
     </Container>
   </>
-);  
+);
 
 Layout.defaultProps = {
   cover: null,

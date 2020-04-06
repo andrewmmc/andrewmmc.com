@@ -11,24 +11,24 @@ import { Info, Article, Content } from './styles';
 
 const PortfolioTemplate = ({ data }) => {
   const post = data.markdownRemark;
-  const {
-    tags, title, date, link, linkLabel,
-  } = post.frontmatter;
+  const { title, date, link, linkLabel } = post.frontmatter;
 
   return (
     <Layout>
       <Seo title={title} description={post.excerpt} />
       <Article>
         <header>
-          <h1>
-            {title}
-          </h1>
+          <h1>{title}</h1>
           <Info>
             <time>{date}</time>
           </Info>
         </header>
         <Stack>
-          {link && <a href={link} target="_blank" rel="noopener noreferrer">{linkLabel || 'Visit'}</a>}
+          {link && (
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              {linkLabel || 'Visit'}
+            </a>
+          )}
         </Stack>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
@@ -38,7 +38,6 @@ const PortfolioTemplate = ({ data }) => {
 
 PortfolioTemplate.propTypes = {
   data: shape({}).isRequired,
-  pageContext: shape({}).isRequired,
 };
 
 const Stack = styled.div`
@@ -57,7 +56,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM YYYY")
-        tags
         link
         linkLabel
       }

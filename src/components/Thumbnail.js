@@ -9,15 +9,17 @@ const PlaceHolder = styled.div`
   width: 100%;
   height: 250px;
   background-color: ${({ theme }) => theme.colors.lightGray};
-  
+
   ${media.greaterThan('small')`
     height: 450px;
   `};
 
-  ${({ auto }) => auto && css`
-     height: auto !important;
-     padding: 62% 0 0 0 !important;
-  `}
+  ${({ auto }) =>
+    auto &&
+    css`
+      height: auto !important;
+      padding: 62% 0 0 0 !important;
+    `}
 `;
 
 const StyledBackgroundImage = styled(Image).attrs(({ theme }) => ({
@@ -31,7 +33,7 @@ const StyledBackgroundImage = styled(Image).attrs(({ theme }) => ({
   height: ${({ auto }) => (auto ? '0' : '250px')};
   background-position: center;
   z-index: -1;
-  
+
   ${media.greaterThan('small')`
     height: ${({ auto }) => (auto ? '0' : '400px')};
   `};

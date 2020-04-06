@@ -16,8 +16,16 @@ const Bio = props => {
         }}
       />
       <p>
-        I'm <strong>{author}</strong>, a software developer based in {location}. <br />
-        I enjoy working on <a href={`https://github.com/${social.github}`} target="_blank" rel="noopener noreferrer">modern web develpoment</a>, and <Link to="/about">everything related</Link>.
+        I&#39;m <strong>{author}</strong>, a software developer based in{' '}
+        {location}. <br />I enjoy working on{' '}
+        <a
+          href={`https://github.com/${social.github}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          modern web develpoment
+        </a>
+        , and <Link to="/about">everything related</Link>.
       </p>
     </Container>
   );
