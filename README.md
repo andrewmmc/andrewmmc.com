@@ -9,10 +9,10 @@ Built with [GatsbyJs](https://www.gatsbyjs.org/), a static website framework wit
 I don't think you are interested to run it on your local, but you still can:
 ``` bash
 # install dependencies
-$ yarn
+$ npm i
 
 # serve with hot reload at http://localhost:8000
-$ yarn dev
+$ npm run dev
 ```
 
 ## Author

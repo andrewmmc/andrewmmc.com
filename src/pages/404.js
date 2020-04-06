@@ -7,10 +7,6 @@ import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
-const Main = styled.div`
-  margin: 2rem 0;
-`;
-
 const NotFound = ({ data }) => (
   <Layout cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}>
     <Seo title="404 Not Found" />
@@ -25,6 +21,10 @@ const NotFound = ({ data }) => (
 NotFound.propTypes = {
   data: shape({}).isRequired,
 };
+
+const Main = styled.div`
+  margin: 2rem 0;
+`;
 
 export default NotFound;
 

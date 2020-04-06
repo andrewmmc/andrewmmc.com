@@ -9,21 +9,6 @@ import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
-const Main = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2rem -1rem;
-`;
-
-const Card = styled.div`
-  flex: 0 100%;
-  padding: 1rem;
-  
-  ${media.greaterThan('small')`
-    flex: 0 50%;
-  `};
-`;
-
 const Portfolio = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
@@ -51,6 +36,21 @@ const Portfolio = ({ data }) => {
 Portfolio.propTypes = {
   data: shape({}).isRequired,
 };
+
+const Main = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem -1rem;
+`;
+
+const Card = styled.div`
+  flex: 0 100%;
+  padding: 1rem;
+  
+  ${media.greaterThan('small')`
+    flex: 0 50%;
+  `};
+`;
 
 export default Portfolio;
 

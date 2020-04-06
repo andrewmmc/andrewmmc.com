@@ -19,7 +19,6 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: ${({ theme }) => theme.colors.gold};
     text-decoration: none;
-    border-radius: 0.25rem;
     border-bottom: 2px solid ${({ theme }) => lighten(0.4, theme.colors.gold)};
     transition: all 250ms;
 
@@ -30,10 +29,6 @@ export const GlobalStyle = createGlobalStyle`
       background-color: ${({ theme }) => lighten(0.4, theme.colors.gold)};
       text-decoration: none;
       border-bottom: 2px solid ${({ theme }) => darken(0.1, theme.colors.gold)};
-    }
-
-    &:focus {
-      /* box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6); */
     }
   }
   

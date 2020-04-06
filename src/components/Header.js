@@ -1,37 +1,30 @@
-import React, { Component } from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 
 import { MAX_WIDTH } from 'utils/helpers';
 
-const menu = [
+const headerItems = [
   { path: '/portfolio', label: 'Portfolio' },
   { path: '/about', label: 'About' },
 ];
 
-class Header extends Component {
-  render() {
-    return (
-      <StaticQuery
-        query={query}
-        render={data => {
-          const { title } = data.site.siteMetadata;
-          return (
-            <Container {...this.props}>
-              <h1><Link to="/">{title}</Link></h1>
-              <Nav>
-                {menu.map(
-                  item => <Link key={item.path} to={item.path}>{item.label}</Link>,
-                )}
-              </Nav>
-            </Container>
-          );
-        }}
-      />
-    );
-  }
-}
+const Header = props => {
+  const data = useStaticQuery(pageQuery);
+  const { title } = data.site.siteMetadata;
+
+  return (
+    <Container {...props}>
+      <h1><Link to="/">{title}</Link></h1>
+      <Nav>
+        {headerItems.map(
+          item => <Link key={item.path} to={item.path}>{item.label}</Link>,
+        )}
+      </Nav>
+    </Container>
+  );
+};
 
 const Container = styled.header`
   display: flex;
@@ -81,7 +74,9 @@ const Nav = styled.nav`
   }
 `;
 
-const query = graphql`
+export default Header;
+
+export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
@@ -90,5 +85,3 @@ const query = graphql`
     }
   }
 `;
-
-export default Header;

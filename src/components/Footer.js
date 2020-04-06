@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
@@ -7,40 +7,32 @@ import { faGithub, faLinkedin, faMedium, faTwitter } from '@fortawesome/free-bra
 
 import { MAX_WIDTH } from 'utils/helpers';
 
-class Footer extends Component {
-  render() {
-    return (
-      <StaticQuery
-        query={query}
-        render={data => {
-          const { social } = data.site.siteMetadata;
-          const { github, linkedin, medium, twitter } = social;
-          return (
-            <Container {...this.props}>
-              <div>
-                © 2020
-              </div>
-              <SocialMedia>
-                <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">
-                  <Icon icon={faGithub} />
-                </a>
-                <a href={`https://twitter.com/@${twitter}`} target="_blank" rel="noopener noreferrer">
-                  <Icon icon={faTwitter} />
-                </a>
-                <a href={`https://linkedin.com/in/${linkedin}`} target="_blank" rel="noopener noreferrer">
-                  <Icon icon={faLinkedin} />
-                </a>
-                <a href={`https://medium.com/@${medium}`} target="_blank" rel="noopener noreferrer">
-                  <Icon icon={faMedium} />
-                </a>
-              </SocialMedia>
-            </Container>
-          );
-        }}
-      />
-    );
-  }
-}
+const Footer = props => {
+  const data = useStaticQuery(pageQuery);
+  const { social } = data.site.siteMetadata;
+  const { github, linkedin, medium, twitter } = social;
+  return (
+    <Container {...props}>
+      <div>
+        © 2020
+      </div>
+      <SocialMedia>
+        <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">
+          <Icon icon={faGithub} />
+        </a>
+        <a href={`https://twitter.com/@${twitter}`} target="_blank" rel="noopener noreferrer">
+          <Icon icon={faTwitter} />
+        </a>
+        <a href={`https://linkedin.com/in/${linkedin}`} target="_blank" rel="noopener noreferrer">
+          <Icon icon={faLinkedin} />
+        </a>
+        <a href={`https://medium.com/@${medium}`} target="_blank" rel="noopener noreferrer">
+          <Icon icon={faMedium} />
+        </a>
+      </SocialMedia>
+    </Container>
+  );
+};
 
 const Container = styled.footer`
   position: relative;
@@ -76,7 +68,9 @@ const SocialMedia = styled.div`
   }
 `;
 
-const query = graphql`
+export default Footer;
+
+export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
@@ -90,5 +84,3 @@ const query = graphql`
     }
   }
 `;
-
-export default Footer;

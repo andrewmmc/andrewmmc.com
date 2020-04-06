@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { node } from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -10,36 +10,29 @@ import darkTheme from 'themes/dark';
 import Header from './Header';
 import Footer from './Footer';
 
-class Layout extends Component {
-  state = {
-    isDarkMode: false,
-  };
-
-  componentDidMount() {
+const Layout = ({ cover, children, ...props }) => {
+  const [isDarkMode, setDarkMode] = useState(false);
+  useEffect(() => {
     if (typeof window !== 'undefined' && window.matchMedia) {
-      this.setState({ isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches });
+      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
-  }
+  }, []);
 
-  render() {
-    const { cover, children, ...props } = this.props;
-    const { isDarkMode } = this.state;
-    return (
-      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        <Fragment>
-          <GlobalStyle />
-          <Container>
-            <Header />
-            {cover}
-            <Main {...props}>
-              {children}
-            </Main>
-            <Footer />
-          </Container>
-        </Fragment>
-      </ThemeProvider>
-    );
-  }
+  return (
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <>
+      <GlobalStyle />
+      <Container>
+        <Header />
+        {cover}
+        <Main {...props}>
+          {children}
+        </Main>
+        <Footer />
+      </Container>
+    </>
+  </ThemeProvider>
+  );
 }
 
 Layout.defaultProps = {

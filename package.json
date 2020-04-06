@@ -1,7 +1,7 @@
 {
   "name": "andrewmmc.com",
   "private": true,
-  "description": "Personal blog by Andrew Mok, a web developer from Hong Kong. I write and I code.",
+  "description": "Personal blog by Andrew Mok, a software developer based in Hong Kong.",
   "version": "2.0.0",
   "author": "Andrew Mok <hello@andrewmmc.com>",
   "dependencies": {
@@ -38,6 +38,7 @@
     "react-typography": "^0.16.19",
     "styled-components": "^5.0.1",
     "styled-media-query": "^2.1.2",
+    "typed.js": "^2.0.11",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
