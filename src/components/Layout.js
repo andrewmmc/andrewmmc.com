@@ -1,39 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { node } from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 import { MAX_WIDTH } from 'utils/helpers';
 import { GlobalStyle } from 'templates/styles';
-import lightTheme from 'themes/light';
-import darkTheme from 'themes/dark';
 
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout = ({ cover, children, ...props }) => {
-  const [isDarkMode, setDarkMode] = useState(false);
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-  }, []);
-
-  return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-    <>
-      <GlobalStyle />
-      <Container>
-        <Header />
-        {cover}
-        <Main {...props}>
-          {children}
-        </Main>
-        <Footer />
-      </Container>
-    </>
-  </ThemeProvider>
-  );  
-};
+const Layout = ({ cover, children, ...props }) => (
+  <>
+    <GlobalStyle />
+    <Container>
+      <Header />
+      {cover}
+      <Main {...props}>
+        {children}
+      </Main>
+      <Footer />
+    </Container>
+  </>
+);  
 
 Layout.defaultProps = {
   cover: null,
