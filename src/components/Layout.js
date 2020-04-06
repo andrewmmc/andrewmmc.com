@@ -10,23 +10,30 @@ import darkTheme from 'themes/dark';
 import Header from './Header';
 import Footer from './Footer';
 
-const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const Layout = ({ cover, children, ...props }) => {
+  const [isDarkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+  }, []);
 
-const Layout = ({ cover, children, ...props }) => (
-  <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-  <>
-    <GlobalStyle />
-    <Container>
-      <Header />
-      {cover}
-      <Main {...props}>
-        {children}
-      </Main>
-      <Footer />
-    </Container>
-  </>
-</ThemeProvider>
-);
+  return (
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <>
+      <GlobalStyle />
+      <Container>
+        <Header />
+        {cover}
+        <Main {...props}>
+          {children}
+        </Main>
+        <Footer />
+      </Container>
+    </>
+  </ThemeProvider>
+  );  
+};
 
 Layout.defaultProps = {
   cover: null,
