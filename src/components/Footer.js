@@ -19,15 +19,19 @@ const Footer = props => {
       <SocialMedia>
         <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">
           <Icon icon={faGithub} />
+          <span className="visually-hidden">GitHub</span>
         </a>
         <a href={`https://twitter.com/@${twitter}`} target="_blank" rel="noopener noreferrer">
           <Icon icon={faTwitter} />
+          <span className="visually-hidden">Twitter</span>
         </a>
         <a href={`https://linkedin.com/in/${linkedin}`} target="_blank" rel="noopener noreferrer">
           <Icon icon={faLinkedin} />
+          <span className="visually-hidden">Linkedin</span>
         </a>
         <a href={`https://medium.com/@${medium}`} target="_blank" rel="noopener noreferrer">
           <Icon icon={faMedium} />
+          <span className="visually-hidden">Medium</span>
         </a>
       </SocialMedia>
     </Container>
@@ -65,6 +69,10 @@ const SocialMedia = styled.div`
       background: none;
       border-bottom: none;
     }
+  }
+
+  span.visually-hidden {
+    display: none;
   }
 `;
 

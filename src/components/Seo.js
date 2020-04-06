@@ -62,7 +62,9 @@ const Seo = ({
         )
         .concat(meta)}
       link={[{ rel: 'shortcut icon', type: 'image/png', href: Favicon }]}
-    />
+    >
+      <link rel="preconnect" href="https://www.googletagmanager.com" />
+    </Helmet>
   );
 };
 
