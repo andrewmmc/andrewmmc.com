@@ -8,20 +8,7 @@ import lightTheme from 'themes/light';
 import darkTheme from 'themes/dark';
 
 import Header from './Header';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 0 0 2rem 0;
-`;
-
-const Main = styled.main`
-  width: 100%;
-  max-width: ${MAX_WIDTH}rem;
-  padding: 0 1rem;
-  margin: 0 auto;
-`;
+import Footer from './Footer';
 
 class Layout extends Component {
   state = {
@@ -47,6 +34,7 @@ class Layout extends Component {
             <Main {...props}>
               {children}
             </Main>
+            <Footer />
           </Container>
         </Fragment>
       </ThemeProvider>
@@ -62,5 +50,19 @@ Layout.propTypes = {
   cover: node,
   children: node.isRequired,
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 0 2rem 0;
+`;
+
+const Main = styled.main`
+  width: 100%;
+  max-width: ${MAX_WIDTH}rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+`;
 
 export default Layout;
