@@ -60,9 +60,9 @@ const BlogIndex = ({ data }) => {
                 <time>{date}</time>
                 <span>{node.fields.readingTime.text}</span>
               </Info>
-              <Title>
+              <H3>
                 <Link to={node.fields.slug}>{title}</Link>
-              </Title>
+              </H3>
             </Item>
           );
         })}
@@ -92,7 +92,7 @@ const Item = styled.li`
   margin: 1.5rem 0;
 `;
 
-const Title = styled.h3`
+const H3 = styled.h3`
   font-weight: 600;
 `;
 

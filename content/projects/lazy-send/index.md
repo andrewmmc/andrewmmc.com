@@ -1,13 +1,12 @@
 ---
-title: LazySend.com
-date: '2017-11'
-featuredImage: "./featured.png"
-tags: ["mobile", "vue"]
+title: 'LazySend'
+description: 'Simple progressive web application for a shortcut to send WhatsApp message.'
+year: '2017'
+date: '2017-11-01'
 link: https://github.com/andrewmmc/lazysend.com
-linkLabel: GitHub
 ---
 
-Built with [Vue](https://vuejs.org/) and PWA, available on [LazySend.com](https://lazysend.com).
+Built with [Vue](https://vuejs.org/) and PWA.
 
 It is so stupid that I have to add a new person every time to phone book because I want to send a WhatsApp message to him/her.
 

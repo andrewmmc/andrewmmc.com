@@ -106,6 +106,7 @@ export const Content = styled.div`
   margin: 1rem 0;
 
   span.gatsby-resp-image-wrapper {
+    margin: 1rem auto;
     box-shadow: 0 0.8em 2em
       ${({ theme }) => rgba(theme.colors.primaryText, 0.15)};
   }

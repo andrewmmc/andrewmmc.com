@@ -1,8 +1,9 @@
 ---
 title: Memory Master
-date: '2013-12'
-featuredImage: "./featured.png"
-tags: ["code", "illustrator"]
+description: 'Memory order game built with C++.'
+year: '2013'
+date: '2013-12-01'
+tags: ['C++', 'Illustrator']
 ---
 
 Bulit with C++.

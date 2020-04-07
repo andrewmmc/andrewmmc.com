@@ -4,7 +4,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const blogTemplate = path.resolve('./src/templates/blog.js');
-  const portfolioTemplate = path.resolve('./src/templates/portfolio.js');
+  const projectsTemplate = path.resolve('./src/templates/projects.js');
 
   // redirect andrewmmc.netlify.com
   createRedirect({
@@ -38,7 +38,6 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const blogPosts = blogResults.data.allMarkdownRemark.edges;
-  // let blogTags = [];
   blogPosts.forEach((post, index) => {
     const { slug } = post.node.fields;
     const previous = index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
@@ -54,23 +53,23 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Create portfolio pages
-  const portfolioResults = await graphql(portfolioQuery);
+  // Create projects pages
+  const projectsResults = await graphql(projectsQuery);
 
-  if (portfolioResults.errors) {
-    throw portfolioResults.errors;
+  if (projectsResults.errors) {
+    throw projectsResults.errors;
   }
 
-  const portfolioPosts = portfolioResults.data.allMarkdownRemark.edges;
-  portfolioPosts.forEach((post, index) => {
+  const projectsPosts = projectsResults.data.allMarkdownRemark.edges;
+  projectsPosts.forEach((post, index) => {
     const { slug } = post.node.fields;
-    const previous = index === portfolioPosts.length - 1
+    const previous = index === projectsPosts.length - 1
       ? null
-      : portfolioPosts[index + 1].node;
-    const next = index === 0 ? null : portfolioPosts[index - 1].node;
+      : projectsPosts[index + 1].node;
+    const next = index === 0 ? null : projectsPosts[index - 1].node;
     createPage({
       path: slug,
-      component: portfolioTemplate,
+      component: projectsTemplate,
       context: {
         slug,
         previous,
@@ -131,10 +130,10 @@ const blogQuery = `
   }
 `;
 
-const portfolioQuery = `
+const projectsQuery = `
   {
     allMarkdownRemark(
-      filter: { fields: { type: { eq: "portfolio" } } }
+      filter: { fields: { type: { eq: "projects" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 1000
     ) {

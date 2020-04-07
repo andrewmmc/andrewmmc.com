@@ -3,52 +3,67 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
 import { Info, Article, Content } from './styles';
 
-const PortfolioTemplate = ({ data }) => {
+const ProjectsTemplate = ({ data }) => {
   const post = data.markdownRemark;
-  const { title, date, link, linkLabel } = post.frontmatter;
+  const { title, date, link, label } = post.frontmatter;
 
   return (
     <Layout>
       <Seo title={title} description={post.excerpt} />
       <Article>
         <header>
-          <h1>{title}</h1>
+          <H1>{title}</H1>
+          <Hyperlink>
+            {link && (
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <Icon icon={faExternalLinkAlt} />
+              </a>
+            )}
+          </Hyperlink>
           <Info>
             <time>{date}</time>
           </Info>
         </header>
-        <Stack>
-          {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              {linkLabel || 'Visit'}
-            </a>
-          )}
-        </Stack>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
     </Layout>
   );
 };
 
-PortfolioTemplate.propTypes = {
+ProjectsTemplate.propTypes = {
   data: shape({}).isRequired,
 };
 
-const Stack = styled.div`
-  display: flex;
-  align-items: center;
+const H1 = styled.h1`
+  display: inline-block;
+  margin: 0;
 `;
 
-export default PortfolioTemplate;
+const Hyperlink = styled.div`
+  display: inline-block;
+
+  a, a:hover, a:focus, a:active {
+    display: inline-block;
+    border: none;
+    padding: 0 1rem;
+    width: 50px;
+    height: 100%;
+    background: none;
+  }
+`;
+
+export default ProjectsTemplate;
 
 export const pageQuery = graphql`
-  query PortfolioPostBySlug($slug: String!) {
+  query ProjectsPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
@@ -57,7 +72,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM YYYY")
         link
-        linkLabel
       }
     }
   }

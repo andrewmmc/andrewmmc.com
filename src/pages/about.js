@@ -16,7 +16,7 @@ const About = ({ data }) => {
     >
       <Seo title={post.frontmatter.title} description={post.excerpt} />
       <Main>
-        <h1>About</h1>
+        <h1>About Me</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </Main>
     </Layout>

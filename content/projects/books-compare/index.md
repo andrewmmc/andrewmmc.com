@@ -1,10 +1,9 @@
 ---
-title: BooksCompare
-date: '2018-10'
-featuredImage: "./featured.png"
-tags: ["ios", "android", "reactjs"]
+title: 'BooksCompare'
+description: 'BooksCompare allows you to compare pricing on online bookstore by scanning books barcode.'
+year: '2018'
+date: '2018-10-01'
 link: https://github.com/andrewmmc/bookscompare-app
-linkLabel: GitHub
 ---
 
 Built with [React Native](https://facebook.github.io/react-native/), available on [App Store](http://bit.ly/bookscompare) and [Google Play](http://bit.ly/bookscompare-android).

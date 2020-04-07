@@ -8,7 +8,7 @@ I enjoy creating beautiful, simple and elegant things. I used to develop modern 
 
 In my free time, I [do mobile apps](https://itunes.apple.com/us/developer/man-chun-mok/id1350308720), [write a blog](https://medium.com/@andrewmmc) and [take photography](https://vsco.co/andrewmmc).
 
-I enjoy my work and hope to contribute my knowledge and skills on any opportunities. If you're interested in the professional work that I've done, check out my [portfolio](https://andrewmmc.com) and [resume](https://www.linkedin.com/in/andrewmmc).
+I enjoy my work and hope to contribute my knowledge and skills on any opportunities. If you're interested in the professional work that I've done, check out my [projects](https://andrewmmc.com/projects) and [resume](https://www.linkedin.com/in/andrewmmc).
 
 Feel free to [email me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
@@ -36,8 +36,3 @@ Feel free to [email me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 #### 2011
 * Second Runner-up Award • Hong Kong & Macau Youth Networking Skills Competition
-
-## Contributed Open Source Projects
-* [pick](https://github.com/andrewmmc/pick) • Slack bot for randomly picking choice in Golang
-* [bookscompare](https://github.com/andrewmmc/bookscompare-react-native) • Mobile app for comparing pricing on online bookstore
-* [@lalamove/karang](https://github.com/lalamove/karang) • React UI components library

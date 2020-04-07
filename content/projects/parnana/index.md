@@ -1,10 +1,9 @@
 ---
 title: Parnana
-date: '2015-05'
-featuredImage: "./featured.png"
-tags: ["php", "mysql", "codeigniter", "jquery", "illustrator"]
+description: 'One-stop website providing party-room reservation service.'
+year: '2015'
+date: '2015-05-01'
 link: https://parnana.com
-linkLabel: parnana.com
 ---
 
 Established in 2015, Parnana is the one-stop website for ultimate party experience in Hong Kong. 

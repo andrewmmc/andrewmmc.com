@@ -1,8 +1,9 @@
 ---
 title: "Let's Match"
-date: '2015-08'
-featuredImage: "./featured.png"
-tags: ["ios", "unity"]
+description: 'Music game for ADHD children built with Unity.'
+year: '2015'
+date: '2015-08-01'
+tags: ['iOS', 'Unity']
 ---
 
 Bulit with [Unity](https://unity3d.com), available for [iPhone](https://itunes.apple.com/us/app/lets-match!-for-iphone/id1032753937) and [iPad](https://itunes.apple.com/us/app/lets-match!-for-ipad/id1028977426).
