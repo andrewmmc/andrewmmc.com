@@ -55,6 +55,8 @@ const Projects = ({ data }) => {
             </YearSection>
           );
         })}
+        <SubHeading>Others</SubHeading>
+        <p>For my 3D rendering, illustration and publication works, please <a href="../old_portfolio.pdf" target="_blank">click here</a>.</p>
       </Main>
     </Layout>
   );
