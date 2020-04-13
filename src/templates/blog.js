@@ -66,6 +66,7 @@ export default BlogTemplate;
 
 const StyledIframe = styled(Iframe)`
   border: none;
+  margin: 0;
 `;
 
 export const pageQuery = graphql`
