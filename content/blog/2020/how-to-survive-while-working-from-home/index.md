@@ -27,7 +27,7 @@ Lighting is essential too as it creates a mood in the room. I installed tunable 
 
 You won't wear bedwear to office, and please don't do so when you work from home as well. Try to take a bath and change your clothes before getting to work. Treat it as a "wake-up call" for you and let your mind shift to working mode at home. (Also, it makes your life easier when you get some urgent conference calls!)
 
-**3. Having breakfast**
+**3. Have breakfast**
 
 Yes, another tip is having breakfast. You may feel sleepy in the morning while staying at home. It can be simple: bread with coffee is already enough to wake me up. Don't put too much effort to get your breakfast done.
 
