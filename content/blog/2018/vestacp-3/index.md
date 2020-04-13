@@ -1,6 +1,7 @@
 ---
 title: Upgrade PHP version to 7.2 from 7.0
 date: '2018-05-23T00:00:03.000Z'
+canonical: 'https://medium.com/andrewmmc-io/upgrade-php-version-to-7-2-from-7-0-c005a0926642'
 ---
 
 We will continue to upgrade PHP version installed from 7.0 to 7.2.
@@ -33,7 +34,7 @@ If you installed Ubuntu 16.04 LTS, you will get PHP 7.0.30 installed on your ser
 To check installed PHP modules in Ubuntu, type the following command (as Ubuntu makes PHP modules available via packages):
 
 ```
-$ dpkg — get-selections | grep -v deinstall | grep php7.0
+$ dpkg - get-selections | grep -v deinstall | grep php7.0
 ```
 
 Remember mark installed modules list, as you need to install them again after upgraded to PHP 7.2. We don’t need to install mcrypt as it has been dropped from PHP 7.2.

@@ -1,6 +1,7 @@
 ---
 title: Install VestaCP with LEMP on your VM instance
 date: '2018-05-23T00:00:02.000Z'
+canonical: 'https://medium.com/andrewmmc-io/install-vestacp-with-lemp-on-your-vm-instance-29dda138bb7d'
 ---
 
 We will continue to install VestaCP with LEMP on the VM instance created.

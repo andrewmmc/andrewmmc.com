@@ -37,7 +37,7 @@ const BlogIndex = ({ data }) => {
       <Introduction>
         <Heading ref={typedRef} />
         <p>
-          Software developer based in {location}. Currently at{' '}
+          Software Developer based in {location}. Currently at{' '}
           <a href="https://pwchk.com/en/services/new-ventures.html">PwC</a>.
           <br />I enjoy working on{' '}
           <a

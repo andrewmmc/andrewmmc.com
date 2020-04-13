@@ -1,6 +1,7 @@
 ---
 title: Using Retina.js with Vue-loader
 date: '2017-05-09T00:00:00.000Z'
+canonical: 'https://medium.com/andrewmmc-io/using-retina-js-with-vue-loader-ce44a965c258'
 ---
 
 Vue-loader is a loader for webpack to handle Vue's component. By default, it will handle the file paths stated in src only.

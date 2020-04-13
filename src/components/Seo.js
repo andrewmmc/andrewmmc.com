@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 
 import Favicon from '../../static/favicon.png';
 
-const Seo = ({ description, lang, meta, keywords, title }) => {
+const Seo = ({ canonical, description, lang, meta, keywords, title }) => {
   const data = useStaticQuery(pageQuery);
   const metaDescription = description || data.site.siteMetadata.description;
   return (
@@ -59,14 +59,17 @@ const Seo = ({ description, lang, meta, keywords, title }) => {
             : []
         )
         .concat(meta)}
-      link={[{ rel: 'shortcut icon', type: 'image/png', href: Favicon }]}
-    >
-      <link rel="preconnect" href="https://www.googletagmanager.com" />
-    </Helmet>
+      link={[
+        { rel: 'shortcut icon', type: 'image/png', href: Favicon },
+        { rel: 'preconnect', href: 'https://www.googletagmanager.com' },
+        ...canonical ? [{ rel: 'canonical', href: canonical }] : []
+      ]}
+    />
   );
 };
 
 Seo.defaultProps = {
+  canonical: undefined,
   description: '',
   lang: 'en',
   meta: [],
@@ -75,6 +78,7 @@ Seo.defaultProps = {
 };
 
 Seo.propTypes = {
+  canonical: string,
   description: string,
   lang: string,
   meta: arrayOf(string),

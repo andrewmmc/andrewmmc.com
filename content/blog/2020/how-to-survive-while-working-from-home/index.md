@@ -1,6 +1,7 @@
 ---
 title: How to survive while working from home
 date: '2020-04-14T01:00:00+08:00'
+canonical: 'https://medium.com/andrewmmc-io/how-to-survive-while-working-from-home-eaa6b1080d22'
 ---
 
 The current COVID-19 outbreak situation has changed the way of how we work. Many of you are already working from home to keep social distancing and stop the spread. It might not be comfortable at the beginning as work from home requires self-discipline, and you may feel not productive when you stay at home.

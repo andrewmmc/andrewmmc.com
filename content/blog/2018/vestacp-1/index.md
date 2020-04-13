@@ -1,6 +1,7 @@
 ---
 title: Setup VM instance on Google Cloud Compute Engine
 date: '2018-05-23T00:00:01.000Z'
+canonical: 'https://medium.com/andrewmmc-io/setup-vm-instance-on-google-cloud-compute-engine-1e7063cfcde6'
 ---
 
 Vesta Control Panel is a free and open source control panel with LEMP stack. 

@@ -1,6 +1,7 @@
 ---
 title: Get free SSL Certificates from Let’s Encrypt for your domains
 date: '2018-05-23T00:00:04.000Z'
+canonical: 'https://medium.com/andrewmmc-io/get-free-ssl-certificates-from-lets-encrypt-for-your-domains-64ae9fa5b8d9'
 ---
 
 We will continue to get free SSL certificates for our domains.

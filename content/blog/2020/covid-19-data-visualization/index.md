@@ -1,6 +1,7 @@
 ---
 title: COVID-19 Data Visualization
 date: '2020-03-27T04:30:00+08:00'
+canonical: 'https://medium.com/andrewmmc-io/covid-19-data-visualization-80087f144e83'
 ---
 
 ![Panic-buying in Hong Kong, Feb 2020](./photo1.jpg)

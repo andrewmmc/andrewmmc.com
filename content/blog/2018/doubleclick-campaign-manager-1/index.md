@@ -1,6 +1,7 @@
 ---
 title: Import dynamic feed to advertiser profile in DoubleClick Studio
 date: '2018-08-19T00:00:01.000Z'
+canonical: 'https://medium.com/andrewmmc-io/import-dynamic-feed-to-advertiser-profile-in-doubleclick-studio-dbef1fa51384'
 ---
 
 DoubleClick Campaign Manager is an ad management system for advertisers. It provides different tools for advertisers to manage their creatives and run ad campaigns.
