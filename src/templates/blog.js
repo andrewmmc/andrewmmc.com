@@ -11,7 +11,7 @@ import Seo from 'components/Seo';
 
 import { Info, Nav, Article, Content } from './styles';
 
-const BlogTemplate = ({ data, pageContext }) => {
+const BlogTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext;
   const post = data.markdownRemark;
   const { title, date } = post.frontmatter;
@@ -30,7 +30,11 @@ const BlogTemplate = ({ data, pageContext }) => {
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
-      <StyledIframe src="https://button.like.co/in/embed/andrewmmc/button" inPageLinks checkOrigin={['https://button.like.co']} />
+      <StyledIframe
+        src={`https://button.like.co/in/embed/andrewmmc/button?type=wp&referrer=${location.href}`}
+        inPageLinks
+        checkOrigin={['https://button.like.co']}
+      />
       <Bio />
       <Nav>
         <li>
@@ -55,6 +59,7 @@ const BlogTemplate = ({ data, pageContext }) => {
 BlogTemplate.propTypes = {
   data: shape({}).isRequired,
   pageContext: shape({}).isRequired,
+  location: shape({}).isRequired,
 };
 
 export default BlogTemplate;
