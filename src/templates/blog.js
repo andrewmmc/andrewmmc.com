@@ -2,6 +2,8 @@
 import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
+import styled from 'styled-components';
+import Iframe from 'iframe-resizer-react'
 
 import Bio from 'components/Bio';
 import Layout from 'components/Layout';
@@ -28,6 +30,7 @@ const BlogTemplate = ({ data, pageContext }) => {
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
+      <StyledIframe src="https://button.like.co/in/embed/andrewmmc/button" inPageLinks checkOrigin={['https://button.like.co']} />
       <Bio />
       <Nav>
         <li>
@@ -55,6 +58,10 @@ BlogTemplate.propTypes = {
 };
 
 export default BlogTemplate;
+
+const StyledIframe = styled(Iframe)`
+  border: none;
+`;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
