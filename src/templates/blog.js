@@ -18,7 +18,7 @@ const BlogTemplate = ({ data, pageContext, location }) => {
   const { readingTime } = post.fields;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Seo title={title} description={post.excerpt} canonical={post.frontmatter.canonical} />
       <Article>
         <header>
