@@ -11,14 +11,15 @@ import Seo from 'components/Seo';
 
 import { Info, Nav, Article, Content } from './styles';
 
-const BlogTemplate = ({ data, pageContext, location }) => {
+const BlogTemplate = ({ data, pageContext }) => {
+  const { siteUrl } = data.site.siteMetadata;
   const { previous, next } = pageContext;
   const post = data.markdownRemark;
   const { title, date } = post.frontmatter;
   const { readingTime } = post.fields;
 
   return (
-    <Layout location={location}>
+    <Layout>
       <Seo title={title} description={post.excerpt} canonical={post.frontmatter.canonical} />
       <Article>
         <header>
@@ -31,7 +32,7 @@ const BlogTemplate = ({ data, pageContext, location }) => {
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
       <StyledIframe
-        src={`https://button.like.co/in/embed/andrewmmc/button?type=wp&referrer=${location.href}`}
+        src={`https://button.like.co/in/embed/andrewmmc/button?type=wp&referrer=${siteUrl}${post.fields.slug}`}
         inPageLinks
         checkOrigin={['https://button.like.co']}
       />
@@ -71,11 +72,17 @@ const StyledIframe = styled(Iframe)`
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
       fields {
+        slug
         readingTime {
           text
         }
