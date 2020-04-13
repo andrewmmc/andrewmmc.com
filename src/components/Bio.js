@@ -23,9 +23,8 @@ const Bio = props => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          modern web develpoment
-        </a>
-        , and <Link to="/about">everything related</Link>.
+          JAMstack, React and modern web development
+        </a>.
       </p>
     </Container>
   );
