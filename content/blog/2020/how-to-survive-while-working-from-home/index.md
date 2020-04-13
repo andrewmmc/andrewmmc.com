@@ -37,7 +37,7 @@ As a coffee lover, a coffeemaker is a worthy investment to me, and I use it ever
 
 **4. A daily check-in with the team**
 
-Set up a regular check-in meeting with the team. We call it "Daily Stand-up" in Scrum way. It keeps different workmates in sync. In the daily check-in, we talk three things - What I did yesterday, What I am going to do today, and the blockers need to be resolved. Let the team know your blockers so your managers or teammates can provide you helps on time.
+Set up a regular check-in meeting with the team. We call it "Daily Stand-up" in Scrum way. It keeps different workmates in sync. In the daily check-in, we talk three things - What did I do yesterday, What will I do today, and the blockers need to be resolved. Let the team know your blockers so your managers or teammates can provide you helps on time.
 
 **5. Follow your schedule and priorities**
 
