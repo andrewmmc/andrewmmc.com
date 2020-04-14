@@ -62,7 +62,7 @@ const Seo = ({ canonical, description, lang, meta, keywords, title }) => {
       link={[
         { rel: 'shortcut icon', type: 'image/png', href: Favicon },
         { rel: 'preconnect', href: 'https://www.googletagmanager.com' },
-        ...canonical ? [{ rel: 'canonical', href: canonical }] : []
+        // ...canonical ? [{ rel: 'canonical', href: canonical }] : []
       ]}
     >
       <script data-ad-client="ca-pub-9585452904399015" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
