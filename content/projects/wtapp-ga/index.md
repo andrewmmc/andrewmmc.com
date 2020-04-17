@@ -1,9 +1,9 @@
 ---
-title: 'LazySend'
+title: 'Wtapp.ga'
 description: 'Simple progressive web application for a shortcut to send WhatsApp message.'
 year: '2017'
 date: '2017-11-01'
-link: https://github.com/andrewmmc/lazysend.com
+link: https://github.com/andrewmmc/wtapp.ga
 ---
 
 Built with [Vue](https://vuejs.org/) and PWA.
