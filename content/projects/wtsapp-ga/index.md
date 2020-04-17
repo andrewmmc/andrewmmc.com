@@ -1,9 +1,9 @@
 ---
-title: 'Wtapp.ga'
+title: 'Wtsapp.ga'
 description: 'Simple progressive web application for a shortcut to send WhatsApp message.'
 year: '2017'
 date: '2017-11-01'
-link: https://github.com/andrewmmc/wtapp.ga
+link: https://github.com/andrewmmc/wtsapp.ga
 ---
 
 Built with [Vue](https://vuejs.org/) and PWA.
