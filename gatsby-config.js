@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: 'Andrew Mok',
     author: 'Andrew Mok',
-    description: 'Personal blog by Andrew Mok, a software developer based in Hong Kong.',
+    description:
+      'Personal blog by Andrew Mok, a software developer based in Hong Kong.',
     siteUrl: 'https://andrewmmc.com',
     location: 'Hong Kong',
     email: 'hello@andrewmmc.com',
@@ -12,7 +13,7 @@ module.exports = {
       twitter: 'andrewmmc',
       github: 'andrewmmc',
       linkedin: 'andrewmmc',
-      medium: 'andrewmmc',
+      medium: 'andrewmmc-io',
       vsco: 'andrewmmc',
     },
   },

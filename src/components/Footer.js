@@ -45,7 +45,7 @@ const Footer = props => {
           <span className="visually-hidden">Linkedin</span>
         </a>
         <a
-          href={`https://medium.com/@${medium}`}
+          href={`https://medium.com/${medium}`}
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -2,56 +2,49 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
-  const blogTemplate = path.resolve('./src/templates/blog.js');
+  const { createPage } = actions;
+  // const blogTemplate = path.resolve('./src/templates/blog.js');
   const projectsTemplate = path.resolve('./src/templates/projects.js');
 
-  // redirect andrewmmc.netlify.com
-  createRedirect({
-    fromPath: 'https://andrewmmc.netlify.com/*',
-    toPath: 'https://andrewmmc.com/:splat',
-    isPermanent: true,
-    force: true,
-  });
-
   // redirect /blog to home page
-  createRedirect({
-    fromPath: '/blog',
-    toPath: '/',
-    isPermanent: true,
-    redirectInBrowser: true,
-    force: true,
-  });
-  createRedirect({
-    fromPath: '/blog/',
-    toPath: '/',
-    isPermanent: true,
-    redirectInBrowser: true,
-    force: true,
-  });
+  // createRedirect({
+  //   fromPath: '/blog',
+  //   toPath: '/',
+  //   isPermanent: true,
+  //   redirectInBrowser: true,
+  //   force: true,
+  // });
+  // createRedirect({
+  //   fromPath: '/blog/',
+  //   toPath: '/',
+  //   isPermanent: true,
+  //   redirectInBrowser: true,
+  //   force: true,
+  // });
 
   // Create blog pages
-  const blogResults = await graphql(blogQuery);
+  // const blogResults = await graphql(blogQuery);
 
-  if (blogResults.errors) {
-    throw blogResults.errors;
-  }
+  // if (blogResults.errors) {
+  //   throw blogResults.errors;
+  // }
 
-  const blogPosts = blogResults.data.allMarkdownRemark.edges;
-  blogPosts.forEach((post, index) => {
-    const { slug } = post.node.fields;
-    const previous = index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
-    const next = index === 0 ? null : blogPosts[index - 1].node;
-    createPage({
-      path: slug,
-      component: blogTemplate,
-      context: {
-        slug,
-        previous,
-        next,
-      },
-    });
-  });
+  // const blogPosts = blogResults.data.allMarkdownRemark.edges;
+  // blogPosts.forEach((post, index) => {
+  //   const { slug } = post.node.fields;
+  //   const previous =
+  //     index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
+  //   const next = index === 0 ? null : blogPosts[index - 1].node;
+  //   createPage({
+  //     path: slug,
+  //     component: blogTemplate,
+  //     context: {
+  //       slug,
+  //       previous,
+  //       next,
+  //     },
+  //   });
+  // });
 
   // Create projects pages
   const projectsResults = await graphql(projectsQuery);
@@ -63,9 +56,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const projectsPosts = projectsResults.data.allMarkdownRemark.edges;
   projectsPosts.forEach((post, index) => {
     const { slug } = post.node.fields;
-    const previous = index === projectsPosts.length - 1
-      ? null
-      : projectsPosts[index + 1].node;
+    const previous =
+      index === projectsPosts.length - 1 ? null : projectsPosts[index + 1].node;
     const next = index === 0 ? null : projectsPosts[index - 1].node;
     createPage({
       path: slug,
