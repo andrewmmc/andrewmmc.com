@@ -65,7 +65,17 @@ const Seo = ({ canonical, description, lang, meta, keywords, title }) => {
         // ...canonical ? [{ rel: 'canonical', href: canonical }] : []
       ]}
     >
-      <script data-ad-client="ca-pub-9585452904399015" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script
+        data-ad-client="ca-pub-9585452904399015"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
+      <div
+        dangerouslySetInnerHTML={{
+          __html:
+            '<script type="text/javascript">window._mNHandle = window._mNHandle || {};window._mNHandle.queue = window._mNHandle.queue || [];medianet_versionId = "3121199";</script><script src="https://contextual.media.net/dmedianet.js?cid=8CU783G88" async="async"></script>',
+        }}
+      />
     </Helmet>
   );
 };

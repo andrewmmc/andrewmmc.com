@@ -33,6 +33,12 @@ const ProjectsTemplate = ({ data }) => {
           </Info>
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          dangerouslySetInnerHTML={{
+            __html:
+              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
+          }}
+        />
       </Article>
     </Layout>
   );
@@ -50,7 +56,10 @@ const H1 = styled.h1`
 const Hyperlink = styled.div`
   display: inline-block;
 
-  a, a:hover, a:focus, a:active {
+  a,
+  a:hover,
+  a:focus,
+  a:active {
     display: inline-block;
     border: none;
     padding: 0 1rem;
