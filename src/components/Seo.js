@@ -70,12 +70,15 @@ const Seo = ({ canonical, description, lang, meta, keywords, title }) => {
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       ></script>
-      <div
-        dangerouslySetInnerHTML={{
-          __html:
-            '<script type="text/javascript">window._mNHandle = window._mNHandle || {};window._mNHandle.queue = window._mNHandle.queue || [];medianet_versionId = "3121199";</script><script src="https://contextual.media.net/dmedianet.js?cid=8CU783G88" async="async"></script>',
-        }}
-      />
+      <script type="text/javascript">{`
+          window._mNHandle = window._mNHandle || {};
+          window._mNHandle.queue = window._mNHandle.queue || [];
+          medianet_versionId = "3121199";
+      `}</script>
+      <script
+        src="https://contextual.media.net/dmedianet.js?cid=8CU783G88"
+        async="async"
+      ></script>
     </Helmet>
   );
 };
