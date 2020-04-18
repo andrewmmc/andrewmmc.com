@@ -33,7 +33,12 @@ const ProjectsTemplate = ({ data }) => {
           </Info>
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-        <div id="917526292"></div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html:
+              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
+          }}
+        />
       </Article>
     </Layout>
   );
