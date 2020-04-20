@@ -6,7 +6,7 @@ import rgba from 'polished/lib/color/rgba';
 import { MAX_WIDTH } from 'utils/helpers';
 
 const headerItems = [
-  // { path: '/projects', label: 'Projects' },
+  { path: '/projects', label: 'Projects' },
   { path: '/about', label: 'About' },
 ];
 

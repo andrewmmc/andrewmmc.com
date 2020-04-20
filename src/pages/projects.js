@@ -19,17 +19,15 @@ const Projects = ({ data }) => {
     >
       <Seo
         title="Projects"
-        keywords={[
-          'projects',
-          'andrew',
-          'andrewmok',
-          'frontend',
-          'javascript',
-        ]}
+        keywords={['projects', 'andrew', 'andrewmok', 'frontend', 'javascript']}
       />
       <Main>
-        <h1>Projects</h1>
-        <p>I like to create different applications to make life easier. Check below for some of my works and open-sourced projects.</p>
+        <h1>Hi, I'm Andrew Mok.</h1>
+        <p>
+          Software Developer based in Hong Kong. Currently at PwC. <br />I enjoy
+          working on JAMstack, React and modern web development.
+        </p>
+        <p>Check below for my projects:</p>
         {reversedGroup.map(({ nodes, fieldValue: year }) => {
           return (
             <YearSection key={year}>
@@ -40,23 +38,42 @@ const Projects = ({ data }) => {
                   const { slug } = node.fields;
                   return (
                     <Item key={slug}>
-                      <Title><Link to={slug}>{title}</Link>{description && ` • ${description}`}</Title>
+                      <Title>
+                        <Link to={slug}>{title}</Link>
+                        {description && ` • ${description}`}
+                      </Title>
                       <Hyperlink>
                         {link && (
-                          <a href={link} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Icon icon={faExternalLinkAlt} />
                           </a>
                         )}
                       </Hyperlink>
                     </Item>
-                  )
+                  );
                 })}
               </List>
             </YearSection>
           );
         })}
         <SubHeading>Others</SubHeading>
-        <p>For my 3D rendering, illustration and publication works, please <a href="../old_portfolio.pdf" target="_blank">click here</a>.</p>
+        <p>
+          For my 3D rendering, illustration and publication works, please{' '}
+          <a href="../old_portfolio.pdf" target="_blank">
+            click here
+          </a>
+          .
+        </p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html:
+              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
+          }}
+        />
       </Main>
     </Layout>
   );
@@ -101,7 +118,10 @@ const Hyperlink = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  a, a:hover, a:focus, a:active {
+  a,
+  a:hover,
+  a:focus,
+  a:active {
     display: inline-block;
     border: none;
     padding: 0 1rem;
@@ -115,14 +135,17 @@ export default Projects;
 
 export const pageQuery = graphql`
   query {
-    featuredImage: file(relativePath: { eq: "assets/projects.jpg" }) {
+    featuredImage: file(relativePath: { eq: "assets/home.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1440) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
-    allMarkdownRemark(filter: {fields: {type: {eq: "projects"}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(
+      filter: { fields: { type: { eq: "projects" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       group(field: frontmatter___year) {
         nodes {
           frontmatter {
@@ -139,6 +162,6 @@ export const pageQuery = graphql`
         fieldValue
       }
     }
-  }  
+  }
 `;
 /* eslint-enable react/no-danger */

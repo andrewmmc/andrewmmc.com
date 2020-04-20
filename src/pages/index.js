@@ -1,137 +1,118 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { shape } from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import Typed from 'typed.js';
+import rgba from 'polished/lib/color/rgba';
 
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import Thumbnail from 'components/Thumbnail';
 
-const Projects = ({ data }) => {
-  const { group } = data.allMarkdownRemark;
-  const reversedGroup = [...group].reverse();
+const BlogIndex = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges;
+  const { author, location, social } = data.site.siteMetadata;
+  const typedRef = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      strings: [`Hi, I'm ${author}.`],
+      typeSpeed: 40,
+      showCursor: false,
+    };
+    const typed = new Typed(typedRef.current, options);
+    return () => {
+      if (typed) typed.destroy();
+    };
+  }, []);
+
   return (
     <Layout
       cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}
     >
       <Seo
-        title="Projects"
-        keywords={['projects', 'andrew', 'andrewmok', 'frontend', 'javascript']}
+        keywords={['blog', 'andrew', 'andrewmok', 'Andrew Mok', 'andrewmmc']}
       />
-      <Main>
-        <h1>Hi, I'm Andrew Mok.</h1>
+      <Introduction>
+        <Heading ref={typedRef} />
         <p>
-          Software Developer based in Hong Kong. Currently at PwC. <br />I enjoy
-          working on JAMstack, React and modern web development.
-        </p>
-        <p>Check below for my projects:</p>
-        {reversedGroup.map(({ nodes, fieldValue: year }) => {
-          return (
-            <YearSection key={year}>
-              <SubHeading>{year}</SubHeading>
-              <List>
-                {nodes.map(node => {
-                  const { title, link, description } = node.frontmatter;
-                  const { slug } = node.fields;
-                  return (
-                    <Item key={slug}>
-                      <Title>
-                        <Link to={slug}>{title}</Link>
-                        {description && ` • ${description}`}
-                      </Title>
-                      <Hyperlink>
-                        {link && (
-                          <a
-                            href={link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Icon icon={faExternalLinkAlt} />
-                          </a>
-                        )}
-                      </Hyperlink>
-                    </Item>
-                  );
-                })}
-              </List>
-            </YearSection>
-          );
-        })}
-        <SubHeading>Others</SubHeading>
-        <p>
-          For my 3D rendering, illustration and publication works, please{' '}
-          <a href="../old_portfolio.pdf" target="_blank">
-            click here
+          Software Developer based in {location}. Currently at{' '}
+          <a href="https://pwchk.com/en/services/new-ventures.html">PwC</a>.
+          <br />I enjoy working on{' '}
+          <a
+            href={`https://github.com/${social.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            JAMstack, React and modern web development
           </a>
           .
         </p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html:
-              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
-          }}
-        />
-      </Main>
+      </Introduction>
+      <List>
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug;
+          const { date } = node.frontmatter;
+          return (
+            <Item key={node.fields.slug}>
+              <Info>
+                <time>{date}</time>
+                <span>{node.fields.readingTime.text}</span>
+              </Info>
+              <H3>
+                <Link to={node.fields.slug}>{title}</Link>
+              </H3>
+            </Item>
+          );
+        })}
+      </List>
+      <div
+        dangerouslySetInnerHTML={{
+          __html:
+            '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
+        }}
+      />
     </Layout>
   );
 };
 
-Projects.propTypes = {
+BlogIndex.propTypes = {
   data: shape({}).isRequired,
 };
 
-const Main = styled.div`
+const Introduction = styled.div`
   margin: 2rem 0;
 `;
 
-const YearSection = styled.div`
-  margin: 0 0 1rem;
+const Heading = styled.h1`
+  min-height: 2.7rem; /* 2rem * 1.35 */
 `;
 
-const SubHeading = styled.h3`
-  margin: 0 0 0.5rem;
+const List = styled.ul`
+  list-style: none;
+  margin: 3rem 0;
 `;
 
-const List = styled.div`
-  display: flex;
-  flex-direction: column;
+const Item = styled.li`
+  margin: 1.5rem 0;
 `;
 
-const Item = styled.div`
-  display: flex;
-  margin: 0.3rem 0;
+const H3 = styled.h3`
+  font-weight: 600;
+`;
 
-  p {
-    margin: 0;
+const Info = styled.small`
+  display: block;
+  margin: 0 0 0.5rem 0;
+  color: ${({ theme }) => rgba(theme.colors.primaryText, 0.7)};
+
+  time {
+    margin-right: 1rem;
   }
 `;
 
-const Title = styled.div`
-  flex: 1 0 90%;
-`;
-
-const Hyperlink = styled.div`
-  flex: 1 0 10%;
-  display: flex;
-  justify-content: flex-end;
-
-  a,
-  a:hover,
-  a:focus,
-  a:active {
-    display: inline-block;
-    border: none;
-    padding: 0 1rem;
-    width: 50px;
-    height: 100%;
-    background: none;
-  }
-`;
-
-export default Projects;
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query {
@@ -142,24 +123,34 @@ export const pageQuery = graphql`
         }
       }
     }
+    site {
+      siteMetadata {
+        author
+        location
+        social {
+          github
+        }
+      }
+    }
     allMarkdownRemark(
-      filter: { fields: { type: { eq: "projects" } } }
+      filter: { fields: { type: { eq: "blog" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      group(field: frontmatter___year) {
-        nodes {
-          frontmatter {
-            title
-            link
-            description
-          }
+      edges {
+        node {
+          excerpt(truncate: true)
           fields {
             slug
             type
+            readingTime {
+              text
+            }
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
           }
         }
-        totalCount
-        fieldValue
       }
     }
   }

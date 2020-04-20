@@ -3,7 +3,7 @@ import React from 'react';
 import { shape } from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
-import Iframe from 'iframe-resizer-react'
+import Iframe from 'iframe-resizer-react';
 
 import Bio from 'components/Bio';
 import Layout from 'components/Layout';
@@ -20,7 +20,11 @@ const BlogTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Seo title={title} description={post.excerpt} canonical={post.frontmatter.canonical} />
+      <Seo
+        title={title}
+        description={post.excerpt}
+        canonical={post.frontmatter.canonical}
+      />
       <Article>
         <header>
           <h1>{title}</h1>
@@ -30,6 +34,12 @@ const BlogTemplate = ({ data, pageContext }) => {
           </Info>
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          dangerouslySetInnerHTML={{
+            __html:
+              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
+          }}
+        />
       </Article>
       <StyledIframe
         src={`https://button.like.co/in/embed/andrewmmc/button?type=wp&referrer=${siteUrl}${post.fields.slug}`}
