@@ -125,7 +125,7 @@ export default Projects;
 
 export const pageQuery = graphql`
   query {
-    featuredImage: file(relativePath: { eq: "assets/home.jpg" }) {
+    featuredImage: file(relativePath: { eq: "assets/projects.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1440) {
           ...GatsbyImageSharpFluid_withWebp

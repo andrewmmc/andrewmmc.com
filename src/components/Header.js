@@ -20,9 +20,6 @@ const Header = props => {
         <Link to="/">{title}</Link>
       </h1>
       <Nav>
-        <a href="https://medium.com/andrewmmc-io" target="_blank">
-          Blog
-        </a>
         {headerItems.map(item => (
           <Link key={item.path} to={item.path}>
             {item.label}
