@@ -34,12 +34,6 @@ const BlogTemplate = ({ data, pageContext }) => {
           </Info>
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html:
-              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
-          }}
-        />
       </Article>
       <StyledIframe
         src={`https://button.like.co/in/embed/andrewmmc/button?type=wp&referrer=${siteUrl}${post.fields.slug}`}

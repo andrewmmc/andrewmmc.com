@@ -22,12 +22,8 @@ const Projects = ({ data }) => {
         keywords={['projects', 'andrew', 'andrewmok', 'frontend', 'javascript']}
       />
       <Main>
-        <h1>Hi, I'm Andrew Mok.</h1>
-        <p>
-          Software Developer based in Hong Kong. Currently at PwC. <br />I enjoy
-          working on JAMstack, React and modern web development.
-        </p>
-        <p>Check below for my projects:</p>
+        <h1>Projects</h1>
+        <p>Check below for some of my works:</p>
         {reversedGroup.map(({ nodes, fieldValue: year }) => {
           return (
             <YearSection key={year}>
@@ -68,12 +64,6 @@ const Projects = ({ data }) => {
           </a>
           .
         </p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html:
-              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
-          }}
-        />
       </Main>
     </Layout>
   );

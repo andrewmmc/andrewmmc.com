@@ -13,7 +13,7 @@ import { Info, Article, Content } from './styles';
 
 const ProjectsTemplate = ({ data }) => {
   const post = data.markdownRemark;
-  const { title, date, link, label } = post.frontmatter;
+  const { title, date, link } = post.frontmatter;
 
   return (
     <Layout>
@@ -33,12 +33,6 @@ const ProjectsTemplate = ({ data }) => {
           </Info>
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-        <div
-          dangerouslySetInnerHTML={{
-            __html:
-              '<div id="917526292"><script type="text/javascript">try {window._mNHandle.queue.push(function (){window._mNDetails.loadTag("917526292", "300x250", "917526292");});}catch (error) {}</script></div>',
-          }}
-        />
       </Article>
     </Layout>
   );
