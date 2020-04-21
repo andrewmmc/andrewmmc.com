@@ -2,9 +2,10 @@ module.exports = {
   'parser': 'babel-eslint',
   'extends': ['airbnb', 'prettier', 'prettier/react'],
   'rules': {
-    'react/jsx-filename-extension': ['warn', { 'extensions': ['.js'] }],
     'no-use-before-define': 0,
     'import/no-unresolved': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/jsx-filename-extension': 0,
   },
   'env': {
     'browser': true,
@@ -22,11 +23,6 @@ module.exports = {
     'ecmaFeatures': {
       'jsx': true,
     },
-  },
-  'rules': {
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-filename-extension': 'off',
-    'no-use-before-define': 'off',
   },
   'settings': {
     'import/resolver': {
