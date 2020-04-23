@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import rgba from 'polished/lib/color/rgba';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { faRss } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
   faLinkedin,
@@ -14,12 +15,20 @@ import { MAX_WIDTH } from 'utils/helpers';
 
 const Footer = props => {
   const data = useStaticQuery(pageQuery);
-  const { social } = data.site.siteMetadata;
+  const { social, siteUrl } = data.site.siteMetadata;
   const { github, linkedin, medium, twitter } = social;
   return (
     <Container {...props}>
       <div>© 2020</div>
       <SocialMedia>
+        <a
+          href={`${siteUrl}/rss.xml`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon icon={faRss} />
+          <span className="visually-hidden">RSS</span>
+        </a>
         <a
           href={`https://github.com/${github}`}
           target="_blank"
@@ -101,6 +110,7 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
+        siteUrl
         social {
           github
           linkedin
