@@ -4,7 +4,7 @@ date: '2020-04-28T14:17:00+08:00'
 canonical: 'https://medium.com/andrewmmc-io/switching-to-microsoft-edge-593edbce1818'
 ---
 
-![](image3.png)
+![](image3.jpeg)
 
 Microsoft announced to replace Edge rendering engine from EdgeHTML to Chromium last year and released the new Microsoft Edge on January this year. It bases on the Chromium open-source project. I gave them a try, and it's so impressive that Microsoft team did a great job on that. You may have some bad experiences using Internet Explorer or old Edge browser, but I think it's a great time to check again. Here are some reasons:
 
