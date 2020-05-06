@@ -132,7 +132,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(truncate: true)
           fields {
             slug
             type

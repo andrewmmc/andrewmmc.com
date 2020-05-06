@@ -12,22 +12,23 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   ::selection {
-    background-color: ${({ theme }) => rgba(theme.colors.gold, 0.4)};
+    background-color: ${({ theme }) => rgba(theme.colors.primary, 0.4)};
   }
 
   a {
-    color: ${({ theme }) => theme.colors.gold};
+    color: ${({ theme }) => theme.colors.primary};
     text-decoration: none;
-    border-bottom: 2px solid ${({ theme }) => rgba(theme.colors.gold, 0.4)};
+    border-bottom: 2px solid ${({ theme }) => rgba(theme.colors.primary, 0.4)};
     transition: all 250ms;
 
     &:hover,
     &:focus, 
     &:active {
-      color: ${({ theme }) => darken(0.1, theme.colors.gold)};
-      background-color: ${({ theme }) => rgba(theme.colors.gold, 0.15)};
+      color: ${({ theme }) => darken(0.1, theme.colors.primary)};
+      background-color: ${({ theme }) => rgba(theme.colors.primary, 0.15)};
       text-decoration: none;
-      border-bottom: 2px solid ${({ theme }) => darken(0.1, theme.colors.gold)};
+      border-bottom: 2px solid ${({ theme }) =>
+        darken(0.1, theme.colors.primary)};
     }
   }
   
@@ -80,7 +81,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Info = styled.p`
-  color: ${({ theme }) => theme.colors.gold};
+  color: ${({ theme }) => theme.colors.primary};
   display: flex;
   margin: 1rem 0;
 

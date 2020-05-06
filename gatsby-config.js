@@ -10,11 +10,14 @@ module.exports = {
     location: 'Hong Kong',
     email: 'hello@andrewmmc.com',
     social: {
-      twitter: 'andrewmmc',
       github: 'andrewmmc',
       linkedin: 'andrewmmc',
-      medium: 'andrewmmc-io',
-      vsco: 'andrewmmc',
+      facebook: '',
+      instagram: '',
+      // facebook: 'thepolarhacker',
+      // instagram: 'thepolarhacker',
+      twitter: 'andrewmmc',
+      medium: 'thepolarhacker',
     },
   },
   plugins: [

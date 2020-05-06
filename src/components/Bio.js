@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
 
@@ -24,7 +24,8 @@ const Bio = props => {
           rel="noopener noreferrer"
         >
           JAMstack, React and modern web development
-        </a>.
+        </a>
+        .
       </p>
     </Container>
   );
