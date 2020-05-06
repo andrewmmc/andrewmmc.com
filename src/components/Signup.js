@@ -54,7 +54,7 @@ const StyledForm = styled.form`
   justify-content: center;
   flex-direction: column;
 
-  ${media.greaterThan('small')`
+  ${media.greaterThan('medium')`
     flex-direction: row;
   `};
 `;
@@ -68,7 +68,7 @@ const StyledInput = styled.input`
   width: 100%;
   margin: 0 0 1rem 0;
 
-  ${media.greaterThan('small')`
+  ${media.greaterThan('medium')`
     width: 200px;
     margin: 0 1rem 0 0;
   `};
@@ -94,7 +94,7 @@ const StyledButton = styled.button`
   vertical-align: middle;
   width: 100%;
 
-  ${media.greaterThan('small')`
+  ${media.greaterThan('medium')`
     width: auto;
   `};
 
