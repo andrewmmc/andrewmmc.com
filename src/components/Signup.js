@@ -60,6 +60,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
+  appearance: none;
   border: 1px solid ${({ theme }) => rgba(theme.colors.primaryText, 0.1)};
   border-radius: 4px;
   padding: 0.25rem 0.6rem;
