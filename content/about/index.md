@@ -2,9 +2,9 @@
 title: About
 ---
 
-👋! I'm Andrew, a developer born and raised in Hong Kong.
+👋! I'm Andrew, a sofware developer based in Hong Kong.
 
-I enjoy creating beautiful, simple and elegant things. I used to develop modern web applications under Agile and Waterfall methodologies with Git workflow. I’ve mostly worked with JavaScript, React and PHP but also a little bit with Node.js and Golang. 
+I enjoy creating beautiful, simple and elegant things. I used to develop modern web applications under Agile and Waterfall methodologies with Git workflow. I’ve mostly worked with TypeScript, React, Node.js and PHP but also a little bit with Golang. 
 
 In my free time, I [do mobile apps](https://itunes.apple.com/us/developer/man-chun-mok/id1350308720), [write a blog](https://medium.com/@andrewmmc) and [take photography](https://vsco.co/andrewmmc).
 
@@ -13,10 +13,15 @@ I enjoy my work and hope to contribute my knowledge and skills on any opportunit
 Feel free to [email me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 ## Skills
-* **Frontend:** JavaScript, React, Vue.js, jQuery
-* **Backend:** PHP, Node.js, Golang
+* **Frontend:** TypeScript, JavaScript, React, Vue.js, AngularJS, jQuery, Bootstrap, SCSS
+* **Backend:** Node.js, PHP, Golang, C++
+* **Database & Caching:** MySQL, MongoDB, Redis
 * **Mobile:** React Native, Ionic, Unity
-* **Graphics and UI/UX:** Adobe Photoshop, Adobe Illustrator, Sketch, Blender
+* **Graphics & UI/UX:** Adobe Photoshop, Adobe Illustrator, Sketch, Blender
+* **Marketing:** Google AdWords, Doubleclick for Publishers
+
+## Languages
+* English, Chinese (Cantonese & Mandarin)
 
 ## Certifications
 #### 2017

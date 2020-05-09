@@ -1,9 +1,8 @@
 /* eslint-disable react/no-danger */
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { shape } from 'prop-types';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
-import Typed from 'typed.js';
 import rgba from 'polished/lib/color/rgba';
 
 import Layout from 'components/Layout';
@@ -12,43 +11,16 @@ import Thumbnail from 'components/Thumbnail';
 
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
-  const { author, location, social } = data.site.siteMetadata;
-  const typedRef = useRef(null);
-
-  useEffect(() => {
-    const options = {
-      strings: [`Hi, I'm ${author}.`],
-      typeSpeed: 40,
-      showCursor: false,
-    };
-    const typed = new Typed(typedRef.current, options);
-    return () => {
-      if (typed) typed.destroy();
-    };
-  }, []);
+  const { author, authorDescription, seoKeywords } = data.site.siteMetadata;
 
   return (
     <Layout
       cover={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}
     >
-      <Seo
-        keywords={['blog', 'andrew', 'andrewmok', 'Andrew Mok', 'andrewmmc']}
-      />
+      <Seo keywords={seoKeywords} />
       <Introduction>
-        <Heading ref={typedRef} />
-        <p>
-          Software Developer based in {location}. Currently at{' '}
-          <a href="https://pwchk.com/en/services/new-ventures.html">PwC</a>.
-          <br />I enjoy working on{' '}
-          <a
-            href={`https://github.com/${social.github}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            JAMstack, React and modern web development
-          </a>
-          .
-        </p>
+        <h1>Hi, I'm {author}.</h1>
+        {authorDescription && <p>{authorDescription}</p>}
       </Introduction>
       <List>
         {posts.map(({ node }) => {
@@ -77,10 +49,6 @@ BlogIndex.propTypes = {
 
 const Introduction = styled.div`
   margin: 2rem 0;
-`;
-
-const Heading = styled.h1`
-  min-height: 2.7rem; /* 2rem * 1.35 */
 `;
 
 const List = styled.ul`
@@ -120,10 +88,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         author
-        location
-        social {
-          github
-        }
+        authorDescription
+        seoKeywords
       }
     }
     allMarkdownRemark(

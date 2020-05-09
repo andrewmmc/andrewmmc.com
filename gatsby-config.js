@@ -1,12 +1,35 @@
 const path = require('path');
 
+const title = 'Andrew Mok';
+
 module.exports = {
   siteMetadata: {
-    title: 'Andrew Mok',
+    title,
     author: 'Andrew Mok',
+    authorDescription:
+      'Software Developer based in Hong Kong. Currently at PwC.',
     description:
       'Personal blog by Andrew Mok, a software developer based in Hong Kong.',
     siteUrl: 'https://andrewmmc.com',
+    seoKeywords: [
+      'blog',
+      'andrew',
+      'andrewmok',
+      'Andrew Mok',
+      'andrewmmc',
+      'software developer',
+      'web developer',
+      'coder',
+      'software engineer',
+      'engineer',
+      'hacker',
+      'Hong Kong developer',
+      'Hong Kong engineer',
+      '程序員',
+      '軟體工程師',
+      '網頁編寫員',
+    ],
+    mapId: '',
     location: 'Hong Kong',
     email: 'hello@andrewmmc.com',
     social: {
@@ -141,7 +164,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Andrew Mok',
+            title,
           },
         ],
       },

@@ -45,8 +45,9 @@ const Signup = () => {
 const Container = styled.div`
   padding: 1rem 1.5rem;
   border-radius: 4px;
-  border: 1px solid #f4f4f4;
+  border: 1px solid ${({ theme }) => rgba(theme.colors.primary, 0.4)};
   text-align: center;
+  background-color: ${({ theme }) => rgba(theme.colors.primary, 0.1)};
 `;
 
 const StyledForm = styled.form`

@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import media from 'styled-media-query';
 import rgba from 'polished/lib/color/rgba';
 import darken from 'polished/lib/color/darken';
 import { rhythm } from 'themes/typography';
@@ -83,11 +84,30 @@ export const GlobalStyle = createGlobalStyle`
 export const Info = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   display: flex;
-  margin: 1rem 0;
+  margin: 0;
 
   time {
     margin-right: 1rem;
   }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+
+  ${Info} {
+    margin-bottom: 0.5rem;
+  }
+
+  ${media.greaterThan('medium')`
+  flex-direction: row;
+
+  ${Info} {
+    margin-bottom: 0;
+  }
+`};
 `;
 
 export const Nav = styled.ul`

@@ -28,16 +28,18 @@ const BlogTemplate = ({ data, pageContext }) => {
       <Article>
         <header>
           <h1>{title}</h1>
-          <Info>
-            <time>{date}</time>
-            <span>{readingTime.text}</span>
-          </Info>
+          <Wrapper>
+            <Info>
+              <time>{date}</time>
+              <span>{readingTime.text}</span>
+            </Info>
+            <Bio />
+          </Wrapper>
         </header>
         <Content dangerouslySetInnerHTML={{ __html: post.html }} />
       </Article>
       <Rewards referrer={`${siteUrl}${post.fields.slug}`} />
       <Signup />
-      <Bio />
       <Nav>
         <li>
           {previous && (

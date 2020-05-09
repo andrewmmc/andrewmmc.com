@@ -5,28 +5,11 @@ import styled from 'styled-components';
 
 const Bio = props => {
   const data = useStaticQuery(pageQuery);
-  const { author, location, social } = data.site.siteMetadata;
+  const { author } = data.site.siteMetadata;
   return (
     <Container {...props}>
-      <StyledImage
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        imgStyle={{
-          borderRadius: '50%',
-        }}
-      />
-      <p>
-        I&#39;m <strong>{author}</strong>, a software developer based in{' '}
-        {location}. <br />I enjoy working on{' '}
-        <a
-          href={`https://github.com/${social.github}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          JAMstack, React and modern web development
-        </a>
-        .
-      </p>
+      <StyledImage fixed={data.avatar.childImageSharp.fixed} alt={author} />
+      <Link to="/about">{author}</Link>
     </Container>
   );
 };
@@ -34,16 +17,11 @@ const Bio = props => {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  margin: 1.5rem 0;
-
-  p {
-    margin: 0;
-  }
 `;
 
 const StyledImage = styled(Image)`
-  min-width: 50px;
-  border-radius: 100%;
+  max-width: 25px;
+  border-radius: 50%;
   margin-right: 1rem;
   margin-bottom: 0;
 `;
@@ -52,17 +30,8 @@ const pageQuery = graphql`
   query BioQuery {
     avatar: file(relativePath: { eq: "assets/profile.jpg" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 25, height: 25) {
           ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        location
-        social {
-          github
         }
       }
     }
