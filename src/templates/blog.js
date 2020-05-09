@@ -9,7 +9,7 @@ import Rewards from 'components/Rewards';
 import Signup from 'components/Signup';
 import Seo from 'components/Seo';
 
-import { Info, Nav, Article, Content } from './styles';
+import { Info, Nav, Article, Content, Wrapper } from './styles';
 
 const BlogTemplate = ({ data, pageContext }) => {
   const { siteUrl } = data.site.siteMetadata;
