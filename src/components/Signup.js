@@ -79,6 +79,7 @@ const StyledInput = styled.input`
   &:active {
     border: 1px solid ${({ theme }) => darken(0.1, theme.colors.primary)};
     outline-width: 0;
+    outline: none;
     box-shadow: 0 0 0 4px ${({ theme }) => rgba(theme.colors.primary, 0.4)};
   }
 `;
