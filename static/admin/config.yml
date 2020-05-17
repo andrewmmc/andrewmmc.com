@@ -1,0 +1,66 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
+
+media_folder: static/images
+public_folder: /static
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    create: true
+    path: '{{year}}/{{title}}/{{slug}}'
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'blog-post',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Featured Image', name: 'featuredImage', widget: image }
+      - { label: 'Category', name: 'category', widget: 'list' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'content/about/index.md'
+        label: 'About'
+        name: 'about'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'about-page',
+            }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'content/projects/index.md'
+        label: 'Projects'
+        name: 'projects'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'projects-page',
+            }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
