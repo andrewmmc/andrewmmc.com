@@ -48,10 +48,6 @@ collections:
             }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-
-  - name: 'pages'
-    label: 'Pages'
-    files:
       - file: 'content/projects/index.md'
         label: 'Projects'
         name: 'projects'
