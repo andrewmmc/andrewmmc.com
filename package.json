@@ -2,7 +2,7 @@
   "name": "andrewmmc.com",
   "private": true,
   "description": "Personal blog by Andrew Mok, a software developer based in Hong Kong.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "Andrew Mok <hello@andrewmmc.com>",
   "dependencies": {
     "gatsby": "^2.19.23",
@@ -10,7 +10,7 @@
     "gatsby-plugin-netlify": "^2.1.35",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-netlify-cms": "^4.3.1",
-    "gatsby-theme-minimalism": "^1.0.3",
+    "gatsby-theme-minimalism": "^1.0.4",
     "netlify-cms-app": "^2.12.12",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
