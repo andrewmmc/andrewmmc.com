@@ -1,7 +1,7 @@
 ---
 title: Fetch data with loading and error state in React Hooks
 date: '2020-03-01T16:00:00+08:00'
-canonical: 'https://medium.com/andrewmmc-io/fetch-data-with-loading-and-error-state-in-react-hooks-a341706a6ffe'
+canonical: 'https://medium.com/thepolarlab/fetch-data-with-loading-and-error-state-in-react-hooks-a341706a6ffe'
 ---
 
 I am using React hooks with the current project that I am working on for a few months. It's a powerful API, and I would like to show you some useful skills that can be reused in your application.

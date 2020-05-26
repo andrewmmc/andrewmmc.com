@@ -1,7 +1,7 @@
 ---
 title: Switching to Microsoft Edge
 date: '2020-04-28T14:17:00+08:00'
-canonical: 'https://medium.com/andrewmmc-io/switching-to-microsoft-edge-593edbce1818'
+canonical: 'https://medium.com/thepolarlab/switching-to-microsoft-edge-593edbce1818'
 ---
 
 ![](image3.jpeg)

@@ -1,7 +1,7 @@
 ---
 title: Apply SSL Certificates to your website and force using HTTPS connections
 date: '2018-05-23T00:00:05.000Z'
-canonical: 'https://medium.com/andrewmmc-io/apply-ssl-certificates-to-your-website-and-force-using-https-connections-37e481f7a29d'
+canonical: 'https://medium.com/thepolarlab/apply-ssl-certificates-to-your-website-and-force-using-https-connections-37e481f7a29d'
 ---
 
 We will continue to apply certificates to our websites and force our users to use HTTPS connections.

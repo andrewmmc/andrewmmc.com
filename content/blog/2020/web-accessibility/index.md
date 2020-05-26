@@ -1,7 +1,7 @@
 ---
 title: What is web accessibility and why is it important?
 date: '2020-05-26T12:00:00+08:00'
-canonical: ''
+canonical: 'https://medium.com/thepolarlab/what-is-web-accessibility-and-why-is-it-important-6207ed0d6884'
 ---
 
 This is the article of my talk. You may check out the presentation slide [here](https://github.com/andrewmmc/share/blob/master/20200521-web-accessibility/index.pdf).
@@ -20,15 +20,15 @@ I don’t know what do you think, but to me, the web is a freedom world that des
 
 And don’t always assume the user will use the usual way or expected way to use your services or website. Users may rely on Voiceover to get the contents from your website, they may apply a colour filter to their devices. Or even more common, they may enable large text scaling to increase the font size on their devices.
 
-![Accessibility Features on iPhone](image2.png)
+![Accessibility features on iPhone](image2.png)
 
 In fact, accessibility failure is *easier to be spotted* in the real world.
 
-![Accessibility Failure](image1.png)
+![Accessibility failure](image1.png)
 
 However, it might be hard to notice in the software world. As you can see from the examples, both buttons look the same on the users' browsers, but only the left one is representing button to the screen reader. The right one is only the `div` box with styling but no meanings. It is easier to be ignored in software development.
 
-![Can you spot the accessibility failure?](image3.png)
+![Can you spot the accessibility failure… on the UI?](image3.png)
 
 ## Oh, you may say that it just a small portion of people. Why do we need to care about that?
 

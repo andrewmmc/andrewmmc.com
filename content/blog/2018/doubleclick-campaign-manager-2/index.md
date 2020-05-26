@@ -1,7 +1,7 @@
 ---
 title: Create dynamic creatives in Google Web Designer with DoubleClick Studio
 date: '2018-08-19T00:00:02.000Z'
-canonical: 'https://medium.com/andrewmmc-io/create-dynamic-creatives-in-google-web-designer-with-doubleclick-studio-da47141026e'
+canonical: 'https://medium.com/thepolarlab/create-dynamic-creatives-in-google-web-designer-with-doubleclick-studio-da47141026e'
 ---
 
 We will create a creative with associate advertiser profile created in the previous tutorial.
