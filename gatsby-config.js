@@ -5,7 +5,7 @@ module.exports = {
     title,
     author: 'Andrew',
     authorDescription:
-      'Software Developer based in Hong Kong. Currently at PwC.',
+      'Software developer based in Hong Kong. Currently at PwC.',
     description:
       'Personal blog by Andrew Mok, a software developer based in Hong Kong.',
     siteUrl: 'https://andrewmmc.com',
