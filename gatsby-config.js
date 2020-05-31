@@ -60,7 +60,12 @@ module.exports = {
         showIntro: true,
       },
     },
-    'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        htmlTitle: `${title} - Admin Panel`,
+      },
+    },
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-netlify',
   ],
