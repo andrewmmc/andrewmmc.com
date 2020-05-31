@@ -5,7 +5,8 @@ body {
   -webkit-font-smoothing: antialiased;
   background-color: rgb(255, 255, 255);
   color: rgb(51, 51, 51);
-  margin: 1rem;
+  margin: 2rem;
+  line-height: 1.666;
 }
 
 a {
@@ -22,6 +23,11 @@ a:active {
   background-color: rgba(162, 142, 98, 0.15);
   text-decoration: none;
   border-bottom: 2px solid rgb(131, 115, 78);
+}
+
+div.frame-content > div > div:nth-child(2) {
+  color: rgb(162, 142, 98);
+  margin-bottom: 1.666rem;
 }
 
 h1,
@@ -42,10 +48,7 @@ h1 {
 
 h2 {
   padding: 0;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: 1.666rem;
+  margin: 0 0 1.666rem 0;
   color: inherit;
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -53,19 +56,12 @@ h2 {
 }
 
 p {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.666rem;
+  margin: 0 0 1.666rem 0;
 }
 
 img {
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 0 2rem auto;
   box-shadow: rgba(51, 51, 51, 0.15) 0px 0.8em 2em;
 }
 

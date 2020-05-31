@@ -10,7 +10,7 @@ backend:
 
 publish_mode: editorial_workflow
 display_url: https://andrewmmc.com
-logo_url: https://andrewmmc.com/favicon.png
+logo_url: https://andrewmmc.com/admin/logo.svg
 
 media_folder: static/images
 public_folder: /static
