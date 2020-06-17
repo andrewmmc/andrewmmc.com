@@ -1,9 +1,8 @@
 ---
 title: What is web accessibility and why is it important?
-date: '2020-05-26T12:00:00+08:00'
-canonical: 'https://medium.com/thepolarlab/what-is-web-accessibility-and-why-is-it-important-6207ed0d6884'
+date: 2020-05-26T12:00:00+08:00
+canonical: https://medium.com/thepolarlab/what-is-web-accessibility-and-why-is-it-important-6207ed0d6884
 ---
-
 This is the article of my talk. You may check out the presentation slide [here](https://github.com/andrewmmc/share/blob/master/20200521-web-accessibility/index.pdf).
 
 ## What is web accessibility?
@@ -40,10 +39,36 @@ Of course, I won't list out all the W3C standards here, but let me share some co
 
 ### Semantic HTML tags
 
-Always following native semantic HTML tags first and avoiding styling HTML tag. It clearly describes the content levels and purpose to the browser. And this is the example of different semantic tags in HTML 5.
+Always following native semantic HTML tags first and avoiding styling HTML tag. It clearly describes the content levels and purpose to the browser.
 
 ![Semantic HTML tags](image4.png)
 
+And this is the example of different semantic tags in HTML 5.
+```
+<address>
+<article>
+<aside>
+<blockquote>
+<code>
+<details>
+<figcaption>
+<figure>
+<footer>
+<h1>
+<header>
+<main>
+<mark>
+<nav>
+<ol>
+<p>
+<section>
+<strong>
+<sub>
+<summary>
+<sup>
+<time>
+<ul>
+```
 ### WAI-ARIA tags
 
 In some cases, semantic tags might not be possible to handle the elements on our website. In this case, we might add ARIA tags to the DOM elements for the screen reader to understand what they are. One common example would be handling icon only elements.
@@ -81,6 +106,7 @@ Considering apply some linting rules or audit checking, like using a ESLint plug
 Web accessibility is not something you can just simply fix without thinking, however it is always good to do it from the beginning. Some countries already set up regulations for accessibility. More importantly, improving accessibility is not helping people with disabilities only, but also everyone.
 
 ## Further read
+
 * [MDN web docs - Accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility)
 * [Google Web Fundamentals - Accessibility](https://developers.google.com/web/fundamentals/accessibility)
 * [Accessibility in government - GOV.UK blogs](https://accessibility.blog.gov.uk)
@@ -88,8 +114,9 @@ Web accessibility is not something you can just simply fix without thinking, how
 * [A11ymatters](https://www.a11ymatters.com)
 
 ## References
-* Apple. (2017). What’s New in Accessibility. Retrieved from [https://developer.apple.com/videos/play/wwdc2017/215](https://developer.apple.com/videos/play/wwdc2017/215)
-* Arvin H. (2019). Importance of Web Accessibility. Retrieved from [https://blog.techbridge.cc/2019/10/13/web-accessibility-intro](https://blog.techbridge.cc/2019/10/13/web-accessibility-intro)
-* Dan Na. (2017). Creating an Accessibility Engineering Practice. Retrieved from [http://a11y.danielna.com](http://a11y.danielna.com)
-* Stereobooster. (2019). The Button. Retrieved from [https://dev.to/stereobooster/the-button-3kme](https://dev.to/stereobooster/the-button-3kme)
-* W3C. (2020). Accessibility. Retrieved from [https://www.w3.org/standards/webdesign/accessibility](https://www.w3.org/standards/webdesign/accessibility)
+
+* Apple. (2017). What’s New in Accessibility. Retrieved from <https://developer.apple.com/videos/play/wwdc2017/215>
+* Arvin H. (2019). Importance of Web Accessibility. Retrieved from <https://blog.techbridge.cc/2019/10/13/web-accessibility-intro>
+* Dan Na. (2017). Creating an Accessibility Engineering Practice. Retrieved from <http://a11y.danielna.com>
+* Stereobooster. (2019). The Button. Retrieved from <https://dev.to/stereobooster/the-button-3kme>
+* W3C. (2020). Accessibility. Retrieved from <https://www.w3.org/standards/webdesign/accessibility>
