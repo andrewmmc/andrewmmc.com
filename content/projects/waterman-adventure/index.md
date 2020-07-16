@@ -1,10 +1,11 @@
 ---
 title: Waterman Adventure
 description: 'Bombman based game bulit with Unity.'
-year: '2015'
 date: '2015-06-01'
-link: http://bit.ly/andrewmmc-waterman
+featuredImage: './capture1.png'
 ---
+
+[Download here](http://bit.ly/andrewmmc-waterman)
 
 Bulit with [Unity](https://unity3d.com).
 

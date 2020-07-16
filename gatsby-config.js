@@ -4,8 +4,7 @@ module.exports = {
   siteMetadata: {
     title,
     author: 'Andrew',
-    authorDescription:
-      'Software developer based in Hong Kong. Currently at PwC.',
+    authorDescription: 'Software developer based in Hong Kong.',
     description:
       'Personal blog by Andrew Mok, a software developer based in Hong Kong.',
     siteUrl: 'https://andrewmmc.com',
@@ -53,11 +52,7 @@ module.exports = {
       options: {
         siteName: title,
         convertKitFormId: '1373319',
-        likeCoinId: 'andrewmmc',
         mapId: '',
-        compactMode: true,
-        darkTheme: false,
-        showIntro: true,
       },
     },
     {

@@ -1,6 +1,7 @@
 ---
 title: Switching to Microsoft Edge
 date: '2020-04-28T14:17:00+08:00'
+featuredImage: ./image3.jpeg
 canonical: 'https://medium.com/thepolarlab/switching-to-microsoft-edge-593edbce1818'
 ---
 

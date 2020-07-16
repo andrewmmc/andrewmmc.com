@@ -1,10 +1,11 @@
 ---
 title: 'Education Catalog Platform'
 description: 'Proposed project designed for students and education providers.'
-year: '2016'
 date: '2016-06-01'
-link: https://github.com/andrewmmc/edu-platform
+featuredImage: './featured.jpg'
 ---
+
+[View on GitHub](https://github.com/andrewmmc/edu-platform)
 
 The project proposed a new system called Education Catalog Platform. It is designed for students and education providers in the education market. 
 

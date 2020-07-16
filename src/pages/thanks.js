@@ -1,45 +1,25 @@
 import React from 'react';
-import { shape } from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
+import { Icon, Link, Text } from '@chakra-ui/core';
 
-import Thumbnail from 'components/Thumbnail';
-import BasePage from 'templates/basePage';
+import Heading from 'components/Heading';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
 
-const Thanks = ({ data }) => (
-  <BasePage
-    title="Thank you for subscribing"
-    thumbnail={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}
-  >
-    <>
-      <p>
-        You are now confirmed for subscription. You will receive emails when I
-        post new content.
-      </p>
-      <p>
-        <strong>No spam</strong> - You can unsubscribe at <i>any time</i>.
-      </p>
-      <Link to="/">Back to home</Link>
-    </>
-  </BasePage>
+const Thanks = () => (
+  <Layout>
+    <Seo title="Thank you for subscribing" />
+    <Heading>Thank you for subscribing</Heading>
+    <Text my={8}>
+      You are now confirmed for subscription. You will receive emails when I
+      post new content. <strong>No spam</strong> - You can unsubscribe at{' '}
+      <i>any time</i>.
+    </Text>
+    <Link as={GatsbyLink} to="/" color="primary.500">
+      <Icon name="chevron-left" ml="1" />
+      Back to home
+    </Link>
+  </Layout>
 );
 
-Thanks.propTypes = {
-  data: shape({}).isRequired,
-};
-
 export default Thanks;
-
-export const pageQuery = graphql`
-  query {
-    featuredImage: file(
-      sourceInstanceName: { eq: "assets" }
-      relativePath: { eq: "thanks.jpg" }
-    ) {
-      childImageSharp {
-        fluid(quality: 90, maxWidth: 1440) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-`;

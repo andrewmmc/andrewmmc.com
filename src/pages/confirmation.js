@@ -1,39 +1,24 @@
 import React from 'react';
-import { shape } from 'prop-types';
-import { graphql } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
+import { Icon, Link, Text } from '@chakra-ui/core';
 
-import Thumbnail from 'components/Thumbnail';
-import BasePage from 'templates/basePage';
+import Heading from 'components/Heading';
+import Layout from 'components/Layout';
+import Seo from 'components/Seo';
 
-const Confirmation = ({ data }) => (
-  <BasePage
-    title="One Last Step..."
-    thumbnail={<Thumbnail fluid={data.featuredImage.childImageSharp.fluid} />}
-  >
-    <p>
+const Confirmation = () => (
+  <Layout>
+    <Seo title="One Last Step..." />
+    <Heading>One Last Step...</Heading>
+    <Text my={8}>
       Thanks for signing up. Please check your inbox and{' '}
       <strong>confirm your subscription</strong>.
-    </p>
-  </BasePage>
+    </Text>
+    <Link as={GatsbyLink} to="/" color="primary.500">
+      <Icon name="chevron-left" ml="1" />
+      Back to home
+    </Link>
+  </Layout>
 );
 
-Confirmation.propTypes = {
-  data: shape({}).isRequired,
-};
-
 export default Confirmation;
-
-export const pageQuery = graphql`
-  query {
-    featuredImage: file(
-      sourceInstanceName: { eq: "assets" }
-      relativePath: { eq: "confirm.jpg" }
-    ) {
-      childImageSharp {
-        fluid(quality: 90, maxWidth: 1440) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-`;

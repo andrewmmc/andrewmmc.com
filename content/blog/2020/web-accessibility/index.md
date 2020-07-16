@@ -1,6 +1,7 @@
 ---
 title: What is web accessibility and why is it important?
 date: 2020-05-26T12:00:00+08:00
+featuredImage: ./feature.jpeg
 canonical: https://medium.com/thepolarlab/what-is-web-accessibility-and-why-is-it-important-6207ed0d6884
 ---
 This is the article of my talk. You may check out the presentation slide [here](https://github.com/andrewmmc/share/blob/master/20200521-web-accessibility/index.pdf).
