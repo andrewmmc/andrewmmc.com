@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: Waterman Adventure
 description: 'Bombman based game bulit with Unity.'
 date: '2015-06-01'

@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: pick
 description: 'Slack bot for randomly picking choice built with Golang.'
 date: '2019-07-01'

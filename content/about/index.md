@@ -3,6 +3,8 @@ templateKey: 'about-page'
 title: About
 ---
 
+![](about.jpg)
+
 Hi, I'm Andrew, a software developer based in Hong Kong.
 
 I enjoy creating beautiful, simple and elegant things. I used to develop modern web applications under Agile and Waterfall methodologies with Git workflow. I’ve mostly worked with TypeScript, React, Node.js and PHP but also a little bit with Golang. 

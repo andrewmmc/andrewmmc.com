@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: How to survive while working from home
 date: '2020-04-14T01:00:00+08:00'
 featuredImage: ./photo1.jpg

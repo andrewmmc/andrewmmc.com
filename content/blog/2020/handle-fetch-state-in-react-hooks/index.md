@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Fetch data with loading and error state in React Hooks
 date: '2020-03-01T16:00:00+08:00'
 canonical: 'https://medium.com/thepolarlab/fetch-data-with-loading-and-error-state-in-react-hooks-a341706a6ffe'

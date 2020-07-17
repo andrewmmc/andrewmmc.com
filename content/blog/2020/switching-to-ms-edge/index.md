@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Switching to Microsoft Edge
 date: '2020-04-28T14:17:00+08:00'
 featuredImage: ./image3.jpeg

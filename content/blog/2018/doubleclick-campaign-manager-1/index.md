@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Import dynamic feed to advertiser profile in DoubleClick Studio
 date: '2018-08-19T00:00:01.000Z'
 canonical: 'https://medium.com/thepolarlab/import-dynamic-feed-to-advertiser-profile-in-doubleclick-studio-dbef1fa51384'

@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: 'Wtsapp.ga'
 description: 'Simple progressive web application for a shortcut to send WhatsApp message.'
 date: '2017-11-01'

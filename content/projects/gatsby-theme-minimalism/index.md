@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: 'gatsby-theme-minimalism'
 description: 'Simple Gatsby theme for blog and static website.'
 date: '2020-05-17'

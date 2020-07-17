@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: "Node.js error: getaddrinfo ENOTFOUND localhost"
 date: '2017-05-16T00:00:00.000Z'
 canonical: 'https://medium.com/thepolarlab/node-js-error-getaddrinfo-enotfound-localhost-b7ee35e1bb60'

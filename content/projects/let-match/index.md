@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: "Let's Match"
 description: 'Music game for ADHD children built with Unity.'
 date: '2015-08-01'

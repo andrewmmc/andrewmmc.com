@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: '@lalamove/karang'
 description: 'React components library.'
 date: '2018-09-01'

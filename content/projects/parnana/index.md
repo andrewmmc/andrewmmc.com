@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: Parnana
 description: 'One-stop website providing party-room reservation service.'
 date: '2015-05-01'

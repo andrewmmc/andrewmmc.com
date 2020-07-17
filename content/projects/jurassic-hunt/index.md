@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: Jurassic Hunt
 description: 'Side-scrolling running game built with Node.js, Socket.io and AngularJS.'
 date: '2015-05-01'

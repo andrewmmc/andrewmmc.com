@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: 'BooksCompare'
 description: 'BooksCompare allows you to compare pricing on online bookstore by scanning books barcode.'
 date: '2018-10-01'

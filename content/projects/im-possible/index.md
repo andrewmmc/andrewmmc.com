@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: "I'mPossible"
 description: 'Course project aims to spread happiness moment to Hong Kong people.'
 date: '2013-12-01'

@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: What is web accessibility and why is it important?
 date: 2020-05-26T12:00:00+08:00
 featuredImage: ./feature.jpeg

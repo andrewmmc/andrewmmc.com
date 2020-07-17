@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Switching from Wordpress to GatsbyJS
 date: '2019-02-09T16:00:00+08:00'
 canonical: 'https://medium.com/thepolarlab/switching-from-wordpress-to-gatsbyjs-168d25a99cd3'

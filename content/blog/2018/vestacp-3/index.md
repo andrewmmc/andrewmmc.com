@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Upgrade PHP version to 7.2 from 7.0
 date: '2018-05-23T00:00:03.000Z'
 canonical: 'https://medium.com/thepolarlab/upgrade-php-version-to-7-2-from-7-0-c005a0926642'

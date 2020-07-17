@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Setup VM instance on Google Cloud Compute Engine
 date: '2018-05-23T00:00:01.000Z'
 canonical: 'https://medium.com/thepolarlab/setup-vm-instance-on-google-cloud-compute-engine-1e7063cfcde6'

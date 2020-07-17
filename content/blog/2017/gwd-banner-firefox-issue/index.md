@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Google Web Designer Banner Taparea is not clickable in Firefox
 date: '2017-10-25T00:00:00.000Z'
 canonical: 'https://medium.com/thepolarlab/google-web-designer-banner-taparea-is-not-clickable-in-firefox-7bc5c2e48cb5'

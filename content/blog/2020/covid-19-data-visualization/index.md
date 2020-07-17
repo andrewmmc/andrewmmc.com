@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: COVID-19 Data Visualization
 date: '2020-03-27T04:30:00+08:00'
 canonical: 'https://medium.com/thepolarlab/covid-19-data-visualization-80087f144e83'

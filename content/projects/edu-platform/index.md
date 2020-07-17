@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: 'Education Catalog Platform'
 description: 'Proposed project designed for students and education providers.'
 date: '2016-06-01'

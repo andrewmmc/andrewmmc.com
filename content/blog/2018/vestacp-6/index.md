@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Apply SSL certificate by Let’s Encrypt to VestaCP
 date: '2018-05-23T00:00:06.000Z'
 canonical: 'https://medium.com/thepolarlab/apply-ssl-certificate-by-lets-encrypt-to-vestacp-b2e255e93496'

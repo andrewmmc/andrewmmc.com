@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Manage ads with dynamic targeting key in DoubleClick Campaign Manager
 date: '2018-08-19T00:00:03.000Z'
 canonical: 'https://medium.com/thepolarlab/manage-ads-with-dynamic-targeting-key-in-doubleclick-campaign-manager-9a5d820d10d3'

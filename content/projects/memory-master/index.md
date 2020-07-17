@@ -1,4 +1,5 @@
 ---
+templateKey: 'projects-post'
 title: Memory Master
 description: 'Memory order game built with C++.'
 date: '2013-12-01'

@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Using Retina.js with Vue-loader
 date: '2017-05-09T00:00:00.000Z'
 canonical: 'https://medium.com/thepolarlab/using-retina-js-with-vue-loader-ce44a965c258'

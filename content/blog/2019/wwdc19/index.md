@@ -1,4 +1,5 @@
 ---
+templateKey: 'blog-post'
 title: Back from WWDC19 🤖
 date: '2019-07-21T14:00:00+08:00'
 canonical: 'https://medium.com/thepolarlab/back-from-wwdc19-1d93d0534d7b'
