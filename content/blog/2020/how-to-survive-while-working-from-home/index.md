@@ -2,7 +2,6 @@
 templateKey: 'blog-post'
 title: How to survive while working from home
 date: '2020-04-14T01:00:00+08:00'
-featuredImage: ./photo1.jpg
 canonical: 'https://medium.com/thepolarlab/how-to-survive-while-working-from-home-eaa6b1080d22'
 ---
 

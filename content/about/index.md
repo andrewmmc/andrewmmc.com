@@ -3,7 +3,7 @@ templateKey: 'about-page'
 title: About
 ---
 
-![](about.jpg)
+![Me](about.jpg)
 
 Hi, I'm Andrew, a software developer based in Hong Kong.
 
