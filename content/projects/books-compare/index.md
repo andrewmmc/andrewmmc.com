@@ -23,5 +23,7 @@ By BooksCompare, you can:
 - Direct link to online bookstores to purchase books
 
 ![](./capture1.jpg)
+
 ![](./capture2.jpg)
+
 ![](./capture3.jpg)

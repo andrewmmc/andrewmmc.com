@@ -15,5 +15,5 @@ To solve it, open the terminal:
 127.0.0.1 localhost
 ```
 
-References:
+## References
 * [解决node运行时getaddrinfo ENOTFOUND localhost错误](http://blog.leanote.com/post/freemem/%E8%A7%A3%E5%86%B3node%E8%BF%90%E8%A1%8C%E6%97%B6getaddrinfo-ENOTFOUND-localhost%E9%94%99%E8%AF%AF)

@@ -21,6 +21,6 @@ transformToRequire: { img: ['src', 'data-rjs'], image: 'xlink:href' }
 
 **Now Vue-loader will require data-rjs files, and makes url-loader and file-loader to pack those files into production build.**
 
-References:
+## References
 * [Vue-loader Options Reference](https://vue-loader.vuejs.org/en/options.html)
 * [Retinajs Readme](https://github.com/jgnewman/retinajs)

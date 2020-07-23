@@ -14,5 +14,5 @@ To solve it, you may:
 3. Set the transform-style as flat.
 4. Republish the creative.
 
-References:
+## References
 * [taparea/clicklayer disappearing in Firefox browser](https://groups.google.com/forum/#!msg/gwdbeta/OAHXRwS7sbM/7omnaQ6yPgAJ)

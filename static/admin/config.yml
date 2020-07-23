@@ -10,7 +10,7 @@ backend:
 
 publish_mode: editorial_workflow
 display_url: https://andrewmmc.com
-logo_url: https://andrewmmc.com/admin/logo.svg
+# logo_url: https://andrewmmc.com/admin/logo.svg
 media_folder: static/images
 public_folder: /static
 
@@ -32,8 +32,29 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Canonical', name: 'canonical', widget: 'string' }
+      - { label: 'Canonical', name: 'canonical', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+    sortableFields: ['date']
+  - name: 'notes'
+    label: 'Notes'
+    folder: 'content/notes'
+    create: true
+    path: '{{year}}/{{title}}/{{slug}}'
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - {
+          label: 'Template Key',
+          name: 'templateKey',
+          widget: 'hidden',
+          default: 'notes-post',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Category', name: 'category', widget: 'list', required: false }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+    sortableFields: ['date']
   - name: 'projects'
     label: 'Projects'
     folder: 'content/projects'
@@ -50,10 +71,12 @@ collections:
           default: 'projects-post',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string', required: false }
+      - { label: 'Featured Image', name: 'featuredImage', widget: 'image', allow_multiple: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-
+    sortableFields: ['date']
+    
   - name: 'pages'
     label: 'Pages'
     files:
