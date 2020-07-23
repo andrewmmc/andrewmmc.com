@@ -10,7 +10,7 @@
     "gatsby-plugin-netlify": "^2.3.11",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-netlify-cms": "^4.3.11",
-    "gatsby-theme-minimalism": "^2.0.0-beta9",
+    "gatsby-theme-minimalism": "^2.0.0-beta10",
     "netlify-cms-app": "^2.12.18",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

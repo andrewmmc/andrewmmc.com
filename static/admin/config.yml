@@ -32,6 +32,12 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
+      -  label: 'Category'
+         name: 'category'
+         widget: 'list'
+         required: false
+         fields: 
+         - { label: 'Tag', name: tag, widget: string }
       - { label: 'Canonical', name: 'canonical', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
     sortableFields: ['date']
@@ -52,7 +58,12 @@ collections:
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Category', name: 'category', widget: 'list', required: false }
+      -  label: 'Category'
+         name: 'category'
+         widget: 'list'
+         required: false
+         fields: 
+         - { label: 'Tag', name: tag, widget: string }
       - { label: 'Body', name: 'body', widget: 'markdown' }
     sortableFields: ['date']
   - name: 'projects'
