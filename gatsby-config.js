@@ -59,6 +59,7 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         htmlTitle: `${title} - Admin Panel`,
+        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     'gatsby-plugin-netlify-cache',

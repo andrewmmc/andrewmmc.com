@@ -2,9 +2,9 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { Icon, Link, Text } from '@chakra-ui/core';
 
-import Heading from 'components/Heading';
-import Layout from 'components/Layout';
-import Seo from 'components/Seo';
+import Heading from 'gatsby-theme-minimalism/src/components/Heading';
+import Layout from 'gatsby-theme-minimalism/src/components/Layout';
+import Seo from 'gatsby-theme-minimalism/src/components/Seo';
 
 const Thanks = () => (
   <Layout>
