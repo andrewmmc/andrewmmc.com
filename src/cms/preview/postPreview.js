@@ -26,7 +26,7 @@ PostPreview.propTypes = {
 
 // Temp solution for poor support on Preview
 // https://github.com/netlify/netlify-cms/issues/793
-const StyledBody = styled(div)`
+const StyledBody = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
