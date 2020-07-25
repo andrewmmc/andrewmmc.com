@@ -1,3 +1,4 @@
+const path = require('path');
 const title = 'Andrew Mok';
 
 module.exports = {
@@ -59,7 +60,7 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         htmlTitle: `${title} - Admin Panel`,
-        modulePath: `${__dirname}/src/cms/cms.js`,
+        modulePath: path.join(__dirname, 'src/cms/cms.js'),
       },
     },
     'gatsby-plugin-netlify-cache',
