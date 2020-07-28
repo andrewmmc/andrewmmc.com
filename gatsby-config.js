@@ -52,7 +52,6 @@ module.exports = {
       resolve: 'gatsby-theme-minimalism',
       options: {
         siteName: title,
-        convertKitFormId: '1373319',
         mapId: '',
       },
     },
