@@ -23,15 +23,15 @@ I don’t know what do you think, but to me, the web is a freedom world that des
 
 And don’t always assume the user will use the usual way or expected way to use your services or website. Users may rely on Voiceover to get the contents from your website, they may apply a colour filter to their devices. Or even more common, they may enable large text scaling to increase the font size on their devices.
 
-![Accessibility features on iPhone](image2.png)
+![Accessibility features on iPhone](image2.jpeg)
 
 In fact, accessibility failure is *easier to be spotted* in the real world.
 
-![Accessibility failure](image1.png)
+![Accessibility failure](image1.jpeg)
 
 However, it might be hard to notice in the software world. As you can see from the examples, both buttons look the same on the users' browsers, but only the left one is representing button to the screen reader. The right one is only the `div` box with styling but no meanings. It is easier to be ignored in software development.
 
-![Can you spot the accessibility failure… on the UI?](image3.png)
+![Can you spot the accessibility failure… on the UI?](image3.jpeg)
 
 ## Oh, you may say that it just a small portion of people. Why do we need to care about that?
 
@@ -45,7 +45,7 @@ Of course, I won't list out all the W3C standards here, but let me share some co
 
 Always following native semantic HTML tags first and avoiding styling HTML tag. It clearly describes the content levels and purpose to the browser.
 
-![Semantic HTML tags](image4.png)
+![Semantic HTML tags](image4.jpeg)
 
 And this is the example of different semantic tags in HTML 5.
 ```
@@ -77,25 +77,25 @@ And this is the example of different semantic tags in HTML 5.
 
 In some cases, semantic tags might not be possible to handle the elements on our website. In this case, we might add ARIA tags to the DOM elements for the screen reader to understand what they are. One common example would be handling icon only elements.
 
-![WAI-ARIA tags](image5.png)
+![WAI-ARIA tags](image5.jpeg)
 
 ### Focus state and keyboard navigation
 
 And do not set `outline` property to `none`. I do agree that the blue growing outline is a bit ugly, but it is important as it provides visual feedback for the link that has focus state when navigating with the keyboard. If you would like to remove it, consider providing alternative styling. It is an example of YouTube for how they handle the focus state.
 
-![Focus state and keyboard navigation](image6.png)
+![Focus state and keyboard navigation](image6.jpeg)
 
 ### Image captions
 
 Also, add alternative tag or captions for images to describing what is your images representing.
 
-![Image captions](image7.png)
+![Image captions](image7.jpeg)
 
 ### Design
 
 Don't think that it is just a developer work to do so. Accessibility can be solved at the design stage as well. Keep in mind for colour contrast, hover and focus states, colourblind simulation. In a long way, it stops accessibility problems before users found that.
 
-![Design](image8.png)
+![Design](image8.jpeg)
 
 ## Apply rules
 

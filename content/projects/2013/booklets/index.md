@@ -15,14 +15,12 @@ As one of the functions organizing members of PolyU Hall in 2013/14, I designed
 
 ![Freshmen Guide 2013/14](./freshmen-guide-2.jpg)
 
-![Freshmen Guide 2013/14](./freshmen-guide-3.jpg)
-
 ![Freshmen Guide 2013/14](./freshmen-guide-4.jpg)
 
 ![Freshmen Guide 2013/14](./freshmen-guide-5.jpg)
 
-![Orientation Camp Guide 2013/14](./ocamp-guide-1.png)
+![Orientation Camp Guide 2013/14](./ocamp-guide-1.jpeg)
 
-![Orientation Camp Guide 2013/14](./ocamp-guide-2.png)
+![Orientation Camp Guide 2013/14](./ocamp-guide-2.jpeg)
 
-![Orientation Camp Guide 2013/14](./ocamp-guide-3.png)
+![Orientation Camp Guide 2013/14](./ocamp-guide-3.jpeg)

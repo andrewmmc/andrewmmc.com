@@ -34,10 +34,8 @@ module.exports = {
       linkedin: 'andrewmmc',
       facebook: '',
       instagram: '',
-      // facebook: 'thepolarlab',
-      // instagram: 'thepolarlab',
       twitter: 'andrewmmc',
-      medium: 'thepolarlab',
+      medium: '@andrewmmc',
     },
   },
   plugins: [
