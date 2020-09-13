@@ -5,9 +5,8 @@ module.exports = {
   siteMetadata: {
     title,
     author: 'Andrew',
-    authorDescription: `I'm a software developer based in Hong Kong. Skilled in JavaScript, React and Node.`,
-    description:
-      'Personal blog by Andrew Mok, a software developer based in Hong Kong.',
+    authorDescription: `I'm a software engineer based in Hong Kong.`,
+    description: 'Software engineer based in Hong Kong.',
     siteUrl: 'https://andrewmmc.com',
     seoKeywords: [
       'blog',

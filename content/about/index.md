@@ -5,7 +5,7 @@ title: About
 
 ![Me](about.jpg)
 
-Hi, I'm Andrew. I am a software developer based in Hong Kong. My experience as a developer comes with making websites as a hobby in my childhood. Still, through the last four years of my career, I am passionate about developing web applications with high-quality code. I enjoy creating beautiful, simple and elegant web applications.
+Hi, I'm Andrew. I am a software engineer based in Hong Kong. My experience as a developer comes with making websites as a hobby in my childhood. Still, through the last four years of my career, I am passionate about developing web applications with high-quality code. I enjoy creating beautiful, simple and elegant web applications.
 
 Graduated from The Hong Kong Polytechnic University, I started my career in 2016 as a frontend developer in a digital marketing agency. I work with designers for multimedia campaigns.
 
@@ -15,7 +15,7 @@ I am now working in the financial services industry. I joined [the New Ventures 
 
 Over the years, I realized that my strength is working on frontend projects with designers by making sure every element in good shape with elegant code. Maintainable code means a lot to me - it should be well tested with clear structure. Also, I used to develop software under Agile and Waterfall methodologies with Git workflow.
 
-In my free time, I [write apps](https://github.com/andrewmmc), [write blogs](https://andrewmmc.com/blog) and [take photography](https://vsco.co/andrewmmc).
+In my free time, I [write apps](https://github.com/andrewmmc), [write blogs](https://andrewmmc.com) and [take photography](https://vsco.co/andrewmmc).
 
 Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
@@ -65,7 +65,7 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 #### 2011
 
-- Second Runner-up Award • Hong Kong & Macau Youth Networking Skills Competition
+- Second Runner-up Award • Hong Kong & Macau Youth Networking Skills Competition by Cisco
 
 ## Recommendations
 
