@@ -119,8 +119,8 @@ Web accessibility is not something you can just simply fix without thinking, how
 
 ## References
 
-* Apple. (2017). What’s New in Accessibility. Retrieved from <https://developer.apple.com/videos/play/wwdc2017/215>
-* Arvin H. (2019). Importance of Web Accessibility. Retrieved from <https://blog.techbridge.cc/2019/10/13/web-accessibility-intro>
-* Dan Na. (2017). Creating an Accessibility Engineering Practice. Retrieved from <http://a11y.danielna.com>
-* Stereobooster. (2019). The Button. Retrieved from <https://dev.to/stereobooster/the-button-3kme>
-* W3C. (2020). Accessibility. Retrieved from <https://www.w3.org/standards/webdesign/accessibility>
+* Apple. (2017). [What’s New in Accessibility.](https://developer.apple.com/videos/play/wwdc2017/215)
+* Arvin H. (2019). [Importance of Web Accessibility.](https://blog.techbridge.cc/2019/10/13/web-accessibility-intro)
+* Dan Na. (2017). [Creating an Accessibility Engineering Practice.](http://a11y.danielna.com)
+* Stereobooster. (2019). [The Button.](https://dev.to/stereobooster/the-button-3kme)
+* W3C. (2020). [Accessibility.](https://www.w3.org/standards/webdesign/accessibility)
