@@ -7,7 +7,7 @@ title: About
 
 Hi, I'm Andrew. I am a software engineer based in Hong Kong. My experience as a developer comes with making websites as a hobby in my childhood. Still, through the last four years of my career, I am passionate about developing web applications with high-quality code. I enjoy creating beautiful, simple and elegant web applications.
 
-Graduated from The Hong Kong Polytechnic University, I started my career in 2016 as a frontend developer in a digital marketing agency. I work with designers for multimedia campaigns.
+Graduated from [The Hong Kong Polytechnic University](https://www.polyu.edu.hk), I started my career in 2016 as a frontend developer in a digital marketing agency. I work with designers for multimedia campaigns.
 
 One year later, I joined a local unicorn startup Lalamove and start focusing on full-stack software development. I rebuilt [the customer-side web application](https://web.lalamove.com) with my teammates to payback tech debts and enhanced the technical foundation of the systems. At Lalamove I also open-sourced different projects, including [@lalamove/karang](https://github.com/lalamove/karang) – an internal React UI components library being used across all main frontend projects.
 
@@ -23,8 +23,9 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 - **Frontend:** TypeScript, JavaScript, React, Vue.js, AngularJS, jQuery, Bootstrap, SCSS
 - **Backend:** Node.js, PHP, Golang, C++
-- **Database & Caching:** MySQL, MongoDB, Redis
+- **Database & Caching:** MySQL, PostgreSQL, MongoDB, Redis
 - **DevOps:** Docker
+- **Cloud infrastructure:** Microsoft Azure
 - **Mobile:** React Native, Ionic, Unity
 - **Graphics:** Adobe Photoshop, Adobe Illustrator, Blender
 - **UI:** Sketch, Adobe XD
@@ -36,14 +37,24 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 ## Certifications
 
+#### 2020
+
+- Microsoft Certified: Azure Fundamentals • Microsoft
+
 #### 2017
 
-- Google AdWords Display Advertising Certification
-- Google Mobile Sites Certification
+- [Google AdWords Display Advertising Certification](https://www.google.com/partners/?hl=en-US#i_profile;idtf=114936479272046410029) • Google
+- [Google Mobile Sites Certification](https://www.google.com/partners/?hl=en-US#i_profile;idtf=114936479272046410029) • Google
 
 #### 2016
 
-- Google AdWords Search Advertising Certification
+- [Google AdWords Search Advertising Certification](https://www.google.com/partners/?hl=en-US#i_profile;idtf=114936479272046410029) • Google
+
+## Awards
+
+#### 2011
+
+- Second Runner-up Award • Cisco Hong Kong & Macau Youth Networking Skills Competition
 
 ## Speaking
 
@@ -60,12 +71,6 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 - Arming Your Idea: Digital Media Design & Marketing • Lingnan University
 - Fall in Love to Tech: Build Your Own App as an Entrepreneur • Lingnan University
-
-## Awards
-
-#### 2011
-
-- Second Runner-up Award • Hong Kong & Macau Youth Networking Skills Competition by Cisco
 
 ## Recommendations
 
