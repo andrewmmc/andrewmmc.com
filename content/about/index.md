@@ -39,7 +39,7 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 #### 2020
 
-- Microsoft Certified: Azure Fundamentals • Microsoft
+- [Microsoft Certified: Azure Fundamentals](https://www.youracclaim.com/badges/622eae0f-df86-412a-ac15-a1e2d0c6e80d) • Microsoft
 
 #### 2017
 
