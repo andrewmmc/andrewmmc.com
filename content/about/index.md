@@ -21,7 +21,7 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 ## Skills
 
-- **Frontend:** TypeScript, JavaScript, React, Vue.js, AngularJS, jQuery, Bootstrap, SCSS
+- **Frontend:** TypeScript, JavaScript, React, Vue.js, AngularJS, jQuery, Bootstrap, Jamstack, SCSS
 - **Backend:** Node.js, PHP, Golang, C++
 - **Database & Caching:** MySQL, PostgreSQL, MongoDB, Redis
 - **DevOps:** Docker
@@ -30,6 +30,8 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 - **Graphics:** Adobe Photoshop, Adobe Illustrator, Blender
 - **UI:** Sketch, Adobe XD
 - **Marketing:** Google AdWords, Doubleclick for Publishers
+- **CMS:** Strapi, Wordpress
+- **Industry knowledge:** Scrum
 
 ## Languages
 
@@ -39,6 +41,7 @@ Feel free to [contact me](mailto:hello@andrewmmc.com) for reaching out ☕!
 
 #### 2020
 
+- [Professional Scrum Master I](https://www.scrum.org/certificates/580649) • Scrum.org
 - [Microsoft Certified: Azure Fundamentals](https://www.youracclaim.com/badges/622eae0f-df86-412a-ac15-a1e2d0c6e80d) • Microsoft
 
 #### 2017
