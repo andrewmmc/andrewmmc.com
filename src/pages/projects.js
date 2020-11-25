@@ -8,7 +8,7 @@ import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
 const Projects = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allPrismicProjectPost.edges;
   return (
     <Layout>
       <Seo title="Projects" />
@@ -19,17 +19,17 @@ const Projects = ({ data }) => {
         gap={8}
         mt={8}
       >
-        {posts.map(({ node }, idx) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          const { date, featuredImage } = node.frontmatter;
+        {posts.map(({ node }) => {
+          const title = node.data.title.text || node.url;
+          const { date, featured_image } = node.data;
           return (
             <Card
-              key={`projects_post_${idx}`}
-              path={node.fields.slug}
+              key={node.url}
+              path={`/${node.url}`}
               date={date}
               title={title}
-              {...(!!featuredImage && {
-                featuredImage: featuredImage.childImageSharp,
+              {...(!!featured_image && {
+                featuredImage: featured_image,
               })}
             />
           );
@@ -47,28 +47,23 @@ export default Projects;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
-      filter: { fields: { type: { eq: "projects" } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1000
-    ) {
+    allPrismicProjectPost(sort: { order: DESC, fields: data___date }) {
       edges {
         node {
-          excerpt(truncate: true)
-          fields {
-            slug
-          }
-          frontmatter {
+          id
+          url
+          data {
+            title {
+              text
+            }
             date(formatString: "YYYY")
-            title
-            featuredImage {
-              childImageSharp {
-                fluid(quality: 95, maxWidth: 479) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+            featured_image {
+              fluid(maxWidth: 479) {
+                ...GatsbyPrismicImageFluid
               }
             }
           }
+          tags
         }
       }
     }

@@ -1,17 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { shape } from 'prop-types';
 import { graphql } from 'gatsby';
-import * as parse from 'rehype-parse';
-import * as unified from 'unified';
 import Content from 'components/Content';
 import Heading from 'components/Heading';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 
 const About = ({ data }) => {
-  const { content, title } = data.prismicAbout.data;
-  const process = unified().use(parse, { fragment: true });
-  const htmlAst = process.parse(content.html);
+  const { content, title, body } = data.prismicAbout.data;
   return (
     <Layout>
       <Seo
@@ -19,7 +15,27 @@ const About = ({ data }) => {
         description={`${content.text.substring(0, 100)}...`}
       />
       <Heading>{title.text}</Heading>
-      <Content content={htmlAst} />
+      <Content html={content.html} />
+      {body.map((slice) => {
+        const { __typename, id, items } = slice;
+        if (__typename === 'PrismicAboutBodyRecommendations') {
+          return (
+            <Fragment>
+              <Content html="Recommendations" wrappedTag="h2" />
+              {items.map(({ quote }, index) => {
+                return (
+                  <Content
+                    key={`${id}_items_quote_${index}`}
+                    html={quote.html}
+                    wrappedTag="blockquote"
+                  />
+                );
+              })}
+            </Fragment>
+          );
+        }
+        return null;
+      })}
     </Layout>
   );
 };
@@ -40,6 +56,17 @@ export const pageQuery = graphql`
         }
         title {
           text
+        }
+        body {
+          __typename
+          ... on PrismicAboutBodyRecommendations {
+            id
+            items {
+              quote {
+                html
+              }
+            }
+          }
         }
       }
     }

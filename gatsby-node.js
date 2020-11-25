@@ -1,6 +1,6 @@
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
-const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+// const path = require('path');
+// const { createFilePath } = require('gatsby-source-filesystem');
+// const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -24,95 +24,64 @@ exports.createPages = async ({ graphql, actions }) => {
     throw projectsResults.errors;
   }
 
-  const blogPosts = blogResults.data.allMarkdownRemark.edges;
+  const blogPosts = blogResults.data.allPrismicBlogPost.edges;
   blogPosts.forEach((post, index) => {
-    const { slug } = post.node.fields;
+    const { id, url } = post.node;
     const previous =
       index === blogPosts.length - 1 ? null : blogPosts[index + 1].node;
     const next = index === 0 ? null : blogPosts[index - 1].node;
     createPage({
-      path: slug,
+      path: url,
       component: postTemplate,
       context: {
-        slug,
+        id,
         previous,
         next,
         isShowFeedback: true,
-        isShowReadingTime: true,
         dateFormat: 'MMMM DD, YYYY',
       },
     });
   });
 
-  const notesPosts = notesResults.data.allMarkdownRemark.edges;
-  notesPosts.forEach((post, index) => {
-    const { slug } = post.node.fields;
-    const previous =
-      index === notesPosts.length - 1 ? null : notesPosts[index + 1].node;
-    const next = index === 0 ? null : notesPosts[index - 1].node;
-    createPage({
-      path: slug,
-      component: postTemplate,
-      context: {
-        slug,
-        previous,
-        next,
-        isShowFeedback: false,
-        isShowReadingTime: false,
-        dateFormat: 'MMMM DD, YYYY',
-      },
-    });
-  });
+  // const notesPosts = notesResults.data.allMarkdownRemark.edges;
+  // notesPosts.forEach((post, index) => {
+  //   const { id, url } = post.node;
+  //   const previous =
+  //     index === notesPosts.length - 1 ? null : notesPosts[index + 1].node;
+  //   const next = index === 0 ? null : notesPosts[index - 1].node;
+  //   createPage({
+  //     path: url,
+  //     component: postTemplate,
+  //     context: {
+  //       id,
+  //       previous,
+  //       next,
+  //       isShowFeedback: false,
+  //       dateFormat: 'MMMM DD, YYYY',
+  //     },
+  //   });
+  // });
 
-  const projectPosts = projectsResults.data.allMarkdownRemark.edges;
-  projectPosts.forEach((post, index) => {
-    const { slug } = post.node.fields;
-    const previous =
-      index === projectPosts.length - 1 ? null : projectPosts[index + 1].node;
-    const next = index === 0 ? null : projectPosts[index - 1].node;
-    createPage({
-      path: slug,
-      component: postTemplate,
-      context: {
-        slug,
-        previous,
-        next,
-        isShowFeedback: false,
-        isShowReadingTime: false,
-        dateFormat: 'YYYY',
-      },
-    });
-  });
+  // const projectPosts = projectsResults.data.allMarkdownRemark.edges;
+  // projectPosts.forEach((post, index) => {
+  //   const { id, url } = post.node;
+  //   const previous =
+  //     index === projectPosts.length - 1 ? null : projectPosts[index + 1].node;
+  //   const next = index === 0 ? null : projectPosts[index - 1].node;
+  //   createPage({
+  //     path: url,
+  //     component: postTemplate,
+  //     context: {
+  //       id,
+  //       previous,
+  //       next,
+  //       isShowFeedback: false,
+  //       dateFormat: 'YYYY',
+  //     },
+  //   });
+  // });
 
   return true;
-};
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  fmImagesToRelative(node);
-
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode });
-    createNodeField({
-      name: 'slug',
-      node,
-      value: slug,
-    });
-
-    let type;
-    const { dir, base } = path.parse(slug);
-    if (dir === '/') {
-      type = base;
-    } else {
-      [, type] = dir.split('/');
-    }
-
-    createNodeField({
-      node,
-      name: 'type',
-      value: type,
-    });
-  }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -156,68 +125,56 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs);
 };
 
-const blogQuery = `
-  {
-    allMarkdownRemark(
-      filter: { fields: { type: { in: "blog" } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            type
-          }
-          frontmatter {
-            title
+const blogQuery = `{
+  allPrismicBlogPost(sort: {order: DESC, fields: data___date}) {
+    edges {
+      node {
+        id
+        url
+        data {
+          title {
+            text
           }
         }
+        tags
       }
     }
   }
+}
 `;
 
-const notesQuery = `
-  {
-    allMarkdownRemark(
-      filter: { fields: { type: { in: "notes" } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            type
-          }
-          frontmatter {
-            title
+const notesQuery = `{
+  allPrismicNotePost(sort: {order: DESC, fields: data___date}) {
+    edges {
+      node {
+        id
+        url
+        data {
+          title {
+            text
           }
         }
+        tags
       }
     }
   }
+}
 `;
 
-const projectsQuery = `
-  {
-    allMarkdownRemark(
-      filter: { fields: { type: { eq: "projects" } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            type
-          }
-          frontmatter {
-            title
+const projectsQuery = `{
+  allPrismicProjectPost(sort: {order: DESC, fields: data___date}) {
+    edges {
+      node {
+        id
+        url
+        data {
+          title {
+            text
           }
         }
+        tags
       }
     }
   }
+}
 `;

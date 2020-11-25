@@ -1,4 +1,6 @@
 import React from 'react';
+import * as parse from 'rehype-parse';
+import * as unified from 'unified';
 import rehypeReact from 'rehype-react';
 import {
   Alert,
@@ -88,7 +90,13 @@ const renderAst = new rehypeReact({
   },
 }).Compiler;
 
-const Content = ({ content, isHTMLContent = true, ...props }) => {
+const Content = ({ html, wrappedTag, ...props }) => {
+  const process = unified().use(parse, { fragment: true });
+  const htmlToParsed = wrappedTag
+    ? `<${wrappedTag}>${html}</${wrappedTag}>`
+    : html;
+  const htmlAst = process.parse(htmlToParsed);
+
   return (
     <Box {...props}>
       <Global
@@ -103,7 +111,7 @@ const Content = ({ content, isHTMLContent = true, ...props }) => {
           }
         `}
       />
-      {isHTMLContent ? renderAst(content) : content}
+      {renderAst(htmlAst)}
     </Box>
   );
 };
