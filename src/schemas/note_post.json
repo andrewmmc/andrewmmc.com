@@ -1,0 +1,89 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title"
+      }
+    },
+    "date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "Date"
+      }
+    },
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "URL"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : { },
+        "choices" : {
+          "code" : {
+            "type" : "Slice",
+            "fieldset" : "Code",
+            "description" : "code snippet",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "file_name" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "File Name"
+                }
+              },
+              "language" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "preformatted",
+                  "label" : "Language"
+                }
+              },
+              "code" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "preformatted",
+                  "label" : "Code"
+                }
+              }
+            }
+          },
+          "content" : {
+            "type" : "Slice",
+            "fieldset" : "Content",
+            "description" : "rich text",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "rich_text_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Title"
+                }
+              },
+              "rich_text_content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Content",
+                  "labels" : [ "code" ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
