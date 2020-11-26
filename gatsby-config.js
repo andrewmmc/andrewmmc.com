@@ -127,8 +127,8 @@ module.exports = {
                   title: edge.node.data.title.text,
                   description: ``,
                   date: edge.node.data.date,
-                  url: site.siteMetadata.siteUrl + edge.node.url,
-                  guid: site.siteMetadata.siteUrl + edge.node.url,
+                  url: site.siteMetadata.siteUrl + '/' + edge.node.url,
+                  guid: site.siteMetadata.siteUrl + '/' + edge.node.url,
                   custom_elements: [{ 'content:encoded': `` }],
                 };
               });
