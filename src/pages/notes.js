@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Heading from 'components/Heading';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
-import PostList from 'templates/postList';
+import PostList from 'components/postList';
 
 const Notes = ({ data }) => {
   const posts = data.allPrismicNotePost.edges;
@@ -33,7 +33,7 @@ export default Notes;
 
 export const pageQuery = graphql`
   query {
-    allPrismicNotePost(sort: {order: DESC, fields: data___date}) {
+    allPrismicNotePost(sort: { order: DESC, fields: data___date }) {
       edges {
         node {
           id

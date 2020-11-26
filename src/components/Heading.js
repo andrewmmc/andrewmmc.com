@@ -1,4 +1,5 @@
 import React from 'react';
+import { node } from 'prop-types';
 import slugify from 'slugify';
 import { Heading, PseudoBox } from '@chakra-ui/core';
 
@@ -45,6 +46,14 @@ export const LinkedHeading = ({ children, ...props }) => {
       )}
     </StyledHeading>
   );
+};
+
+StyledHeading.propTypes = {
+  children: node.isRequired,
+};
+
+LinkedHeading.propTypes = {
+  children: node.isRequired,
 };
 
 export default StyledHeading;

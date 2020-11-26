@@ -1,13 +1,11 @@
 import React from 'react';
 import { shape } from 'prop-types';
-import { Link as GatsbyLink, graphql } from 'gatsby';
-import { Icon, Link } from '@chakra-ui/core';
+import { graphql } from 'gatsby';
 
 import Bio from 'components/Bio';
-import Heading from 'components/Heading';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
-import PostList from 'templates/postList';
+import PostList from 'components/postList';
 
 const Index = ({ data }) => {
   const posts = data.allPrismicBlogPost.edges;
@@ -32,7 +30,7 @@ export default Index;
 
 export const pageQuery = graphql`
   query {
-    allPrismicBlogPost(sort: {order: DESC, fields: data___date}) {
+    allPrismicBlogPost(sort: { order: DESC, fields: data___date }) {
       edges {
         node {
           id

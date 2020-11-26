@@ -2,10 +2,11 @@ import React from 'react';
 import { string, shape } from 'prop-types';
 import { Link as GatsbyLink } from 'gatsby';
 import { Link, Box, Flex, Text, Stack } from '@chakra-ui/core';
-import { BackgroundImage } from 'components/Image';
-import Heading from 'components/Heading';
 
-const Card = ({ path, date, readingTime, title, featuredImage, ...props }) => {
+import { BackgroundImage } from './Image';
+import Heading from './Heading';
+
+const Card = ({ path, date, title, featuredImage, ...props }) => {
   return (
     <Box
       textAlign="left"
@@ -20,18 +21,17 @@ const Card = ({ path, date, readingTime, title, featuredImage, ...props }) => {
         </Box>
       )}
       <Stack spacing={1} p={6}>
-        <Flex
-          color="gray.500"
-          fontSize="sm"
-          flexDirection={['row', 'column', 'column', 'row']}
-        >
-          {date && (
+        {date && (
+          <Flex
+            color="gray.500"
+            fontSize="sm"
+            flexDirection={['row', 'column', 'column', 'row']}
+          >
             <Text as="time" mr={4}>
               {date}
             </Text>
-          )}
-          {readingTime && <Text as="span">{readingTime}</Text>}
-        </Flex>
+          </Flex>
+        )}
         <Link as={GatsbyLink} to={path}>
           <Heading as="h3" size="md" mb={0}>
             {title}
@@ -43,14 +43,13 @@ const Card = ({ path, date, readingTime, title, featuredImage, ...props }) => {
 };
 
 Card.propTypes = {
+  path: string.isRequired,
   date: string.isRequired,
-  readingTime: string,
   title: string.isRequired,
   featuredImage: shape({}),
 };
 
 Card.defaultProps = {
-  readingTime: undefined,
   featuredImage: undefined,
 };
 

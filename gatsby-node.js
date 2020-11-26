@@ -1,10 +1,8 @@
-// const path = require('path');
-// const { createFilePath } = require('gatsby-source-filesystem');
-// const { fmImagesToRelative } = require('gatsby-remark-relative-images');
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const postTemplate = require.resolve('./src/templates/post.js');
+  const blogTemplate = require.resolve('./src/templates/blog.js');
+  const noteTemplate = require.resolve('./src/templates/note.js');
+  const projectTemplate = require.resolve('./src/templates/project.js');
 
   const [blogResults, notesResults, projectsResults] = await Promise.all([
     graphql(blogQuery),
@@ -32,54 +30,51 @@ exports.createPages = async ({ graphql, actions }) => {
     const next = index === 0 ? null : blogPosts[index - 1].node;
     createPage({
       path: url,
-      component: postTemplate,
+      component: blogTemplate,
       context: {
         id,
         previous,
         next,
-        isShowFeedback: true,
         dateFormat: 'MMMM DD, YYYY',
       },
     });
   });
 
-  // const notesPosts = notesResults.data.allMarkdownRemark.edges;
-  // notesPosts.forEach((post, index) => {
-  //   const { id, url } = post.node;
-  //   const previous =
-  //     index === notesPosts.length - 1 ? null : notesPosts[index + 1].node;
-  //   const next = index === 0 ? null : notesPosts[index - 1].node;
-  //   createPage({
-  //     path: url,
-  //     component: postTemplate,
-  //     context: {
-  //       id,
-  //       previous,
-  //       next,
-  //       isShowFeedback: false,
-  //       dateFormat: 'MMMM DD, YYYY',
-  //     },
-  //   });
-  // });
+  const notePosts = notesResults.data.allPrismicNotePost.edges;
+  notePosts.forEach((post, index) => {
+    const { id, url } = post.node;
+    const previous =
+      index === notePosts.length - 1 ? null : notePosts[index + 1].node;
+    const next = index === 0 ? null : notePosts[index - 1].node;
+    createPage({
+      path: url,
+      component: noteTemplate,
+      context: {
+        id,
+        previous,
+        next,
+        dateFormat: 'MMMM DD, YYYY',
+      },
+    });
+  });
 
-  // const projectPosts = projectsResults.data.allMarkdownRemark.edges;
-  // projectPosts.forEach((post, index) => {
-  //   const { id, url } = post.node;
-  //   const previous =
-  //     index === projectPosts.length - 1 ? null : projectPosts[index + 1].node;
-  //   const next = index === 0 ? null : projectPosts[index - 1].node;
-  //   createPage({
-  //     path: url,
-  //     component: postTemplate,
-  //     context: {
-  //       id,
-  //       previous,
-  //       next,
-  //       isShowFeedback: false,
-  //       dateFormat: 'YYYY',
-  //     },
-  //   });
-  // });
+  const projectPosts = projectsResults.data.allPrismicProjectPost.edges;
+  projectPosts.forEach((post, index) => {
+    const { id, url } = post.node;
+    const previous =
+      index === projectPosts.length - 1 ? null : projectPosts[index + 1].node;
+    const next = index === 0 ? null : projectPosts[index - 1].node;
+    createPage({
+      path: url,
+      component: projectTemplate,
+      context: {
+        id,
+        previous,
+        next,
+        dateFormat: 'YYYY',
+      },
+    });
+  });
 
   return true;
 };
@@ -112,14 +107,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       location: String
       email: String
       social: Social
-    }
-
-    type MarkdownRemarkFrontmatter implements Node {
-      title: String
-      featuredImage: File @fileByRelativePath
-      category: [String]
-      description: String
-      canonical: String
     }
   `;
   createTypes(typeDefs);

@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Heading from 'components/Heading';
+
+import Heading from './Heading';
 
 const Logo = (props) => {
   const data = useStaticQuery(pageQuery);

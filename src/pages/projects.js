@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import { shape } from 'prop-types';
 import { graphql } from 'gatsby';

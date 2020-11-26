@@ -1,7 +1,8 @@
 import React from 'react';
+import { string } from 'prop-types';
 import * as parse from 'rehype-parse';
 import * as unified from 'unified';
-import rehypeReact from 'rehype-react';
+import RehypeReact from 'rehype-react';
 import {
   Alert,
   Box,
@@ -25,7 +26,7 @@ import {
   TableCell,
 } from './Table';
 
-const renderAst = new rehypeReact({
+const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
     h1: (props) => <LinkedHeading as="h1" size="lg" mt={8} mb={4} {...props} />,
@@ -41,34 +42,46 @@ const renderAst = new rehypeReact({
     ol: (props) => (
       <List as="ol" styleType="decimal" my={4} spacing={3} {...props} />
     ),
-    code: (props) =>
-      props.className ? (
-        <pre {...props} />
-      ) : (
-        <Code {...props} borderWidth="1px" />
-      ),
+    pre: (props) => <pre {...props} />,
+    code: (props) => <Code {...props} borderWidth="1px" />,
+    // eslint-disable-next-line react/prop-types
+    span: ({ className, ...props }) => {
+      if (className === 'code') return <Code {...props} borderWidth="1px" />;
+      return <span {...props} />;
+    },
     table: (props) => <Table {...props} />,
     thead: (props) => <TableHead {...props} />,
     tr: (props) => <TableRow {...props} />,
     th: (props) => <TableHeader {...props} />,
     tbody: (props) => <TableBody {...props} />,
     td: (props) => <TableCell {...props} />,
-    a: (props) => {
-      if (props.href && props.href.startsWith('http')) {
-        const { children, ...remainProps } = props;
+    // eslint-disable-next-line react/prop-types
+    a: ({ href, children, ...props }) => {
+      // eslint-disable-next-line react/prop-types
+      if (href && href.startsWith('http')) {
         return (
           <Link
+            href={href}
             color="primary.500"
-            {...remainProps}
             overflowWrap="anywhere"
             isExternal
+            {...props}
           >
             {children}
             <Icon name="external-link" mx={2} mb={1} />
           </Link>
         );
       }
-      return <Link color="primary.500" overflowWrap="anywhere" {...props} />;
+      return (
+        <Link
+          href={href}
+          color="primary.500"
+          overflowWrap="anywhere"
+          {...props}
+        >
+          {children}
+        </Link>
+      );
     },
     img: (props) => <Box as="img" rounded="sm" {...props} />,
     figure: (props) => <Box as="figure" textAlign="center" my={8} {...props} />,
@@ -101,19 +114,28 @@ const Content = ({ html, wrappedTag, ...props }) => {
     <Box {...props}>
       <Global
         styles={css`
-          pre.grvsc-container {
-            margin: 2rem 0;
+          pre {
+            padding: 1rem;
             border-width: 1px;
+            border-radius: 4px;
             white-space: pre-wrap;
             word-break: break-all;
             overflow: auto;
-            max-width: calc(100vw - 2rem);
           }
         `}
       />
       {renderAst(htmlAst)}
     </Box>
   );
+};
+
+Content.propTypes = {
+  html: string.isRequired,
+  wrappedTag: string,
+};
+
+Content.defaultProps = {
+  wrappedTag: undefined,
 };
 
 export default Content;

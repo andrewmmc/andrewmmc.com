@@ -1,4 +1,5 @@
-import React, { memo } from 'react';
+import React, { memo, useRef } from 'react';
+import { string, node } from 'prop-types';
 import { Link as GatsbyLink, graphql, useStaticQuery } from 'gatsby';
 import {
   Box,
@@ -17,11 +18,12 @@ import {
   useDisclosure,
 } from '@chakra-ui/core';
 import { FiMenu } from 'react-icons/fi';
+
 import Logo from './Logo';
 
 const Header = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
+  const btnRef = useRef();
   const data = useStaticQuery(pageQuery);
   const { social } = data.site.siteMetadata;
   const { github } = social || {};
@@ -46,7 +48,7 @@ const Header = (props) => {
   if (allPages.includes('/about/')) {
     headerItems.push({
       path: '/about',
-      label: data.about.frontmatter.title,
+      label: 'About',
     });
   }
 
@@ -130,6 +132,11 @@ const MenuItem = ({ to, children, ...props }) => {
   );
 };
 
+MenuItem.propTypes = {
+  to: string.isRequired,
+  children: node.isRequired,
+};
+
 export default memo(Header);
 
 const pageQuery = graphql`
@@ -146,11 +153,6 @@ const pageQuery = graphql`
         node {
           path
         }
-      }
-    }
-    about: markdownRemark(fields: { slug: { eq: "/about/" } }) {
-      frontmatter {
-        title
       }
     }
   }

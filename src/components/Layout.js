@@ -3,7 +3,6 @@ import { node, bool } from 'prop-types';
 import { ThemeProvider, CSSReset, Box } from '@chakra-ui/core';
 
 import { customTheme } from '../themes/styles';
-import Container from './Container';
 
 // https://github.com/chakra-ui/chakra-ui/blob/%40chakra-ui/core%400.8.0/packages/chakra-ui/src/CSSReset/index.js#L6
 const defaultConfig = (theme) => ({
@@ -23,9 +22,18 @@ const defaultConfig = (theme) => ({
 
 const Layout = ({ withContainer = true, children, ...props }) =>
   withContainer ? (
-    <Container tabindex="-1" as="main" {...props}>
+    <Box
+      maxW="3xl"
+      px="4"
+      py={[8, 12]}
+      m="0 auto"
+      w="100%"
+      tabindex="-1"
+      as="main"
+      {...props}
+    >
       {children}
-    </Container>
+    </Box>
   ) : (
     children
   );
@@ -47,6 +55,10 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
   withContainer: bool,
+  children: node.isRequired,
+};
+
+GlobalStyle.propTypes = {
   children: node.isRequired,
 };
 

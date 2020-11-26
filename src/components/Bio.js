@@ -3,7 +3,8 @@ import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
 import { Text, Flex, Link, Icon, useTheme } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
-import Heading from 'components/Heading';
+
+import Heading from './Heading';
 
 const Bio = (props) => {
   const { breakpoints } = useTheme();
@@ -28,7 +29,7 @@ const Bio = (props) => {
         justifyContent="center"
         alignItems="flex-start"
       >
-        <Heading>Hi, I'm {author}.</Heading>
+        <Heading>Hi, I&apos;m {author}.</Heading>
         {authorDescription && (
           <Text color="gray.600" fontSize="lg" mb={4}>
             {authorDescription}

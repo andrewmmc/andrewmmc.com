@@ -9,7 +9,7 @@ const PostNav = ({ previousUrl, previousTitle, nextUrl, nextTitle }) => {
       {previousUrl && (
         <Link
           as={GatsbyLink}
-          to={previousUrl}
+          to={`/${previousUrl}`}
           color="gray.600"
           rel="prev"
           textAlign="left"
@@ -24,7 +24,7 @@ const PostNav = ({ previousUrl, previousTitle, nextUrl, nextTitle }) => {
       {nextUrl && (
         <Link
           as={GatsbyLink}
-          to={nextUrl}
+          to={`/${nextUrl}`}
           color="gray.600"
           rel="next"
           textAlign="right"

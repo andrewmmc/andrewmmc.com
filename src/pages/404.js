@@ -12,7 +12,7 @@ const NotFound = () => (
     <Heading>404 Not Found</Heading>
     <Text my={8}>
       The page you requested cannot be found. The URL may be misspelled or the
-      page you're looking for is no longer available.
+      page you&apos;re looking for is no longer available.
     </Text>
     <Link as={GatsbyLink} to="/" color="primary.500">
       <Icon name="chevron-left" ml="1" />

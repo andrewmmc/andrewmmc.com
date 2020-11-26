@@ -2,40 +2,46 @@ import React, { Fragment } from 'react';
 import { shape } from 'prop-types';
 import { graphql } from 'gatsby';
 import Content from 'components/Content';
-import Heading from 'components/Heading';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
+import PostTemplate from 'components/PostTemplate';
+import { ellipsis } from 'utils/index';
 
 const About = ({ data }) => {
   const { content, title, body } = data.prismicAbout.data;
+  const postContent = (
+    <>
+      <Content html={content.html} />
+      {body.map(({ __typename, id, items }) => {
+        switch (__typename) {
+          case 'PrismicAboutBodyRecommendations': {
+            return (
+              <Fragment key={`${id}_PrismicAboutBodyRecommendations`}>
+                <Content html="Recommendations" wrappedTag="h2" />
+                {items.map(({ quote }, index) => {
+                  return (
+                    <Content
+                      // eslint-disable-next-line react/no-array-index-key
+                      key={`${id}_PrismicAboutBodyRecommendations_quote_${index}`}
+                      html={quote.html}
+                      wrappedTag="blockquote"
+                    />
+                  );
+                })}
+              </Fragment>
+            );
+          }
+          default:
+            return null;
+        }
+      })}
+    </>
+  );
+
   return (
     <Layout>
-      <Seo
-        title={title.text}
-        description={`${content.text.substring(0, 100)}...`}
-      />
-      <Heading>{title.text}</Heading>
-      <Content html={content.html} />
-      {body.map((slice) => {
-        const { __typename, id, items } = slice;
-        if (__typename === 'PrismicAboutBodyRecommendations') {
-          return (
-            <Fragment>
-              <Content html="Recommendations" wrappedTag="h2" />
-              {items.map(({ quote }, index) => {
-                return (
-                  <Content
-                    key={`${id}_items_quote_${index}`}
-                    html={quote.html}
-                    wrappedTag="blockquote"
-                  />
-                );
-              })}
-            </Fragment>
-          );
-        }
-        return null;
-      })}
+      <Seo title={title.text} description={ellipsis(content.text)} />
+      <PostTemplate title={title.text} content={postContent} />
     </Layout>
   );
 };

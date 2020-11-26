@@ -1,12 +1,12 @@
 import React from 'react';
 import { shape, string, node, arrayOf } from 'prop-types';
+import _get from 'lodash/get';
 import { Text, Stack, Divider, Tag } from '@chakra-ui/core';
 
-import Content from 'components/Content';
-import Heading from 'components/Heading';
-import PostNav from 'components/PostNav';
+import Heading from './Heading';
+import PostNav from './PostNav';
 
-export const PostTemplate = ({
+const PostTemplate = ({
   title,
   date,
   category = [],
@@ -15,31 +15,32 @@ export const PostTemplate = ({
   previous,
   next,
 }) => {
-  const previousUrl = previous && previous.fields && previous.fields.slug;
-  const previousTitle =
-    previous && previous.frontmatter && previous.frontmatter.title;
-  const nextUrl = next && next.fields && next.fields.slug;
-  const nextTitle = next && next.frontmatter && next.frontmatter.title;
+  const previousUrl = _get(previous, 'url');
+  const previousTitle = _get(previous, 'data.title.text');
+  const nextUrl = _get(next, 'url');
+  const nextTitle = _get(next, 'data.title.text');
 
   return (
     <>
       <article>
         <Heading>{title}</Heading>
-        <Stack isInline spacing={4} my={4} color="gray.600">
-          {date && <Text as="time">{date}</Text>}
-        </Stack>
+        {date && (
+          <Stack isInline spacing={4} my={4} color="gray.600">
+            <Text as="time">{date}</Text>
+          </Stack>
+        )}
         {category.length > 0 && (
           <Stack isInline spacing={4} my={4}>
-            {category.map((item, idx) => {
+            {category.map((item) => {
               return (
-                <Tag size="sm" key={`tag_${idx}`}>
+                <Tag size="sm" key={item}>
                   {item}
                 </Tag>
               );
             })}
           </Stack>
         )}
-        <Content mt={8} content={content} />
+        {content}
       </article>
       <Divider borderColor="gray.300" mt={8} mb={6} />
       {feedback}
@@ -55,17 +56,17 @@ export const PostTemplate = ({
 
 PostTemplate.propTypes = {
   title: string.isRequired,
-  date: string.isRequired,
-  readingTime: string,
-  category: arrayOf(string).isRequired,
-  content: shape({}).isRequired,
+  date: string,
+  category: arrayOf(string),
+  content: node.isRequired,
   feedback: node,
   previous: shape({}),
   next: shape({}),
 };
 
 PostTemplate.defaultProps = {
-  readingTime: undefined,
+  date: undefined,
+  category: undefined,
   feedback: undefined,
   previous: undefined,
   next: undefined,
