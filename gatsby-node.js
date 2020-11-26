@@ -82,12 +82,6 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
-    type ThemeConfig implements Node {
-      siteName: String
-      likeCoinId: String
-      mapId: String
-    }
-
     type Social implements Node {
       github: String
       linkedin: String
