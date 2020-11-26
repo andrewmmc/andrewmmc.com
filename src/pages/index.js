@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Bio from 'components/Bio';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
-import PostList from 'components/postList';
+import PostList from 'components/PostList';
 
 const Index = ({ data }) => {
   const posts = data.allPrismicBlogPost.edges;

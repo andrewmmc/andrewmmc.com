@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Heading from 'components/Heading';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
-import PostList from 'components/postList';
+import PostList from 'components/PostList';
 
 const Notes = ({ data }) => {
   const posts = data.allPrismicNotePost.edges;
