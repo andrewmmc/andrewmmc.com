@@ -93,14 +93,9 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type SiteSiteMetadata implements Node {
       title: String
-      author: String
-      authorDescription: String
       description: String
       siteUrl: String
       seoKeywords: [String]
-      location: String
-      email: String
-      social: Social
     }
   `;
   createTypes(typeDefs);

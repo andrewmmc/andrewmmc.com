@@ -13,8 +13,14 @@ import { RiMediumLine } from 'react-icons/ri';
 
 const Footer = (props) => {
   const data = useStaticQuery(pageQuery);
-  const { social } = data.site.siteMetadata;
-  const { github, linkedin, facebook, instagram, twitter, medium } = social;
+  const {
+    githubId,
+    linkedinId,
+    facebookId,
+    instagramId,
+    twitterId,
+    mediumId,
+  } = data.prismicSettings.data;
 
   return (
     <Flex
@@ -42,10 +48,10 @@ const Footer = (props) => {
           _active={{ bg: 'gray.100' }}
           icon={FiRss}
         />
-        {github && (
+        {githubId.text && (
           <IconButton
             as="a"
-            href={`https://github.com/${github}`}
+            href={`https://github.com/${githubId.text}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -54,10 +60,10 @@ const Footer = (props) => {
             icon={FiGithub}
           />
         )}
-        {twitter && (
+        {twitterId.text && (
           <IconButton
             as="a"
-            href={`https://twitter.com/${twitter}`}
+            href={`https://twitter.com/${twitterId.text}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
@@ -66,10 +72,10 @@ const Footer = (props) => {
             icon={FiTwitter}
           />
         )}
-        {facebook && (
+        {facebookId.text && (
           <IconButton
             as="a"
-            href={`https://facebook.com/${facebook}`}
+            href={`https://facebook.com/${facebookId.text}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -78,10 +84,10 @@ const Footer = (props) => {
             icon={FiFacebook}
           />
         )}
-        {instagram && (
+        {instagramId.text && (
           <IconButton
             as="a"
-            href={`https://instagram.com/${instagram}`}
+            href={`https://instagram.com/${instagramId.text}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -90,10 +96,10 @@ const Footer = (props) => {
             icon={FiInstagram}
           />
         )}
-        {linkedin && (
+        {linkedinId.text && (
           <IconButton
             as="a"
-            href={`https://linkedin.com/in/${linkedin}`}
+            href={`https://linkedin.com/in/${linkedinId.text}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Linkedin"
@@ -102,10 +108,10 @@ const Footer = (props) => {
             icon={FiLinkedin}
           />
         )}
-        {medium && (
+        {mediumId.text && (
           <IconButton
             as="a"
-            href={`https://medium.com/${medium}`}
+            href={`https://medium.com/${mediumId.text}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Medium"
@@ -123,16 +129,25 @@ export default memo(Footer);
 
 const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        siteUrl
-        social {
-          github
-          linkedin
-          facebook
-          instagram
-          twitter
-          medium
+    prismicSettings(uid: { eq: "settings" }) {
+      data {
+        githubId: github_id {
+          text
+        }
+        linkedinId: linkedin_id {
+          text
+        }
+        facebookId: facebook_id {
+          text
+        }
+        instagramId: instagram_id {
+          text
+        }
+        twitterId: twitter_id {
+          text
+        }
+        mediumId: medium_id {
+          text
         }
       }
     }

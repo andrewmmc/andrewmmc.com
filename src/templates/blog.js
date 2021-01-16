@@ -10,7 +10,7 @@ import Seo from 'components/Seo';
 import PostTemplate from 'components/PostTemplate';
 
 const Blog = ({ data, pageContext }) => {
-  const { siteUrl } = data.site.siteMetadata;
+  const { siteUrl } = data.prismicSettings.data;
   const { url, tags } = data.prismicBlogPost;
   const postData = data.prismicBlogPost.data;
   const { previous, next } = pageContext;
@@ -24,7 +24,7 @@ const Blog = ({ data, pageContext }) => {
         date={date}
         category={tags}
         content={<Content html={content.html} />}
-        feedback={<Feedback siteUrl={siteUrl} url={url} />}
+        feedback={<Feedback siteUrl={siteUrl.text} url={url} />}
         previous={previous}
         next={next}
       />
@@ -41,9 +41,11 @@ export default Blog;
 
 export const pageQuery = graphql`
   query PostById($id: String!, $dateFormat: String!) {
-    site {
-      siteMetadata {
-        siteUrl
+    prismicSettings(uid: { eq: "settings" }) {
+      data {
+        siteUrl: site_url {
+          text
+        }
       }
     }
     prismicBlogPost(id: { eq: $id }) {

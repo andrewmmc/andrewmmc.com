@@ -5,17 +5,18 @@ import Helmet from 'react-helmet';
 
 const Seo = ({ description, lang, meta, keywords, title, canonical }) => {
   const data = useStaticQuery(pageQuery);
-  const metaDescription = description || data.site.siteMetadata.description;
+  const metaDescription =
+    description || data.prismicSettings.data.siteDescription.text;
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
       title={title}
-      titleTemplate={`%s – ${data.site.siteMetadata.title}`}
-      defaultTitle={`${data.site.siteMetadata.title}${
-        data.site.siteMetadata.description &&
-        ` – ${data.site.siteMetadata.description}`
+      titleTemplate={`%s – ${data.prismicSettings.data.siteName.text}`}
+      defaultTitle={`${data.prismicSettings.data.siteName.text}${
+        data.prismicSettings.data.siteDescription.text &&
+        ` – ${data.prismicSettings.data.siteDescription.text}`
       }`}
       meta={[
         {
@@ -40,7 +41,7 @@ const Seo = ({ description, lang, meta, keywords, title, canonical }) => {
         },
         {
           name: 'twitter:creator',
-          content: data.site.siteMetadata.author,
+          content: data.prismicSettings.data.authorName.text,
         },
         {
           name: 'twitter:title',
@@ -90,11 +91,17 @@ export default Seo;
 
 const pageQuery = graphql`
   query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
+    prismicSettings(uid: { eq: "settings" }) {
+      data {
+        siteName: site_name {
+          text
+        }
+        siteDescription: site_description {
+          text
+        }
+        authorName: author_name {
+          text
+        }
       }
     }
   }

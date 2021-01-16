@@ -6,8 +6,6 @@ const title = 'Andrew Mok';
 module.exports = {
   siteMetadata: {
     title,
-    author: 'Andrew',
-    authorDescription: `I'm a software engineer based in Hong Kong.`,
     description: 'Software engineer based in Hong Kong.',
     siteUrl: 'https://andrewmmc.com',
     seoKeywords: [
@@ -28,16 +26,6 @@ module.exports = {
       '軟體工程師',
       '網頁編寫員',
     ],
-    location: 'Hong Kong',
-    email: 'hello@andrewmmc.com',
-    social: {
-      github: 'andrewmmc',
-      linkedin: 'andrewmmc',
-      facebook: '',
-      instagram: '',
-      twitter: 'andrewmmc',
-      medium: '@andrewmmc',
-    },
   },
   plugins: [
     {
@@ -88,6 +76,7 @@ module.exports = {
           blog_post: require('./src/schemas/blog_post.json'),
           note_post: require('./src/schemas/note_post.json'),
           project_post: require('./src/schemas/project_post.json'),
+          settings: require('./src/schemas/settings.json'),
           /* eslint-enable global-require */
         },
         imageImgixParams: {
@@ -117,18 +106,26 @@ module.exports = {
                 site_url: siteUrl
               }
             }
+            prismicSettings(uid: { eq: "settings" }) {
+              data {
+                site_url {
+                  text
+                }
+              }
+            }
           }
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allPrismicBlogPost } }) => {
+            serialize: ({ query: { prismicSettings, allPrismicBlogPost } }) => {
               return allPrismicBlogPost.edges.map((edge) => {
                 return {
                   title: edge.node.data.title.text,
                   description: ``,
                   date: edge.node.data.date,
-                  url: site.siteMetadata.siteUrl + '/' + edge.node.url,
-                  guid: site.siteMetadata.siteUrl + '/' + edge.node.url,
+                  url: prismicSettings.data.site_url.text + '/' + edge.node.url,
+                  guid:
+                    prismicSettings.data.site_url.text + '/' + edge.node.url,
                   custom_elements: [{ 'content:encoded': `` }],
                 };
               });

@@ -25,8 +25,7 @@ const Header = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
   const data = useStaticQuery(pageQuery);
-  const { social } = data.site.siteMetadata;
-  const { github } = social || {};
+  const githubId = data.prismicSettings.data.githubId.text;
 
   const allPages = data.allSitePage.edges.map((edge) => edge.node.path);
   const headerItems = [{ path: '/', label: 'Blog' }];
@@ -52,9 +51,9 @@ const Header = (props) => {
     });
   }
 
-  if (github) {
+  if (githubId) {
     headerItems.push({
-      path: `https://github.com/${github}`,
+      path: `https://github.com/${githubId}`,
       label: `GitHub`,
     });
   }
@@ -141,10 +140,10 @@ export default memo(Header);
 
 const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        social {
-          github
+    prismicSettings(uid: { eq: "settings" }) {
+      data {
+        githubId: github_id {
+          text
         }
       }
     }

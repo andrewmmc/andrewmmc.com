@@ -9,11 +9,16 @@ import Heading from './Heading';
 const Bio = (props) => {
   const { breakpoints } = useTheme();
   const data = useStaticQuery(pageQuery);
-  const { author, authorDescription } = data.site.siteMetadata;
+  const {
+    authorName,
+    authorDescription,
+    mobileAvatar,
+    tabletAvatar,
+  } = data.prismicSettings.data;
   const avatarSources = [
-    data.mobileAvatar.childImageSharp.fixed,
+    mobileAvatar.fixed,
     {
-      ...data.tabletAvatar.childImageSharp.fixed,
+      ...tabletAvatar.fixed,
       media: `(min-width: ${breakpoints[1]})`,
     },
   ];
@@ -29,10 +34,10 @@ const Bio = (props) => {
         justifyContent="center"
         alignItems="flex-start"
       >
-        <Heading>Hi, I&apos;m {author}.</Heading>
-        {authorDescription && (
+        <Heading>Hi, I&apos;m {authorName.text}.</Heading>
+        {authorDescription.text && (
           <Text color="gray.600" fontSize="lg" mb={4}>
-            {authorDescription}
+            {authorDescription.text}
           </Text>
         )}
         <Link as={GatsbyLink} to="/about" color="primary.500">
@@ -41,7 +46,7 @@ const Bio = (props) => {
         </Link>
       </Flex>
       <Flex alignSelf={['flex-start', 'center']} pb={[4, 0]} pl={[0, 4]}>
-        <StyledAvatar fixed={avatarSources} alt={author} />
+        <StyledAvatar fixed={avatarSources} alt={authorName.text} />
       </Flex>
     </Flex>
   );
@@ -53,30 +58,24 @@ const StyledAvatar = styled(Image)`
 
 const pageQuery = graphql`
   query BioQuery {
-    mobileAvatar: file(
-      sourceInstanceName: { eq: "assets" }
-      relativePath: { eq: "profile.jpg" }
-    ) {
-      childImageSharp {
-        fixed(width: 75, height: 75) {
-          ...GatsbyImageSharpFixed
+    prismicSettings(uid: { eq: "settings" }) {
+      data {
+        authorName: author_name {
+          text
         }
-      }
-    }
-    tabletAvatar: file(
-      sourceInstanceName: { eq: "assets" }
-      relativePath: { eq: "profile.jpg" }
-    ) {
-      childImageSharp {
-        fixed(width: 125, height: 125) {
-          ...GatsbyImageSharpFixed
+        authorDescription: author_description {
+          text
         }
-      }
-    }
-    site {
-      siteMetadata {
-        author
-        authorDescription
+        mobileAvatar: profile_image {
+          fixed(width: 75, height: 75) {
+            ...GatsbyPrismicImageFixed
+          }
+        }
+        tabletAvatar: profile_image {
+          fixed(width: 125, height: 125) {
+            ...GatsbyPrismicImageFixed
+          }
+        }
       }
     }
   }
