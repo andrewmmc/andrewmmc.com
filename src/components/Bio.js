@@ -14,6 +14,8 @@ const Bio = (props) => {
     authorDescription,
     mobileAvatar,
     tabletAvatar,
+    homeTitle,
+    homeMessage,
   } = data.prismicSettings.data;
   const avatarSources = [
     mobileAvatar.fixed,
@@ -34,10 +36,10 @@ const Bio = (props) => {
         justifyContent="center"
         alignItems="flex-start"
       >
-        <Heading>Hi, I&apos;m {authorName.text}.</Heading>
-        {authorDescription.text && (
+        <Heading>{homeTitle.text}</Heading>
+        {homeMessage.text && (
           <Text color="gray.600" fontSize="lg" mb={4}>
-            {authorDescription.text}
+            {homeMessage.text}
           </Text>
         )}
         <Link as={GatsbyLink} to="/about" color="primary.500">
@@ -46,7 +48,10 @@ const Bio = (props) => {
         </Link>
       </Flex>
       <Flex alignSelf={['flex-start', 'center']} pb={[4, 0]} pl={[0, 4]}>
-        <StyledAvatar fixed={avatarSources} alt={authorName.text} />
+        <StyledAvatar
+          fixed={avatarSources}
+          alt={`${authorName.text}: ${authorDescription.text}`}
+        />
       </Flex>
     </Flex>
   );
@@ -64,6 +69,12 @@ const pageQuery = graphql`
           text
         }
         authorDescription: author_description {
+          text
+        }
+        homeTitle: home_title {
+          text
+        }
+        homeMessage: home_message {
           text
         }
         mobileAvatar: profile_image {

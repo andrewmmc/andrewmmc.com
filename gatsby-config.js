@@ -1,31 +1,11 @@
 require('dotenv').config();
 const path = require('path');
 
-const title = 'Andrew Mok';
-
 module.exports = {
   siteMetadata: {
-    title,
+    title: 'Andrew Mok',
     description: 'Software engineer based in Hong Kong.',
     siteUrl: 'https://andrewmmc.com',
-    seoKeywords: [
-      'blog',
-      'andrew',
-      'andrewmok',
-      'Andrew Mok',
-      'andrewmmc',
-      'software developer',
-      'web developer',
-      'coder',
-      'software engineer',
-      'engineer',
-      'hacker',
-      'Hong Kong developer',
-      'Hong Kong engineer',
-      '程序員',
-      '軟體工程師',
-      '網頁編寫員',
-    ],
   },
   plugins: [
     {
@@ -46,13 +26,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `src/assets`,
-        name: 'assets',
-      },
-    },
-    {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'andrewmmc-com',
@@ -63,11 +36,11 @@ module.exports = {
           const { data } = doc;
           if (data.date) year = data.date.substring(0, 4);
           if (doc.type === 'blog_post')
-            return ['blog', year, doc.uid].filter(Boolean).join(`/`);
+            return ['/blog', year, doc.uid].filter(Boolean).join(`/`);
           if (doc.type === 'note_post')
-            return ['notes', year, doc.uid].filter(Boolean).join(`/`);
+            return ['/notes', year, doc.uid].filter(Boolean).join(`/`);
           if (doc.type === 'project_post')
-            return ['projects', year, doc.uid].filter(Boolean).join(`/`);
+            return ['/projects', year, doc.uid].filter(Boolean).join(`/`);
           return doc.uid;
         },
         schemas: {
@@ -123,9 +96,8 @@ module.exports = {
                   title: edge.node.data.title.text,
                   description: ``,
                   date: edge.node.data.date,
-                  url: prismicSettings.data.site_url.text + '/' + edge.node.url,
-                  guid:
-                    prismicSettings.data.site_url.text + '/' + edge.node.url,
+                  url: prismicSettings.data.site_url.text + edge.node.url,
+                  guid: prismicSettings.data.site_url.text + edge.node.url,
                   custom_elements: [{ 'content:encoded': `` }],
                 };
               });
@@ -149,7 +121,7 @@ module.exports = {
             }
             `,
             output: '/rss.xml',
-            title,
+            title: 'Andrew Mok',
           },
         ],
       },

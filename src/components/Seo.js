@@ -3,7 +3,7 @@ import { string, arrayOf } from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
 
-const Seo = ({ description, lang, meta, keywords, title, canonical }) => {
+const Seo = ({ description, lang, meta, keywords = '', title, canonical }) => {
   const data = useStaticQuery(pageQuery);
   const metaDescription =
     description || data.prismicSettings.data.siteDescription.text;
@@ -51,16 +51,13 @@ const Seo = ({ description, lang, meta, keywords, title, canonical }) => {
           name: 'twitter:description',
           content: metaDescription,
         },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: 'keywords',
-                content: keywords.join(', '),
-              }
-            : []
-        )
-        .concat(meta)}
+        {
+          name: 'keywords',
+          content: [data.prismicSettings.data.seoKeywords.text, keywords].join(
+            ', '
+          ),
+        },
+      ].concat(meta)}
       link={[
         { rel: 'preconnect', href: 'https://www.googletagmanager.com' },
         ...(canonical ? [{ rel: 'canonical', href: canonical }] : []),
@@ -74,7 +71,7 @@ Seo.defaultProps = {
   description: '',
   lang: 'en',
   meta: [],
-  keywords: [],
+  keywords: '',
   title: '',
 };
 
@@ -83,7 +80,7 @@ Seo.propTypes = {
   description: string,
   lang: string,
   meta: arrayOf(string),
-  keywords: arrayOf(string),
+  keywords: string,
   title: string,
 };
 
@@ -100,6 +97,9 @@ const pageQuery = graphql`
           text
         }
         authorName: author_name {
+          text
+        }
+        seoKeywords: seo_keywords {
           text
         }
       }

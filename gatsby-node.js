@@ -95,7 +95,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       siteUrl: String
-      seoKeywords: [String]
     }
   `;
   createTypes(typeDefs);

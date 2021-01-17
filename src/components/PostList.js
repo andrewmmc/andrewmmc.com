@@ -95,7 +95,7 @@ const PostList = ({
                     <Text as="time">{date}</Text>
                   </Stack>
                   <Heading as="h2" size="md">
-                    <Link as={GatsbyLink} to={`/${node.url}`}>
+                    <Link as={GatsbyLink} to={node.url}>
                       {title}
                     </Link>
                   </Heading>

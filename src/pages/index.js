@@ -11,7 +11,7 @@ const Index = ({ data }) => {
   const posts = data.allPrismicBlogPost.edges;
   return (
     <Layout>
-      <Seo keywords={data.site.siteMetadata.seoKeywords} />
+      <Seo />
       <Bio mb={12} />
       <PostList
         posts={posts}
@@ -43,11 +43,6 @@ export const pageQuery = graphql`
           }
           tags
         }
-      }
-    }
-    site {
-      siteMetadata {
-        seoKeywords
       }
     }
   }

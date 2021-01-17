@@ -26,7 +26,7 @@ const Projects = ({ data }) => {
           return (
             <Card
               key={node.url}
-              path={`/${node.url}`}
+              path={node.url}
               date={date}
               title={title}
               {...(!!featured_image && {

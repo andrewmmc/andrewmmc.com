@@ -9,9 +9,7 @@ const Feedback = ({ siteUrl, url }) => {
         <Link
           color="primary.500"
           fontSize="sm"
-          href={`https://twitter.com/search?q=${encodeURI(
-            siteUrl + '/' + url
-          )}`}
+          href={`https://twitter.com/search?q=${encodeURI(siteUrl + url)}`}
           target="_blank"
           rel="noopener noreferrer"
         >
