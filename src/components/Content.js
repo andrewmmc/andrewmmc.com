@@ -103,12 +103,9 @@ const renderAst = new RehypeReact({
   },
 }).Compiler;
 
-const Content = ({ html, wrappedTag, ...props }) => {
+const Content = ({ html, ...props }) => {
   const process = unified().use(parse, { fragment: true });
-  const htmlToParsed = wrappedTag
-    ? `<${wrappedTag}>${html}</${wrappedTag}>`
-    : html;
-  const htmlAst = process.parse(htmlToParsed);
+  const htmlAst = process.parse(html);
 
   return (
     <Box {...props}>
@@ -131,11 +128,6 @@ const Content = ({ html, wrappedTag, ...props }) => {
 
 Content.propTypes = {
   html: string.isRequired,
-  wrappedTag: string,
-};
-
-Content.defaultProps = {
-  wrappedTag: undefined,
 };
 
 export default Content;

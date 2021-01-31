@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery, Link as GatsbyLink } from 'gatsby';
-import { Text, Flex, Link, Icon, useTheme } from '@chakra-ui/core';
+import { Text, Flex, Link, Icon, Stack, useTheme } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import Image from 'gatsby-image';
 
@@ -16,6 +16,7 @@ const Bio = (props) => {
     tabletAvatar,
     homeTitle,
     homeMessage,
+    githubId,
   } = data.prismicSettings.data;
   const avatarSources = [
     mobileAvatar.fixed,
@@ -38,14 +39,26 @@ const Bio = (props) => {
       >
         <Heading>{homeTitle.text}</Heading>
         {homeMessage.text && (
-          <Text color="gray.600" fontSize="lg" mb={4}>
+          <Text color="gray.600" fontSize="lg" mb={6}>
             {homeMessage.text}
           </Text>
         )}
-        <Link as={GatsbyLink} to="/about" color="primary.500">
-          About Me
-          <Icon name="chevron-right" ml="1" />
-        </Link>
+        <Stack direction="row" spacing={8}>
+          <Link as={GatsbyLink} to="/about" color="primary.500">
+            About Me
+            <Icon name="chevron-right" ml="1" />
+          </Link>
+          {githubId && (
+            <Link
+              as={GatsbyLink}
+              to={`https://github.com/${githubId.text}`}
+              color="primary.500"
+            >
+              GitHub
+              <Icon name="chevron-right" ml="1" />
+            </Link>
+          )}
+        </Stack>
       </Flex>
       <Flex alignSelf={['flex-start', 'center']} pb={[4, 0]} pl={[0, 4]}>
         <StyledAvatar
@@ -86,6 +99,9 @@ const pageQuery = graphql`
           fixed(width: 125, height: 125) {
             ...GatsbyPrismicImageFixed
           }
+        }
+        githubId: github_id {
+          text
         }
       }
     }

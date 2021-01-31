@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, bool } from 'prop-types';
+import { node } from 'prop-types';
 import { ThemeProvider, CSSReset, Box } from '@chakra-ui/core';
 
 import { customTheme } from '../themes/styles';
@@ -20,12 +20,12 @@ const defaultConfig = (theme) => ({
   },
 });
 
-const Layout = ({ withContainer = true, children, ...props }) =>
-  withContainer ? (
+const Layout = ({ children, ...props }) => {
+  return (
     <Box
       maxW="3xl"
       px="4"
-      py={[8, 12]}
+      py={[12, 24]}
       m="0 auto"
       w="100%"
       tabindex="-1"
@@ -34,9 +34,8 @@ const Layout = ({ withContainer = true, children, ...props }) =>
     >
       {children}
     </Box>
-  ) : (
-    children
   );
+};
 
 export const GlobalStyle = ({ children, ...props }) => {
   return (
@@ -49,12 +48,7 @@ export const GlobalStyle = ({ children, ...props }) => {
   );
 };
 
-Layout.defaultProps = {
-  withContainer: true,
-};
-
 Layout.propTypes = {
-  withContainer: bool,
   children: node.isRequired,
 };
 

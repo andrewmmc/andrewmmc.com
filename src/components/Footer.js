@@ -38,16 +38,18 @@ const Footer = (props) => {
     >
       <Box mb={[2, 0]}>© {new Date().getFullYear()}</Box>
       <Box>
-        <IconButton
-          as="a"
-          href="/rss.xml"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="RSS"
-          variant="ghost"
-          _active={{ bg: 'gray.100' }}
-          icon={FiRss}
-        />
+        {mediumId.text && (
+          <IconButton
+            as="a"
+            href={`https://medium.com/feed/${mediumId.text}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="RSS"
+            variant="ghost"
+            _active={{ bg: 'gray.100' }}
+            icon={FiRss}
+          />
+        )}
         {githubId.text && (
           <IconButton
             as="a"

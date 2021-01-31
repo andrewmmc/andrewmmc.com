@@ -1,47 +1,28 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { shape } from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link as GatsbyLink } from 'gatsby';
+import { Icon, Link, Divider } from '@chakra-ui/core';
 import Content from 'components/Content';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
-import PostTemplate from 'components/PostTemplate';
+import Article from 'components/Article';
 import { ellipsis } from 'utils/index';
 
 const About = ({ data }) => {
-  const { content, title, body } = data.prismicAbout.data;
-  const postContent = (
-    <>
-      <Content html={content.html} />
-      {body.map(({ __typename, id, items }) => {
-        switch (__typename) {
-          case 'PrismicAboutBodyRecommendations': {
-            return (
-              <Fragment key={`${id}_PrismicAboutBodyRecommendations`}>
-                <Content html="Recommendations" wrappedTag="h2" />
-                {items.map(({ quote }, index) => {
-                  return (
-                    <Content
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={`${id}_PrismicAboutBodyRecommendations_quote_${index}`}
-                      html={quote.html}
-                      wrappedTag="blockquote"
-                    />
-                  );
-                })}
-              </Fragment>
-            );
-          }
-          default:
-            return null;
-        }
-      })}
-    </>
-  );
+  const { content, title } = data.prismicAbout.data;
 
   return (
     <Layout>
       <Seo title={title.text} description={ellipsis(content.text)} />
-      <PostTemplate title={title.text} content={postContent} />
+      <Article
+        title={title.text}
+        content={<Content my={8} html={content.html} />}
+      />
+      <Divider borderColor="gray.300" mt={8} mb={6} />
+      <Link as={GatsbyLink} to="/" color="primary.500">
+        <Icon name="chevron-left" ml="1" />
+        Back to home
+      </Link>
     </Layout>
   );
 };
@@ -62,17 +43,6 @@ export const pageQuery = graphql`
         }
         title {
           text
-        }
-        body {
-          __typename
-          ... on PrismicAboutBodyRecommendations {
-            id
-            items {
-              quote {
-                html
-              }
-            }
-          }
         }
       }
     }

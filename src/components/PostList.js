@@ -1,131 +1,84 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { shape, arrayOf, string, bool } from 'prop-types';
 import { Link as GatsbyLink } from 'gatsby';
 import {
-  Icon,
-  Flex,
   Link,
   List,
   ListItem,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Tag,
   Text,
   Stack,
+  Skeleton,
+  Icon,
+  Box,
 } from '@chakra-ui/core';
+import parseISO from 'date-fns/parseISO';
+import format from 'date-fns/format';
 import Heading from 'components/Heading';
 
-const PostList = ({
-  posts = [],
-  postCategories = [],
-  searchPlaceholder = '',
-  notFoundText = '',
-  showSearchFilter = true,
-  showCategoryFilter = true,
-}) => {
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
-  const isEmptySearchFilter = query === '';
-  const isEmptyCategoryFilter = category === '';
-
-  const handleSearchFilter = (e) => {
-    const searchText = (e.target.value || '').toLowerCase();
-    setQuery(searchText);
-  };
-
-  const toggleCategoryFilter = (e) => {
-    const categoryText = e.target.innerText;
-    if (categoryText === category) {
-      setCategory(''); // reset filter
-    } else {
-      setCategory(categoryText);
-    }
-  };
-
-  const results = posts
-    .filter(({ node }) => {
-      const postCategory = node.tags || [];
-      return isEmptyCategoryFilter || postCategory.includes(category);
-    })
-    .filter(({ node }) => {
-      const title = (node.data.title.text || node.url).toLowerCase();
-      return isEmptySearchFilter || title.includes(query);
-    });
+const PostList = ({ title, posts = [], loading = false, moreLink }) => {
+  const items = loading
+    ? [
+        { key: 'loading-1' },
+        { key: 'loading-2' },
+        { key: 'loading-3' },
+        { key: 'loading-4' },
+        { key: 'loading-5' },
+      ]
+    : posts;
 
   return (
-    <>
-      {showSearchFilter && (
-        <InputGroup mb={6}>
-          <Input
-            value={query}
-            onChange={handleSearchFilter}
-            placeholder={searchPlaceholder}
-            size="md"
-          />
-          <InputRightElement>
-            <Icon name="search" color="gray.300" />
-          </InputRightElement>
-        </InputGroup>
-      )}
-      {showCategoryFilter && postCategories.length > 0 && (
-        <Flex my={4} flexWrap="wrap">
-          {postCategories.map(({ fieldValue }) => (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-            <Link onClick={toggleCategoryFilter} mr={2} mb={2} key={fieldValue}>
-              <Tag
-                size="sm"
-                variantColor={fieldValue === category ? `primary` : `gray`}
-              >
-                {fieldValue}
-              </Tag>
-            </Link>
-          ))}
-        </Flex>
-      )}
-      <List mb={4}>
-        {results.length > 0 ? (
-          results.map(({ node }) => {
-            const title = node.data.title.text || node.url;
-            const { date } = node.data;
-            return (
-              <ListItem mb={6} key={node.url}>
-                <Stack spacing={1}>
-                  <Stack isInline spacing={4} color="gray.600" fontSize="sm">
-                    <Text as="time">{date}</Text>
-                  </Stack>
-                  <Heading as="h2" size="md">
-                    <Link as={GatsbyLink} to={node.url}>
-                      {title}
-                    </Link>
-                  </Heading>
+    <Stack spacing={4}>
+      <Heading as="h2" size="sm" color="gray.400" textTransform="uppercase">
+        {title}
+      </Heading>
+      <List spacing={6}>
+        {items.map((item) => {
+          const { title, isoDate, link, key } = item;
+          return (
+            <ListItem key={key || link}>
+              <Stack spacing={1}>
+                <Stack isInline spacing={4} color="gray.600" fontSize="sm">
+                  <Skeleton isLoaded={!loading}>
+                    <Text as="time">
+                      {isoDate
+                        ? format(parseISO(isoDate), 'MMMM dd, yyyy')
+                        : 'Loading'}
+                    </Text>
+                  </Skeleton>
                 </Stack>
-              </ListItem>
-            );
-          })
-        ) : (
-          <Text>{notFoundText}</Text>
-        )}
+                <Heading as="h3" size="md">
+                  <Skeleton isLoaded={!loading}>
+                    <Link as={GatsbyLink} to={link || ``}>
+                      {title || 'Loading'}
+                    </Link>
+                  </Skeleton>
+                </Heading>
+              </Stack>
+            </ListItem>
+          );
+        })}
       </List>
-    </>
+      {moreLink && (
+        <Box mt={2}>
+          <Link as={GatsbyLink} to={moreLink} color="primary.500">
+            Older Posts
+            <Icon name="chevron-right" ml="1" />
+          </Link>
+        </Box>
+      )}
+    </Stack>
   );
 };
 
 PostList.propTypes = {
+  title: string.isRequired,
   posts: arrayOf(shape({})).isRequired,
-  postCategories: arrayOf(shape({})),
-  searchPlaceholder: string,
-  notFoundText: string,
-  showSearchFilter: bool,
-  showCategoryFilter: bool,
+  loading: bool.isRequired,
+  moreLink: string,
 };
 
 PostList.defaultProps = {
-  postCategories: undefined,
-  searchPlaceholder: undefined,
-  notFoundText: undefined,
-  showSearchFilter: true,
-  showCategoryFilter: true,
+  more: undefined,
 };
 
 export default PostList;

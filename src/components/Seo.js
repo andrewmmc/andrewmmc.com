@@ -14,10 +14,7 @@ const Seo = ({ description, lang, meta, keywords = '', title, canonical }) => {
       }}
       title={title}
       titleTemplate={`%s – ${data.prismicSettings.data.siteName.text}`}
-      defaultTitle={`${data.prismicSettings.data.siteName.text}${
-        data.prismicSettings.data.siteDescription.text &&
-        ` – ${data.prismicSettings.data.siteDescription.text}`
-      }`}
+      defaultTitle={data.prismicSettings.data.siteName.text}
       meta={[
         {
           name: 'description',
