@@ -16,7 +16,7 @@ const NotFound = () => (
     </Text>
     <Link as={GatsbyLink} to="/" color="primary.500">
       <Icon name="chevron-left" ml="1" />
-      Back to home
+      Back Home
     </Link>
   </Layout>
 );

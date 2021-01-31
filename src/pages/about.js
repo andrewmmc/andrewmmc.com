@@ -21,7 +21,7 @@ const About = ({ data }) => {
       <Divider borderColor="gray.300" mt={8} mb={6} />
       <Link as={GatsbyLink} to="/" color="primary.500">
         <Icon name="chevron-left" ml="1" />
-        Back to home
+        Back Home
       </Link>
     </Layout>
   );
