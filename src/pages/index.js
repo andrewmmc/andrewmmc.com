@@ -9,11 +9,10 @@ import PostList from 'components/PostList';
 const Index = () => {
   const data = useStaticQuery(pageQuery);
   const { mediumId } = data.prismicSettings.data;
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     async function fetchPosts() {
-      setLoading(true);
       try {
         const res = await fetch(`.netlify/functions/posts`);
         if (!res.ok) throw new Error(res.statusText);

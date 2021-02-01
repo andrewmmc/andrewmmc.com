@@ -13,22 +13,14 @@ const Bio = (props) => {
     authorName,
     authorDescription,
     mobileAvatar,
-    tabletAvatar,
     homeTitle,
     homeMessage,
     githubId,
   } = data.prismicSettings.data;
-  const avatarSources = [
-    mobileAvatar.fixed,
-    {
-      ...tabletAvatar.fixed,
-      media: `(min-width: ${breakpoints[1]})`,
-    },
-  ];
 
   return (
     <Flex
-      flexDirection={['column-reverse', 'row']}
+      flexDirection="column-reverse"
       justifyContent="space-between"
       {...props}
     >
@@ -60,10 +52,10 @@ const Bio = (props) => {
           )}
         </Stack>
       </Flex>
-      <Flex alignSelf={['flex-start', 'center']} pb={[4, 0]} pl={[0, 4]}>
+      <Flex alignSelf="flex-start" pb="6">
         <StyledAvatar
-          fixed={avatarSources}
-          alt={`${authorName.text}: ${authorDescription.text}`}
+          fixed={mobileAvatar.fixed}
+          alt={`${authorName.text} - ${authorDescription.text}`}
         />
       </Flex>
     </Flex>
@@ -91,12 +83,7 @@ const pageQuery = graphql`
           text
         }
         mobileAvatar: profile_image {
-          fixed(width: 75, height: 75) {
-            ...GatsbyPrismicImageFixed
-          }
-        }
-        tabletAvatar: profile_image {
-          fixed(width: 125, height: 125) {
+          fixed(width: 80, height: 80) {
             ...GatsbyPrismicImageFixed
           }
         }
