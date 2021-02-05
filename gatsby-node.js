@@ -1,10 +1,16 @@
 exports.createPages = async ({ graphql, actions }) => {
   // redirect all old posts to new url (medium or github)
   const { createRedirect } = actions;
-  const [blogResults, notesResults, projectsResults] = await Promise.all([
+  const [
+    blogResults,
+    notesResults,
+    projectsResults,
+    bioResults,
+  ] = await Promise.all([
     graphql(blogQuery),
     graphql(notesQuery),
     graphql(projectsQuery),
+    graphql(bioQuery),
   ]);
 
   if (blogResults.errors) {
@@ -19,10 +25,30 @@ exports.createPages = async ({ graphql, actions }) => {
     throw projectsResults.errors;
   }
 
+  if (bioResults.errors) {
+    throw bioResults.errors;
+  }
+
+  const bio = bioResults.data.prismicSettings.data;
+
+  if (bio && bio.mediumId && bio.mediumId.text) {
+    createRedirect({
+      fromPath: `/blog`,
+      toPath: `https://medium.com/${bio.mediumId.text}`,
+      isPermanent: true,
+    });
+
+    createRedirect({
+      fromPath: `/rss.xml`,
+      toPath: `https://medium.com/feed/${bio.mediumId.text}`,
+      isPermanent: true,
+    });
+  }
+
   const blogPosts = blogResults.data.allPrismicBlogPost.edges;
   blogPosts.forEach((post) => {
     const { url, data } = post.node;
-    const { date, redirect_url: redirectUrl } = data;
+    const { date, redirectUrl } = data;
     const year = date ? date.substring(0, 4) : undefined;
     if (year && redirectUrl && redirectUrl.url) {
       createRedirect({
@@ -33,10 +59,18 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   });
 
+  if (bio && bio.mediumId && bio.mediumId.text) {
+    createRedirect({
+      fromPath: `/notes`,
+      toPath: `https://medium.com/${bio.mediumId.text}`,
+      isPermanent: true,
+    });
+  }
+
   const notePosts = notesResults.data.allPrismicNotePost.edges;
   notePosts.forEach((post) => {
     const { url, data } = post.node;
-    const { date, redirect_url: redirectUrl } = data;
+    const { date, redirectUrl } = data;
     const year = date ? date.substring(0, 4) : undefined;
     if (year && redirectUrl && redirectUrl.url) {
       createRedirect({
@@ -47,10 +81,18 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   });
 
+  if (bio && bio.githubId && bio.githubId.text) {
+    createRedirect({
+      fromPath: `/projects`,
+      toPath: `https://github.com/${bio.githubId.text}`,
+      isPermanent: true,
+    });
+  }
+
   const projectPosts = projectsResults.data.allPrismicProjectPost.edges;
   projectPosts.forEach((post) => {
     const { url, data } = post.node;
-    const { date, redirect_url: redirectUrl } = data;
+    const { date, redirectUrl } = data;
     const year = date ? date.substring(0, 4) : undefined;
     if (year && redirectUrl && redirectUrl.url) {
       createRedirect({
@@ -91,7 +133,7 @@ const blogQuery = `{
       node {
         url
         data {
-          redirect_url {
+          redirectUrl: redirect_url {
             url
           }
           date
@@ -108,7 +150,7 @@ const notesQuery = `{
       node {
         url
         data {
-          redirect_url {
+          redirectUrl: redirect_url {
             url
           }
           date
@@ -125,11 +167,25 @@ const projectsQuery = `{
       node {
         url
         data {
-          redirect_url {
+          redirectUrl: redirect_url {
             url
           }
           date
         }
+      }
+    }
+  }
+}
+`;
+
+const bioQuery = `{
+  prismicSettings(uid: { eq: "settings" }) {
+    data {
+      githubId: github_id {
+        text
+      }
+      mediumId: medium_id {
+        text
       }
     }
   }
