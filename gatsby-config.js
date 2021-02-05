@@ -36,6 +36,9 @@ module.exports = {
           /* eslint-disable global-require */
           about: require('./src/schemas/about.json'),
           settings: require('./src/schemas/settings.json'),
+          blog_post: require('./src/schemas/blog_post.json'),
+          note_post: require('./src/schemas/note_post.json'),
+          project_post: require('./src/schemas/project_post.json'),
           /* eslint-enable global-require */
         },
         imageImgixParams: {

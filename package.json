@@ -60,7 +60,7 @@
     "lint": "eslint --fix --ext .js --ignore-pattern public .",
     "prettier": "prettier --write 'src/**/*.js'",
     "develop": "gatsby develop",
-    "start": "yarn develop",
+    "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
