@@ -1,6 +1,6 @@
 const Parser = require('rss-parser');
 
-exports.handler = async function (event, context) {
+exports.handler = async function getPosts() {
   const parser = new Parser();
   try {
     const feed = await parser.parseURL('https://medium.com/feed/@andrewmmc');
@@ -9,9 +9,13 @@ exports.handler = async function (event, context) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ title: feed.title, items: feed.items }),
+      body: JSON.stringify({
+        title: feed.title,
+        items: feed.items.slice(0, 5),
+      }),
     };
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
     return {
       statusCode: 500,

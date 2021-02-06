@@ -32,7 +32,7 @@ const Footer = (props) => {
       maxW="3xl"
       m="0 auto"
       px="4"
-      py="3"
+      py={[8, 12]}
       color="gray.700"
       {...props}
     >

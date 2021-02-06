@@ -6,9 +6,9 @@ import { Heading, PseudoBox } from '@chakra-ui/core';
 export const StyledHeading = ({ children, ...props }) => (
   <Heading
     as="h1"
-    size="xl"
+    size="lg"
     fontWeight="500"
-    mb={4}
+    mb={2}
     color="gray.800"
     {...props}
   >

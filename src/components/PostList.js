@@ -15,41 +15,36 @@ import parseISO from 'date-fns/parseISO';
 import format from 'date-fns/format';
 import Heading from 'components/Heading';
 
-const PostList = ({ title, posts = [], loading = false, moreLink }) => {
-  const items = loading
-    ? [
-        { key: 'loading-1' },
-        { key: 'loading-2' },
-        { key: 'loading-3' },
-        { key: 'loading-4' },
-        { key: 'loading-5' },
-      ]
-    : posts;
+const PostList = ({
+  title,
+  posts = [],
+  loading = false,
+  moreLink,
+  ...props
+}) => {
+  const items = loading ? new Array(5).fill({}) : posts;
 
   return (
-    <Stack spacing={4}>
+    <Stack spacing={4} {...props}>
       <Heading as="h2" size="sm" color="gray.400" textTransform="uppercase">
         {title}
       </Heading>
       <List spacing={6}>
-        {items.map((item) => {
-          const { title, isoDate, link, key } = item;
+        {items.map((item, index) => {
+          // eslint-disable-next-line no-shadow
+          const { title, isoDate, link } = item;
           return (
-            <ListItem key={key || link}>
-              <Stack spacing={1}>
-                <Stack isInline spacing={4} color="gray.600" fontSize="sm">
-                  <Skeleton isLoaded={!loading}>
-                    <Text as="time">
-                      {isoDate
-                        ? format(parseISO(isoDate), 'MMMM dd, yyyy')
-                        : 'Loading'}
-                    </Text>
-                  </Skeleton>
-                </Stack>
+            <ListItem key={link || `post_list_${index}`}>
+              <Stack spacing={2} color="gray.600" fontSize="sm">
+                <Skeleton isLoaded={!loading} height="18px" width="120px">
+                  <Text as="time">
+                    {isoDate && format(parseISO(isoDate), 'MMMM dd, yyyy')}
+                  </Text>
+                </Skeleton>
                 <Heading as="h3" size="md">
-                  <Skeleton isLoaded={!loading}>
-                    <Link as={GatsbyLink} to={link || ``}>
-                      {title || 'Loading'}
+                  <Skeleton isLoaded={!loading} height="27px">
+                    <Link as={GatsbyLink} to={link}>
+                      {title}
                     </Link>
                   </Skeleton>
                 </Heading>
@@ -59,7 +54,7 @@ const PostList = ({ title, posts = [], loading = false, moreLink }) => {
         })}
       </List>
       {moreLink && (
-        <Box mt={2}>
+        <Box mt={4}>
           <Link as={GatsbyLink} to={moreLink} color="primary.500">
             Older Posts
             <Icon name="chevron-right" ml="1" />
@@ -78,7 +73,7 @@ PostList.propTypes = {
 };
 
 PostList.defaultProps = {
-  more: undefined,
+  moreLink: undefined,
 };
 
 export default PostList;

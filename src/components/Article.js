@@ -1,19 +1,27 @@
 import React from 'react';
 import { string, node } from 'prop-types';
-import { Text, Stack } from '@chakra-ui/core';
+import { Box, Text, Stack } from '@chakra-ui/core';
 import Heading from './Heading';
 
-const Article = ({ title, date, content }) => {
+const Article = ({ title, date, content, ...props }) => {
   return (
-    <article>
-      <Heading>{title}</Heading>
+    <Box as="article" {...props}>
+      <Heading
+        as="h2"
+        size="sm"
+        color="gray.400"
+        textTransform="uppercase"
+        mb={4}
+      >
+        {title}
+      </Heading>
       {date && (
-        <Stack isInline spacing={4} my={4} color="gray.600">
+        <Stack isInline spacing={4} color="gray.600">
           <Text as="time">{date}</Text>
         </Stack>
       )}
       {content}
-    </article>
+    </Box>
   );
 };
 

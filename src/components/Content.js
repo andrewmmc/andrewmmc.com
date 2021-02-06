@@ -29,12 +29,12 @@ import {
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
-    h1: (props) => <LinkedHeading as="h1" size="lg" mt={8} mb={4} {...props} />,
-    h2: (props) => <LinkedHeading as="h2" size="lg" mt={8} mb={4} {...props} />,
-    h3: (props) => <LinkedHeading as="h3" size="md" mt={8} mb={4} {...props} />,
-    h4: (props) => <LinkedHeading as="h4" size="sm" mt={8} mb={4} {...props} />,
-    h5: (props) => <LinkedHeading as="h5" size="xs" mt={8} mb={4} {...props} />,
-    h6: (props) => <LinkedHeading as="h6" size="xs" mt={8} mb={4} {...props} />,
+    h1: (props) => <LinkedHeading as="h3" size="lg" mt={6} mb={4} {...props} />,
+    h2: (props) => <LinkedHeading as="h3" size="lg" mt={6} mb={4} {...props} />,
+    h3: (props) => <LinkedHeading as="h3" size="md" mt={6} mb={4} {...props} />,
+    h4: (props) => <LinkedHeading as="h4" size="sm" mt={6} mb={4} {...props} />,
+    h5: (props) => <LinkedHeading as="h5" size="xs" mt={6} mb={4} {...props} />,
+    h6: (props) => <LinkedHeading as="h6" size="xs" mt={6} mb={4} {...props} />,
     hr: (props) => <Divider borderColor="gray.400" my={4} {...props} />,
     p: (props) => <Text lineHeight="tall" my={4} {...props} />,
     ul: (props) => <List styleType="disc" my={4} spacing={3} {...props} />,

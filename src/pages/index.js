@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import Bio from 'components/Bio';
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import PostList from 'components/PostList';
@@ -17,9 +16,10 @@ const Index = () => {
         const res = await fetch(`.netlify/functions/posts`);
         if (!res.ok) throw new Error(res.statusText);
         const { items } = await res.json();
-        setPosts(items.slice(0, 5));
+        setPosts(items);
       } catch (err) {
-        console.log(err);
+        // eslint-disable-next-line no-console
+        console.error(err);
       }
       setLoading(false);
     }
@@ -30,7 +30,6 @@ const Index = () => {
   return (
     <Layout>
       <Seo />
-      <Bio mb={12} />
       <PostList
         title="Blog posts"
         posts={posts}

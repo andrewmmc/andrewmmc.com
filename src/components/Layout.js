@@ -25,7 +25,6 @@ const Layout = ({ children, ...props }) => {
     <Box
       maxW="3xl"
       px="4"
-      py={[12, 24]}
       m="0 auto"
       w="100%"
       tabindex="-1"
