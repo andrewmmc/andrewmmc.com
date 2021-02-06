@@ -28,7 +28,7 @@ const Header = (props) => {
       justifyContent="space-between"
       {...props}
     >
-      <Flex alignSelf="flex-start" pb="6">
+      <Flex alignSelf="flex-start" pb={[2, 6]}>
         <Link as={GatsbyLink} to="/">
           <StyledAvatar
             fixed={avatar.fixed}

@@ -36,13 +36,13 @@ const PostList = ({
           return (
             <ListItem key={link || `post_list_${index}`}>
               <Stack spacing={2} color="gray.600" fontSize="sm">
-                <Skeleton isLoaded={!loading} height="18px" width="120px">
+                <Skeleton isLoaded={!loading} minHeight="18px" width="120px">
                   <Text as="time">
                     {isoDate && format(parseISO(isoDate), 'MMMM dd, yyyy')}
                   </Text>
                 </Skeleton>
                 <Heading as="h3" size="md">
-                  <Skeleton isLoaded={!loading} height="27px">
+                  <Skeleton isLoaded={!loading} minHeight="27px">
                     <Link as={GatsbyLink} to={link}>
                       {title}
                     </Link>
