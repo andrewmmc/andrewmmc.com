@@ -64,5 +64,11 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }

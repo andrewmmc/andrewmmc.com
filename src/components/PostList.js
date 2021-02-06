@@ -23,45 +23,52 @@ const PostList = ({
   ...props
 }) => {
   const items = loading ? new Array(5).fill({}) : posts;
-
   return (
-    <Stack spacing={4} {...props}>
-      <Heading as="h2" size="sm" color="gray.400" textTransform="uppercase">
-        {title}
-      </Heading>
-      <List spacing={6}>
-        {items.map((item, index) => {
-          // eslint-disable-next-line no-shadow
-          const { title, isoDate, link } = item;
-          return (
-            <ListItem key={link || `post_list_${index}`}>
-              <Stack spacing={2} color="gray.600" fontSize="sm">
-                <Skeleton isLoaded={!loading} minHeight="18px" width="120px">
-                  <Text as="time">
-                    {isoDate && format(parseISO(isoDate), 'MMMM dd, yyyy')}
-                  </Text>
-                </Skeleton>
-                <Heading as="h3" size="md">
-                  <Skeleton isLoaded={!loading} minHeight="27px">
-                    <Link as={GatsbyLink} to={link}>
-                      {title}
-                    </Link>
+    <>
+      <Stack spacing={4} {...props}>
+        <Heading as="h2" size="sm" color="gray.400" textTransform="uppercase">
+          {title}
+        </Heading>
+        <List spacing={3}>
+          {items.map((item, index) => {
+            // eslint-disable-next-line no-shadow
+            const { title, isoDate, link } = item;
+            return (
+              <ListItem key={link || `post_list_${index}`}>
+                <Stack color="gray.600" fontSize="sm">
+                  <Skeleton isLoaded={!loading} width="120px">
+                    <Text as="time">
+                      {isoDate
+                        ? format(parseISO(isoDate), 'MMMM dd, yyyy')
+                        : `Loading`}
+                    </Text>
                   </Skeleton>
-                </Heading>
-              </Stack>
-            </ListItem>
-          );
-        })}
-      </List>
-      {moreLink && (
-        <Box mt={4}>
-          <Link as={GatsbyLink} to={moreLink} color="primary.500">
-            Older Posts
-            <Icon name="chevron-right" ml="1" />
-          </Link>
-        </Box>
-      )}
-    </Stack>
+                  <Skeleton isLoaded={!loading}>
+                    <Heading as="h3" size="md">
+                      {loading ? (
+                        `Loading`
+                      ) : (
+                        <Link as={GatsbyLink} to={link}>
+                          {title}
+                        </Link>
+                      )}
+                    </Heading>
+                  </Skeleton>
+                </Stack>
+              </ListItem>
+            );
+          })}
+        </List>
+        {moreLink && (
+          <Box mt={4}>
+            <Link as={GatsbyLink} to={moreLink} color="primary.500">
+              Older Posts
+              <Icon name="chevron-right" ml="1" />
+            </Link>
+          </Box>
+        )}
+      </Stack>
+    </>
   );
 };
 
