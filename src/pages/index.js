@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from 'components/Layout';
 import Seo from 'components/Seo';
 import PostList from 'components/PostList';
 
 const Index = () => {
-  const data = useStaticQuery(pageQuery);
-  const { mediumId } = data.prismicSettings.data;
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -34,22 +32,9 @@ const Index = () => {
         title="Blog posts"
         posts={posts}
         loading={loading}
-        moreLink={`https://medium.com/${mediumId.text}`}
       />
     </Layout>
   );
 };
 
 export default Index;
-
-const pageQuery = graphql`
-  query IndexQuery {
-    prismicSettings(uid: { eq: "settings" }) {
-      data {
-        mediumId: medium_id {
-          text
-        }
-      }
-    }
-  }
-`;

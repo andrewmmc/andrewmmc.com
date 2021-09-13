@@ -11,7 +11,7 @@ exports.handler = async function getPosts() {
       },
       body: JSON.stringify({
         title: feed.title,
-        items: feed.items.slice(0, 5),
+        items: feed.items,
       }),
     };
   } catch (err) {

@@ -9,7 +9,6 @@ import {
   Stack,
   Skeleton,
   Icon,
-  Box,
 } from '@chakra-ui/core';
 import parseISO from 'date-fns/parseISO';
 import format from 'date-fns/format';
@@ -19,7 +18,6 @@ const PostList = ({
   title,
   posts = [],
   loading = false,
-  moreLink,
   ...props
 }) => {
   const items = loading ? new Array(5).fill({}) : posts;
@@ -50,6 +48,7 @@ const PostList = ({
                       ) : (
                         <Link as={GatsbyLink} to={link}>
                           {title}
+                          <Icon name="chevron-right" ml="1" />
                         </Link>
                       )}
                     </Heading>
@@ -59,14 +58,6 @@ const PostList = ({
             );
           })}
         </List>
-        {moreLink && (
-          <Box mt={4}>
-            <Link as={GatsbyLink} to={moreLink} color="primary.500">
-              Older Posts
-              <Icon name="chevron-right" ml="1" />
-            </Link>
-          </Box>
-        )}
       </Stack>
     </>
   );
@@ -76,11 +67,6 @@ PostList.propTypes = {
   title: string.isRequired,
   posts: arrayOf(shape({})).isRequired,
   loading: bool.isRequired,
-  moreLink: string,
-};
-
-PostList.defaultProps = {
-  moreLink: undefined,
 };
 
 export default PostList;
