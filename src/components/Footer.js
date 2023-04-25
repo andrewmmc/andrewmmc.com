@@ -36,7 +36,7 @@ const Footer = (props) => {
       color="gray.700"
       {...props}
     >
-      <Box mb={[2, 0]}>© {new Date().getFullYear()}</Box>
+      <Box mb={[2, 0]}>© {new Date().getFullYear()} Coldbrew Digital Co.</Box>
       <Box>
         {mediumId.text && (
           <IconButton
