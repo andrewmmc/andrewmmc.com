@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, Flex, Icon, Stack, Heading } from "@chakra-ui/react";
+import { Text, Flex, Stack, Heading } from "@chakra-ui/react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 // import styled from "@emotion/styled";
 import Link from "../components/Link";
 
@@ -14,9 +15,9 @@ const Header: React.FC<Props> = ({ title, subtitle, githubId, ...props }) => {
   return (
     <Flex
       as="header"
-      maxW="3xl"
-      m="0 auto"
-      px="4"
+      // maxW="3xl"
+      // m="0 auto"
+      // px="4"
       py={[8, 12]}
       flexDirection="column"
       justifyContent="space-between"
@@ -43,12 +44,12 @@ const Header: React.FC<Props> = ({ title, subtitle, githubId, ...props }) => {
         <Stack direction="row" spacing={8}>
           <Link href="/about" color="primary.500">
             About
-            <Icon name="chevron-right" ml="1" />
+            <ChevronRightIcon ml="1" />
           </Link>
           {githubId ? (
             <Link href={`https://github.com/${githubId}`} color="primary.500">
               GitHub
-              <Icon name="chevron-right" ml="1" />
+              <ChevronRightIcon ml="1" />
             </Link>
           ) : null}
         </Stack>
