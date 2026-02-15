@@ -1,0 +1,146 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
+---
+
+<header>
+  <div class="avatar">
+    <a href="/">
+      <img src="/avatar.jpg" alt={SITE_TITLE} width="80" height="80" />
+    </a>
+  </div>
+  <div class="header-content">
+    <h1><a href="/">{SITE_TITLE}</a></h1>
+    <p class="description">{SITE_DESCRIPTION}</p>
+    <nav>
+      <a href="/about"
+        >About <svg viewBox="0 0 24 24" class="chevron"
+          ><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg
+        ></a
+      >
+      <a
+        href={`https://github.com/${SOCIAL_LINKS.github}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub <svg viewBox="0 0 24 24" class="chevron"
+          ><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg
+        >
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 30em) {
+    header {
+      padding: 3rem 1rem;
+    }
+  }
+
+  .avatar {
+    align-self: flex-start;
+    padding-bottom: 0.5rem;
+  }
+
+  @media (min-width: 30em) {
+    .avatar {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .avatar a {
+    transition: all 0.15s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .avatar a:hover {
+    text-decoration: none;
+  }
+
+  .avatar img {
+    border-radius: 50%;
+    display: block;
+  }
+
+  .avatar a:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--gray-800);
+  }
+
+  @media (min-width: 48em) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  h1 a {
+    color: var(--gray-800);
+    transition: all 0.15s ease-out;
+  }
+
+  h1 a:hover {
+    text-decoration: none;
+  }
+
+  .description {
+    font-family: var(--font-sans);
+    color: var(--gray-600);
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  nav a {
+    transition: all 0.15s ease-out;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: var(--primary-500);
+    margin-right: 2rem;
+  }
+
+  nav a:hover {
+    text-decoration: none;
+  }
+
+  .chevron {
+    width: 1em;
+    height: 1em;
+    color: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.25rem;
+    flex-shrink: 0;
+    backface-visibility: hidden;
+  }
+</style>
