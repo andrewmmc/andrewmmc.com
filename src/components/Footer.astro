@@ -4,10 +4,16 @@ import { SOCIAL_LINKS } from '../consts';
 const year = new Date().getFullYear();
 ---
 
-<footer>
-  <span class="copyright">&copy; {year}</span>
-  <div class="social-links">
-    <a href="/rss.xml" target="_blank" rel="noopener noreferrer" aria-label="RSS">
+<footer
+  class="flex flex-col items-center justify-between flex-nowrap max-w-container mx-auto px-4 pt-8 pb-8 text-gray-700 sm:flex-row sm:pt-12 sm:pb-12"
+>
+  <span class="mb-2 sm:mb-0">&copy; {year}</span>
+  <div class="flex gap-0">
+    <a
+      href="/rss.xml"
+      aria-label="RSS Feed"
+      class="rounded font-semibold inline-flex items-center justify-center transition-all duration-150 relative whitespace-nowrap align-middle leading-tight h-10 min-w-[2.5rem] text-base p-0 text-inherit hover:bg-gray-100 focus:outline-none focus:bg-primary-50/50"
+    >
       <svg
         viewBox="0 0 24 24"
         width="1em"
@@ -17,6 +23,7 @@ const year = new Date().getFullYear();
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        class="text-current"
       >
         <path d="M4 11a9 9 0 0 1 9 9"></path>
         <path d="M4 4a16 16 0 0 1 16 16"></path>
@@ -28,6 +35,7 @@ const year = new Date().getFullYear();
       target="_blank"
       rel="noopener noreferrer"
       aria-label="GitHub"
+      class="rounded font-semibold inline-flex items-center justify-center transition-all duration-150 relative whitespace-nowrap align-middle leading-tight h-10 min-w-[2.5rem] text-base p-0 text-inherit hover:bg-gray-100 focus:outline-none focus:bg-primary-50/50"
     >
       <svg
         viewBox="0 0 24 24"
@@ -38,6 +46,7 @@ const year = new Date().getFullYear();
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        class="text-current"
       >
         <path
           d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
@@ -49,6 +58,7 @@ const year = new Date().getFullYear();
       target="_blank"
       rel="noopener noreferrer"
       aria-label="LinkedIn"
+      class="rounded font-semibold inline-flex items-center justify-center transition-all duration-150 relative whitespace-nowrap align-middle leading-tight h-10 min-w-[2.5rem] text-base p-0 text-inherit hover:bg-gray-100 focus:outline-none focus:bg-primary-50/50"
     >
       <svg
         viewBox="0 0 24 24"
@@ -59,83 +69,12 @@ const year = new Date().getFullYear();
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        class="text-current"
       >
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-        ></path>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
         <rect x="2" y="9" width="4" height="12"></rect>
         <circle cx="4" cy="4" r="2"></circle>
       </svg>
     </a>
   </div>
 </footer>
-
-<style>
-  footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    color: var(--gray-700);
-  }
-
-  @media (min-width: 30em) {
-    footer {
-      flex-direction: row;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-  }
-
-  .copyright {
-    margin-bottom: 0.5rem;
-  }
-
-  @media (min-width: 30em) {
-    .copyright {
-      margin-bottom: 0;
-    }
-  }
-
-  .social-links {
-    display: flex;
-    gap: 0;
-  }
-
-  .social-links a {
-    border-radius: 0.25rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 250ms;
-    position: relative;
-    white-space: nowrap;
-    vertical-align: middle;
-    line-height: 1.2;
-    outline: none;
-    height: 2.5rem;
-    min-width: 2.5rem;
-    font-size: 1rem;
-    padding: 0;
-    color: inherit;
-  }
-
-  .social-links a:hover {
-    background-color: var(--gray-100);
-  }
-
-  .social-links a:focus {
-    box-shadow: var(--focus-ring);
-  }
-
-  .social-links svg {
-    color: currentColor;
-  }
-</style>

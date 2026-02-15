@@ -19,19 +19,16 @@ const { title, description, keywords, ogType } = Astro.props;
     <BaseHead title={title} description={description} keywords={keywords} ogType={ogType} />
   </head>
   <body>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary-600 focus:rounded focus:shadow-lg"
+    >
+      Skip to main content
+    </a>
     <Header />
-    <main>
+    <main id="main-content" class="max-w-container mx-auto px-4 w-full">
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-
-<style>
-  main {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1rem;
-    width: 100%;
-  }
-</style>
