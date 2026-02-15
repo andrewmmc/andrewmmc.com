@@ -2,26 +2,74 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, SOCIAL_LINKS } from '../consts';
 
 interface Props {
   title?: string;
   description?: string;
   keywords?: string;
   ogType?: string;
+  articleDate?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description = SITE_DESCRIPTION, keywords, ogType = 'website' } = Astro.props;
+const { title, description = SITE_DESCRIPTION, keywords, ogType = 'website', articleDate } = Astro.props;
 
 const pageTitle = title ? `${title} \u2013 ${SITE_TITLE}` : SITE_TITLE;
+
+// JSON-LD Structured Data
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE_TITLE,
+  url: SITE_URL,
+  image: new URL('/avatar.jpg', Astro.site).href,
+  jobTitle: 'Software Engineer',
+  sameAs: [
+    `https://github.com/${SOCIAL_LINKS.github}`,
+    `https://linkedin.com/in/${SOCIAL_LINKS.linkedin}`,
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  author: {
+    '@type': 'Person',
+    name: SITE_TITLE,
+  },
+};
+
+const articleSchema = ogType === 'article' ? {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  datePublished: articleDate,
+  author: {
+    '@type': 'Person',
+    name: SITE_TITLE,
+    url: SITE_URL,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: SITE_TITLE,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL.href,
+  },
+} : null;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="theme-color" content="#ffffff" />
+<meta name="author" content={SITE_TITLE} />
 <link rel="icon" href="/favicon.png" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="sitemap" href="/sitemap-index.xml" />
@@ -56,6 +104,7 @@ const pageTitle = title ? `${title} \u2013 ${SITE_TITLE}` : SITE_TITLE;
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL('/avatar.jpg', Astro.site)} />
+<meta property="og:image:alt" content={`${SITE_TITLE} profile photo`} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary" />
@@ -63,3 +112,9 @@ const pageTitle = title ? `${title} \u2013 ${SITE_TITLE}` : SITE_TITLE;
 <meta name="twitter:title" content={pageTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={new URL('/avatar.jpg', Astro.site)} />
+<meta name="twitter:image:alt" content={`${SITE_TITLE} profile photo`} />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
