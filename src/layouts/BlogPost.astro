@@ -10,51 +10,30 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 
 <BaseLayout title={title} description={description} ogType="article">
   <article>
-    <header class="article-header">
-      <h2 class="section-heading">{title}</h2>
-      <div class="meta">
+    <header class="mb-8">
+      <h2 class="text-2xl font-medium text-gray-800 mb-2">{title}</h2>
+      <div class="text-sm text-gray-600">
         <FormattedDate date={pubDate} />
         {
           updatedDate && (
-            <span class="updated">
+            <span class="italic ml-2">
               (Updated: <FormattedDate date={updatedDate} />)
             </span>
           )
         }
       </div>
     </header>
-    <div class="prose">
+    <div class="prose prose-gray max-w-none">
       <slot />
     </div>
   </article>
 </BaseLayout>
 
 <style>
-  .article-header {
-    margin-bottom: 2rem;
-  }
-
-  .section-heading {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--gray-800);
-    margin-bottom: 0.5rem;
-  }
-
-  .meta {
-    font-size: 0.875rem;
-    color: var(--gray-600);
-  }
-
-  .updated {
-    font-style: italic;
-    margin-left: 0.5rem;
-  }
-
-  /* Prose styles for rendered markdown */
+  /* Custom prose styles to match original design */
   .prose {
     line-height: 1.7;
-    color: var(--gray-800);
+    color: #3b3b3b;
   }
 
   .prose :global(h1),
@@ -64,7 +43,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     font-weight: 500;
-    color: var(--gray-800);
+    color: #3b3b3b;
   }
 
   .prose :global(h2) {
@@ -84,18 +63,17 @@ const { title, description, pubDate, updatedDate } = Astro.props;
   }
 
   .prose :global(a) {
-    color: var(--primary-500);
+    color: #ae995a;
   }
 
   .prose :global(a:hover) {
-    color: var(--primary-600);
+    color: #8b7a48;
   }
 
   .prose :global(ul),
   .prose :global(ol) {
     margin-bottom: 1rem;
     padding-left: 1.5rem;
-    list-style: initial;
   }
 
   .prose :global(ul) {
@@ -113,8 +91,8 @@ const { title, description, pubDate, updatedDate } = Astro.props;
   .prose :global(blockquote) {
     margin: 1rem 0;
     padding: 0 0 0 1rem;
-    border-left: 4px solid var(--primary-300);
-    color: var(--gray-700);
+    border-left: 4px solid #cec29c;
+    color: #494949;
     font-style: italic;
   }
 
@@ -130,13 +108,13 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 
   .prose :global(figcaption) {
     font-size: 0.875rem;
-    color: var(--gray-500);
+    color: #939393;
     margin-top: 1rem;
   }
 
   .prose :global(hr) {
     border: none;
-    border-top: 1px solid var(--gray-200);
+    border-top: 1px solid #dddddd;
     margin: 1.5rem 0;
   }
 </style>

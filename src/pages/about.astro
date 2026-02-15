@@ -8,71 +8,64 @@ const { Content } = await render(about);
 
 <BaseLayout title={about.data.title} description={about.data.description}>
   <article>
-    <h2 class="section-heading">{about.data.title}</h2>
-    <div class="prose">
+    <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-4">
+      {about.data.title}
+    </h2>
+    <div class="prose-custom">
       <Content />
     </div>
   </article>
 </BaseLayout>
 
 <style>
-  .section-heading {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-  }
-
-  .prose {
+  .prose-custom {
     line-height: 1.7;
-    color: var(--gray-800);
+    color: #3b3b3b;
   }
 
-  .prose :global(p) {
+  .prose-custom :global(p) {
     margin-bottom: 1rem;
   }
 
-  .prose :global(a) {
-    color: var(--primary-500);
+  .prose-custom :global(a) {
+    color: #ae995a;
   }
 
-  .prose :global(a:hover) {
-    color: var(--primary-600);
+  .prose-custom :global(a:hover) {
+    color: #8b7a48;
   }
 
-  .prose :global(strong) {
+  .prose-custom :global(strong) {
     font-weight: 600;
   }
 
-  .prose :global(h2) {
+  .prose-custom :global(h2) {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--gray-800);
+    color: #3b3b3b;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
 
-  .prose :global(h3) {
+  .prose-custom :global(h3) {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--gray-700);
+    color: #494949;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
-  .prose :global(ul) {
+  .prose-custom :global(ul) {
     list-style: disc;
     padding-left: 1.5rem;
     margin-bottom: 1rem;
   }
 
-  .prose :global(li) {
+  .prose-custom :global(li) {
     margin-bottom: 0.5rem;
   }
 
-  .prose :global(img) {
+  .prose-custom :global(img) {
     width: 100%;
     height: auto;
     margin-bottom: 1.5rem;
