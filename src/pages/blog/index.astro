@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.pubDate != null)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog">
+  <section class="post-list">
+    <h2 class="section-heading">All posts</h2>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <div class="post-item">
+              <div class="post-date">
+                <FormattedDate date={post.data.pubDate} />
+              </div>
+              <h3>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+              </h3>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-heading {
+    font-size: 1rem;
+    line-height: 1.25;
+    font-weight: 500;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style-type: none;
+    list-style-position: inside;
+  }
+
+  li {
+    margin-bottom: 0.75rem;
+  }
+
+  .post-item {
+    display: flex;
+    flex-direction: column;
+    color: var(--gray-600);
+    font-size: 0.875rem;
+  }
+
+  .post-date {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    font-weight: 500;
+    color: var(--gray-800);
+    margin-bottom: 0.5rem;
+  }
+
+  h3 a {
+    color: var(--gray-800);
+    transition: all 0.15s ease-out;
+  }
+
+  h3 a:hover {
+    color: var(--gray-800);
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 Not Found">
+  <h1 class="heading">404 Not Found</h1>
+  <p class="message">
+    The page you requested cannot be found. The URL may be misspelled or the page you're looking for
+    is no longer available.
+  </p>
+  <a href="/" class="back-link">&lsaquo; Back Home</a>
+</BaseLayout>
+
+<style>
+  .heading {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .message {
+    margin: 2rem 0;
+    line-height: 1.7;
+    color: var(--gray-600);
+  }
+
+  .back-link {
+    color: var(--primary-500);
+  }
+
+  .back-link:hover {
+    color: var(--primary-600);
+  }
+</style>
