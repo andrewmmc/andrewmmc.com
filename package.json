@@ -4,14 +4,14 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "tsc --noEmit && astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "astro check",
     "prepare": "husky"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "sharp": "^0.34.3"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.6",
     "@eslint/js": "^9.39.2",
     "@tailwindcss/vite": "^4.1.18",
     "@typescript-eslint/eslint-plugin": "^8.55.0",
@@ -32,6 +33,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.55.0"
   }
 }
