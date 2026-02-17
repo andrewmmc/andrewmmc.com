@@ -8,7 +8,12 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} ogType="article" articleDate={pubDate.toISOString()}>
+<BaseLayout
+  title={title}
+  description={description}
+  ogType="article"
+  articleDate={pubDate.toISOString()}
+>
   <article>
     <header class="mb-8">
       <h2 class="text-2xl font-medium text-gray-800 mb-2">{title}</h2>

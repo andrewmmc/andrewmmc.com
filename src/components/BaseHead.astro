@@ -14,7 +14,13 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description = SITE_DESCRIPTION, keywords, ogType = 'website', articleDate } = Astro.props;
+const {
+  title,
+  description = SITE_DESCRIPTION,
+  keywords,
+  ogType = 'website',
+  articleDate,
+} = Astro.props;
 
 const pageTitle = title ? `${title} \u2013 ${SITE_TITLE}` : SITE_TITLE;
 
@@ -44,25 +50,28 @@ const websiteSchema = {
   },
 };
 
-const articleSchema = ogType === 'article' ? {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: title,
-  datePublished: articleDate,
-  author: {
-    '@type': 'Person',
-    name: SITE_TITLE,
-    url: SITE_URL,
-  },
-  publisher: {
-    '@type': 'Person',
-    name: SITE_TITLE,
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': canonicalURL.href,
-  },
-} : null;
+const articleSchema =
+  ogType === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title,
+        datePublished: articleDate,
+        author: {
+          '@type': 'Person',
+          name: SITE_TITLE,
+          url: SITE_URL,
+        },
+        publisher: {
+          '@type': 'Person',
+          name: SITE_TITLE,
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalURL.href,
+        },
+      }
+    : null;
 ---
 
 <!-- Global Metadata -->

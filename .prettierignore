@@ -1,0 +1,10 @@
+# Documentation files with code examples
+AGENTS.md
+CLAUDE.md
+
+# Build outputs
+dist/
+.astro/
+
+# Dependencies
+node_modules/
