@@ -89,7 +89,7 @@
   }
 
   a:focus {
-    @apply outline-none bg-primary-50/50 rounded px-2 py-1 -mx-2;
+    @apply outline-2 outline-primary-400 outline-offset-2 rounded;
   }
 
   p {
