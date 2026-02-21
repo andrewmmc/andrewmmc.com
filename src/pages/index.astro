@@ -22,7 +22,7 @@ const posts = (await getCollection('blog'))
               <h3 class="text-lg leading-tight font-medium text-gray-800 mb-2">
                 <a
                   href={`/blog/${post.id}/`}
-                  class="text-gray-800 transition-all duration-150 ease-out hover:text-gray-800 hover:no-underline"
+                  class="text-gray-700 transition-all duration-150 ease-out hover:text-gray-800 hover:no-underline focus:outline-none focus:bg-primary-50/50 focus:text-gray-900 rounded px-2 py-1 -mx-2"
                 >
                   {post.data.title}
                 </a>

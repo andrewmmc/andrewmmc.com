@@ -195,11 +195,22 @@
   }
 
   .prose a {
-    color: #ae995a;
+    color: var(--color-primary-500);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.12em;
   }
 
   .prose a:hover {
-    color: #8b7a48;
+    color: var(--color-primary-600);
+  }
+
+  .prose a:focus {
+    background-color: color-mix(in srgb, var(--color-primary-50) 40%, transparent);
+    color: var(--color-primary-600);
+    text-decoration-color: var(--color-primary-300);
+    border-radius: 0.2rem;
+    box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--color-primary-50) 65%, transparent);
+    outline: none;
   }
 
   .prose strong {
