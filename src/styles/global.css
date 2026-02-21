@@ -4,7 +4,6 @@
   /* Font families */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-  --font-prose: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
 
   /* Layout */
@@ -140,8 +139,7 @@
 /* Prose styles for rendered markdown content */
 @layer components {
   .prose {
-    font-family: var(--font-prose);
-    font-size: 1.0625rem;
+    font-size: 1rem;
     line-height: 1.85;
     color: #292524; /* stone-800 */
   }
