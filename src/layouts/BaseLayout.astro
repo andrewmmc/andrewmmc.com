@@ -28,12 +28,12 @@ const { title, description, keywords, ogType, articleDate } = Astro.props;
   <body>
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary-600 focus:rounded focus:shadow-lg"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-amber-700 focus:rounded focus:shadow-md focus:text-sm"
     >
       Skip to main content
     </a>
     <Header />
-    <main id="main-content" class="max-w-container mx-auto px-4 w-full">
+    <main id="main-content" class="max-w-container mx-auto px-6 w-full">
       <slot />
     </main>
     <Footer />

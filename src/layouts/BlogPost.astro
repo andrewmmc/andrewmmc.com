@@ -15,14 +15,16 @@ const { title, description, pubDate, updatedDate } = Astro.props;
   articleDate={pubDate.toISOString()}
 >
   <article>
-    <header class="mb-8">
-      <h2 class="text-2xl font-medium text-gray-800 mb-2">{title}</h2>
-      <div class="text-sm text-gray-600">
+    <header class="mb-10 pb-8 border-b border-stone-200">
+      <h2 class="font-heading text-3xl text-stone-900 leading-tight mb-3 tracking-tight">
+        {title}
+      </h2>
+      <div class="text-sm text-stone-400 flex items-center gap-2">
         <FormattedDate date={pubDate} />
         {
           updatedDate && (
-            <span class="italic ml-2">
-              (Updated: <FormattedDate date={updatedDate} />)
+            <span class="italic">
+              &middot; Updated: <FormattedDate date={updatedDate} />
             </span>
           )
         }
@@ -30,6 +32,14 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     </header>
     <div class="prose">
       <slot />
+    </div>
+    <div class="mt-12 pt-8 border-t border-stone-200">
+      <a
+        href="/"
+        class="text-sm text-stone-500 hover:text-stone-800 transition-colors duration-150"
+      >
+        &larr; Back to writing
+      </a>
     </div>
   </article>
 </BaseLayout>

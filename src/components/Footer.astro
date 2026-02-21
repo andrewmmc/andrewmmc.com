@@ -5,77 +5,79 @@ const year = new Date().getFullYear();
 ---
 
 <footer
-  class="flex flex-col items-center justify-between flex-nowrap max-w-container mx-auto px-4 pt-8 pb-8 text-gray-700 sm:flex-row sm:pt-12 sm:pb-12"
+  class="max-w-container mx-auto px-6 pt-10 pb-12 sm:pt-12 sm:pb-14 border-t border-stone-200 mt-16"
 >
-  <span class="mb-2 sm:mb-0">&copy; {year}</span>
-  <div class="flex gap-0">
-    <a
-      href="/rss.xml"
-      aria-label="RSS Feed"
-      class="rounded font-semibold inline-flex items-center justify-center transition-all duration-150 relative whitespace-nowrap align-middle leading-tight h-10 min-w-[2.5rem] text-base p-0 text-inherit hover:text-gray-800 focus:outline-none focus:bg-primary-50/50"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        width="1em"
-        height="1em"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="text-current"
+  <div class="flex items-center justify-between">
+    <span class="text-sm text-stone-400">&copy; {year} Andrew Mok</span>
+    <div class="flex items-center gap-1">
+      <a
+        href="/rss.xml"
+        aria-label="RSS Feed"
+        class="inline-flex items-center justify-center w-9 h-9 rounded text-stone-400 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
       >
-        <path d="M4 11a9 9 0 0 1 9 9"></path>
-        <path d="M4 4a16 16 0 0 1 16 16"></path>
-        <circle cx="5" cy="19" r="1"></circle>
-      </svg>
-    </a>
-    <a
-      href={`https://github.com/${SOCIAL_LINKS.github}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="GitHub"
-      class="rounded font-semibold inline-flex items-center justify-center transition-all duration-150 relative whitespace-nowrap align-middle leading-tight h-10 min-w-[2.5rem] text-base p-0 text-inherit hover:text-gray-800 focus:outline-none focus:bg-primary-50/50"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        width="1em"
-        height="1em"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="text-current"
+        <svg
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M4 11a9 9 0 0 1 9 9"></path>
+          <path d="M4 4a16 16 0 0 1 16 16"></path>
+          <circle cx="5" cy="19" r="1"></circle>
+        </svg>
+      </a>
+      <a
+        href={`https://github.com/${SOCIAL_LINKS.github}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        class="inline-flex items-center justify-center w-9 h-9 rounded text-stone-400 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
       >
-        <path
-          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-        ></path>
-      </svg>
-    </a>
-    <a
-      href={`https://linkedin.com/in/${SOCIAL_LINKS.linkedin}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="LinkedIn"
-      class="rounded font-semibold inline-flex items-center justify-center transition-all duration-150 relative whitespace-nowrap align-middle leading-tight h-10 min-w-[2.5rem] text-base p-0 text-inherit hover:text-gray-800 focus:outline-none focus:bg-primary-50/50"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        width="1em"
-        height="1em"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="text-current"
+        <svg
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          ></path>
+        </svg>
+      </a>
+      <a
+        href={`https://linkedin.com/in/${SOCIAL_LINKS.linkedin}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        class="inline-flex items-center justify-center w-9 h-9 rounded text-stone-400 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
       >
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-        ></path>
-        <rect x="2" y="9" width="4" height="12"></rect>
-        <circle cx="4" cy="4" r="2"></circle>
-      </svg>
-    </a>
+        <svg
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          ></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+    </div>
   </div>
 </footer>

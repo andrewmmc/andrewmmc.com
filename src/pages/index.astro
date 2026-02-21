@@ -1,33 +1,34 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog'))
   .filter((post) => post.data.pubDate != null)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
 ---
 
 <BaseLayout>
   <section>
-    <h2 class="text-base leading-tight font-medium text-gray-400 uppercase mb-4">Blog posts</h2>
-    <ul class="list-none">
+    <p class="text-xs font-medium text-stone-400 uppercase tracking-widest mb-6">Writing</p>
+    <ul>
       {
         posts.map((post) => (
-          <li class="mb-3">
-            <div class="flex flex-col text-gray-600 text-sm">
-              <div class="text-gray-600 text-sm mb-1">
-                <FormattedDate date={post.data.pubDate} />
-              </div>
-              <h3 class="text-lg leading-tight font-medium text-gray-800 mb-2">
-                <a
-                  href={`/blog/${post.id}/`}
-                  class="text-gray-700 transition-all duration-150 ease-out hover:text-gray-800 hover:no-underline focus:outline-none focus:bg-primary-50/50 focus:text-gray-900 rounded px-2 py-1 -mx-2"
-                >
-                  {post.data.title}
-                </a>
-              </h3>
-            </div>
+          <li class="border-b border-stone-100 last:border-b-0">
+            <a
+              href={`/blog/${post.id}/`}
+              class="flex items-baseline justify-between gap-6 py-4 group focus-visible:outline-none focus-visible:bg-amber-50 rounded-sm -mx-2 px-2"
+            >
+              <span class="text-stone-800 font-medium leading-snug group-hover:text-stone-950 transition-colors duration-150">
+                {post.data.title}
+              </span>
+              <span class="text-stone-400 text-sm whitespace-nowrap flex-shrink-0 tabular-nums">
+                {formatDate(post.data.pubDate)}
+              </span>
+            </a>
           </li>
         ))
       }

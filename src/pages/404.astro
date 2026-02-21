@@ -2,11 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="404 Not Found">
-  <h1 class="text-lg font-medium mb-2">404 Not Found</h1>
-  <p class="my-8 leading-relaxed text-gray-600">
-    The page you requested cannot be found. The URL may be misspelled or the page you're looking for
-    is no longer available.
-  </p>
-  <a href="/" class="text-primary-500 hover:text-primary-600">&lsaquo; Back Home</a>
+<BaseLayout title="Page not found">
+  <div class="py-8">
+    <p class="text-xs font-medium text-stone-400 uppercase tracking-widest mb-6">404</p>
+    <h1 class="font-heading text-2xl text-stone-900 mb-4">Page not found</h1>
+    <p class="text-stone-600 leading-relaxed mb-8 max-w-sm">
+      The page you requested cannot be found. The URL may be misspelled or the page you&rsquo;re
+      looking for is no longer available.
+    </p>
+    <a href="/" class="text-sm text-stone-500 hover:text-stone-800 transition-colors duration-150">
+      &larr; Back to writing
+    </a>
+  </div>
 </BaseLayout>

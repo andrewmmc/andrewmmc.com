@@ -2,49 +2,62 @@
 import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
 ---
 
-<header class="max-w-container mx-auto px-4 py-8 flex flex-col justify-between sm:py-12">
-  <div class="self-start pb-2 sm:pb-6">
+<header class="max-w-container mx-auto px-6 pt-14 pb-10 sm:pt-16 sm:pb-12">
+  <div class="flex items-center gap-4 mb-7">
     <a
       href="/"
-      class="transition-all duration-150 ease-out cursor-pointer no-underline hover:no-underline focus:outline-none"
+      class="flex-shrink-0 rounded-full focus-visible:outline-none"
+      style="outline-offset: 3px;"
+      aria-label={`${SITE_TITLE} – home`}
     >
-      <img src="/avatar.jpg" alt={SITE_TITLE} width="80" height="80" class="rounded-full block" />
+      <img src="/avatar.jpg" alt="" width="52" height="52" class="rounded-full block" />
     </a>
-  </div>
-  <div class="flex flex-col items-start justify-center">
-    <h1 class="text-xl leading-snug font-medium mb-2 text-gray-800 lg:text-2xl">
-      <a
-        href="/"
-        class="text-gray-800 transition-all duration-150 ease-out hover:text-gray-900 focus:outline-none focus:bg-primary-50/50 rounded px-2 py-1 -mx-2"
-        >{SITE_TITLE}</a
-      >
-    </h1>
-    <p class="font-sans text-gray-600 text-lg mb-4">{SITE_DESCRIPTION}</p>
-    <nav class="flex flex-row" aria-label="Main navigation">
-      <a
-        href="/about"
-        class="transition-all duration-150 ease-out cursor-pointer text-primary-500 mr-8 hover:text-primary-600 focus:outline-none focus:bg-primary-50/50 rounded px-2 py-1 -mx-2"
-      >
-        About
-        <svg
-          viewBox="0 0 24 24"
-          class="w-[1em] h-[1em] text-current inline-block align-middle ml-1 flex-shrink-0"
-          ><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg
+    <div>
+      <h1 class="font-heading text-[1.4rem] leading-tight text-stone-900 mb-0.5">
+        <a
+          href="/"
+          class="text-stone-900 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none"
         >
-      </a>
-      <a
-        href={`https://github.com/${SOCIAL_LINKS.github}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-all duration-150 ease-out cursor-pointer text-primary-500 mr-8 hover:text-primary-600 focus:outline-none focus:bg-primary-50/50 rounded px-2 py-1 -mx-2"
-      >
-        GitHub
-        <svg
-          viewBox="0 0 24 24"
-          class="w-[1em] h-[1em] text-current inline-block align-middle ml-1 flex-shrink-0"
-          ><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg
-        >
-      </a>
-    </nav>
+          {SITE_TITLE}
+        </a>
+      </h1>
+      <p class="text-stone-500 text-sm leading-snug">{SITE_DESCRIPTION}</p>
+    </div>
   </div>
+  <nav class="flex items-center gap-6" aria-label="Main navigation">
+    <a
+      href="/"
+      class="text-sm text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:underline"
+    >
+      Writing
+    </a>
+    <a
+      href="/about"
+      class="text-sm text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:underline"
+    >
+      About
+    </a>
+    <a
+      href={`https://github.com/${SOCIAL_LINKS.github}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-sm text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:underline inline-flex items-center gap-1"
+    >
+      GitHub
+      <svg
+        viewBox="0 0 12 12"
+        width="10"
+        height="10"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        class="opacity-60"
+      >
+        <path d="M2 10L10 2M5 2h5v5"></path>
+      </svg>
+    </a>
+  </nav>
 </header>

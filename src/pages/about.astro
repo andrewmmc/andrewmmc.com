@@ -13,9 +13,9 @@ const { Content } = await render(about);
 
 <BaseLayout title={about.data.title} description={about.data.description}>
   <article>
-    <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wide mb-4">
+    <p class="text-xs font-medium text-stone-400 uppercase tracking-widest mb-8">
       {about.data.title}
-    </h2>
+    </p>
     <div class="prose">
       <Content />
     </div>
