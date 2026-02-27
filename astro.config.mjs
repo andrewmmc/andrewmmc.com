@@ -10,6 +10,7 @@ export default defineConfig({
   site: 'https://andrewmmc.com',
   integrations: [mdx(), sitemap()],
   vite: {
+    // @ts-expect-error - @tailwindcss/vite and Astro's bundled Vite have mismatched Plugin types
     plugins: [tailwind()],
   },
 });

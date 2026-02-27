@@ -5,6 +5,8 @@ CLAUDE.md
 # Build outputs
 dist/
 .astro/
+.cache/
+public/
 
 # Dependencies
 node_modules/
