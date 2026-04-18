@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import aboutImage from '../assets/about.jpg';
 
 const about = await getEntry('pages', 'about');
 
@@ -17,6 +19,14 @@ const { Content } = await render(about);
       {about.data.title}
     </p>
     <div class="prose">
+      <Image
+        src={aboutImage}
+        alt="Profile"
+        width={768}
+        loading="eager"
+        fetchpriority="high"
+        class="rounded-md"
+      />
       <Content />
     </div>
   </article>
