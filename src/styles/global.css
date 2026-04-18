@@ -96,7 +96,7 @@
   }
 
   th {
-    @apply px-3 py-3 border-b border-stone-200 bg-stone-100 text-left font-medium text-stone-500;
+    @apply px-3 py-3 border-b border-stone-200 bg-stone-100 text-left font-medium text-stone-600;
     font-size: 0.7rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -235,7 +235,7 @@
 
   .prose figcaption {
     font-size: 0.875rem;
-    color: #a8a29e; /* stone-400 */
+    color: #78716c; /* stone-500 */
     margin-top: 0.75rem;
   }
 

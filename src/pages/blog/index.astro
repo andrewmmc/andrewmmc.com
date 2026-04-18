@@ -13,7 +13,7 @@ function formatDate(date: Date): string {
 
 <BaseLayout title="Blog">
   <section>
-    <p class="text-xs font-medium text-stone-400 uppercase tracking-widest mb-6">All posts</p>
+    <p class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-6">All posts</p>
     <ul>
       {
         posts.map((post) => (
@@ -25,7 +25,7 @@ function formatDate(date: Date): string {
               <span class="text-stone-800 font-medium leading-snug group-hover:text-stone-950 transition-colors duration-150">
                 {post.data.title}
               </span>
-              <span class="text-stone-400 text-sm whitespace-nowrap flex-shrink-0 tabular-nums">
+              <span class="text-stone-500 text-sm whitespace-nowrap flex-shrink-0 tabular-nums">
                 {formatDate(post.data.pubDate)}
               </span>
             </a>

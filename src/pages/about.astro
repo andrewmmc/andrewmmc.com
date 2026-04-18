@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import aboutImage from '../assets/about.jpg';
 
 const about = await getEntry('pages', 'about');
 
@@ -13,10 +15,18 @@ const { Content } = await render(about);
 
 <BaseLayout title={about.data.title} description={about.data.description}>
   <article>
-    <p class="text-xs font-medium text-stone-400 uppercase tracking-widest mb-8">
+    <p class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-8">
       {about.data.title}
     </p>
     <div class="prose">
+      <Image
+        src={aboutImage}
+        alt="Profile"
+        width={768}
+        loading="eager"
+        fetchpriority="high"
+        class="rounded-md"
+      />
       <Content />
     </div>
   </article>
