@@ -25,9 +25,25 @@ function estimateTokens(text: string): number {
   return Math.ceil(text.length / 4);
 }
 
+function isHomepage(request: Request): boolean {
+  const url = new URL(request.url);
+  return url.pathname === '/' || url.pathname === '';
+}
+
+function appendLinkHeaders(headers: Headers): void {
+  headers.append('link', '</robots.txt>; rel="describedby"; type="text/plain"');
+  headers.append('link', '</sitemap-index.xml>; rel="describedby"; type="application/xml"');
+}
+
 export async function onRequest(context: EventContext): Promise<Response> {
   if (!wantsMarkdown(context.request)) {
-    return context.next();
+    const response = await context.next();
+    if (isHomepage(context.request)) {
+      const newResponse = new Response(response.body, response);
+      appendLinkHeaders(newResponse.headers);
+      return newResponse;
+    }
+    return response;
   }
 
   const url = new URL(context.request.url);
@@ -46,6 +62,10 @@ export async function onRequest(context: EventContext): Promise<Response> {
   headers.set('content-type', 'text/markdown; charset=utf-8');
   headers.set('x-markdown-tokens', String(estimateTokens(markdown)));
   headers.set('vary', 'Accept');
+
+  if (isHomepage(context.request)) {
+    appendLinkHeaders(headers);
+  }
 
   return new Response(markdown, {
     status: 200,
