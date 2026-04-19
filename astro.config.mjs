@@ -8,6 +8,9 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://andrewmmc.com',
+  redirects: {
+    '/blog': '/',
+  },
   integrations: [mdx(), sitemap()],
   vite: {
     // @ts-expect-error - @tailwindcss/vite and Astro's bundled Vite have mismatched Plugin types
