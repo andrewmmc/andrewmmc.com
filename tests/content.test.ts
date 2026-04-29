@@ -36,7 +36,7 @@ describe('blog content validation', () => {
     expect(postDirs.length).toBeGreaterThan(0);
   });
 
-  it.each(postDirs)('post "%s" should have required frontmatter', (slug) => {
+  it.each(postDirs)('post "%s" should have required frontmatter', (slug: string) => {
     const filePath = join(BLOG_DIR, slug, 'index.md');
     const content = readFileSync(filePath, 'utf-8');
     const frontmatter = extractFrontmatter(content);
@@ -45,7 +45,7 @@ describe('blog content validation', () => {
     expect(frontmatter.pubDate, `${slug}: missing pubDate`).toBeTruthy();
   });
 
-  it.each(postDirs)('post "%s" should have a valid pubDate', (slug) => {
+  it.each(postDirs)('post "%s" should have a valid pubDate', (slug: string) => {
     const filePath = join(BLOG_DIR, slug, 'index.md');
     const content = readFileSync(filePath, 'utf-8');
     const frontmatter = extractFrontmatter(content);
@@ -56,7 +56,7 @@ describe('blog content validation', () => {
     );
   });
 
-  it.each(postDirs)('post "%s" slug should be kebab-case', (slug) => {
+  it.each(postDirs)('post "%s" slug should be kebab-case', (slug: string) => {
     expect(slug, `${slug}: slug should be kebab-case`).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
   });
 });
