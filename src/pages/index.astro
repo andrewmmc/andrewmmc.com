@@ -6,7 +6,7 @@ import { getDefaultBlogPosts } from '../utils/blog';
 const posts = getDefaultBlogPosts(
   (await getCollection('blog'))
     .filter((post) => post.data.pubDate != null)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 );
 
 function formatDate(date: Date): string {
