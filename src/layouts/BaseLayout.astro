@@ -9,13 +9,14 @@ interface Props {
   keywords?: string;
   ogType?: string;
   articleDate?: string;
+  lang?: string;
 }
 
-const { title, description, keywords, ogType, articleDate } = Astro.props;
+const { title, description, keywords, ogType, articleDate, lang = 'en' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <BaseHead
       title={title}

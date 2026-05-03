@@ -1,8 +1,9 @@
 ---
 title: Back from WWDC19 🤖
 pubDate: '2019-07-21T07:34:13.266Z'
-author: Andrew Mok
 description: 難忘的參會經歷：一場開發者交流的盛會
+language: zh-hant
+languageLabel: Traditional Chinese
 ---
 
 ![](./1*DeMpkxzXASp7Ft63TAPeKw.webp)
@@ -89,7 +90,7 @@ Apple 發出的參會證明信件會以快遞的方式寄到你所填的郵寄�
 
 同時，WWDC App 亦會更新未來四天 Sessions 和 Labs 的時間和主題，建議各位利用第一天的空閒時間，選好未來四天自己感興趣的 Sessions 以安排自己的行程。
 
-### Day 2–5：Sessions & Labs
+### Day 2–5：Sessions & Labs
 
 第一天除了開發者外，還有來自世界各地的媒體聚在一起看 Keynote 發佈。接下來數天便是真正屬於開發者的 Sessions 和 Labs。當中 Sessions 是所有人都可以觀看直播的，而 Labs 則是只有參會開發者才能享受。
 
@@ -151,7 +152,7 @@ Apple 會在 WWDC 第四天晚上為開發者舉行一個派對，派對上提�
 
 難得來到 WWDC，總不能不買紀念品回去吧？會場內設有 Company Store，好讓你在場內也繼續敗給 Apple，排隊人士眾多，往往要排上兩三小時才能進內購買紀念品。今年 Apple 很貼心地開放了兩個 Company Store，不過我建議直接排比較大的 Company Store 就好，因為當中的貨品比較齊全。每年限量的紀念品都會在首數天售清，緊記要先過來排隊購買。
 
-### 往宿
+### 住宿
 
 ![](./1*m806LPVSCQhUP47zjl1uWw.webp)
 

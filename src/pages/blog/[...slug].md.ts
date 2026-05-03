@@ -1,16 +1,14 @@
 import type { APIRoute } from 'astro';
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { getBlogStaticPaths, type BlogPageProps } from '../../utils/blog';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return getBlogStaticPaths(posts);
 }
 
 export const GET: APIRoute = async ({ props }) => {
-  const post = props.post as CollectionEntry<'blog'>;
+  const { post } = props as BlogPageProps;
 
   const lines = [
     `# ${post.data.title}`,
