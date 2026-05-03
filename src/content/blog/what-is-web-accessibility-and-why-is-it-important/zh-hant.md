@@ -27,7 +27,7 @@ languageLabel: Traditional Chinese
 
 ![](./0*cQVuVNWkrmpen_fy.webp)
 
-事實上，無障礙失敗在現實世界中往往_更容易被看見_。
+事實上，無障礙失敗在現實世界中往往*更容易被看見*。
 
 ![](./0*aY_2k6lAR804wj3C.webp)
 
