@@ -7,7 +7,7 @@ export const GET: APIRoute = async ({ site }) => {
   const posts = getDefaultBlogPosts(
     (await getCollection('blog'))
       .filter((post) => post.data.pubDate != null)
-      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   );
 
   const lines = [
@@ -17,9 +17,7 @@ export const GET: APIRoute = async ({ site }) => {
     '',
     '## Writing',
     '',
-    ...posts.map(
-      (post) => `- [${post.entry.data.title}](${new URL(post.url, site)})`,
-    ),
+    ...posts.map((post) => `- [${post.entry.data.title}](${new URL(post.url, site)})`),
     '',
   ];
 

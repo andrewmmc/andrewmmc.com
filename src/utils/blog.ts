@@ -87,7 +87,7 @@ export function getBlogPostGroups(entries: BlogEntry[]): BlogPostVariant[][] {
       }
 
       return left.label.localeCompare(right.label, 'en');
-    }),
+    })
   );
 }
 
@@ -130,7 +130,7 @@ export function getBlogStaticPaths(entries: BlogEntry[]) {
 
 function buildBlogPageProps(
   currentVariant: BlogPostVariant,
-  variants: BlogPostVariant[],
+  variants: BlogPostVariant[]
 ): BlogPageProps {
   return {
     post: currentVariant.entry,
