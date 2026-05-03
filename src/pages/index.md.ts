@@ -17,7 +17,9 @@ export const GET: APIRoute = async ({ site }) => {
     '',
     '## Writing',
     '',
-    ...posts.map((post) => `- [${post.entry.data.title}](${new URL(post.url, site)})`),
+    ...posts.map(
+      (post) => `- [${post.entry.data.title}](${new URL(post.url, site)})`,
+    ),
     '',
   ];
 

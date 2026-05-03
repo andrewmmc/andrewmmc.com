@@ -96,7 +96,9 @@ export function getDefaultBlogPosts(entries: BlogEntry[]): BlogPostVariant[] {
     .map((variants) => {
       return variants.find((variant) => variant.language === DEFAULT_BLOG_LANGUAGE) ?? variants[0];
     })
-    .sort((left, right) => right.entry.data.pubDate.valueOf() - left.entry.data.pubDate.valueOf());
+    .sort((left, right) => {
+      return right.entry.data.pubDate.valueOf() - left.entry.data.pubDate.valueOf();
+    });
 }
 
 export function getBlogStaticPaths(entries: BlogEntry[]) {
