@@ -168,3 +168,11 @@ Use relative paths with `../` — no path aliases are configured.
 | `src/styles/global.css` | Design tokens and global styles           |
 | `src/layouts/BaseLayout.astro` | Main page layout wrapper            |
 | `src/components/BaseHead.astro` | HTML `<head>` with meta tags       |
+
+## Cursor Cloud specific instructions
+
+- **Node.js**: The VM uses nvm. Node.js v22 (LTS) is installed as the default. Run commands via `bash -l -c 'cd /workspace && <cmd>'` or ensure nvm is loaded in your shell to pick up the correct Node version.
+- **Dev server**: `npm run dev` starts on `0.0.0.0:4321`. No external services or environment variables are needed.
+- **Pre-commit hooks**: Husky runs `npm run lint`, `npm run format:check`, and `npm run typecheck` on pre-commit. Run these before committing to avoid hook failures.
+- **Tests**: Vitest is configured (`npm run test`). There are 4 pre-existing test failures related to the `back-from-wwdc19` post (uses multi-language `.md` files instead of `index.md`) and the `/blog` route being a redirect. These are not regressions.
+- **No secrets or external services required**: This is a fully static site with no databases, APIs, or authentication.
