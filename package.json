@@ -23,7 +23,7 @@
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^5.17.1",
+    "astro": "^6.2.1",
     "node-addon-api": "^8.6.0",
     "node-gyp": "^12.2.0",
     "sharp": "^0.34.3"
