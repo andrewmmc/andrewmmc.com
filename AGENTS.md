@@ -149,6 +149,8 @@ Use relative paths with `../` — no path aliases are configured.
   - `feat: add new blog post about topic`
   - `fix: correct date formatting on blog index`
   - `refactor: simplify header component`
+- **Agent workflow:** Commit completed work with clear Conventional Commits messages, but never push.
+  Publishing changes is a manual user step.
 - **Current branch:** `refactor/astro` (Astro rewrite branch)
 - **Default branch:** `master`
 
