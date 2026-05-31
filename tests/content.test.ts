@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
@@ -29,6 +29,19 @@ function getBlogPostDirs(): string[] {
     .map((d) => d.name);
 }
 
+function getBlogPostFiles(slug: string): string[] {
+  const postDir = join(BLOG_DIR, slug);
+  const defaultFile = join(postDir, 'index.md');
+
+  if (existsSync(defaultFile)) {
+    return [defaultFile];
+  }
+
+  return readdirSync(postDir)
+    .filter((file) => file.endsWith('.md') || file.endsWith('.mdx'))
+    .map((file) => join(postDir, file));
+}
+
 describe('blog content validation', () => {
   const postDirs = getBlogPostDirs();
 
@@ -37,23 +50,31 @@ describe('blog content validation', () => {
   });
 
   it.each(postDirs)('post "%s" should have required frontmatter', (slug: string) => {
-    const filePath = join(BLOG_DIR, slug, 'index.md');
-    const content = readFileSync(filePath, 'utf-8');
-    const frontmatter = extractFrontmatter(content);
+    const files = getBlogPostFiles(slug);
+    expect(files.length, `${slug}: missing markdown content`).toBeGreaterThan(0);
 
-    expect(frontmatter.title, `${slug}: missing title`).toBeTruthy();
-    expect(frontmatter.pubDate, `${slug}: missing pubDate`).toBeTruthy();
+    for (const filePath of files) {
+      const content = readFileSync(filePath, 'utf-8');
+      const frontmatter = extractFrontmatter(content);
+
+      expect(frontmatter.title, `${filePath}: missing title`).toBeTruthy();
+      expect(frontmatter.pubDate, `${filePath}: missing pubDate`).toBeTruthy();
+    }
   });
 
   it.each(postDirs)('post "%s" should have a valid pubDate', (slug: string) => {
-    const filePath = join(BLOG_DIR, slug, 'index.md');
-    const content = readFileSync(filePath, 'utf-8');
-    const frontmatter = extractFrontmatter(content);
+    const files = getBlogPostFiles(slug);
+    expect(files.length, `${slug}: missing markdown content`).toBeGreaterThan(0);
 
-    const date = new Date(frontmatter.pubDate);
-    expect(date.toString(), `${slug}: invalid pubDate "${frontmatter.pubDate}"`).not.toBe(
-      'Invalid Date'
-    );
+    for (const filePath of files) {
+      const content = readFileSync(filePath, 'utf-8');
+      const frontmatter = extractFrontmatter(content);
+
+      const date = new Date(frontmatter.pubDate);
+      expect(date.toString(), `${filePath}: invalid pubDate "${frontmatter.pubDate}"`).not.toBe(
+        'Invalid Date'
+      );
+    }
   });
 
   it.each(postDirs)('post "%s" slug should be kebab-case', (slug: string) => {

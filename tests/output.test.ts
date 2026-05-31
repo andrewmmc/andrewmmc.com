@@ -69,11 +69,12 @@ describe('HTML pages meta tags', () => {
     expect(html).toContain('rel="canonical"');
   });
 
-  it('blog index should have correct meta tags', () => {
+  it('blog redirect should point to homepage', () => {
     const html = readDist('blog/index.html');
-    expect(html).toContain('<title>');
-    expect(html).toContain('name="description"');
-    expect(html).toContain('rel="canonical"');
+    expect(html).toContain('<title>Redirecting to: /</title>');
+    expect(html).toContain('content="0;url=/"');
+    expect(html).toContain('name="robots" content="noindex"');
+    expect(html).toContain('rel="canonical" href="https://andrewmmc.com/"');
   });
 
   it('blog post should have article meta tags', () => {
@@ -92,7 +93,7 @@ describe('HTML pages meta tags', () => {
   });
 
   it('all pages should have RSS link', () => {
-    const pages = ['index.html', 'about/index.html', 'blog/index.html'];
+    const pages = ['index.html', 'about/index.html'];
     for (const page of pages) {
       const html = readDist(page);
       expect(html, `${page} should have RSS link`).toContain('application/rss+xml');

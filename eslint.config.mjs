@@ -1,8 +1,9 @@
 import eslint from '@eslint/js';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 import astro from 'eslint-plugin-astro';
 
-export default tseslint.config(
+export default defineConfig(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
@@ -11,7 +12,5 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
-  {
-    ignores: ['dist/*', '.astro/*', 'node_modules/*', '.cache/*', 'public/*'],
-  }
+  globalIgnores(['dist/*', '.astro/*', 'node_modules/*', '.cache/*', 'public/*'])
 );

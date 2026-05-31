@@ -94,17 +94,9 @@ const articleSchema =
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  rel="preload"
-  as="style"
+  rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-  onload="this.onload=null;this.rel='stylesheet'"
 />
-<noscript>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet"
-  />
-</noscript>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -132,6 +124,10 @@ const articleSchema =
 <meta name="twitter:image:alt" content={`${SITE_TITLE} profile photo`} />
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+{
+  articleSchema && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  )
+}

@@ -13,7 +13,6 @@ export default defineConfig({
   },
   integrations: [mdx(), sitemap()],
   vite: {
-    // @ts-expect-error - @tailwindcss/vite and Astro's bundled Vite have mismatched Plugin types
     plugins: [tailwind()],
   },
 });

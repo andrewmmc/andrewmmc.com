@@ -14,7 +14,7 @@ describe('build smoke test', () => {
       'dist/index.html',
       'dist/404.html',
       'dist/about/index.html',
-      'dist/blog/index.html',
+      'dist/blog/switching-to-microsoft-edge/index.html',
       'dist/rss.xml',
       'dist/sitemap-index.xml',
     ];

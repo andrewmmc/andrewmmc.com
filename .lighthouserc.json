@@ -2,7 +2,7 @@
   "ci": {
     "collect": {
       "staticDistDir": "dist",
-      "url": ["/", "/about/", "/blog/"]
+      "url": ["/", "/about/", "/blog/switching-to-microsoft-edge/"]
     },
     "assert": {
       "assertions": {
