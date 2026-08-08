@@ -1,7 +1,9 @@
 ---
+import type { ImageMetadata } from 'astro';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import type { BlogLanguageLink } from '../utils/blog';
 
 interface Props {
   title?: string;
@@ -9,10 +11,25 @@ interface Props {
   keywords?: string;
   ogType?: string;
   articleDate?: string;
+  updatedDate?: string;
+  heroImage?: ImageMetadata;
   lang?: string;
+  languageLinks?: BlogLanguageLink[];
+  noindex?: boolean;
 }
 
-const { title, description, keywords, ogType, articleDate, lang = 'en' } = Astro.props;
+const {
+  title,
+  description,
+  keywords,
+  ogType,
+  articleDate,
+  updatedDate,
+  heroImage,
+  lang = 'en',
+  languageLinks,
+  noindex,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +41,11 @@ const { title, description, keywords, ogType, articleDate, lang = 'en' } = Astro
       keywords={keywords}
       ogType={ogType}
       articleDate={articleDate}
+      updatedDate={updatedDate}
+      heroImage={heroImage}
+      lang={lang}
+      languageLinks={languageLinks}
+      noindex={noindex}
     />
   </head>
   <body>

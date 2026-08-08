@@ -9,7 +9,15 @@ type Props = CollectionEntry<'blog'>['data'] & {
   languageLinks?: BlogLanguageLink[];
 };
 
-const { title, description, pubDate, updatedDate, lang = 'en', languageLinks = [] } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  lang = 'en',
+  languageLinks = [],
+} = Astro.props;
 ---
 
 <BaseLayout
@@ -18,6 +26,9 @@ const { title, description, pubDate, updatedDate, lang = 'en', languageLinks = [
   lang={lang}
   ogType="article"
   articleDate={pubDate.toISOString()}
+  updatedDate={updatedDate?.toISOString()}
+  heroImage={heroImage}
+  languageLinks={languageLinks}
 >
   <article>
     <header class="mb-10 pb-8 border-b border-stone-200">
