@@ -9,7 +9,7 @@ languageLabel: Traditional Chinese
 
 #### 在 DoubleClick Campaign Manager 以 dynamic targeting key filter 建立廣告（第 3 部分）
 
-> **更新：**DoubleClick 現已重新命名為 Google Marketing Platform。DoubleClick Campaign Manager 與 DoubleClick Studio 現在都整合到名為 Display & Video 360 的產品中。詳情可參考[這篇文章](https://support.google.com/displayvideo/answer/9015629)與[這篇文章](https://www.blog.google/technology/ads/new-advertising-brands/)。
+> **更新：**DoubleClick 現已重新命名為 Google Marketing Platform。DoubleClick Campaign Manager 與 DoubleClick Studio 現在都整合到名為 Display & Video 360 的產品中。詳情可參考 [Display & Video 360 產品介紹](https://marketingplatform.google.com/about/display-video-360/)與 [Google 的公告](https://www.blog.google/technology/ads/new-advertising-brands/)。
 
 在[上一篇文章](https://medium.com/andrewmmc-io/create-dynamic-creatives-in-google-web-designer-with-doubleclick-studio-da47141026e)中，我們介紹了如何把已關聯 advertiser profile 的 creative 上傳到 DoubleClick Studio。這一篇會說明如何在 DoubleClick Campaign Manager 使用 dynamic targeting key 管理廣告。
 

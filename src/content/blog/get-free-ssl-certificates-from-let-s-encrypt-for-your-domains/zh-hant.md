@@ -22,7 +22,7 @@ Let's Encrypt 提供免費的網域驗證（DV）憑證。它是一個由 Intern
 
 ![](./1*3R30dN_UDreAOzHeVt-EQg.webp)
 
-由於這篇教學使用的是 Ubuntu 16.04 LTS 搭配 Apache，請點擊[這個連結](https://certbot.eff.org/lets-encrypt/ubuntutyakkety-apache)或依照以下步驟在伺服器上安裝 `certbot`。
+由於這篇教學使用的是 Ubuntu 16.04 LTS 搭配 Apache，請參考[目前的 Certbot 安裝說明](https://certbot.eff.org/instructions?os=snap&ws=apache)，或依照以下原始步驟在伺服器上安裝 `certbot`。
 
 ```
 $ apt-get update

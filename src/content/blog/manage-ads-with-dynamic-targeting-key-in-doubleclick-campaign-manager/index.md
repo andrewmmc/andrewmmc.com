@@ -7,7 +7,7 @@ description: Creating ads with dynamic targeting key filtering in DoubleClick Ca
 
 #### Creating ads with dynamic targeting key filtering in DoubleClick Campaign Manager (Part 3)
 
-> **Update: **DoubleClick is now rebranded as Google Marketing Platform. DoubleClick Campaign Manager and DoubleClick Studio are under one product called Display & Video 360 now. See [this post](https://support.google.com/displayvideo/answer/9015629) and [this post](https://www.blog.google/technology/ads/new-advertising-brands/) for more details.
+> **Update: **DoubleClick is now rebranded as Google Marketing Platform. DoubleClick Campaign Manager and DoubleClick Studio are under one product called Display & Video 360 now. See the [Display & Video 360 overview](https://marketingplatform.google.com/about/display-video-360/) and [Google's announcement](https://www.blog.google/technology/ads/new-advertising-brands/) for more details.
 
 In the [previous article](https://medium.com/andrewmmc-io/create-dynamic-creatives-in-google-web-designer-with-doubleclick-studio-da47141026e), we talked about how to upload a creative with associate advertiser profile to DoubleClick Studio. In this article, we will manage our ads with dynamic targeting key in DoubleClick Campaign Manager.
 

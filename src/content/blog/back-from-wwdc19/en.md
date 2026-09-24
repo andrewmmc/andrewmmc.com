@@ -36,7 +36,7 @@ WWDC was once again held at the San Jose McEnery Convention Center. Traveling fr
 Besides bringing a lot of excitement with you, there are a few apps worth downloading to make the week easier:
 
 - [WWDC](https://itunes.apple.com/us/app/wwdc/id640199958): Apple's official app with schedules and activities. It is essential.
-- [Parties](https://itunes.apple.com/us/app/parties-for-wwdc/id879924066): An unofficial app listing nearby community events during the week.
+- Parties: An unofficial app that listed nearby community events during the week.
 - [Google Maps](https://apps.apple.com/us/app/google-maps-transit-food/id585027354): No introduction needed.
 - [Yelp](https://apps.apple.com/us/app/yelp-food-services-around-me/id284910350): A popular restaurant review app in the U.S., similar to OpenRice in Hong Kong.
 - [Uber](https://apps.apple.com/us/app/uber/id368677368) / [Lyft](https://apps.apple.com/us/app/lyft/id529379082): Ride-hailing apps are extremely useful in the U.S. if you are not driving. UberPool or Lyft Shared can cost only a bit more than public transport while being much more convenient.

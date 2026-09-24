@@ -14,13 +14,13 @@ WWDC 是 Apple 每年在六月份舉辦的開發者大會，主要介紹不同�
 
 ### 抽籤
 
-與往年一樣，WWDC 的門票在[今年三月頭開始接受登記抽籤](https://developer.apple.com/wwdc19/)。今年以抽籤的方式隨機抽出能購票的幸運兒，登記時需以開發者帳號登記。若能幸運的抽中門票，Apple 就會從你的信用卡中直接扣除門票費用 1599 美元，而你亦會收到參會確認電郵。
+與往年一樣，WWDC 的門票在[今年三月頭開始接受登記抽籤](https://web.archive.org/web/20190315001419/https://developer.apple.com/wwdc19/)。今年以抽籤的方式隨機抽出能購票的幸運兒，登記時需以開發者帳號登記。若能幸運的抽中門票，Apple 就會從你的信用卡中直接扣除門票費用 1599 美元，而你亦會收到參會確認電郵。
 
 如你有興趣參加下一年的 WWDC，你便要提早留意相關消息。一般而言，從登記抽籤到收到參會確認電郵都只不過是約兩星期的時間。
 
 ### 美國簽證
 
-對香港人而言，辦理美國簽證都不是太困難的事情。有需要的開發者可以[向 Apple 申請證明信件](https://developer.apple.com/wwdc19/attending/)，Apple 會發出正式參會證明信件給你，讓你在辦理簽證的時候可以出示。從我個人的經驗來說，這份信件好讓你在申請簽證和入境的時候，都不用解釋太多。
+對香港人而言，辦理美國簽證都不是太困難的事情。有需要的開發者可以[向 Apple 申請證明信件](https://web.archive.org/web/20190331013929/https://developer.apple.com/wwdc19/attending/)，Apple 會發出正式參會證明信件給你，讓你在辦理簽證的時候可以出示。從我個人的經驗來說，這份信件好讓你在申請簽證和入境的時候，都不用解釋太多。
 
 Apple 發出的參會證明信件會以快遞的方式寄到你所填的郵寄地址，一般需要一個星期的時間。而辦理美國簽證從登記到獲批簽證也需要一定的時間，建議確認參會資格後預早辦理。美國 B1/B2 十年旅行簽證的費用為 1280 港元。
 
@@ -37,7 +37,7 @@ Apple 發出的參會證明信件會以快遞的方式寄到你所填的郵寄�
 除了懷著一顆興奮的心之外 XD，你還可以下載以下幾款 Apps，方便你在展會期間的行程：
 
 - [WWDC](https://itunes.apple.com/us/app/wwdc/id640199958)：官方所出的 App，記載了不同的日程和活動，十分重要
-- [Parties](https://itunes.apple.com/us/app/parties-for-wwdc/id879924066)：非官方，記載了會期數天在會場附近不同的非官方活動
+- Parties：非官方，當時用來記載會期數天在會場附近不同的非官方活動
 - [Google Maps](https://apps.apple.com/us/app/google-maps-transit-food/id585027354)：不用多說吧？
 - [Yelp](https://apps.apple.com/us/app/yelp-food-services-around-me/id284910350)：美國流行的餐廳 Review App，與香港的 OpenRice 相似
 - [Uber](https://apps.apple.com/us/app/uber/id368677368) / [Lyft](https://apps.apple.com/us/app/lyft/id529379082)：叫車 App，在美國不自駕，叫車 App 十分重要和好用，選用 UberPool 或 Lyft Shared 其實也只是比 Public Transport 貴一點點，但方便了不少

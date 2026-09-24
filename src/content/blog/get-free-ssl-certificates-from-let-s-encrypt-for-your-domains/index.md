@@ -20,7 +20,7 @@ If you are interested to know more about Let's Encrypt, please check this articl
 
 ![](./1*3R30dN_UDreAOzHeVt-EQg.webp)
 
-As we're using Ubuntu 16.04 LTS with Apache in this tutorial, click [this link](https://certbot.eff.org/lets-encrypt/ubuntutyakkety-apache) or follow the instruction below to install `certbot` on our server.
+As we're using Ubuntu 16.04 LTS with Apache in this tutorial, check the [current Certbot instructions](https://certbot.eff.org/instructions?os=snap&ws=apache) or follow the original instructions below to install `certbot` on our server.
 
 ```
 $ apt-get update

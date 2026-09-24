@@ -9,7 +9,7 @@ languageLabel: Traditional Chinese
 
 #### 在 DoubleClick Campaign Manager 中以 dynamic targeting key 建立廣告（第 1 部分）
 
-> **更新：** DoubleClick 現已重新命名為 Google Marketing Platform。DoubleClick Campaign Manager 與 DoubleClick Studio 現已整合至 Display & Video 360 產品之下。詳情可參考[這篇文章](https://support.google.com/displayvideo/answer/9015629)及[這篇文章](https://www.blog.google/technology/ads/new-advertising-brands/)。
+> **更新：** DoubleClick 現已重新命名為 Google Marketing Platform。DoubleClick Campaign Manager 與 DoubleClick Studio 現已整合至 Display & Video 360 產品之下。詳情可參考 [Display & Video 360 產品介紹](https://marketingplatform.google.com/about/display-video-360/)及 [Google 的公告](https://www.blog.google/technology/ads/new-advertising-brands/)。
 
 DoubleClick Campaign Manager 是一套供廣告主使用的廣告管理系統，提供多種工具來管理 creative 並投放廣告活動。
 

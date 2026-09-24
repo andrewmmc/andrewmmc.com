@@ -30,5 +30,5 @@ transformToRequire: { img: ['src', 'data-rjs'], image: 'xlink:href' }
 
 References:
 
-- [Vue-loader Options Reference](https://vue-loader.vuejs.org/en/options.html)
+- [Vue-loader Options Reference](https://vue-loader.vuejs.org/options.html)
 - [Retinajs Readme](https://github.com/jgnewman/retinajs)
