@@ -18,23 +18,21 @@ function formatDate(date: Date): string {
   <section>
     <p class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-6">Writing</p>
     <ul>
-      {
-        posts.map((post) => (
-          <li class="border-b border-stone-100 last:border-b-0">
-            <a
-              href={post.url}
-              class="flex items-baseline justify-between gap-6 py-4 group hover:bg-stone-50 focus-visible:outline-none focus-visible:bg-amber-50 rounded-sm -mx-2 px-2 transition-colors duration-150"
-            >
-              <span class="text-stone-800 font-medium leading-snug group-hover:text-stone-950 transition-colors duration-150">
-                {post.entry.data.title}
-              </span>
-              <span class="text-stone-500 text-sm whitespace-nowrap flex-shrink-0 tabular-nums">
-                {formatDate(post.entry.data.pubDate)}
-              </span>
-            </a>
-          </li>
-        ))
-      }
+      {posts.map((post) => (
+        <li class="border-b border-stone-100 last:border-b-0">
+          <a
+            href={post.url}
+            class="flex items-baseline justify-between gap-6 py-4 group hover:bg-stone-50 focus-visible:outline-none focus-visible:bg-amber-50 rounded-sm -mx-2 px-2 transition-colors duration-150"
+          >
+            <span class="text-stone-800 font-medium leading-snug group-hover:text-stone-950 transition-colors duration-150">
+              {post.entry.data.title}
+            </span>
+            <span class="text-stone-500 text-sm whitespace-nowrap flex-shrink-0 tabular-nums">
+              {formatDate(post.entry.data.pubDate)}
+            </span>
+          </a>
+        </li>
+      ))}
     </ul>
   </section>
 </BaseLayout>
