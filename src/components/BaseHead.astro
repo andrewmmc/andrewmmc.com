@@ -145,16 +145,14 @@ const articleSchema =
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Hreflang alternate links for multi-language content -->
-{
-  languageLinks.length > 0 && (
-    <>
-      {allLanguageVariants.map((variant) => (
-        <link rel="alternate" hreflang={variant.language} href={variant.url} />
-      ))}
-      <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
-    </>
-  )
-}
+{languageLinks.length > 0 && (
+  <>
+    {allLanguageVariants.map((variant) => (
+      <link rel="alternate" hreflang={variant.language} href={variant.url} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+  </>
+)}
 
 <!-- Primary Meta Tags -->
 <title>{pageTitle}</title>
@@ -173,16 +171,12 @@ const articleSchema =
 <meta property="og:image:width" content={socialImageWidthStr} />
 <meta property="og:image:height" content={socialImageHeightStr} />
 <meta property="og:image:alt" content={socialImageAlt} />
-{
-  ogType === 'article' && articleDate && (
-    <meta property="article:published_time" content={articleDate} />
-  )
-}
-{
-  ogType === 'article' && updatedDate && (
-    <meta property="article:modified_time" content={updatedDate} />
-  )
-}
+{ogType === 'article' && articleDate && (
+  <meta property="article:published_time" content={articleDate} />
+)}
+{ogType === 'article' && updatedDate && (
+  <meta property="article:modified_time" content={updatedDate} />
+)}
 {ogType === 'article' && <meta property="article:author" content={SITE_TITLE} />}
 
 <!-- Twitter -->
@@ -196,8 +190,6 @@ const articleSchema =
 <!-- JSON-LD Structured Data -->
 <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-{
-  articleSchema && (
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  )
-}
+{articleSchema && (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+)}
