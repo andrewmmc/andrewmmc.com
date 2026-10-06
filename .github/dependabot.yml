@@ -12,6 +12,38 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: 'chore(deps)'
+    groups:
+      # Tightly coupled packages are upgraded together (including majors)
+      astro:
+        patterns:
+          - 'astro'
+          - '@astrojs/*'
+      vite:
+        patterns:
+          - 'vite'
+          - 'vitest'
+          - '@vitest/*'
+      tailwind:
+        patterns:
+          - 'tailwindcss'
+          - '@tailwindcss/*'
+      eslint:
+        patterns:
+          - 'eslint'
+          - 'eslint-*'
+          - '@eslint/*'
+          - 'typescript-eslint'
+          - '@typescript-eslint/*'
+      minor-and-patch:
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      security:
+        applies-to: security-updates
+        patterns:
+          - '*'
     ignore:
       # TypeScript 7 is not yet supported by @astrojs/check (peer "^5.0.0 || ^6.0.0")
       # or typescript-eslint (peer "<6.1.0"), so the bump cannot install
@@ -27,3 +59,7 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: 'chore(deps)'
+    groups:
+      github-actions:
+        patterns:
+          - '*'
