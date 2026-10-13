@@ -30,7 +30,7 @@
     "@astrojs/check": "^0.9.10",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@typescript-eslint/parser": "^8.71.0",
+    "@typescript-eslint/parser": "^8.71.1",
     "eslint": "^10.12.0",
     "eslint-plugin-astro": "^3.2.1",
     "husky": "^9.1.7",
@@ -38,7 +38,7 @@
     "prettier-plugin-astro": "^1.1.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.71.0",
+    "typescript-eslint": "^8.71.1",
     "vite": "^8.3.2",
     "vitest": "^5.0.3"
   },
