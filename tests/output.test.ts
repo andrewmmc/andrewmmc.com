@@ -69,6 +69,26 @@ describe('HTML pages meta tags', () => {
     expect(html).toContain('rel="canonical"');
   });
 
+  it('about page should render structured sections', () => {
+    const html = readDist('about/index.html');
+    expect(html).toContain('id="skills-heading"');
+    expect(html).toContain('id="languages-heading"');
+    expect(html).toContain('id="certifications-heading"');
+    expect(html).toContain('id="awards-heading"');
+    expect(html).toContain('id="speaking-heading"');
+    expect(html).toContain('Professional Scrum Master I');
+    expect(html).toContain('Web Accessibility');
+    expect(html).toContain('mailto:hello@andrewmmc.com');
+  });
+
+  it('about markdown endpoint should include structured sections', () => {
+    const markdown = readDist('about.md');
+    expect(markdown).toContain('# About');
+    expect(markdown).toContain('## Skills');
+    expect(markdown).toContain('## Certifications');
+    expect(markdown).toContain('Professional Scrum Master I');
+  });
+
   it('blog redirect should point to homepage', () => {
     const html = readDist('blog/index.html');
     expect(html).toContain('<title>Redirecting to: /</title>');

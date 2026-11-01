@@ -2,7 +2,11 @@
 import { Image } from 'astro:assets';
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import RecordList from '../components/RecordList.astro';
 import aboutImage from '../assets/about.jpg';
+import { SOCIAL_LINKS } from '../consts';
+import { AWARDS, CERTIFICATIONS, LANGUAGES, SKILLS, TALKS } from '../data/about';
+import { groupByYear } from '../utils/group';
 
 const about = await getEntry('pages', 'about');
 
@@ -11,21 +15,126 @@ if (!about) {
 }
 
 const { Content } = await render(about);
+
+const introLinks = [
+  { href: 'mailto:hello@andrewmmc.com', label: 'Email' },
+  { href: `https://github.com/${SOCIAL_LINKS.github}`, label: 'GitHub', external: true },
+  { href: `https://linkedin.com/in/${SOCIAL_LINKS.linkedin}`, label: 'LinkedIn', external: true },
+];
+
+const skillGroups = SKILLS.map((skill) => ({
+  label: skill.label,
+  items: [{ title: skill.items.join(', ') }],
+}));
+
+const certificationGroups = groupByYear(CERTIFICATIONS).map(({ year, items }) => ({
+  label: String(year),
+  items: items.map((item) => ({
+    title: item.title,
+    href: item.url,
+    meta: item.meta,
+    external: Boolean(item.url),
+  })),
+}));
+
+const awardGroups = groupByYear(AWARDS).map(({ year, items }) => ({
+  label: String(year),
+  items: items.map((item) => ({
+    title: item.title,
+    meta: item.meta,
+  })),
+}));
+
+const talkGroups = groupByYear(TALKS).map(({ year, items }) => ({
+  label: String(year),
+  items: items.map((talk) => ({
+    title: talk.title,
+    href: talk.url,
+    meta: talk.venue,
+    external: Boolean(talk.url),
+  })),
+}));
 ---
 
-<BaseLayout title={about.data.title} description={about.data.description}>
+<BaseLayout title={about.data.title} description={about.data.description} heroImage={aboutImage}>
   <article>
-    <h1 class="text-title font-semibold text-ink mb-8 sm:mb-10">{about.data.title}</h1>
-    <Image
-      src={aboutImage}
-      alt="Profile"
-      width={768}
-      loading="eager"
-      fetchpriority="high"
-      class="w-full rounded mb-10"
+    <header class="mb-20 sm:mb-28">
+      <h1 class="section-label mb-6 sm:mb-8">{about.data.title}</h1>
+      <Image
+        src={aboutImage}
+        alt="Andrew Mok standing along a canal in front of a row of houses"
+        width={768}
+        loading="eager"
+        fetchpriority="high"
+        class="w-full rounded mb-8 sm:mb-10"
+      />
+      <div class="about-intro prose max-w-[34rem]">
+        <Content />
+      </div>
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 mt-7 text-[0.9375rem]">
+        {introLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              class="text-ink underline decoration-rule-strong decoration-1 underline-offset-4 hover:decoration-ink"
+            >
+              {link.label}
+              {link.external && <span class="sr-only">(opens in a new tab)</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </header>
+
+    <RecordList
+      heading="Skills"
+      headingId="skills-heading"
+      groups={skillGroups}
+      labelWidthClass="sm:grid-cols-[10.5rem_1fr]"
+      class="mb-20 sm:mb-24"
     />
-    <div class="prose">
-      <Content />
-    </div>
+
+    <section aria-labelledby="languages-heading" class="mb-20 sm:mb-24">
+      <h2 id="languages-heading" class="section-label mb-4">
+        Languages
+      </h2>
+      <p class="border-t border-rule py-3.5 sm:py-4 text-ink text-base leading-snug tracking-[-0.011em]">
+        {LANGUAGES}
+      </p>
+    </section>
+
+    <RecordList
+      heading="Certifications"
+      headingId="certifications-heading"
+      groups={certificationGroups}
+      numericLabels
+      class="mb-20 sm:mb-24"
+    />
+
+    <RecordList
+      heading="Awards"
+      headingId="awards-heading"
+      groups={awardGroups}
+      numericLabels
+      class="mb-20 sm:mb-24"
+    />
+
+    <RecordList heading="Speaking" headingId="speaking-heading" groups={talkGroups} numericLabels />
   </article>
 </BaseLayout>
+
+<style>
+  .about-intro :global(p) {
+    color: var(--color-muted);
+  }
+
+  .about-intro :global(p:first-child) {
+    font-size: var(--text-lead);
+    line-height: 1.5;
+    letter-spacing: -0.017em;
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+</style>
