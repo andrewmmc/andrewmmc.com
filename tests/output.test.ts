@@ -102,6 +102,17 @@ describe('HTML pages meta tags', () => {
 });
 
 describe('header navigation', () => {
+  it('should render a circular home mark labeled with the site title', () => {
+    const html = readDist('index.html');
+    const header = html.match(/<header[\s\S]*?<\/header>/)?.[0];
+
+    expect(header).toBeDefined();
+    expect(header).toContain('aria-label="Andrew Mok"');
+    expect(header).toContain('rounded-full');
+    expect(header).toMatch(/>\s*A\s*<\/a>/);
+    expect(header).not.toMatch(/>\s*Andrew Mok\s*</);
+  });
+
   it('should render icon links with accessible labels', () => {
     const html = readDist('index.html');
 
