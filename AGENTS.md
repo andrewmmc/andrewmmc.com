@@ -4,7 +4,7 @@
 
 Personal blog/portfolio site built with **Astro 5** (static site generation).
 No client-side JS frameworks — pure Astro components with Markdown/MDX content.
-TypeScript strict mode. Plain CSS with custom properties (no Tailwind).
+TypeScript strict mode. Tailwind CSS v4 with semantic design tokens.
 
 - **Site URL:** https://andrewmmc.com
 - **Node.js:** v24+ with npm
@@ -131,12 +131,14 @@ Use relative paths with `../` — no path aliases are configured.
 
 ### CSS Architecture
 
-- Design tokens as CSS custom properties in `:root` (defined in `global.css`).
-- Color palettes: `--primary-50` through `--primary-900`, `--gray-50` through `--gray-900`.
-- Semantic tokens: `--color-text`, `--color-link`, `--color-bg`, etc.
-- Font: Inter (Google Fonts) with system font fallbacks.
-- Max width: `48rem` (`--max-width`).
-- Responsive breakpoints use `em` units: `30em` (mobile), `48em` (tablet).
+- Tailwind CSS v4 via `@tailwindcss/vite`; design tokens live in the `@theme` block of `global.css`.
+- Semantic color tokens (use these instead of raw palettes): `paper`, `surface`, `ink`, `ink-soft`,
+  `muted`, `subtle`, `rule`, `rule-strong`, `focus` — e.g. `text-ink`, `bg-paper`, `border-rule`.
+  Light theme only.
+- Type scale tokens: `text-body` (fluid 17–18px), `text-lead`, `text-title`; `.section-label` for
+  small section headings; `.prose` for rendered Markdown.
+- Font: Inter variable (Google Fonts, optical sizing) with system and CJK fallbacks.
+- Max width: `44rem` (`max-w-container`).
 
 ### Error Handling
 

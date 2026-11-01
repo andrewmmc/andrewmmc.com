@@ -15,18 +15,16 @@ const { Content } = await render(about);
 
 <BaseLayout title={about.data.title} description={about.data.description}>
   <article>
-    <p class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-8">
-      {about.data.title}
-    </p>
+    <h1 class="text-title font-semibold text-ink mb-8 sm:mb-10">{about.data.title}</h1>
+    <Image
+      src={aboutImage}
+      alt="Profile"
+      width={768}
+      loading="eager"
+      fetchpriority="high"
+      class="w-full rounded mb-10"
+    />
     <div class="prose">
-      <Image
-        src={aboutImage}
-        alt="Profile"
-        width={768}
-        loading="eager"
-        fetchpriority="high"
-        class="rounded-md"
-      />
       <Content />
     </div>
   </article>

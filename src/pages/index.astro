@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIAL_LINKS } from '../consts';
 import { getDefaultBlogPosts } from '../utils/blog';
 
 const posts = getDefaultBlogPosts(
@@ -9,30 +10,159 @@ const posts = getDefaultBlogPosts(
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 );
 
+const postsByYear = posts.reduce<{ year: number; posts: typeof posts }[]>((groups, post) => {
+  const year = post.entry.data.pubDate.getFullYear();
+  const group = groups.at(-1);
+  if (group?.year === year) {
+    group.posts.push(post);
+  } else {
+    groups.push({ year, posts: [post] });
+  }
+  return groups;
+}, []);
+
+const talks = [
+  {
+    year: 2020,
+    title: 'Web Accessibility',
+    url: 'https://github.com/andrewmmc/share/blob/master/20200521-web-accessibility/index.pdf',
+  },
+  {
+    year: 2020,
+    title: 'Data Visualization with Observable',
+    url: 'https://github.com/andrewmmc/share/blob/master/20200320-observable/index.pdf',
+  },
+  {
+    year: 2019,
+    title: 'Why we build our UI library?',
+    venue: 'Show Me The Code',
+    url: 'https://github.com/andrewmmc/share/blob/master/20190301-ui-library/README.md',
+  },
+];
+
+const talksByYear = talks.reduce<{ year: number; items: typeof talks }[]>((groups, talk) => {
+  const group = groups.at(-1);
+  if (group?.year === talk.year) {
+    group.items.push(talk);
+  } else {
+    groups.push({ year: talk.year, items: [talk] });
+  }
+  return groups;
+}, []);
+
+const introLinks = [
+  { href: '/about', label: 'More about me' },
+  { href: 'mailto:hello@andrewmmc.com', label: 'Email' },
+  { href: `https://github.com/${SOCIAL_LINKS.github}`, label: 'GitHub', external: true },
+  { href: `https://linkedin.com/in/${SOCIAL_LINKS.linkedin}`, label: 'LinkedIn', external: true },
+];
+
 function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 ---
 
 <BaseLayout>
-  <section>
-    <p class="text-xs font-medium text-stone-500 uppercase tracking-widest mb-6">Writing</p>
-    <ul>
-      {posts.map((post) => (
-        <li class="border-b border-stone-100 last:border-b-0">
+  <section class="mb-20 sm:mb-28">
+    <img
+      src="/avatar.jpg"
+      alt="Portrait of Andrew Mok"
+      width="56"
+      height="56"
+      class="w-14 h-14 rounded-full mb-8"
+    />
+    <p class="text-lead text-muted max-w-[34rem]">
+      <span class="text-ink font-medium">
+        I&rsquo;m Andrew Mok, a software engineer in Hong Kong focused on the frontend.
+      </span>{' '}
+      Over the past five years I&rsquo;ve built UI components alongside designers and rewritten web
+      applications to be faster and cheaper to maintain. I care about simple, elegant interfaces and
+      getting the details right.
+    </p>
+    <ul class="flex flex-wrap gap-x-5 gap-y-2 mt-7 text-[0.9375rem]">
+      {introLinks.map((link) => (
+        <li>
           <a
-            href={post.url}
-            class="flex items-baseline justify-between gap-6 py-4 group hover:bg-stone-50 focus-visible:outline-none focus-visible:bg-amber-50 rounded-sm -mx-2 px-2 transition-colors duration-150"
+            href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+            class="text-ink underline decoration-rule-strong decoration-1 underline-offset-4 hover:decoration-ink"
           >
-            <span class="text-stone-800 font-medium leading-snug group-hover:text-stone-950 transition-colors duration-150">
-              {post.entry.data.title}
-            </span>
-            <span class="text-stone-500 text-sm whitespace-nowrap flex-shrink-0 tabular-nums">
-              {formatDate(post.entry.data.pubDate)}
-            </span>
+            {link.label}
+            {link.external && <span class="sr-only">(opens in a new tab)</span>}
           </a>
         </li>
       ))}
     </ul>
+  </section>
+
+  <section aria-labelledby="writing-heading" class="mb-20 sm:mb-24">
+    <h2 id="writing-heading" class="section-label mb-4">
+      Writing
+    </h2>
+    <div class="border-t border-rule">
+      {postsByYear.map(({ year, posts: yearPosts }) => (
+        <div class="sm:grid sm:grid-cols-[5.5rem_1fr] border-b border-rule">
+          <h3 class="pt-5 pb-1 sm:py-4 text-sm font-normal text-subtle tabular-nums tracking-normal">
+            {year}
+          </h3>
+          <ul>
+            {yearPosts.map((post) => (
+              <li class="border-b border-rule last:border-b-0">
+                <a
+                  href={post.url}
+                  class="group flex items-baseline justify-between gap-6 py-3.5 sm:py-4"
+                >
+                  <span class="text-ink text-base leading-snug tracking-[-0.011em] decoration-1 underline-offset-4 group-hover:underline">
+                    {post.entry.data.title}
+                  </span>
+                  <time
+                    datetime={post.entry.data.pubDate.toISOString()}
+                    class="text-sm text-subtle whitespace-nowrap flex-shrink-0 tabular-nums"
+                  >
+                    {formatDate(post.entry.data.pubDate)}
+                  </time>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="talks-heading">
+    <h2 id="talks-heading" class="section-label mb-4">
+      Talks
+    </h2>
+    <div class="border-t border-rule">
+      {talksByYear.map(({ year, items }) => (
+        <div class="sm:grid sm:grid-cols-[5.5rem_1fr] border-b border-rule">
+          <h3 class="pt-5 pb-1 sm:py-4 text-sm font-normal text-subtle tabular-nums tracking-normal">
+            {year}
+          </h3>
+          <ul>
+            {items.map((talk) => (
+              <li class="border-b border-rule last:border-b-0">
+                <a
+                  href={talk.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-baseline justify-between gap-6 py-3.5 sm:py-4"
+                >
+                  <span class="text-ink text-base leading-snug tracking-[-0.011em] decoration-1 underline-offset-4 group-hover:underline">
+                    {talk.title}
+                    <span class="sr-only">(opens in a new tab)</span>
+                  </span>
+                  {talk.venue && (
+                    <span class="text-sm text-subtle text-right flex-shrink-0">{talk.venue}</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   </section>
 </BaseLayout>
