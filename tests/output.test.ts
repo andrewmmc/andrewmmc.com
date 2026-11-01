@@ -100,3 +100,17 @@ describe('HTML pages meta tags', () => {
     }
   });
 });
+
+describe('header navigation', () => {
+  it('should render icon links with accessible labels', () => {
+    const html = readDist('index.html');
+
+    expect(html).toContain('aria-label="Main navigation"');
+    expect(html).toContain('aria-label="Writing"');
+    expect(html).toContain('aria-label="About"');
+    expect(html).toContain('aria-label="Projects (opens in a new tab)"');
+    expect(html).toContain('aria-current="page"');
+    expect(html).toMatch(/<nav[^>]*>[\s\S]*<svg[\s\S]*<\/nav>/);
+    expect(html).not.toMatch(/<nav[^>]*>[\s\S]*>Writing<\/a>/);
+  });
+});
