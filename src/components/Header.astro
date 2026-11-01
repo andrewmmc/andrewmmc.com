@@ -30,9 +30,11 @@ const navLinks = [
   <div class="flex items-center justify-between gap-4 h-16 sm:h-20">
     <a
       href="/"
-      class="text-[0.9375rem] max-[359px]:text-sm font-semibold tracking-[-0.015em] text-ink whitespace-nowrap"
+      aria-label={SITE_TITLE}
+      title={SITE_TITLE}
+      class="inline-flex items-center justify-center size-8 rounded-full bg-ink text-paper text-[0.8125rem] font-semibold tracking-[-0.02em] leading-none shrink-0 select-none transition-opacity duration-150 hover:opacity-80 focus-visible:rounded-full"
     >
-      {SITE_TITLE}
+      A
     </a>
     <nav aria-label="Main navigation">
       <ul class="flex items-center gap-0.5 sm:gap-1">
