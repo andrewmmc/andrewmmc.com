@@ -1,85 +1,43 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL_LINKS } from '../consts';
+import { SITE_TITLE } from '../consts';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const navLinks = [
+  { href: '/', label: 'Writing', active: pathname === '/' || pathname.startsWith('/blog') },
+  { href: '/about', label: 'About', active: pathname === '/about' },
+  { href: 'https://mmc.dev/', label: 'Projects', external: true },
+];
 ---
 
-<header class="max-w-container mx-auto px-6 pt-14 pb-10 sm:pt-16 sm:pb-12">
-  <div class="flex items-center gap-4 mb-7">
+<header class="max-w-container mx-auto px-5 sm:px-6">
+  <div class="flex items-center justify-between gap-4 h-16 sm:h-20">
     <a
       href="/"
-      class="flex-shrink-0 rounded-full focus-visible:outline-none"
-      style="outline-offset: 3px;"
-      aria-label={`${SITE_TITLE} – home`}
+      class="text-[0.9375rem] max-[359px]:text-sm font-semibold tracking-[-0.015em] text-ink whitespace-nowrap"
     >
-      <img src="/avatar.jpg" alt="" width="52" height="52" class="rounded-full block" />
+      {SITE_TITLE}
     </a>
-    <div>
-      <h1 class="font-heading text-[1.4rem] leading-tight text-stone-900 mb-0.5">
-        <a
-          href="/"
-          class="text-stone-900 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none"
-        >
-          {SITE_TITLE}
-        </a>
-      </h1>
-      <p class="text-stone-600 text-sm leading-snug">{SITE_DESCRIPTION}</p>
-    </div>
+    <nav aria-label="Main navigation">
+      <ul class="flex items-center gap-5 max-[359px]:gap-3.5 sm:gap-7">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={link.active ? 'page' : undefined}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              class:list={[
+                'inline-flex items-center py-2 text-[0.9375rem] max-[359px]:text-sm transition-colors duration-150',
+                link.active ? 'text-ink' : 'text-muted hover:text-ink',
+              ]}
+            >
+              {link.label}
+              {link.external && <span class="sr-only">(opens in a new tab)</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   </div>
-  <nav class="flex items-center gap-6" aria-label="Main navigation">
-    <a
-      href="/"
-      class="text-sm text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:underline"
-    >
-      Writing
-    </a>
-    <a
-      href="/about"
-      class="text-sm text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:underline"
-    >
-      About
-    </a>
-    <a
-      href="https://mmc.dev/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-sm text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:underline inline-flex items-center gap-1"
-    >
-      Projects
-      <svg
-        viewBox="0 0 12 12"
-        width="10"
-        height="10"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-        class="opacity-60"
-      >
-        <path d="M2 10L10 2M5 2h5v5"></path>
-      </svg>
-    </a>
-    <a
-      href={`https://github.com/${SOCIAL_LINKS.github}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-sm text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:underline inline-flex items-center gap-1"
-    >
-      GitHub
-      <svg
-        viewBox="0 0 12 12"
-        width="10"
-        height="10"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-        class="opacity-60"
-      >
-        <path d="M2 10L10 2M5 2h5v5"></path>
-      </svg>
-    </a>
-  </nav>
 </header>
