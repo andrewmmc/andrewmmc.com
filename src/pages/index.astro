@@ -35,10 +35,20 @@ const talks = [
   {
     year: 2019,
     title: 'Why we build our UI library?',
-    venue: 'Show Me The Code Meetup',
+    venue: 'Show Me The Code',
     url: 'https://github.com/andrewmmc/share/blob/master/20190301-ui-library/README.md',
   },
 ];
+
+const talksByYear = talks.reduce<{ year: number; items: typeof talks }[]>((groups, talk) => {
+  const group = groups.at(-1);
+  if (group?.year === talk.year) {
+    group.items.push(talk);
+  } else {
+    groups.push({ year: talk.year, items: [talk] });
+  }
+  return groups;
+}, []);
 
 const introLinks = [
   { href: '/about', label: 'More about me' },
@@ -125,26 +135,34 @@ function formatDate(date: Date): string {
     <h2 id="talks-heading" class="section-label mb-4">
       Talks
     </h2>
-    <ul class="border-t border-rule">
-      {talks.map((talk) => (
-        <li class="border-b border-rule">
-          <a
-            href={talk.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex items-baseline justify-between gap-6 py-3.5 sm:py-4"
-          >
-            <span class="text-ink text-base leading-snug tracking-[-0.011em] decoration-1 underline-offset-4 group-hover:underline">
-              {talk.title}
-              {talk.venue && <span class="text-muted"> &middot; {talk.venue}</span>}
-              <span class="sr-only">(opens in a new tab)</span>
-            </span>
-            <span class="text-sm text-subtle whitespace-nowrap flex-shrink-0 tabular-nums">
-              {talk.year}
-            </span>
-          </a>
-        </li>
+    <div class="border-t border-rule">
+      {talksByYear.map(({ year, items }) => (
+        <div class="sm:grid sm:grid-cols-[5.5rem_1fr] border-b border-rule">
+          <h3 class="pt-5 pb-1 sm:py-4 text-sm font-normal text-subtle tabular-nums tracking-normal">
+            {year}
+          </h3>
+          <ul>
+            {items.map((talk) => (
+              <li class="border-b border-rule last:border-b-0">
+                <a
+                  href={talk.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-baseline justify-between gap-6 py-3.5 sm:py-4"
+                >
+                  <span class="text-ink text-base leading-snug tracking-[-0.011em] decoration-1 underline-offset-4 group-hover:underline">
+                    {talk.title}
+                    <span class="sr-only">(opens in a new tab)</span>
+                  </span>
+                  {talk.venue && (
+                    <span class="text-sm text-subtle text-right flex-shrink-0">{talk.venue}</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
-    </ul>
+    </div>
   </section>
 </BaseLayout>
