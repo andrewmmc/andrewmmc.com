@@ -2,9 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SOCIAL_LINKS } from '../consts';
-import { FEATURED_TALKS } from '../data/about';
 import { getDefaultBlogPosts } from '../utils/blog';
-import { groupByYear } from '../utils/group';
 
 const posts = getDefaultBlogPosts(
   (await getCollection('blog'))
@@ -23,7 +21,34 @@ const postsByYear = posts.reduce<{ year: number; posts: typeof posts }[]>((group
   return groups;
 }, []);
 
-const talksByYear = groupByYear(FEATURED_TALKS);
+const talks = [
+  {
+    year: 2020,
+    title: 'Web Accessibility',
+    url: 'https://github.com/andrewmmc/share/blob/master/20200521-web-accessibility/index.pdf',
+  },
+  {
+    year: 2020,
+    title: 'Data Visualization with Observable',
+    url: 'https://github.com/andrewmmc/share/blob/master/20200320-observable/index.pdf',
+  },
+  {
+    year: 2019,
+    title: 'Why we build our UI library?',
+    venue: 'Show Me The Code',
+    url: 'https://github.com/andrewmmc/share/blob/master/20190301-ui-library/README.md',
+  },
+];
+
+const talksByYear = talks.reduce<{ year: number; items: typeof talks }[]>((groups, talk) => {
+  const group = groups.at(-1);
+  if (group?.year === talk.year) {
+    group.items.push(talk);
+  } else {
+    groups.push({ year: talk.year, items: [talk] });
+  }
+  return groups;
+}, []);
 
 const introLinks = [
   { href: '/about', label: 'More about me' },

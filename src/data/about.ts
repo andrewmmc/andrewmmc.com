@@ -112,7 +112,6 @@ export interface Talk {
   title: string;
   venue?: string;
   url?: string;
-  featured?: boolean;
 }
 
 export const TALKS: Talk[] = [
@@ -120,20 +119,17 @@ export const TALKS: Talk[] = [
     year: 2020,
     title: 'Web Accessibility',
     url: 'https://github.com/andrewmmc/share/blob/master/20200521-web-accessibility/index.pdf',
-    featured: true,
   },
   {
     year: 2020,
     title: 'Data Visualization with Observable',
     url: 'https://github.com/andrewmmc/share/blob/master/20200320-observable/index.pdf',
-    featured: true,
   },
   {
     year: 2019,
     title: 'Why we build our UI library?',
-    venue: 'Show Me The Code',
+    venue: 'Show Me The Code Meetup #9',
     url: 'https://github.com/andrewmmc/share/blob/master/20190301-ui-library/README.md',
-    featured: true,
   },
   {
     year: 2016,
@@ -146,7 +142,3 @@ export const TALKS: Talk[] = [
     venue: 'Lingnan University',
   },
 ];
-
-export const FEATURED_TALKS = TALKS.filter((talk): talk is Talk & { url: string; featured: true } =>
-  Boolean(talk.featured && talk.url)
-);

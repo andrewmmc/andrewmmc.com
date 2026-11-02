@@ -69,16 +69,21 @@ describe('HTML pages meta tags', () => {
     expect(html).toContain('rel="canonical"');
   });
 
-  it('about page should render structured sections', () => {
+  it('about page should keep the title and bio, with tables for credentials', () => {
     const html = readDist('about/index.html');
+    expect(html).toContain('text-title');
+    expect(html).toContain('>About<');
+    expect(html).toContain('Feel free to');
+    expect(html).toContain('mailto:hello@andrewmmc.com');
+    expect(html).toContain('<table');
     expect(html).toContain('id="skills-heading"');
     expect(html).toContain('id="languages-heading"');
     expect(html).toContain('id="certifications-heading"');
     expect(html).toContain('id="awards-heading"');
     expect(html).toContain('id="speaking-heading"');
     expect(html).toContain('Professional Scrum Master I');
+    expect(html).toContain('Show Me The Code Meetup #9');
     expect(html).toContain('Web Accessibility');
-    expect(html).toContain('mailto:hello@andrewmmc.com');
   });
 
   it('about markdown endpoint should include structured sections', () => {
