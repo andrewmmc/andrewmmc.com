@@ -2,7 +2,10 @@
 import { Image } from 'astro:assets';
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import DataTable, { type DataTableRow } from '../components/DataTable.astro';
 import aboutImage from '../assets/about.jpg';
+import { AWARDS, CERTIFICATIONS, LANGUAGES, SKILLS, TALKS } from '../data/about';
+import { groupByYear } from '../utils/group';
 
 const about = await getEntry('pages', 'about');
 
@@ -11,6 +14,59 @@ if (!about) {
 }
 
 const { Content } = await render(about);
+
+function rowsFromGroups(
+  groups: { label: string; items: Omit<DataTableRow, 'label' | 'rowSpan'>[] }[]
+): DataTableRow[] {
+  return groups.flatMap(({ label, items }) =>
+    items.map((item, index) => ({
+      ...item,
+      label: index === 0 ? label : undefined,
+      rowSpan: index === 0 && items.length > 1 ? items.length : undefined,
+    }))
+  );
+}
+
+const skillRows = rowsFromGroups(
+  SKILLS.map((skill) => ({
+    label: skill.label,
+    items: [{ title: skill.items.join(', ') }],
+  }))
+);
+
+const certificationRows = rowsFromGroups(
+  groupByYear(CERTIFICATIONS).map(({ year, items }) => ({
+    label: String(year),
+    items: items.map((item) => ({
+      title: item.title,
+      href: item.url,
+      meta: item.meta,
+      external: Boolean(item.url),
+    })),
+  }))
+);
+
+const awardRows = rowsFromGroups(
+  groupByYear(AWARDS).map(({ year, items }) => ({
+    label: String(year),
+    items: items.map((item) => ({
+      title: item.title,
+      meta: item.meta,
+    })),
+  }))
+);
+
+const talkRows = rowsFromGroups(
+  groupByYear(TALKS).map(({ year, items }) => ({
+    label: String(year),
+    items: items.map((talk) => ({
+      title: talk.title,
+      href: talk.url,
+      meta: talk.venue,
+      external: Boolean(talk.url),
+    })),
+  }))
+);
 ---
 
 <BaseLayout title={about.data.title} description={about.data.description}>
@@ -26,6 +82,19 @@ const { Content } = await render(about);
     />
     <div class="prose">
       <Content />
+    </div>
+
+    <div class="mt-16 sm:mt-20 flex flex-col gap-16 sm:gap-20">
+      <DataTable heading="Skills" headingId="skills-heading" rows={skillRows} wideLabel />
+      <DataTable heading="Languages" headingId="languages-heading" rows={[{ title: LANGUAGES }]} />
+      <DataTable
+        heading="Certifications"
+        headingId="certifications-heading"
+        rows={certificationRows}
+        numericLabels
+      />
+      <DataTable heading="Awards" headingId="awards-heading" rows={awardRows} numericLabels />
+      <DataTable heading="Speaking" headingId="speaking-heading" rows={talkRows} numericLabels />
     </div>
   </article>
 </BaseLayout>
